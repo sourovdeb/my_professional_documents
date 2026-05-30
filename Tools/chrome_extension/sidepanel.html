@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Hub</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <svg class="logo-icon" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="5"  r="2.5" fill="var(--accent)"/>
+        <circle cx="5"  cy="17" r="2.5" fill="var(--accent)"/>
+        <circle cx="19" cy="17" r="2.5" fill="var(--accent)"/>
+        <line x1="12" y1="5" x2="5"  y2="17" stroke="var(--accent)" stroke-width="1.5" opacity=".6"/>
+        <line x1="12" y1="5" x2="19" y2="17" stroke="var(--accent)" stroke-width="1.5" opacity=".6"/>
+        <line x1="5"  y1="17" x2="19" y2="17" stroke="var(--accent)" stroke-width="1.5" opacity=".6"/>
+      </svg>
+      <span class="logo-text">AI Hub</span>
+    </div>
+    <div class="topbar-right">
+      <select id="svc-select" class="select-pill" title="Service">
+        <option value="ollama">Ollama</option>
+        <option value="deepseek">DeepSeek</option>
+        <option value="gemini">Gemini</option>
+        <option value="claude">Claude</option>
+        <option value="custom">Custom / Cline</option>
+      </select>
+      <select id="mdl-select" class="select-pill" title="Model">
+        <option value="">— model —</option>
+      </select>
+      <button id="btn-settings" class="icon-btn" title="Settings">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/></svg>
+      </button>
+      <button id="btn-clear" class="icon-btn" title="Clear chat">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Status bar -->
+  <div id="status-bar" class="status-bar hidden">
+    <span id="status-dot" class="status-dot"></span>
+    <span id="status-text"></span>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="actions-row">
+    <button class="action-chip" data-action="summarize" title="Summarize current page">
+      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 4h12v1.5H2V4zm0 3h9v1.5H2V7zm0 3h7v1.5H2V10z"/></svg>
+      Summarize
+    </button>
+    <button class="action-chip" data-action="fillform" title="Analyze & fill forms on page">
+      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2h12a1 1 0 011 1v10a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1zm1 3v1h10V5H3zm0 3v1h7V8H3zm0 3v1h5v-1H3z"/></svg>
+      Fill Form
+    </button>
+    <button class="action-chip" data-action="email" title="Draft an email from page context">
+      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M13.5 2h-11A1.5 1.5 0 001 3.5v9A1.5 1.5 0 002.5 14h11a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0013.5 2zm-.5 2.75l-5 3.25L3 4.75V3.5l5 3.25 5-3.25v1.25z"/></svg>
+      Email
+    </button>
+    <button class="action-chip" data-action="research" title="Deep research on this page">
+      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 10-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 001.415-1.414l-3.85-3.85a1.007 1.007 0 00-.115-.099z"/></svg>
+      Research
+    </button>
+  </div>
+
+  <!-- Chat Messages -->
+  <main id="chat-main" class="chat-main">
+    <div id="chat-messages" class="chat-messages">
+      <!-- Welcome -->
+      <div class="welcome-card">
+        <div class="welcome-icon">✦</div>
+        <div class="welcome-title">AI Hub ready</div>
+        <div class="welcome-sub">Select a service &amp; model above, then ask anything — or use the quick actions to interact with this page.</div>
+        <div class="welcome-chips">
+          <span class="welcome-chip">💡 Summarize page</span>
+          <span class="welcome-chip">📝 Fill any form</span>
+          <span class="welcome-chip">✉️ Draft emails</span>
+          <span class="welcome-chip">🔍 Research topics</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Input Bar -->
+  <footer class="input-footer">
+    <!-- Attachment & file info row -->
+    <div id="attach-row" class="attach-row hidden">
+      <div id="attach-info" class="attach-info"></div>
+      <button id="btn-attach-clear" class="attach-clear">✕</button>
+    </div>
+    <!-- Input row -->
+    <div class="input-row">
+      <label class="icon-btn" id="btn-attach-label" title="Attach file or folder">
+        <input type="file" id="file-input" multiple style="display:none">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd"/></svg>
+      </label>
+      <textarea id="chat-input" class="chat-input" rows="1" placeholder="Ask anything or describe a task…"></textarea>
+      <button id="btn-send" class="send-btn" title="Send (Enter)">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
+      </button>
+    </div>
+    <div class="input-hint">Enter to send · Shift+Enter for new line · <span id="hint-model">no model selected</span></div>
+  </footer>
+
+  <!-- Settings Overlay -->
+  <div id="settings-overlay" class="overlay hidden">
+    <div class="overlay-header">
+      <span class="overlay-title">Settings</span>
+      <button id="btn-settings-close" class="icon-btn">✕</button>
+    </div>
+    <div class="overlay-body" id="settings-body">
+      <!-- Injected by sidepanel.js -->
+    </div>
+  </div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
