@@ -1,0 +1,81 @@
+TITLE:
+CELTA: The Gold Standard That's Starting to Rust
+
+SUBTITLE:
+A candid look at Cambridge's flagship teaching certification — and why it might be due for a serious update.
+
+---
+
+TL;DR: CELTA is Cambridge's 120-hour gold standard certificate for English language teaching. On paper, it's rigorous. In practice, it has three major weak spots: video observations that are trivially easy to cheat on with AI, written assignments that anyone can outsource, and a confusing expectation that beginners should already know things the course is supposed to teach them. The one part that actually works? Live teaching practice — because you can't fake standing in front of real students. The fix isn't to scrap the course; it's to replace the cheatable parts with more live mock teaching between peers and short presentation-style defenses of assignments instead of long written essays. The course is still valuable. It just hasn't caught up with 2024 yet.
+
+---
+
+Alright, look — I'll be the first to admit this is probably not the most comfortable argument to make, because I actually did this course. But here we are.
+
+Let's talk about CELTA. That's C-E-L-T-A, the Certificate in English Language Teaching to Adults, offered by Cambridge. It's a 120-hour certification, widely considered the gold standard if you want to become an English teacher. And it genuinely is. Cambridge has built something real here, and the tutors? At least the ones I worked with — fantastic. I'm not here to trash the course or the people running it.
+
+What I do want to talk about is the gap between what CELTA is supposed to be and what it's actually becoming in an era where AI can basically do your homework for you in ten minutes.
+
+
+THE CONFUSING BASELINE PROBLEM
+
+Here's the first contradiction you run into almost immediately: CELTA is designed for beginners. It assumes you may have little to no formal teaching experience. That's the whole point — they're training you from scratch.
+
+But then you walk into the classroom and you get the distinct impression that everyone around you has somehow already done this for years. Your fellow students are throwing around vocabulary you've never heard, referencing concepts the tutor hasn't explained yet, speaking with confidence you don't have. And suddenly you're back in high school, feeling like you missed the memo.
+
+You have two options: admit you have no idea what they're talking about, which feels humiliating, or nod along and pretend you do, which means you stop asking questions and miss half the point of being there. Neither is great. For a course that's supposed to welcome complete beginners, it creates an oddly hostile atmosphere for anyone who actually is one.
+
+
+THE OBSERVATION PROBLEM: WHY VIDEO DOESN'T WORK ANYMORE
+
+One of the core requirements is watching around six hours of teaching — either live or via pre-recorded video — and answering detailed questions about what you observed. The idea is good. Observation is how you learn any skill. You watch a skilled chef work, you study their movements, how they handle pressure, how they multitask. Teaching is the same.
+
+The problem is the pre-recorded video part. That used to be a reasonable compromise when live teaching wasn't available. Now? You take the video, run it through any AI transcription tool, feed the observation questions alongside the transcript, and the AI gives you a beautifully detailed answer in minutes. Done.
+
+And look — I'm not going to pretend this doesn't happen, or that people using AI to be more efficient are necessarily doing something wrong. Some are genuinely just trying to survive a brutally compressed schedule. In 120 hours, the cognitive and physical pressure is so high that finding shortcuts isn't laziness, it's human nature. But the result is that you now have a cohort of students where some absorbed everything from those videos, some used AI and still engaged with the material, and some just copy-pasted their way through without learning anything. And from the outside — from an employer's perspective — they all hold the same certificate.
+
+That's when the gold standard stops meaning what it's supposed to mean.
+
+
+THE ASSIGNMENT PROBLEM: A GREY AREA THAT'S GETTING GREYER
+
+The assignments have always been a grey area — if we're being completely honest, paying someone else to write your university essay is as old as universities themselves. AI just made it faster and cheaper.
+
+CELTA has four written assignments of around 1,000 words each, and you need to pass at least three. Each one, done properly, takes somewhere between four and ten hours — gathering specific observations about your students, writing detailed analysis, getting the examples right. That's potentially 40 hours on top of everything else you're already doing.
+
+And here's the thing about the assignments — the information you need to collect at the start of the course, like your students' backgrounds and learning preferences, can be gathered in the first couple of days if you're paying attention. Once you have that, a well-crafted AI prompt does the rest. It doesn't even take long.
+
+Again: is this good? No. Is it happening? Absolutely. And when all four of your assignments are essentially written by AI, what does the assessment actually measure?
+
+
+THE ONE THING THAT ACTUALLY WORKS
+
+Teaching practice. Full stop.
+
+You cannot fake standing in front of a room of real students and delivering a lesson. You can have the most polished AI-generated lesson plan in the history of lesson plans — and still completely fall apart the moment five students show up instead of ten, or the internet drops out mid-class, or a student asks a question you didn't prepare for. That's where teaching lives: in the messy, unscripted, real-time moments.
+
+Your tutors and peers are watching. They give feedback on the spot. It's uncomfortable, sometimes nerve-wracking, but it's also where you actually learn. This part of the course is genuinely valuable, and I'd argue it's the only part that's essentially cheat-proof.
+
+
+SO WHAT'S THE FIX?
+
+Here's what I'd actually propose — and I think it makes the course more efficient, not less rigorous.
+
+For observations: get rid of pre-recorded video observation entirely. Replace those six hours with six hours of mock teaching between peers. Each student gets 20 minutes to teach a section of a lesson — lead-in, controlled practice, free practice, whatever — and you rotate through. The tutor doesn't even need to be fully present; experienced teachers can monitor while handling other prep. It's live, it's practical, and you can't outsource it to anyone.
+
+For assignments: cut the word count from 1,000 to around 300 words, and instead of a written submission, each student presents and defends their assignment in front of their peers. You get live feedback, you practice public speaking — which is directly relevant to teaching — and you actually have to know what you're talking about because your colleagues will ask questions. No resubmissions needed. The 40 hours of assignment work collapses to maybe four or five, and the learning outcome is arguably better.
+
+The course stays 120 hours. But instead of a significant chunk going toward observations and essays that can be gamed, it goes toward something that actually prepares you to stand in front of a class.
+
+
+THE BIGGER POINT
+
+CELTA isn't broken. The tutors are good, the syllabus covers what it needs to cover, and the teaching practice component is genuinely one of the best ways to learn on the job. The problem is that two of the three main assessment pillars — video observation and written assignments — were designed for a world before AI made them trivially bypassable.
+
+Every month, thousands of new CELTA-certified teachers enter the profession. Some of them are excellent. Some of them barely taught a lesson they understood. And they're all holding the same certificate. That's the filter Cambridge built — and right now, the holes in that filter are getting bigger.
+
+It's time to patch them.
+
+---
+
+Written on the fly — literally. Ideas recorded mid-workout, cleaned up for the page. Thanks for reading.
