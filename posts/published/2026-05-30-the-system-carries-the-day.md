@@ -3,7 +3,7 @@ title: "The system carries the day the person can't"
 date: 2026-05-30
 type: System
 tags: [productivity, adhd, neurodiversity, writing]
-status: draft
+status: published
 ---
 
 Most productivity advice is built for your best day. Wake at five, seize the morning,
