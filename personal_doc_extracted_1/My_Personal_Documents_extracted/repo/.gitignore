@@ -1,9 +1,0 @@
-# QUARANTINE — never push (medical data, named third parties, personal admin)
-_PRIVATE_DO_NOT_PUSH/
-# Credentials
-.env
-*token*
-credentials.json
-# OS
-.DS_Store
-Thumbs.db
