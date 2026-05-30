@@ -16,6 +16,7 @@ Read the five files in order, but you only ever *act* on one thing a day.
 | **03_AUTOMATION.md** | Open-source automation: find jobs, draft emails, find like-minded writers and partners — so I only have to write. |
 | **04_CONTACTS.md** | Who to reach, how to reach them, how to keep the relationship warm. |
 | **05_CONSISTENCY_AND_SELFCARE.md** | The productivity technique, staying consistent, taking care of myself, and what to learn about my condition. |
+| **06_BRAINSTORM.md** | The menu of what we can build — practical, creative, unorthodox — and why each works for me specifically. |
 
 ---
 
