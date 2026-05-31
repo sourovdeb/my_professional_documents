@@ -1,0 +1,31 @@
+# ── Secrets — NEVER commit these ──────────────────────────────
+.env
+*.env
+!*.env.example
+*credentials*
+*secret*
+*.key
+*.pem
+ftp_config*
+wp-config-local*
+
+# ── Generated automation output ───────────────────────────────
+jobs.md
+writers.md
+contacts.local.md
+*.local.md
+
+# ── Large archives (keep the repo lean) ───────────────────────
+# Existing zips are already tracked; this stops new ones being added.
+*.zip
+
+# ── Python ────────────────────────────────────────────────────
+.venv/
+__pycache__/
+*.pyc
+
+# ── OS / editor noise ─────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,6 @@
+# All free and open-source. The core scripts use only the Python standard
+# library, so these are optional extras for richer features.
+
+requests>=2.31      # friendlier HTTP than urllib (optional)
+python-dotenv>=1.0  # load scripts/wordpress/.env into the publish script
+markdown>=3.5       # convert Markdown drafts to HTML for WordPress
