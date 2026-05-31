@@ -1,0 +1,36 @@
+# --- Secrets: never commit these (especially in a public repo) ---
+.env
+.env.*
+*.secret
+*credentials*
+*secrets*
+wp-config*.php
+*.ftpconfig
+sftp.json
+.vscode/sftp.json
+
+# --- Archives: keep source files, not zipped blobs ---
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+
+# --- OS / editor noise ---
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# --- Python ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- Node (extension dev) ---
+node_modules/
+npm-debug.log*
