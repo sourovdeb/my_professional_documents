@@ -13,8 +13,8 @@ run on a low-energy day.
 
 This GitHub repository is **PUBLIC**. Right now, anyone on the internet can read:
 
-- Your **medical diagnosis** (recurrent depression, ADHD traits), treatment
-  plans, and your **MDPH disability application**.
+- Your **medical diagnosis** (bipolar I, ADHD, depression, clinical insomnia),
+  treatment plans, and your **MDPH disability application**.
 - Your **legal/employment dispute** documents (the Cambridge CELTA Stage 1 file).
 - Your **life-story transcript** and personal CV with contact details.
 

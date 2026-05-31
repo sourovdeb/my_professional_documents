@@ -1,29 +1,41 @@
 # 9 — Your condition: what to learn, from official sources only
 
 You asked what to learn about your condition, from official and legal sources.
-Your own documents describe **recurrent depression with ADHD traits**. Below are
-the authoritative, free places to understand it and to claim your rights in
-France. No forums, no influencers — sources you can trust and cite.
+Your own documents (`DAILY_LIVING_STRATEGY.md`, `ASSISTIVE_TECH_RESEARCH.md`)
+describe **bipolar I, ADHD, depression, and clinical insomnia**. Below are the
+authoritative, free places to understand each and to claim your rights in France.
+No forums, no influencers — sources you can trust and cite. Your psychiatrist
+(Dr. Pauvert) and the monthly review remain the final word on treatment.
 
 > Educational and self-advocacy information only — **not** medical advice. Your
 > own clinician's guidance always comes first. Use this to ask better questions
 > at your appointments.
 
 ## Understand the condition (official / clinical)
-- **WHO — Depression** (plain-language, global authority):
+- **WHO — Bipolar disorder**:
+  https://www.who.int/news-room/fact-sheets/detail/bipolar-disorder
+- **WHO — Depression**:
   https://www.who.int/news-room/fact-sheets/detail/depression
-- **NHS — Depression & low mood** (clear, practical self-help library):
+- **NHS — Bipolar disorder** (clear, practical):
+  https://www.nhs.uk/mental-health/conditions/bipolar-disorder/
+- **NHS — Depression & low mood** (free self-help library):
   https://www.nhs.uk/mental-health/conditions/depression-in-adults/
 - **NHS — ADHD in adults**:
   https://www.nhs.uk/conditions/attention-deficit-hyperactivity-disorder-adhd/
+- **NHS — Insomnia** (sleep hygiene, when to seek help):
+  https://www.nhs.uk/conditions/insomnia/
 - **NICE guidelines** (what good treatment officially looks like):
+  bipolar https://www.nice.org.uk/guidance/cg185 ·
   depression https://www.nice.org.uk/guidance/ng222 ·
   ADHD https://www.nice.org.uk/guidance/ng87
 - **France — Ameli (Assurance Maladie)**, official patient information:
+  troubles bipolaires https://www.ameli.fr (search "trouble bipolaire") ·
   dépression https://www.ameli.fr/assure/sante/themes/depression ·
   TDAH https://www.ameli.fr (search "TDAH adulte")
 - **Psycom** (French public mental-health information body):
   https://www.psycom.org
+- **Bipolar UK** (reputable charity; mood-tracking tools):
+  https://www.bipolaruk.org
 
 ## Evidence-based self-help (free, reputable)
 - **NHS self-help CBT guides** (free PDFs/audio) via the NHS depression pages.
