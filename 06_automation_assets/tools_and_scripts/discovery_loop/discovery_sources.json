@@ -1,0 +1,18 @@
+{
+  "sources": [
+    "https://zapier.com/blog/feed/",
+    "https://www.make.com/en/blog/feed",
+    "https://news.ycombinator.com/rss",
+    "https://www.producthunt.com/feed"
+  ],
+  "areas": {
+    "writing": ["writing", "grammar", "draft", "email", "compose", "document"],
+    "reminder": ["reminder", "calendar", "task", "todo", "schedule"],
+    "form_filling": ["form", "autofill", "intake", "application"],
+    "document_collection": ["document", "file", "records", "organize", "archive"],
+    "auto_design": ["design", "template", "layout", "visual"],
+    "auto_contact": ["outreach", "crm", "contact", "lead", "messaging"],
+    "wordpress_controls": ["wordpress", "plugin", "cms", "seo"],
+    "file_checking": ["scan", "compliance", "audit", "validate", "quality"]
+  }
+}
