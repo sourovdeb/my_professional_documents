@@ -13,6 +13,22 @@ python3 /tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/
 - Reports: `/tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tool_discovery_reports/`
 - Latest high-priority summary: `/tmp/workspace/sourovdeb/my_professional_documents/IMPORTANT_FOR_USER.md`
 
+## Push generated drafts to WordPress
+
+Dry-run:
+
+```bash
+python3 /tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tools_and_scripts/discovery_loop/push_drafts_to_wordpress.py
+```
+
+Execute:
+
+```bash
+WP_API_KEY='<your_key>' python3 /tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tools_and_scripts/discovery_loop/push_drafts_to_wordpress.py --execute
+```
+
+REST endpoint references are indexed in `WORDPRESS_REST_REFERENCES.md`.
+
 ## Schedule every 12 hours (cron)
 
 ```cron

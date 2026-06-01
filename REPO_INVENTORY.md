@@ -31,6 +31,8 @@ This index maps the previous layout into the new structure and defines the first
   - `/tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tools_and_scripts/discovery_loop/run_discovery_cycle.py`
 - High-priority findings output enabled at:
   - `/tmp/workspace/sourovdeb/my_professional_documents/IMPORTANT_FOR_USER.md`
+- WordPress draft publishing bridge added in:
+  - `/tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tools_and_scripts/discovery_loop/push_drafts_to_wordpress.py`
 
 ### Next operating steps (12-hour cadence)
 
