@@ -1,0 +1,41 @@
+{
+  "sheet_id": "1fJX0yZNe0tjrQ1YZU0iP0kLWU0r3qwx6-J2ODAUGRIE",
+  "comment": "Edit sheet_id if using different Google Sheet. Get ID from URL: docs.google.com/spreadsheets/d/[SHEET_ID]/edit",
+  "syncs": [
+    {
+      "sheet_tab": "Essay Ideas",
+      "csv_file": "TRACKING/essay_ideas.csv",
+      "direction": "both",
+      "comment": "Track essay ideas, topics, sources, status"
+    },
+    {
+      "sheet_tab": "Job Opportunities",
+      "csv_file": "TRACKING/job_opportunities.csv",
+      "direction": "both",
+      "comment": "Auto-populated by job_hunter.py. Update 'applied' and 'notes' locally or in sheet"
+    },
+    {
+      "sheet_tab": "Contacts Discovered",
+      "csv_file": "TRACKING/contacts_discovered.csv",
+      "direction": "both",
+      "comment": "Writers, editors, collaborators. Update via writer_discovery.py or manually"
+    },
+    {
+      "sheet_tab": "Publishing Calendar",
+      "csv_file": "TRACKING/publishing_tracker.csv",
+      "direction": "both",
+      "comment": "Publishing schedule and status. Update as essays move through workflow"
+    },
+    {
+      "sheet_tab": "Health Tracking",
+      "csv_file": "TRACKING/health_log.csv",
+      "direction": "both",
+      "comment": "Daily energy, mood, tasks. Use to understand your patterns and sustainability"
+    }
+  ],
+  "automation": {
+    "schedule": "Weekly Monday 8 AM",
+    "script": "tools/google_sheets_sync/sheets_sync.py --sync-all",
+    "comment": "Set up cron job or GitHub Actions to run automatically"
+  }
+}
