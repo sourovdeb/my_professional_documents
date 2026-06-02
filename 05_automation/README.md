@@ -32,7 +32,7 @@ python 05_automation/wordpress/publish_to_wp.py 03_writing/drafts/your-essay.md
 - Use `--status publish` to go live immediately
 - Use `--dry-run` to preview without uploading
 
-**One-time WordPress setup:** Go to `sourovdeb.com/wp-admin` → Users → Profile → scroll to "Application Passwords" → create one → put it in `.env` as `WP_APP_PASSWORD`.
+Uses the deploy.php gateway already running on your server — no extra setup needed beyond adding `DEPLOY_URL` and `DEPLOY_KEY` to your `.env`.
 
 ---
 
