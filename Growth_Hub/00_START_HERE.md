@@ -1,12 +1,12 @@
 # Growth Hub — Sourov Deb
 
-**One place. Seven parts. Built to run on your worst day, not your best.**
+**One place. Eight parts. Built to run on your worst day, not your best.**
 
 This hub answers one question: *how do I get my story, my philosophy, and my work heard — and turn that into jobs and useful contacts — without burning myself out?*
 
 It sits on top of the [Daily Living Strategy](../personal_doc_extracted/DAILY_LIVING_STRATEGY.md) and the Productivity, Health & Income Plan. Those govern the day and the money. This hub governs the **voice**: what you write, where it goes, who reads it, and how you keep going.
 
-## The seven parts
+## The eight parts
 
 | # | Part | The question it answers |
 |---|------|------------------------|
@@ -17,6 +17,9 @@ It sits on top of the [Daily Living Strategy](../personal_doc_extracted/DAILY_LI
 | 05 | [Contacts](05_CONTACTS.md) | Who do I reach, and how do I turn readers into work? |
 | 06 | [Consistency](06_CONSISTENCY.md) | How do I keep going on a crash day? |
 | 07 | [Wellbeing](07_WELLBEING.md) | How do I take care of myself and understand my condition? |
+| 08 | [Automation](08_AUTOMATION.md) | What can machines do so I only have to write? |
+
+Plus a **publishing workflow** in [`../posts/`](../posts/README.md) (git as the platform — each essay a file, each publish a commit) and [`job_search_config.yml`](job_search_config.yml) feeding the automation in part 08.
 
 ## Five rules that run through all seven
 
