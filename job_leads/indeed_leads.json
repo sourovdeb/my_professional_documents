@@ -1,1 +1,67 @@
-[]
+[
+  {
+    "id": "indeed_sample_001",
+    "title": "English Teacher - Secondary School",
+    "company": "Lycée International de Paris",
+    "location": "Paris, France",
+    "salary": "€2,200 - €2,800/month",
+    "description": "Seeking experienced English teacher for secondary level (grades 9-12). Native or fluent English speaker required. Experience with international curriculum preferred.",
+    "url": "https://fr.indeed.com/viewjob?jk=sample_001",
+    "posted_date": "2026-06-01",
+    "status": "new",
+    "applied": false,
+    "source": "indeed_scraper"
+  },
+  {
+    "id": "indeed_sample_002",
+    "title": "English Language Instructor - Private School",
+    "company": "Académie Française Anglo",
+    "location": "Lyon, France",
+    "salary": "€1,900 - €2,400/month",
+    "description": "French-English bilingual school seeks passionate English instructor. Small class sizes. Professional development support available.",
+    "url": "https://fr.indeed.com/viewjob?jk=sample_002",
+    "posted_date": "2026-06-01",
+    "status": "new",
+    "applied": false,
+    "source": "indeed_scraper"
+  },
+  {
+    "id": "indeed_sample_003",
+    "title": "Online English Tutor - Remote",
+    "company": "EnglishStrive Platform",
+    "location": "Remote (France based)",
+    "salary": "€15-25/hour + bonus",
+    "description": "Flexible online tutoring. Work your own hours. Help students prepare for exams or improve conversational English. No fixed schedule required.",
+    "url": "https://fr.indeed.com/viewjob?jk=sample_003",
+    "posted_date": "2026-05-31",
+    "status": "new",
+    "applied": false,
+    "source": "indeed_scraper"
+  },
+  {
+    "id": "indeed_sample_004",
+    "title": "Content Writer - Tech Blog (English)",
+    "company": "Tech Savoir France",
+    "location": "Remote (France based)",
+    "salary": "€18-30 per article + retainer",
+    "description": "Looking for native English writers to cover tech trends, software reviews, tutorials. Flexible deadlines. Portfolio required.",
+    "url": "https://fr.indeed.com/viewjob?jk=sample_004",
+    "posted_date": "2026-06-02",
+    "status": "new",
+    "applied": false,
+    "source": "indeed_scraper"
+  },
+  {
+    "id": "indeed_sample_005",
+    "title": "English Copywriter - Marketing Agency",
+    "company": "Agence Créative Parisienne",
+    "location": "Paris, France",
+    "salary": "€2,100 - €2,700/month",
+    "description": "Write marketing copy, email campaigns, social media content for international brands. Native English speaker preferred. Creative portfolio needed.",
+    "url": "https://fr.indeed.com/viewjob?jk=sample_005",
+    "posted_date": "2026-05-30",
+    "status": "new",
+    "applied": false,
+    "source": "indeed_scraper"
+  }
+]
