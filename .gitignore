@@ -1,0 +1,30 @@
+# Credentials — never commit these
+.env
+.env.local
+*.env
+
+# WordPress deploy credentials
+wp-credentials.txt
+deploy-secrets.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.Python
+
+# System
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Output files (generated, not source)
+output/
+dist/
+*.log
+
+# Archives — keep zips for reference, not extracted duplicates
+# (extracted content lives in 99_archive/)

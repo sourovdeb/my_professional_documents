@@ -1,309 +1,149 @@
-AI Hub Email Automation Extension v2.0  README
+# Sourov Deb — Personal Repository
 
-PROJECT OVERVIEW
-================
+This repository holds everything: writing, career documents, automation tools, health notes, legal documents, and the record of a life examined.
 
-This is an OPEN-SOURCE, API-DRIVEN Chrome Extension that combines multi-model AI assistance with email automation capabilities.
+**Owner:** Sourov Deb | **Site:** [sourovdeb.com](https://www.sourovdeb.com) | **Location:** La Réunion, France
 
-Version: 2.0.0 (Updated with Email Automation)
-License: MIT
-Repository: Open-source (no hardcoded credentials)
+---
 
-FEATURES
-========
+## Who This Repository Is For
 
-✅ Multi-Model AI Support:
-Claude API (via Anthropic)
-  - Ollama (local, self-hosted)
-  - DeepSeek API
-  - Gemini API
-  - Custom API endpoints
-✅ Email Automation (New in v2.0):
-Create Gmail drafts from CSV data
-  - Sector-specific email templates
-  - Personalized subject lines & bodies
-  - Batch draft creation
-  - Drag-and-drop CSV upload
-✅ Core Features:
-Summarize web pages
-  - Fill forms automatically
-  - Draft professional emails
-  - Research assistance
-  - Context menus for quick access
-ARCHITECTURE
-============
+Me. And for anyone I choose to show it to.
 
-Files Overview:
-  Manifest.json               — Extension config (v3 MV3)
-  config.js                   — API endpoints (environment-based)
-  api-client.js               — Multi-provider API routing
-  ollama-client.js            — Ollama HTTP API wrapper
-  email-automation.js         — Gmail draft creation logic
-  sidepanel.js               — Main UI (26 KB)
-  Sidepanel.html             — Sidepanel markup
-  Sidepanel.css              — Styling (15 KB)
-  background.js              — Service worker (18 KB)
-  content.js                 — Page injection (4 KB)
-  Popup.html                 — Popup UI
-  popup.js                   — Popup logic
-  testing-guide.md           — Bug testing procedures
-  SETUP.md                   — Installation guide
+It documents:
+- My story (Bangladesh → Australia → France, 40 years of becoming myself)
+- My writing system (daily 500-word essays, six topic pillars)
+- My job search (automated, tracked)
+- My tools (scripts that do the repetitive work so I can write)
+- My health (plain-language notes on living with Bipolar I, ADHD, and complex trauma)
 
-API CONFIGURATION (No Hardcoding!)
-==================================
+---
 
-All API keys and endpoints are configured via environment variables or user settings UI.
+## Structure
 
-Configuration File Structure (config.js):
-—---
-Const CONFIG = {
-  // API Providers - set via environment or UI
-  Providers: {
-    Claude: {
-      Enabled: false,
-      apiKey: process.env.CLAUDE_API_KEY || ‘’,
-      baseURL: ‘https://api.anthropic.com/v1’,
-      Model: ‘claude-3-5-sonnet-20241022’
-    },
-    Ollama: {
-      Enabled: true,  // Default to Ollama for local use
-      baseURL: process.env.OLLAMA_URL || ‘http://localhost:11434’,
-      Model: process.env.OLLAMA_MODEL || ‘mistral’
-    },
-    Deepseek: {
-      Enabled: false,
-      apiKey: process.env.DEEPSEEK_API_KEY || ‘’,
-      baseURL: ‘https://api.deepseek.com/v1’,
-      Model: ‘deepseek-chat’
-    },
-    Gemini: {
-      Enabled: false,
-      apiKey: process.env.GEMINI_API_KEY || ‘’,
-      baseURL: ‘https://generativelanguage.googleapis.com/v1’,
-      Model: ‘gemini-1.5-pro’
-    }
-  },
-  
-  // Email Automation Config
-  emailAutomation: {
-    Enabled: true,
-    csvTimeout: 30000,
-    draftBatchSize: 30,
-    Templates: {
-      sectorMappings: {
-        ‘Agences intérim’: ‘P1’,
-        ‘Hôtellerie & Tourisme’: ‘P2’,
-        ‘Transport aérien’: ‘P3’,
-        ‘Multinationales’: ‘P4’,
-        ‘Santé’: ‘P5’,
-        ‘Télécoms / Médias / Finance’: ‘P6’
-      }
-    }
-  }
-};
-—---
+```
+my_professional_documents/
+│
+├── 02_health/              ← Conditions, treatment plan, wellbeing notes
+├── 03_writing/             ← The writing system ← START HERE for writing
+├── 05_automation/          ← Scripts: WordPress, job search, outreach
+│
+├── Biography_and_Medical/  ← Biography, medical synthesis (2026), therapy transcripts
+├── CELTA_Teaching_Materials/ ← Teaching certification resources
+├── Communications/         ← LinkedIn, Substack, Medium content
+├── Legal_Documents/        ← CELTA appeal, medical letters, MDPH
+├── Story_of_Sourov/        ← Master documents, analysis, reusable skills
+├── browser_extension/      ← AI Hub Chrome extension (email automation)
+├── cv_and_applications/    ← CVs by sector: aeronautics, hospitality, general
+├── gmail_and_email_tools/  ← Gmail automation scripts
+├── therapy_and_wellbeing/  ← Harmony therapy session transcripts
+├── tools_and_scripts/      ← Legacy skills and scripts
+│
+├── .env.example            ← Credential template (copy to .env, never commit)
+└── .gitignore
+```
 
-SETUP INSTRUCTIONS
-==================
+---
 
-Step 1: Install Chrome Extension
-Clone/download files to local folder
-  b) Open chrome://extensions
-  c) Enable “Developer mode” (top right)
-  d) Click “Load unpacked”
-  e) Select the extension folder
-Step 2: Configure API Providers
+## Quick Start — Writing
 
-Option A - Use Local Ollama (Recommended):
-Install Ollama from ollama.ai
-  2. Run: ollama serve
-  3. In another terminal: ollama pull mistral (or your model)
-  4. Set OLLAMA_URL=http://localhost:11434 in extension settings
-  5. Extension will use Ollama by default
-Option B - Use Claude API:
-Get API key from console.anthropic.com
-  2. In extension popup: click “Settings”
-  3. Paste Claude API key
-  4. Select “Claude” as active provider
-  5. Save settings
-Option C - Use DeepSeek/Gemini:
-  Same as Claude - get API key, paste in Settings, select provider
+```bash
+# 1. Pick a topic from the backlog
+open 03_writing/_ideas/ideas_backlog.md
 
-Step 3: Email Automation Setup
-Click “Email Automation” tab in sidepanel
-  2. Upload CSV file (format: index, company, email, sector, city, subject)
-  3. Review mapped sectors
-  4. Click “Create Drafts”
-  5. Wait for batch creation
-  6. Check Gmail Drafts folder
-CSV FORMAT (Email Automation)
-============================
+# 2. Copy the template
+cp 03_writing/_templates/essay_500words.md 03_writing/drafts/$(date +%Y-%m-%d)-your-title.md
 
-Required columns:
-  Index     — Row number (1-30)
-  Company   — Company name
-  Email     — Contact email
-  Sector    — Industry sector
-  City      — City/location
-  Subject   — Email subject line
+# 3. Write (aim for 500 words, active voice, one idea)
 
-Example CSV:
-  Index,company,email,sector,city,subject
-  1,ACME Inc,contact@acme.fr,Hôtellerie & Tourisme,Paris,”Formateur d’Anglais – ACME”
-  2,Tech Corp,hello@techcorp.com,Multinationales,Lyon,”Expert English Training – Tech Corp”
+# 4. Push to WordPress as draft
+python 05_automation/wordpress/publish_to_wp.py 03_writing/drafts/your-essay.md
 
-OLLAMA INTEGRATION
-==================
+# 5. Commit on its own branch
+git checkout -b essay/$(date +%Y-%m-%d)-your-title
+git add 03_writing/drafts/your-essay.md
+git commit -m "essay: your title"
+```
 
-What is Ollama?
-  Ollama is a lightweight container runtime for LLMs. It runs locally on your machine, providing privacy and no API costs.
+See `03_writing/README.md` for the full system.
 
-Installation:
-Download from ollama.ai
-  2. Run installer
-  3. Start service: ollama serve
-  4. In new terminal: ollama pull mistral  (or llama2, neural-chat, etc.)
-Using Ollama in Extension:
-Extension auto-detects Ollama at http://localhost:11434
-  - Select any downloaded model in Settings
-  - Uses native HTTP API (no additional libraries needed)
-  - Completely private — data stays on your machine
-Models Available:
-  Ollama pull mistral    — Fast, good quality (default)
-  Ollama pull llama2     — Larger model, slower
-  Ollama pull neural-chat — Optimized for chat
-  Ollama pull orca-mini  — Lightweight option
+---
 
-TESTING & BUG FIXES
-===================
+## Quick Start — Job Search
 
-Included Testing Guide covers:
-  ✓ API connection testing
-  ✓ Email draft creation validation
-  ✓ CSV parsing verification
-  ✓ Ollama connectivity check
-  ✓ Multi-provider switching
-  ✓ Error handling scenarios
+```bash
+# Install once
+pip install python-jobspy
 
-See testing-guide.md for full checklist and debugging steps.
+# Run all search profiles (English teacher, content writer, hospitality...)
+python 05_automation/job_search/search_jobs.py --all-profiles
 
-ARCHITECTURE DIAGRAM
-====================
+# Results in: 05_automation/job_search/results/
+# Track applications in: 05_automation/job_search/job_tracker.md
+```
 
-User Interaction (UI Layer)
-    ↓
-Sidepanel.js (Route requests)
-    ↓
-API Router (api-client.js)
-    ├→ Ollama Client
-    ├→ Claude API
-    ├→ DeepSeek API
-    └→ Gemini API
-    ↓
-Background.js (Process responses)
-    ↓
-Content.js (Inject into page)
-    ↓
-Email Automation (New!)
-    ├→ CSV Parser
-    ├→ Sector Mapper
-    ├→ Template Engine
-    └→ Gmail Draft Creator
+---
 
-ENVIRONMENT VARIABLES
-=====================
+## Quick Start — Find Writing Partners
 
-Set these before loading extension (or via Settings UI):
+```bash
+python 05_automation/outreach/find_writers.py
+# Results in: 05_automation/outreach/results/
+```
 
-CLAUDE_API_KEY=sk-ant-xxxxx
-OLLAMA_URL=http://localhost:11434
-OLLAMA_MODEL=mistral
-DEEPSEEK_API_KEY=sk-xxxxx
-GEMINI_API_KEY=xxxxx
+---
 
-SECURITY & PRIVACY
-==================
+## The Six Writing Pillars
 
-✓ No hardcoded API keys
-✓ No tracking or telemetry
-✓ Local Ollama runs entirely on your machine
-✓ All API calls logged locally (optional)
-✓ Content security policy enforced (CSP)
-✓ Permissions limited to necessary only
+| Pillar | What it covers |
+|--------|---------------|
+| The Immigrant Mind | Language, belonging, four countries |
+| Rewiring the Brain | Bipolar, ADHD, trauma recovery |
+| The Child Who Survived | Generational trauma, parenting |
+| Work & Worth | Hospitality, disability, disclosure |
+| Language & Teaching | CELTA, adult learning, code-switching |
+| The Examined Life | Jung, philosophy, addiction, recovery |
 
-FUTURE ROADMAP
-==============
+---
 
-V2.1 — Integration with Google Sheets for CSV management
-V2.2 — Email template library (cloud-synced, optional)
-V2.3 — Batch scheduling for draft creation
-V3.0 — Multi-language support
-V3.1 — Custom sector definitions & templates
+## Branch Convention
 
-TROUBLESHOOTING
-===============
+| Branch type | Pattern | When to use |
+|-------------|---------|-------------|
+| Essay | `essay/YYYY-MM-DD-slug` | Each piece of writing |
+| Feature | `feature/description` | New tools or automation |
+| Health update | `health/YYYY-MM-DD` | Medical document updates |
+| Job application | `job/company-role` | Tailored CV/cover letter |
 
-Ollama not connecting?
-  → Check: ollama serve is running
-  → Check: OLLAMA_URL setting (default: http://localhost:11434)
-  → Check: Port 11434 not blocked by firewall
+All content starts on its own branch. Merge to `main` when done.
 
-Email drafts not created?
-  → Check: CSV format matches requirements
-  → Check: Gmail permissions granted
-  → Check: Rate limiting (max 30/batch)
-  → Check: Sector names match template mappings
+---
 
-API key errors?
-  → Verify key in Settings
-  → Check key has correct permissions
-  → Check for expired keys
-  → Restart extension after changing key
+## Platforms Where You Publish
 
-CONTRIBUTING
-============
+| Platform | Role | Link |
+|----------|------|------|
+| WordPress (sourovdeb.com) | Home base | Your site |
+| Medium | Essays with wide reach | Pays via Partner Program |
+| Substack | Personal letters, email list | Most direct reader relationship |
+| LinkedIn | Professional / teaching angle | Job visibility |
 
-This is open-source! Contributions welcome.
+---
 
-To contribute:
-Fork repository
-  2. Create feature branch
-  3. Test thoroughly (see testing-guide.md)
-  4. Submit PR with description
-  5. Ensure no hardcoded values
-LICENSE
-=======
+## Health Notes
 
-MIT License — See LICENSE file
+See `02_health/condition_notes.md` for plain-language notes on living with:
+- Bipolar I (Dr. Padovani, monthly follow-up)
+- ADHD
+- Complex PTSD
+- Dissociation
 
-SUPPORT
-=======
+Key principle: **routine protects the brain**. Writing every day is both creative output and mental health practice.
 
-For issues:
-Check testing-guide.md
-  2. Enable debug logging in Settings
-  3. Check browser console (F12)
-  4. Open issue with:
-     - Error message
-     - Console logs
-     - Steps to reproduce
-     - Provider(s) used
-CHANGELOG
-=========
+---
 
-V2.0.0 (2026-05-17)
-  ✓ Email automation module added
-  ✓ Ollama integration
-  ✓ Config-based API management
-  ✓ CSV batch processing
-  ✓ Sector template mapping
+## Credentials
 
-V1.0.0 (Initial Release)
-  ✓ Claude, DeepSeek, Gemini support
-  ✓ Summarization
-  ✓ Form filling
-  ✓ Context menus
+Stored in `.env` (gitignored). Template in `.env.example`.
 
-===============================================
-For detailed file documentation, see individual file headers in each JS/JSON file.
-Version 2.0.0 | Updated 2026-05-17 | Sourov Deb
+Never commit the `.env` file. Never paste credentials into markdown files or commit messages.
