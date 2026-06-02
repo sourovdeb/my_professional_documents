@@ -1,0 +1,20 @@
+{
+  "wordpress_endpoint": "https://www.sourovdeb.com/wp-json/sourov/v1/ai-post",
+  "deploy_gateway_url": "https://www.sourovdeb.com/deploy.php",
+  "deploy_gateway_key_env": "DEPLOY_GATEWAY_KEY",
+  "default_status": "future",
+  "schedule_midnight": true,
+  "schedule_timezone": "UTC",
+  "default_tags": [
+    "automation",
+    "wordpress",
+    "drafts"
+  ],
+  "default_categories": [
+    "automation-updates"
+  ],
+  "draft_paths": [
+    "IMPORTANT_FOR_USER.md"
+  ],
+  "security_note": "Do not commit API keys, FTP passwords, or deploy gateway secrets."
+}

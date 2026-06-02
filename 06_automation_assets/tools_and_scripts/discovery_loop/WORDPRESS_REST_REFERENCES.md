@@ -37,3 +37,19 @@ WP_API_KEY='<your_key>' python3 /tmp/workspace/sourovdeb/my_professional_documen
 By default, it picks:
 - `/tmp/workspace/sourovdeb/my_professional_documents/IMPORTANT_FOR_USER.md`
 - latest report in `/tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tool_discovery_reports/`
+
+### Repository-stored defaults
+
+Configuration file:
+
+- `/tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tools_and_scripts/discovery_loop/wordpress_publish_defaults.json`
+
+Includes:
+- `wordpress_endpoint`
+- `deploy_gateway_url`
+- default midnight schedule (`schedule_midnight`, `schedule_timezone`)
+- default `tags` and `categories`
+- `draft_paths`
+
+Security:
+- keep `WP_API_KEY` and deploy gateway secret in environment variables, not in repository files.
