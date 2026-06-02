@@ -13,6 +13,22 @@
   "default_categories": [
     "automation-updates"
   ],
+  "hourly_story_default_status": "future",
+  "hourly_story_default_tags": [
+    "chronological-story",
+    "sourov"
+  ],
+  "hourly_story_default_categories": [
+    "life-story"
+  ],
+  "hourly_story_output_dir": "03_communications/hourly_story_posts",
+  "hourly_story_source_globs": [
+    "02_identity_profile/**/*.md",
+    "03_communications/**/*.md",
+    "04_legal_medical/**/*.md",
+    "05_jobs_cv_outreach/**/*.md",
+    "07_mental_health_support/**/*.md"
+  ],
   "draft_paths": [
     "IMPORTANT_FOR_USER.md"
   ],

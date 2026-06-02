@@ -50,6 +50,18 @@ Execute publish (as drafts):
 WP_API_KEY='<your_key>' python3 /tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tools_and_scripts/discovery_loop/push_drafts_to_wordpress.py --execute
 ```
 
+## Hourly story post automation
+
+Generate chronological story posts from repository files, with a 200-word analysis and one GitHub reference, saved locally and optionally pushed to WordPress:
+
+```bash
+python3 /tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tools_and_scripts/discovery_loop/generate_hourly_story_post.py
+```
+
+```bash
+WP_API_KEY='<your_key>' python3 /tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tools_and_scripts/discovery_loop/generate_hourly_story_post.py --execute
+```
+
 WordPress REST references:
 
 - `/tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tools_and_scripts/discovery_loop/WORDPRESS_REST_REFERENCES.md`

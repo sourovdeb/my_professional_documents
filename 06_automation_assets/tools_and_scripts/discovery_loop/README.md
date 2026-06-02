@@ -77,3 +77,27 @@ Adjust source feeds and area keywords in `discovery_sources.json`.
 ```cron
 0 0 * * * WP_API_KEY='<your_key>' /usr/bin/python3 /tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tools_and_scripts/discovery_loop/push_drafts_to_wordpress.py --execute
 ```
+
+## Hourly chronological story + analysis publishing
+
+Generate one post from repository files (chronological source rotation), include a 200-word analysis, add at least one GitHub reference, and save locally in this branch path:
+
+- `/tmp/workspace/sourovdeb/my_professional_documents/03_communications/hourly_story_posts/`
+
+Dry-run:
+
+```bash
+python3 /tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tools_and_scripts/discovery_loop/generate_hourly_story_post.py
+```
+
+Generate + publish to WordPress:
+
+```bash
+WP_API_KEY='<your_key>' python3 /tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tools_and_scripts/discovery_loop/generate_hourly_story_post.py --execute
+```
+
+Schedule every hour (cron):
+
+```cron
+0 * * * * WP_API_KEY='<your_key>' /usr/bin/python3 /tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tools_and_scripts/discovery_loop/generate_hourly_story_post.py --execute
+```

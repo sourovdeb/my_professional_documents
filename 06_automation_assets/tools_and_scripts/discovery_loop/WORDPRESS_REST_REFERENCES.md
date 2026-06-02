@@ -53,3 +53,15 @@ Includes:
 
 Security:
 - keep `WP_API_KEY` and deploy gateway secret in environment variables, not in repository files.
+
+## Hourly story workflow
+
+Script:
+- `/tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tools_and_scripts/discovery_loop/generate_hourly_story_post.py`
+
+Behavior:
+- selects source files chronologically from configured globs
+- writes local markdown output to `03_communications/hourly_story_posts/`
+- generates a chronological story + 200-word analysis
+- appends at least one GitHub reference
+- can directly publish to WordPress endpoint using `WP_API_KEY`
