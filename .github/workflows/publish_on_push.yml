@@ -1,0 +1,74 @@
+# Triggered when Markdown files are added/changed under drafts/
+# Publishes each changed file to WordPress as a draft, then archives it.
+# Requires repository secrets: WP_API_URL, WP_API_KEY
+
+name: Publish Drafts to WordPress
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'drafts/*.md'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Identify changed draft files
+        id: changed
+        run: |
+          git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'drafts/*.md' \
+            > changed_files.txt
+          echo "Files to publish:"
+          cat changed_files.txt
+
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Publish each draft
+        env:
+          WP_API_URL: ${{ secrets.WP_API_URL }}
+          WP_API_KEY: ${{ secrets.WP_API_KEY }}
+        run: |
+          published=0
+          failed=0
+          while IFS= read -r file; do
+            [ -f "$file" ] || continue
+            title=$(head -n1 "$file" | sed 's/^#\+[[:space:]]*//')
+            content=$(tail -n +2 "$file" | sed 's/"/\\"/g')
+            echo "Publishing: $title"
+            HTTP_CODE=$(curl -s -o /tmp/wp_resp.json -w "%{http_code}" \
+              -X POST "$WP_API_URL" \
+              -H "X-Sourov-Key: $WP_API_KEY" \
+              -H "Content-Type: application/json" \
+              --data-raw "$(jq -n \
+                --arg t "$title" \
+                --arg c "$content" \
+                '{title:$t, content:$c, status:"draft"}')"
+            )
+            if [ "$HTTP_CODE" = "200" ]; then
+              POST_ID=$(jq -r '.post_id' /tmp/wp_resp.json)
+              echo "  OK — Post ID $POST_ID"
+              published=$((published+1))
+            else
+              echo "  FAIL HTTP $HTTP_CODE — $(cat /tmp/wp_resp.json)"
+              failed=$((failed+1))
+            fi
+          done < changed_files.txt
+          echo "Summary: $published published, $failed failed."
+
+      - name: Archive published files
+        run: |
+          mkdir -p drafts/archive
+          while IFS= read -r file; do
+            [ -f "$file" ] && git mv "$file" "drafts/archive/$(basename $file)" || true
+          done < changed_files.txt
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --cached --quiet || \
+            git commit -m "chore: archive published drafts [skip ci]" && git push

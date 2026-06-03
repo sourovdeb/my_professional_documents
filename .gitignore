@@ -1,0 +1,43 @@
+# ── Credentials — never commit ──────────────────────────────
+.env
+*.env
+credentials.json
+client_secret*.json
+token.json
+service_account*.json
+
+# ── Python ──────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+*.so
+
+# ── Node ────────────────────────────────────────────────────
+node_modules/
+package-lock.json
+npm-debug.log
+.npm/
+
+# ── OS ──────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# ── Auto-generated (checked into docs/ intentionally) ───────
+# Uncomment if you want to exclude health reports:
+# docs/health_report_*.json
+# docs/job_logs/
+
+# ── Archives (local only) ────────────────────────────────────
+drafts/archive/
+
+# ── IDE ─────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.iml
