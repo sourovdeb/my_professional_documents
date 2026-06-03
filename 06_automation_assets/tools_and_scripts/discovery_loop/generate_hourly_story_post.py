@@ -240,8 +240,8 @@ def schedule_payload(hours_ahead: int, timezone_name: str) -> dict[str, str]:
     scheduled_local = now_local + timedelta(hours=hours_ahead)
     scheduled_utc = scheduled_local.astimezone(timezone.utc)
     return {
-        "date": scheduled_local.replace(tzinfo=None).isoformat(timespec="seconds"),
-        "date_gmt": scheduled_utc.replace(tzinfo=None).isoformat(timespec="seconds"),
+        "date": scheduled_local.strftime("%Y-%m-%d %H:%M:%S"),
+        "date_gmt": scheduled_utc.strftime("%Y-%m-%d %H:%M:%S"),
     }
 
 

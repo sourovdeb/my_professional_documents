@@ -81,8 +81,8 @@ def next_midnight_payload(timezone_name: str) -> dict[str, str]:
     local_midnight = datetime.combine(next_day, time.min, tzinfo=local_zone)
     utc_midnight = local_midnight.astimezone(timezone.utc)
     return {
-        "date": local_midnight.replace(tzinfo=None).isoformat(timespec="seconds"),
-        "date_gmt": utc_midnight.replace(tzinfo=None).isoformat(timespec="seconds"),
+        "date": local_midnight.strftime("%Y-%m-%d %H:%M:%S"),
+        "date_gmt": utc_midnight.strftime("%Y-%m-%d %H:%M:%S"),
     }
 
 
