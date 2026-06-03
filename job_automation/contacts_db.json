@@ -1,0 +1,64 @@
+{
+  "companies": [
+    {
+      "id": 1,
+      "name": "France Langue",
+      "contact": "Marie Dubois",
+      "email": "marie@francelangue.fr",
+      "phone": "+33 1 XX XX XX XX",
+      "industry": "Language Teaching",
+      "status": "pending",
+      "applied_date": null,
+      "last_contact": "2026-06-03",
+      "follow_up_date": "2026-06-10",
+      "notes": "Potential English teaching role. High interest in CELTA teachers.",
+      "source": "Indeed"
+    },
+    {
+      "id": 2,
+      "name": "[Add your target company]",
+      "contact": "[Contact name]",
+      "email": "[email@company.fr]",
+      "phone": "[+33 X XX XX XX XX]",
+      "industry": "[Industry]",
+      "status": "new",
+      "applied_date": null,
+      "last_contact": null,
+      "follow_up_date": null,
+      "notes": "Add notes here for context",
+      "source": "Indeed"
+    }
+  ],
+  "collaborators": [
+    {
+      "id": 101,
+      "name": "Alex Chen",
+      "email": "alex@medium.com",
+      "twitter": "@alexchen",
+      "focus": "Mental health writing, neurodiversity",
+      "status": "prospect",
+      "last_contact": "2026-06-01",
+      "follow_up_date": "2026-06-15",
+      "notes": "Strong fit for writing partnership on bipolar + tech topics",
+      "why_connect": "Shared interest in mental health + technology"
+    },
+    {
+      "id": 102,
+      "name": "[Collaborator name]",
+      "email": "[email@domain.com]",
+      "twitter": "[@handle]",
+      "focus": "[Their focus area]",
+      "status": "prospect",
+      "last_contact": null,
+      "follow_up_date": null,
+      "notes": "Add notes here",
+      "why_connect": "Explain why you want to work together"
+    }
+  ],
+  "metadata": {
+    "last_updated": "2026-06-03",
+    "total_companies": 2,
+    "total_collaborators": 2,
+    "next_action": "Review companies and collaborators, add more targets"
+  }
+}

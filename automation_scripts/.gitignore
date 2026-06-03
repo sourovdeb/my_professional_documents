@@ -1,0 +1,31 @@
+# Environment variables (NEVER commit!)
+.env
+.env.local
+.env.*.local
+
+# Generated files
+*.pyc
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.coverage
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+*.out
+
+# Credentials (NEVER commit)
+credentials.json
+secrets.json
+config_local.json
