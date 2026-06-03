@@ -1,0 +1,2 @@
+Application_Date,Company,Position,Job_Type,Location,Salary_Range,Applied_Via,Contact_Name,Contact_Email,Status,Response_Date,Follow_Up_Date,Interview_Date,Offer_Amount,Notes
+2026-06-03,Example Corp,Senior Writer,Full-time,Remote,"$50k-$65k",LinkedIn,John Smith,john@example.com,Applied,,,,,First application - test tracking

@@ -1,7 +1,106 @@
-AI Hub Email Automation Extension v2.0  README
+# Professional Documents & Writing System
 
-PROJECT OVERVIEW
-================
+**Your personal hub for**: Writing, Job Hunting, Health Management, and Automation.
+
+---
+
+## 🎯 Quick Start (Start Here!)
+
+**New to this repo?** Start here: [`QUICK_START.md`](./QUICK_START.md)
+
+**Complete system guide**: [`WRITING_SYSTEM.md`](./WRITING_SYSTEM.md)
+
+---
+
+## 📚 What This Repository Does
+
+```
+Daily Writing (500 words) → Job Automation → Health Tracking → WordPress Publishing
+         ↓
+  Public Portfolio + Job Leads + Exposure + Consistency
+```
+
+**Your goals**:
+- ✅ Write daily essays on your terms
+- ✅ Automate job searching (Indeed, LinkedIn)
+- ✅ Track mental health (bipolar/depression management)
+- ✅ Publish to WordPress (sourovdeb.com)
+- ✅ Build your network systematically
+- ✅ Get job offers + partnerships
+
+---
+
+## 📁 Core Directories
+
+| Directory | Purpose | Start Here |
+|-----------|---------|-----------|
+| **Essays_and_Blogs/** | Daily 500-word writing practice | `TEMPLATE.md` |
+| **Job_Automation/** | Automate job search, tracking, outreach | `job_tracker.py` |
+| **Health_and_Wellbeing/** | Bipolar/depression tracking & wellness | `Daily_Checklist.md` |
+| **WordPress_Drafts/** | Staging area for blog publication | Publishing guide |
+| **Tools_and_Ideas/** | Open-source tools & automation scripts | `OPEN_SOURCE_TOOLS.md` |
+| **Contacts_and_Partnerships/** | Network building & collaborations | `Network_Master.csv` |
+
+---
+
+## 🚀 Today: Get Started
+
+```bash
+# 1. Create your first essay (copy template)
+cp Essays_and_Blogs/TEMPLATE.md Essays_and_Blogs/2026/06/2026-06-03-my-story.md
+
+# 2. Write 500 words (30 minutes)
+vim Essays_and_Blogs/2026/06/2026-06-03-my-story.md
+
+# 3. Commit and push
+git add Essays_and_Blogs/
+git commit -m "Essay: My Story"
+git push -u origin claude/nifty-clarke-06pXm
+```
+
+**By tonight, you'll have your first public essay.**
+
+---
+
+## 📊 Key Files
+
+- **[`QUICK_START.md`](./QUICK_START.md)** — 15-minute setup + daily routine
+- **[`WRITING_SYSTEM.md`](./WRITING_SYSTEM.md)** — Complete system overview
+- **[`Essays_and_Blogs/README.md`](./Essays_and_Blogs/README.md)** — Writing guidelines & templates
+- **[`Job_Automation/README.md`](./Job_Automation/README.md)** — Job search automation guide
+- **[`Health_and_Wellbeing/README.md`](./Health_and_Wellbeing/README.md)** — Mental health tracking system
+- **[`WordPress_Drafts/README.md`](./WordPress_Drafts/README.md)** — Publishing to your blog
+- **[`Tools_and_Ideas/README.md`](./Tools_and_Ideas/README.md)** — Tools, scripts, and ideas collection
+- **[`Contacts_and_Partnerships/README.md`](./Contacts_and_Partnerships/README.md)** — Networking strategy
+
+---
+
+## 🎓 Your Journey
+
+1. **Week 1**: Write 7 essays, set up health tracking
+2. **Week 2**: Publish 2 essays to WordPress, track 10 job applications
+3. **Week 3**: Reach out to 5 people in your network
+4. **Week 4**: Evaluate, adjust, build momentum
+
+**By end of month**: 28 essays written, 4+ published, job offers incoming.
+
+---
+
+## 💙 Philosophy
+
+- **Quality over quantity**: 1 honest essay beats 10 surface-level ones
+- **Mental health first**: Consistency adapted to your energy
+- **Public portfolio**: Writing = credibility = opportunities
+- **Active voice**: Your story, told your way
+- **Reusable tools**: Build once, use forever
+
+---
+
+---
+
+## 🔧 AI Hub Email Automation Extension v2.0
+
+**For the Chrome Extension section (legacy content below):**
 
 This is an OPEN-SOURCE, API-DRIVEN Chrome Extension that combines multi-model AI assistance with email automation capabilities.
 
