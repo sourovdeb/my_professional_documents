@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run a 12-hour discovery cycle and log important findings for the user."""
+"""Run a 6-hour discovery cycle and log important findings for the user."""
 
 from __future__ import annotations
 
@@ -104,7 +104,7 @@ def write_report(candidates: List[Candidate], errors: List[str]) -> Path:
     report_path = REPORT_DIR / f"discovery_report_{timestamp}.md"
 
     lines = [
-        "# 12-Hour Discovery Report",
+        "# 6-Hour Discovery Report",
         "",
         f"Generated: {timestamp}",
         "",
@@ -143,7 +143,7 @@ def update_important_file(report_path: Path, candidates: List[Candidate]) -> Non
     lines = [
         "# Important Findings for User",
         "",
-        "This file is updated by the 12-hour discovery cycle.",
+        "This file is updated by the 6-hour discovery cycle.",
         "",
         f"Last update: {timestamp}",
         f"Latest report: `{report_path.relative_to(ROOT)}`",

@@ -1,4 +1,4 @@
-# 12-Hour Discovery Loop
+# 6-Hour Discovery Loop
 
 Runs a recurring discovery cycle to find potentially important tools/services for the user.
 
@@ -64,10 +64,10 @@ python3 /tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/
 
 REST endpoint references are indexed in `WORDPRESS_REST_REFERENCES.md`.
 
-## Schedule every 12 hours (cron)
+## Schedule every 6 hours (cron)
 
 ```cron
-0 */12 * * * /usr/bin/python3 /tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tools_and_scripts/discovery_loop/run_discovery_cycle.py
+0 */6 * * * /usr/bin/python3 /tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tools_and_scripts/discovery_loop/run_discovery_cycle.py
 ```
 
 Adjust source feeds and area keywords in `discovery_sources.json`.
@@ -100,4 +100,18 @@ Schedule every hour (cron):
 
 ```cron
 0 * * * * WP_API_KEY='<your_key>' /usr/bin/python3 /tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tools_and_scripts/discovery_loop/generate_hourly_story_post.py --execute
+```
+
+## Privacy boundary for generated blogs
+
+- Do not publish personal/medical raw documents directly.
+- The hourly story generator ignores sensitive paths (for example `04_legal_medical/` and `07_mental_health_support/`) when selecting source files.
+- Use those folders for internal curation and tool recommendations, not direct post content.
+
+## Create a WordPress queue CSV
+
+Generate a CSV queue without publishing:
+
+```bash
+python3 /tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tools_and_scripts/discovery_loop/push_drafts_to_wordpress.py --csv-output /tmp/workspace/sourovdeb/my_professional_documents/06_automation_assets/tool_discovery_reports/wordpress_queue.csv --csv-only
 ```

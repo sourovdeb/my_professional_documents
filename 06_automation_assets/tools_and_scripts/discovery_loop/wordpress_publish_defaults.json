@@ -25,10 +25,9 @@
   "hourly_story_source_globs": [
     "02_identity_profile/**/*.md",
     "03_communications/**/*.md",
-    "04_legal_medical/**/*.md",
-    "05_jobs_cv_outreach/**/*.md",
-    "07_mental_health_support/**/*.md"
+    "05_jobs_cv_outreach/**/*.md"
   ],
+  "csv_output_path": "06_automation_assets/tool_discovery_reports/wordpress_queue.csv",
   "draft_paths": [
     "IMPORTANT_FOR_USER.md"
   ],

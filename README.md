@@ -13,15 +13,16 @@ Repository reorganized for easier daily execution and lower cognitive load.
 - `07_mental_health_support/` — therapy and wellbeing notes.
 - `08_archive/` — previous bundles, historical exports, snapshots.
 
-## 12-hour automation loop
+## 6-hour automation loop
 
-Every 12 hours, run a lightweight cycle:
+Every 6 hours, run a lightweight cycle:
 
 1. Scan for new tools/services in: writing, reminders, form filling, document collection, auto design, auto contact, WordPress control, and file checking.
 2. Triage each candidate for usefulness, cost, privacy, and mental-load reduction.
 3. Keep only high-value candidates in an action queue.
 4. Implement one small automation improvement at a time.
 5. Log what changed and expected daily-life benefit.
+6. Keep personal and medical documents as internal context only; do not publish them directly.
 
 See `/tmp/workspace/sourovdeb/my_professional_documents/REPO_INVENTORY.md` for the reorganization map and operational checklist.
 

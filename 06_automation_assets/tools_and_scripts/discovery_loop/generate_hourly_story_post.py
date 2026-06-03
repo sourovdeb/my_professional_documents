@@ -23,10 +23,9 @@ DEFAULT_OUTPUT_DIR = ROOT / "03_communications" / "hourly_story_posts"
 DEFAULT_SOURCE_GLOBS = [
     "02_identity_profile/**/*.md",
     "03_communications/**/*.md",
-    "04_legal_medical/**/*.md",
     "05_jobs_cv_outreach/**/*.md",
-    "07_mental_health_support/**/*.md",
 ]
+SENSITIVE_PATH_SEGMENTS = {"04_legal_medical", "07_mental_health_support"}
 
 
 @dataclass
@@ -134,6 +133,8 @@ def gather_source_files(globs: Iterable[str]) -> List[Path]:
         if path.suffix.lower() not in {".md", ".txt"}:
             continue
         if "08_archive" in path.parts:
+            continue
+        if any(segment in path.parts for segment in SENSITIVE_PATH_SEGMENTS):
             continue
         try:
             if path.stat().st_size > 250_000:

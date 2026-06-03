@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import os
 from dataclasses import dataclass
@@ -127,6 +128,51 @@ def build_payload(
     return payload
 
 
+def write_csv_queue(
+    csv_path: Path,
+    posts: List[DraftPost],
+    endpoint: str,
+    status: str,
+    tags: List[str],
+    categories: List[str],
+    schedule_midnight: bool,
+    schedule_timezone: str,
+) -> None:
+    csv_path.parent.mkdir(parents=True, exist_ok=True)
+    schedule = next_midnight_payload(schedule_timezone) if schedule_midnight else {"date": "", "date_gmt": ""}
+    generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    with csv_path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=[
+                "generated_at_utc",
+                "title",
+                "source_file",
+                "endpoint",
+                "status",
+                "tags",
+                "categories",
+                "scheduled_local",
+                "scheduled_gmt",
+            ],
+        )
+        writer.writeheader()
+        for post in posts:
+            writer.writerow(
+                {
+                    "generated_at_utc": generated_at,
+                    "title": post.title,
+                    "source_file": str(post.source),
+                    "endpoint": endpoint,
+                    "status": "future" if schedule_midnight else status,
+                    "tags": ",".join(tags),
+                    "categories": ",".join(categories),
+                    "scheduled_local": schedule["date"],
+                    "scheduled_gmt": schedule["date_gmt"],
+                }
+            )
+
+
 def collect_draft_paths(extra_paths: Iterable[str], configured_paths: Iterable[str]) -> List[Path]:
     paths = list(DEFAULT_DRAFTS)
 
@@ -169,6 +215,8 @@ def main() -> int:
     parser.add_argument("--no-schedule-midnight", action="store_true", help="Disable midnight scheduling from config")
     parser.add_argument("--schedule-timezone", default=None, help="Timezone for midnight scheduling (default UTC)")
     parser.add_argument("--draft", action="append", default=[], help="Additional markdown draft path (repeatable)")
+    parser.add_argument("--csv-output", default=None, help="Write prepared WordPress queue metadata to CSV")
+    parser.add_argument("--csv-only", action="store_true", help="Only create CSV queue metadata and skip publish")
 
     args = parser.parse_args()
     config = load_config(Path(args.config))
@@ -180,6 +228,7 @@ def main() -> int:
     configured_categories = config.get("default_categories", [])
     configured_schedule = bool(config.get("schedule_midnight", False))
     schedule_timezone = args.schedule_timezone or str(config.get("schedule_timezone", "UTC"))
+    configured_csv_output = config.get("csv_output_path")
 
     tags = normalize_terms(args.tag or configured_tags)
     categories = normalize_terms(args.category or configured_categories)
@@ -193,6 +242,17 @@ def main() -> int:
         return 1
 
     posts = [markdown_to_post(path) for path in existing]
+    csv_output = args.csv_output or (str(configured_csv_output) if configured_csv_output else "")
+    if csv_output:
+        csv_path = Path(csv_output)
+        if not csv_path.is_absolute():
+            csv_path = ROOT / csv_path
+        write_csv_queue(csv_path, posts, endpoint, status, tags, categories, schedule_midnight, schedule_timezone)
+        print(f"CSV queue written: {csv_path}")
+
+    if args.csv_only:
+        print("CSV-only mode complete. No WordPress publishing attempted.")
+        return 0
 
     if not args.execute:
         print("Dry run complete. Drafts that would be pushed:")
