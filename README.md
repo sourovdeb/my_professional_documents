@@ -1,309 +1,127 @@
-AI Hub Email Automation Extension v2.0  README
+# Sourov Deb — Personal Documents & Writing Repository
 
-PROJECT OVERVIEW
-================
+This repository is the operational hub for Sourov Deb's writing, job search, automation tools, and professional life. It is private, organised, and health-adapted — designed for someone managing bipolar I disorder, ADHD, and complex PTSD while building a public voice and teaching practice.
 
-This is an OPEN-SOURCE, API-DRIVEN Chrome Extension that combines multi-model AI assistance with email automation capabilities.
+**Website:** [sourovdeb.com](https://www.sourovdeb.com)
+**Email:** sourovdeb.is@gmail.com
+**Location:** Saint-Pierre, La Réunion, France
 
-Version: 2.0.0 (Updated with Email Automation)
-License: MIT
-Repository: Open-source (no hardcoded credentials)
+---
 
-FEATURES
-========
+## Repository Structure
 
-✅ Multi-Model AI Support:
-Claude API (via Anthropic)
-  - Ollama (local, self-hosted)
-  - DeepSeek API
-  - Gemini API
-  - Custom API endpoints
-✅ Email Automation (New in v2.0):
-Create Gmail drafts from CSV data
-  - Sector-specific email templates
-  - Personalized subject lines & bodies
-  - Batch draft creation
-  - Drag-and-drop CSV upload
-✅ Core Features:
-Summarize web pages
-  - Fill forms automatically
-  - Draft professional emails
-  - Research assistance
-  - Context menus for quick access
-ARCHITECTURE
-============
+```
+my_professional_documents/
+│
+├── blog_drafts/              ← 7 original essays, ~500 words each
+│   ├── 2026-06-03-ship-with-broken-compass.md        (WP Draft #155)
+│   ├── 2026-06-03-bipolar-productivity-truth.md      (WP Draft #156)
+│   ├── 2026-06-03-forensic-auditor.md                (WP Draft #157)
+│   ├── 2026-06-03-five-languages-one-voice.md        (WP Draft #158)
+│   ├── 2026-06-03-generational-trauma-stops-here.md  (WP Draft #159)
+│   ├── 2026-06-03-tools-for-neurodivergent-writers.md (WP Draft #160)
+│   ├── 2026-06-03-when-cambridge-failed-me.md        (Pitch: The Guardian)
+│   └── WORDPRESS_CSV_QUEUE.md                        ← Copy-paste for Google Sheets
+│
+├── automation/               ← Free open source scripts, no paid APIs
+│   ├── job_search_automation.py      ← Indeed RSS → Gmail daily digest
+│   ├── wordpress_draft_publisher.py  ← .md files → WordPress drafts via REST API
+│   ├── partner_finder.py             ← Find writers on Medium + Substack
+│   └── create_wp_drafts.php          ← Batch WordPress draft creator
+│
+├── cv_and_applications/
+│   ├── aeronautics/          ← Aviation English specialist applications
+│   ├── hospitality/          ← Luxury hospitality management applications
+│   ├── general/              ← General educator / content roles
+│   └── JOB_SEARCH_STRATEGY.md  ← Platform list, automation, action plan
+│
+├── Communications/
+│   ├── CONTACTS_AND_EMAILS_FOUR_CHANNELS.md
+│   └── PAID_PUBLICATIONS_PITCH_LIST.md  ← Headspace, Guardian, ADDitude, etc.
+│
+├── therapy_and_wellbeing/
+│   ├── DAILY_STABILITY_GUIDE.md  ← Bipolar/ADHD/PTSD daily routine
+│   └── harmony-*.md              ← AI therapy session notes (private)
+│
+├── Story_of_Sourov/           ← Source material for essays (DO NOT publish directly)
+│   ├── 01_MASTER_DOCUMENTS/
+│   ├── 02_ANALYSIS_DOCUMENTS/
+│   ├── 03_TOOLS_SCRIPTS/
+│   ├── 04_REUSABLE_SKILLS/
+│   ├── 05_INDEX_GUIDES/
+│   └── 06_ARCHIVES/
+│
+├── Biography_and_Medical/     ← Private medical records (DO NOT publish)
+├── Legal_Documents/           ← CELTA appeal, Ofqual complaint docs
+├── CELTA_Teaching_Materials/  ← Teaching resources
+├── browser_extension/         ← AI Hub Chrome Extension source
+├── archives/                  ← Historical documents
+│
+└── CONTENT_INDEX.md           ← Master map — everything in one place
+```
 
-Files Overview:
-  Manifest.json               — Extension config (v3 MV3)
-  config.js                   — API endpoints (environment-based)
-  api-client.js               — Multi-provider API routing
-  ollama-client.js            — Ollama HTTP API wrapper
-  email-automation.js         — Gmail draft creation logic
-  sidepanel.js               — Main UI (26 KB)
-  Sidepanel.html             — Sidepanel markup
-  Sidepanel.css              — Styling (15 KB)
-  background.js              — Service worker (18 KB)
-  content.js                 — Page injection (4 KB)
-  Popup.html                 — Popup UI
-  popup.js                   — Popup logic
-  testing-guide.md           — Bug testing procedures
-  SETUP.md                   — Installation guide
+---
 
-API CONFIGURATION (No Hardcoding!)
-==================================
+## WordPress Drafts Live on sourovdeb.com
 
-All API keys and endpoints are configured via environment variables or user settings UI.
+All 7 essays are available as drafts in the WordPress admin. Review and publish on your schedule.
 
-Configuration File Structure (config.js):
-—---
-Const CONFIG = {
-  // API Providers - set via environment or UI
-  Providers: {
-    Claude: {
-      Enabled: false,
-      apiKey: process.env.CLAUDE_API_KEY || ‘’,
-      baseURL: ‘https://api.anthropic.com/v1’,
-      Model: ‘claude-3-5-sonnet-20241022’
-    },
-    Ollama: {
-      Enabled: true,  // Default to Ollama for local use
-      baseURL: process.env.OLLAMA_URL || ‘http://localhost:11434’,
-      Model: process.env.OLLAMA_MODEL || ‘mistral’
-    },
-    Deepseek: {
-      Enabled: false,
-      apiKey: process.env.DEEPSEEK_API_KEY || ‘’,
-      baseURL: ‘https://api.deepseek.com/v1’,
-      Model: ‘deepseek-chat’
-    },
-    Gemini: {
-      Enabled: false,
-      apiKey: process.env.GEMINI_API_KEY || ‘’,
-      baseURL: ‘https://generativelanguage.googleapis.com/v1’,
-      Model: ‘gemini-1.5-pro’
-    }
-  },
-  
-  // Email Automation Config
-  emailAutomation: {
-    Enabled: true,
-    csvTimeout: 30000,
-    draftBatchSize: 30,
-    Templates: {
-      sectorMappings: {
-        ‘Agences intérim’: ‘P1’,
-        ‘Hôtellerie & Tourisme’: ‘P2’,
-        ‘Transport aérien’: ‘P3’,
-        ‘Multinationales’: ‘P4’,
-        ‘Santé’: ‘P5’,
-        ‘Télécoms / Médias / Finance’: ‘P6’
-      }
-    }
-  }
-};
-—---
+| Post ID | Title | Suggested Date |
+|---------|-------|----------------|
+| 155 | The Ship With a Broken Compass | 2026-06-10 |
+| 156 | What Bipolar Taught Me That Productivity Gurus Got Wrong | 2026-06-17 |
+| 157 | The Forensic Auditor: How Documentation Became My Therapy | 2026-06-24 |
+| 158 | Five Languages, One Voice | 2026-07-01 |
+| 159 | Generational Trauma Stops Here | 2026-07-08 |
+| 160 | The Neurodivergent Writer's Toolkit (2026) | 2026-07-15 |
 
-SETUP INSTRUCTIONS
-==================
+**WordPress admin:** https://sourovdeb.com/wp-admin
 
-Step 1: Install Chrome Extension
-Clone/download files to local folder
-  b) Open chrome://extensions
-  c) Enable “Developer mode” (top right)
-  d) Click “Load unpacked”
-  e) Select the extension folder
-Step 2: Configure API Providers
+---
 
-Option A - Use Local Ollama (Recommended):
-Install Ollama from ollama.ai
-  2. Run: ollama serve
-  3. In another terminal: ollama pull mistral (or your model)
-  4. Set OLLAMA_URL=http://localhost:11434 in extension settings
-  5. Extension will use Ollama by default
-Option B - Use Claude API:
-Get API key from console.anthropic.com
-  2. In extension popup: click “Settings”
-  3. Paste Claude API key
-  4. Select “Claude” as active provider
-  5. Save settings
-Option C - Use DeepSeek/Gemini:
-  Same as Claude - get API key, paste in Settings, select provider
+## Automation — Quick Start
 
-Step 3: Email Automation Setup
-Click “Email Automation” tab in sidepanel
-  2. Upload CSV file (format: index, company, email, sector, city, subject)
-  3. Review mapped sectors
-  4. Click “Create Drafts”
-  5. Wait for batch creation
-  6. Check Gmail Drafts folder
-CSV FORMAT (Email Automation)
-============================
+```bash
+# Install dependencies
+pip install requests feedparser beautifulsoup4 markdown python-frontmatter
 
-Required columns:
-  Index     — Row number (1-30)
-  Company   — Company name
-  Email     — Contact email
-  Sector    — Industry sector
-  City      — City/location
-  Subject   — Email subject line
+# Job search digest (set GMAIL_APP_PASSWORD env var first)
+python automation/job_search_automation.py
 
-Example CSV:
-  Index,company,email,sector,city,subject
-  1,ACME Inc,contact@acme.fr,Hôtellerie & Tourisme,Paris,”Formateur d’Anglais – ACME”
-  2,Tech Corp,hello@techcorp.com,Multinationales,Lyon,”Expert English Training – Tech Corp”
+# Push markdown drafts to WordPress (set WP_APP_PASSWORD env var first)
+python automation/wordpress_draft_publisher.py --dry-run
 
-OLLAMA INTEGRATION
-==================
+# Find writing partners on Medium + Substack
+python automation/partner_finder.py
+```
 
-What is Ollama?
-  Ollama is a lightweight container runtime for LLMs. It runs locally on your machine, providing privacy and no API costs.
+---
 
-Installation:
-Download from ollama.ai
-  2. Run installer
-  3. Start service: ollama serve
-  4. In new terminal: ollama pull mistral  (or llama2, neural-chat, etc.)
-Using Ollama in Extension:
-Extension auto-detects Ollama at http://localhost:11434
-  - Select any downloaded model in Settings
-  - Uses native HTTP API (no additional libraries needed)
-  - Completely private — data stays on your machine
-Models Available:
-  Ollama pull mistral    — Fast, good quality (default)
-  Ollama pull llama2     — Larger model, slower
-  Ollama pull neural-chat — Optimized for chat
-  Ollama pull orca-mini  — Lightweight option
+## Writing Principles
 
-TESTING & BUG FIXES
-===================
+1. **Active voice.** Always. Not "mistakes were made" — "I made mistakes."
+2. **500 words.** Quality over length. Say it once, say it well.
+3. **Human, not monotone.** Vary the rhythm. Let the pace breathe.
+4. **Official sources only.** Research before you claim. Link when you can.
+5. **Protect the rhythm.** One post per week beats a burst and a crash.
 
-Included Testing Guide covers:
-  ✓ API connection testing
-  ✓ Email draft creation validation
-  ✓ CSV parsing verification
-  ✓ Ollama connectivity check
-  ✓ Multi-provider switching
-  ✓ Error handling scenarios
+---
 
-See testing-guide.md for full checklist and debugging steps.
+## Branching Convention
 
-ARCHITECTURE DIAGRAM
-====================
+- `main` — stable, reviewed content
+- `claude/determined-brown-TZOiX` — active development
+- `blog/YYYY-MM-DD-post-name` — individual blog posts (one branch per post)
 
-User Interaction (UI Layer)
-    ↓
-Sidepanel.js (Route requests)
-    ↓
-API Router (api-client.js)
-    ├→ Ollama Client
-    ├→ Claude API
-    ├→ DeepSeek API
-    └→ Gemini API
-    ↓
-Background.js (Process responses)
-    ↓
-Content.js (Inject into page)
-    ↓
-Email Automation (New!)
-    ├→ CSV Parser
-    ├→ Sector Mapper
-    ├→ Template Engine
-    └→ Gmail Draft Creator
+---
 
-ENVIRONMENT VARIABLES
-=====================
+## Important Reminders
 
-Set these before loading extension (or via Settings UI):
+- **Biography_and_Medical/** is private source material — draw from it, do not publish it
+- **Legal_Documents/** contains active complaint files — handle with care
+- **Credentials** are stored as environment variables, never in this repo
+- **Every new blog post** gets its own branch before publishing
 
-CLAUDE_API_KEY=sk-ant-xxxxx
-OLLAMA_URL=http://localhost:11434
-OLLAMA_MODEL=mistral
-DEEPSEEK_API_KEY=sk-xxxxx
-GEMINI_API_KEY=xxxxx
+---
 
-SECURITY & PRIVACY
-==================
-
-✓ No hardcoded API keys
-✓ No tracking or telemetry
-✓ Local Ollama runs entirely on your machine
-✓ All API calls logged locally (optional)
-✓ Content security policy enforced (CSP)
-✓ Permissions limited to necessary only
-
-FUTURE ROADMAP
-==============
-
-V2.1 — Integration with Google Sheets for CSV management
-V2.2 — Email template library (cloud-synced, optional)
-V2.3 — Batch scheduling for draft creation
-V3.0 — Multi-language support
-V3.1 — Custom sector definitions & templates
-
-TROUBLESHOOTING
-===============
-
-Ollama not connecting?
-  → Check: ollama serve is running
-  → Check: OLLAMA_URL setting (default: http://localhost:11434)
-  → Check: Port 11434 not blocked by firewall
-
-Email drafts not created?
-  → Check: CSV format matches requirements
-  → Check: Gmail permissions granted
-  → Check: Rate limiting (max 30/batch)
-  → Check: Sector names match template mappings
-
-API key errors?
-  → Verify key in Settings
-  → Check key has correct permissions
-  → Check for expired keys
-  → Restart extension after changing key
-
-CONTRIBUTING
-============
-
-This is open-source! Contributions welcome.
-
-To contribute:
-Fork repository
-  2. Create feature branch
-  3. Test thoroughly (see testing-guide.md)
-  4. Submit PR with description
-  5. Ensure no hardcoded values
-LICENSE
-=======
-
-MIT License — See LICENSE file
-
-SUPPORT
-=======
-
-For issues:
-Check testing-guide.md
-  2. Enable debug logging in Settings
-  3. Check browser console (F12)
-  4. Open issue with:
-     - Error message
-     - Console logs
-     - Steps to reproduce
-     - Provider(s) used
-CHANGELOG
-=========
-
-V2.0.0 (2026-05-17)
-  ✓ Email automation module added
-  ✓ Ollama integration
-  ✓ Config-based API management
-  ✓ CSV batch processing
-  ✓ Sector template mapping
-
-V1.0.0 (Initial Release)
-  ✓ Claude, DeepSeek, Gemini support
-  ✓ Summarization
-  ✓ Form filling
-  ✓ Context menus
-
-===============================================
-For detailed file documentation, see individual file headers in each JS/JSON file.
-Version 2.0.0 | Updated 2026-05-17 | Sourov Deb
+*This repository was organised on 2026-06-03. Previous work is archived in `archives/`.*
