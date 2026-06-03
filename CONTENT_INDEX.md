@@ -8,12 +8,12 @@ Last updated: 2026-06-03
 
 | # | File | Title | Category | Status | Words |
 |---|------|-------|----------|--------|-------|
-| 1 | `2026-06-03-ship-with-broken-compass.md` | The Ship With a Broken Compass | Mental Health / Personal | Draft | ~520 |
-| 2 | `2026-06-03-bipolar-productivity-truth.md` | What Bipolar Taught Me That Every Productivity Guru Got Wrong | Mental Health / Productivity | Draft | ~510 |
-| 3 | `2026-06-03-forensic-auditor.md` | The Forensic Auditor: How Documentation Became My Therapy | Advocacy / Education | Draft | ~530 |
-| 4 | `2026-06-03-five-languages-one-voice.md` | Five Languages, One Voice: Why I Never Felt Smart Enough | Language / Identity | Draft | ~490 |
-| 5 | `2026-06-03-generational-trauma-stops-here.md` | Generational Trauma Stops Here | Mental Health / Parenting | Draft | ~500 |
-| 6 | `2026-06-03-tools-for-neurodivergent-writers.md` | The Neurodivergent Writer's Toolkit: What Actually Works (2026) | Tools / Productivity | Draft | ~540 |
+| 1 | `2026-06-03-ship-with-broken-compass.md` | The Ship With a Broken Compass | Mental Health / Personal | **WP Draft ID 155** | ~520 |
+| 2 | `2026-06-03-bipolar-productivity-truth.md` | What Bipolar Taught Me That Every Productivity Guru Got Wrong | Mental Health / Productivity | **WP Draft ID 156** | ~510 |
+| 3 | `2026-06-03-forensic-auditor.md` | The Forensic Auditor: How Documentation Became My Therapy | Advocacy / Education | **WP Draft ID 157** | ~530 |
+| 4 | `2026-06-03-five-languages-one-voice.md` | Five Languages, One Voice: Why I Never Felt Smart Enough | Language / Identity | **WP Draft ID 158** | ~490 |
+| 5 | `2026-06-03-generational-trauma-stops-here.md` | Generational Trauma Stops Here | Mental Health / Parenting | **WP Draft ID 159** | ~500 |
+| 6 | `2026-06-03-tools-for-neurodivergent-writers.md` | The Neurodivergent Writer's Toolkit: What Actually Works (2026) | Tools / Productivity | **WP Draft ID 160** | ~540 |
 
 ## Publishing Queue
 
