@@ -1,0 +1,151 @@
+# publish_on_push.yml
+# Automatically publishes Markdown files to WordPress when pushed to drafts/
+#
+# Setup:
+#   1. Go to: GitHub Repo > Settings > Secrets and Variables > Actions
+#   2. Add secret: WP_API_KEY = your WordPress API key
+#   3. (Optional) Add secret: WP_URL if your endpoint differs
+#
+# How to use:
+#   git add drafts/my-post.md
+#   git commit -m "New post: My Title"
+#   git push
+#   -> Post appears as draft in WordPress
+#
+# Frontmatter support (optional, add to top of .md file):
+#   ---
+#   status: draft | publish | future
+#   category: Grammar
+#   tags: grammar, ELT
+#   date: 2026-06-15T09:00
+#   ---
+
+name: Publish Draft to WordPress
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'drafts/*.md'
+      - 'drafts/**/*.md'
+
+jobs:
+  publish:
+    name: Publish new drafts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Find changed Markdown files
+        id: changed
+        run: |
+          FILES=$(git diff --name-only HEAD~1 HEAD -- 'drafts/*.md' 'drafts/**/*.md' | tr '\n' '|')
+          echo "files=$FILES" >> $GITHUB_OUTPUT
+          echo "Changed files: $FILES"
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Publish to WordPress
+        env:
+          WP_KEY: ${{ secrets.WP_API_KEY }}
+          WP_URL: ${{ secrets.WP_URL }}
+          CHANGED_FILES: ${{ steps.changed.outputs.files }}
+        run: |
+          python3 - << 'PYEOF'
+          import os, re, json, requests
+          from pathlib import Path
+
+          WP_URL = os.environ.get('WP_URL') or 'https://sourovdeb.com/wp-json/sourov/v1/ai-post'
+          WP_KEY = os.environ.get('WP_KEY', '')
+
+          if not WP_KEY:
+              print('ERROR: WP_API_KEY secret is not set in this repository.')
+              exit(1)
+
+          def parse_frontmatter(text):
+              meta, body = {}, text
+              if text.startswith('---'):
+                  end = text.find('---', 3)
+                  if end > 0:
+                      for line in text[3:end].split('\n'):
+                          if ':' in line:
+                              k, v = line.split(':', 1)
+                              meta[k.strip().lower()] = v.strip()
+                      body = text[end + 3:].strip()
+              return meta, body
+
+          def detect_category(text):
+              t = text.lower()
+              if re.search(r'grammar|tense|verb|noun', t):           return 'Grammar'
+              if re.search(r'listening|pronunciation|phonology', t): return 'Listening & Phonology'
+              if re.search(r'celta|lesson plan', t):                 return 'CELTA'
+              if re.search(r'speaking|fluency|conversation', t):     return 'Speaking & Fluency'
+              if re.search(r'vocabulary|lexis', t):                  return 'Vocabulary'
+              return 'ELT Masterclass'
+
+          def detect_tags(text):
+              t = text.lower()
+              tag_map = {'grammar':'grammar','listening':'listening','speaking':'speaking',
+                         'pronunciation':'pronunciation','celta':'CELTA',' elt ':'ELT',
+                         'fluency':'fluency','ielts':'IELTS'}
+              return ', '.join({v for k, v in tag_map.items() if k in t}) or 'ELT'
+
+          changed = [f for f in os.environ.get('CHANGED_FILES','').split('|') if f.endswith('.md')]
+
+          if not changed:
+              print('No Markdown files changed in drafts/. Nothing to publish.')
+              exit(0)
+
+          results = []
+          for filepath in changed:
+              p = Path(filepath)
+              if not p.exists():
+                  print(f'File not found: {filepath}')
+                  continue
+
+              raw = p.read_text(encoding='utf-8')
+              meta, body = parse_frontmatter(raw)
+
+              # Extract title
+              title_match = re.search(r'^#+\s+(.+)', body, re.MULTILINE)
+              title = meta.get('title') or (title_match.group(1).strip() if title_match else p.stem)
+              if title_match:
+                  body = re.sub(r'^#+\s+.+\n?', '', body, count=1, flags=re.MULTILINE).strip()
+
+              status   = meta.get('status', 'draft')
+              category = meta.get('category') or detect_category(title + ' ' + body)
+              tags     = meta.get('tags')     or detect_tags(title + ' ' + body)
+
+              payload = {
+                  'title': title, 'content': body,
+                  'status': status if status in ('draft','publish','future') else 'draft',
+                  'category': category, 'tags': tags,
+                  'meta_description': re.sub(r'<[^>]+>', '', body)[:155],
+              }
+              if status == 'future' and 'date' in meta:
+                  payload['date'] = meta['date']
+
+              try:
+                  r = requests.post(WP_URL, json=payload,
+                                    headers={'X-Sourov-Key': WP_KEY, 'Content-Type': 'application/json'},
+                                    timeout=30)
+                  data = r.json()
+                  if r.status_code == 200 and data.get('post_id'):
+                      print(f"SUCCESS: '{title}' -> Post ID {data['post_id']} (status: {status})")
+                  else:
+                      print(f"FAILED: '{title}' -> HTTP {r.status_code}: {data}")
+                      exit(1)
+              except Exception as e:
+                  print(f"ERROR: {e}")
+                  exit(1)
+          PYEOF
