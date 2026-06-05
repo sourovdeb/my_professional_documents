@@ -13,23 +13,24 @@ FEATURES
 ========
 
 ✅ Multi-Model AI Support:
-Claude API (via Anthropic)
+- Anthropic API
   - Ollama (local, self-hosted)
   - DeepSeek API
   - Gemini API
   - Custom API endpoints
 ✅ Email Automation (New in v2.0):
-Create Gmail drafts from CSV data
+- Create Gmail drafts from CSV data
   - Sector-specific email templates
   - Personalized subject lines & bodies
   - Batch draft creation
   - Drag-and-drop CSV upload
 ✅ Core Features:
-Summarize web pages
+- Summarize web pages
   - Fill forms automatically
   - Draft professional emails
   - Research assistance
   - Context menus for quick access
+
 ARCHITECTURE
 ============
 
@@ -55,35 +56,35 @@ API CONFIGURATION (No Hardcoding!)
 All API keys and endpoints are configured via environment variables or user settings UI.
 
 Configuration File Structure (config.js):
-—---
+---
 Const CONFIG = {
   // API Providers - set via environment or UI
   Providers: {
-    Claude: {
+    Anthropic: {
       Enabled: false,
-      apiKey: process.env.CLAUDE_API_KEY || ‘’,
-      baseURL: ‘https://api.anthropic.com/v1’,
-      Model: ‘claude-3-5-sonnet-20241022’
+      apiKey: process.env.ANTHROPIC_API_KEY || '',
+      baseURL: 'https://api.anthropic.com/v1',
+      Model: 'claude-3-5-sonnet-20241022'
     },
     Ollama: {
       Enabled: true,  // Default to Ollama for local use
-      baseURL: process.env.OLLAMA_URL || ‘http://localhost:11434’,
-      Model: process.env.OLLAMA_MODEL || ‘mistral’
+      baseURL: process.env.OLLAMA_URL || 'http://localhost:11434',
+      Model: process.env.OLLAMA_MODEL || 'mistral'
     },
     Deepseek: {
       Enabled: false,
-      apiKey: process.env.DEEPSEEK_API_KEY || ‘’,
-      baseURL: ‘https://api.deepseek.com/v1’,
-      Model: ‘deepseek-chat’
+      apiKey: process.env.DEEPSEEK_API_KEY || '',
+      baseURL: 'https://api.deepseek.com/v1',
+      Model: 'deepseek-chat'
     },
     Gemini: {
       Enabled: false,
-      apiKey: process.env.GEMINI_API_KEY || ‘’,
-      baseURL: ‘https://generativelanguage.googleapis.com/v1’,
-      Model: ‘gemini-1.5-pro’
+      apiKey: process.env.GEMINI_API_KEY || '',
+      baseURL: 'https://generativelanguage.googleapis.com/v1',
+      Model: 'gemini-1.5-pro'
     }
   },
-  
+
   // Email Automation Config
   emailAutomation: {
     Enabled: true,
@@ -91,51 +92,55 @@ Const CONFIG = {
     draftBatchSize: 30,
     Templates: {
       sectorMappings: {
-        ‘Agences intérim’: ‘P1’,
-        ‘Hôtellerie & Tourisme’: ‘P2’,
-        ‘Transport aérien’: ‘P3’,
-        ‘Multinationales’: ‘P4’,
-        ‘Santé’: ‘P5’,
-        ‘Télécoms / Médias / Finance’: ‘P6’
+        'Agences intérim': 'P1',
+        'Hôtellerie & Tourisme': 'P2',
+        'Transport aérien': 'P3',
+        'Multinationales': 'P4',
+        'Santé': 'P5',
+        'Télécoms / Médias / Finance': 'P6'
       }
     }
   }
 };
-—---
+---
 
 SETUP INSTRUCTIONS
 ==================
 
 Step 1: Install Chrome Extension
-Clone/download files to local folder
+  a) Clone/download files to local folder
   b) Open chrome://extensions
-  c) Enable “Developer mode” (top right)
-  d) Click “Load unpacked”
+  c) Enable "Developer mode" (top right)
+  d) Click "Load unpacked"
   e) Select the extension folder
+
 Step 2: Configure API Providers
 
 Option A - Use Local Ollama (Recommended):
-Install Ollama from ollama.ai
+  1. Install Ollama from ollama.ai
   2. Run: ollama serve
   3. In another terminal: ollama pull mistral (or your model)
   4. Set OLLAMA_URL=http://localhost:11434 in extension settings
   5. Extension will use Ollama by default
-Option B - Use Claude API:
-Get API key from console.anthropic.com
-  2. In extension popup: click “Settings”
-  3. Paste Claude API key
-  4. Select “Claude” as active provider
+
+Option B - Use Anthropic API:
+  1. Get API key from console.anthropic.com
+  2. In extension popup: click "Settings"
+  3. Paste Anthropic API key
+  4. Select "Anthropic" as active provider
   5. Save settings
+
 Option C - Use DeepSeek/Gemini:
-  Same as Claude - get API key, paste in Settings, select provider
+  Same as above - get API key, paste in Settings, select provider
 
 Step 3: Email Automation Setup
-Click “Email Automation” tab in sidepanel
+  1. Click "Email Automation" tab in sidepanel
   2. Upload CSV file (format: index, company, email, sector, city, subject)
   3. Review mapped sectors
-  4. Click “Create Drafts”
+  4. Click "Create Drafts"
   5. Wait for batch creation
   6. Check Gmail Drafts folder
+
 CSV FORMAT (Email Automation)
 ============================
 
@@ -149,8 +154,8 @@ Required columns:
 
 Example CSV:
   Index,company,email,sector,city,subject
-  1,ACME Inc,contact@acme.fr,Hôtellerie & Tourisme,Paris,”Formateur d’Anglais – ACME”
-  2,Tech Corp,hello@techcorp.com,Multinationales,Lyon,”Expert English Training – Tech Corp”
+  1,ACME Inc,contact@acme.fr,Hôtellerie & Tourisme,Paris,"Formateur d'Anglais – ACME"
+  2,Tech Corp,hello@techcorp.com,Multinationales,Lyon,"Expert English Training – Tech Corp"
 
 OLLAMA INTEGRATION
 ==================
@@ -159,20 +164,22 @@ What is Ollama?
   Ollama is a lightweight container runtime for LLMs. It runs locally on your machine, providing privacy and no API costs.
 
 Installation:
-Download from ollama.ai
+  1. Download from ollama.ai
   2. Run installer
   3. Start service: ollama serve
   4. In new terminal: ollama pull mistral  (or llama2, neural-chat, etc.)
+
 Using Ollama in Extension:
-Extension auto-detects Ollama at http://localhost:11434
+  - Extension auto-detects Ollama at http://localhost:11434
   - Select any downloaded model in Settings
   - Uses native HTTP API (no additional libraries needed)
   - Completely private — data stays on your machine
+
 Models Available:
-  Ollama pull mistral    — Fast, good quality (default)
-  Ollama pull llama2     — Larger model, slower
-  Ollama pull neural-chat — Optimized for chat
-  Ollama pull orca-mini  — Lightweight option
+  ollama pull mistral    — Fast, good quality (default)
+  ollama pull llama3     — Meta's latest, very capable
+  ollama pull deepseek-r1 — Best reasoning
+  ollama pull phi3       — Lightweight for older machines
 
 TESTING & BUG FIXES
 ===================
@@ -195,8 +202,8 @@ User Interaction (UI Layer)
 Sidepanel.js (Route requests)
     ↓
 API Router (api-client.js)
-    ├→ Ollama Client
-    ├→ Claude API
+    ├→ Ollama Client (local, free)
+    ├→ Anthropic API
     ├→ DeepSeek API
     └→ Gemini API
     ↓
@@ -215,7 +222,7 @@ ENVIRONMENT VARIABLES
 
 Set these before loading extension (or via Settings UI):
 
-CLAUDE_API_KEY=sk-ant-xxxxx
+ANTHROPIC_API_KEY=sk-ant-xxxxx
 OLLAMA_URL=http://localhost:11434
 OLLAMA_MODEL=mistral
 DEEPSEEK_API_KEY=sk-xxxxx
@@ -266,11 +273,12 @@ CONTRIBUTING
 This is open-source! Contributions welcome.
 
 To contribute:
-Fork repository
+  1. Fork repository
   2. Create feature branch
   3. Test thoroughly (see testing-guide.md)
   4. Submit PR with description
   5. Ensure no hardcoded values
+
 LICENSE
 =======
 
@@ -280,7 +288,7 @@ SUPPORT
 =======
 
 For issues:
-Check testing-guide.md
+  1. Check testing-guide.md
   2. Enable debug logging in Settings
   3. Check browser console (F12)
   4. Open issue with:
@@ -288,6 +296,7 @@ Check testing-guide.md
      - Console logs
      - Steps to reproduce
      - Provider(s) used
+
 CHANGELOG
 =========
 
@@ -299,7 +308,7 @@ V2.0.0 (2026-05-17)
   ✓ Sector template mapping
 
 V1.0.0 (Initial Release)
-  ✓ Claude, DeepSeek, Gemini support
+  ✓ Anthropic, DeepSeek, Gemini support
   ✓ Summarization
   ✓ Form filling
   ✓ Context menus
