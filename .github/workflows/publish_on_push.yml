@@ -1,0 +1,88 @@
+# GitHub Actions: Auto-publish Markdown files pushed to drafts/ folder
+# Triggers on any push that includes a .md file in drafts/
+# Required secret: WP_API_KEY (Settings -> Secrets -> Actions)
+
+name: Publish Draft to WordPress
+
+on:
+  push:
+    paths:
+      - 'drafts/*.md'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Need previous commit to find changed files
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Publish changed draft files
+        env:
+          WP_API_KEY: ${{ secrets.WP_API_KEY }}
+          WP_URL: https://sourovdeb.com/wp-json/sourov/v1/ai-post
+        run: |
+          python - <<'PYEOF'
+          import os, re, requests, subprocess
+
+          WP_URL = os.environ['WP_URL']
+          WP_KEY = os.environ['WP_API_KEY']
+
+          def guess_category(title, content):
+              t = (title + ' ' + content).lower()
+              if re.search(r'grammar|tense|verb|syntax', t): return 'Grammar'
+              if re.search(r'listen|pronunciat|phonol', t): return 'Listening & Phonology'
+              if re.search(r'speak|fluency|conversation', t): return 'Speaking & Fluency'
+              if re.search(r'celta|lesson plan', t): return 'CELTA'
+              if re.search(r'reading|writing|essay', t): return 'Reading & Writing'
+              if re.search(r'technology|app|digital', t): return 'Technology in ELT'
+              return 'ELT Masterclass'
+
+          def suggest_tags(title):
+              t = title.lower()
+              mapping = {'grammar':'grammar','listen':'listening','speak':'speaking',
+                         'pronunciat':'pronunciation','celta':'CELTA','elt':'ELT',
+                         'vocabulary':'vocabulary','fluency':'fluency'}
+              found = [v for k,v in mapping.items() if k in t]
+              return ', '.join(set(found)) or 'ELT'
+
+          # Get files changed in this push
+          result = subprocess.run(['git','diff','--name-only','HEAD~1','HEAD'], capture_output=True, text=True)
+          changed = [f for f in result.stdout.strip().split('\n') if f.startswith('drafts/') and f.endswith('.md')]
+          print(f'Changed draft files: {changed}')
+
+          for filepath in changed:
+              if not os.path.exists(filepath):
+                  continue
+              with open(filepath, encoding='utf-8') as f:
+                  raw = f.read()
+              lines = raw.split('\n')
+              title = lines[0].lstrip('# ').strip()
+              body  = '\n'.join(lines[1:]).strip()
+              # Wrap plain paragraphs in <p> tags
+              body_html = '\n'.join(f'<p>{l.strip()}</p>' for l in body.split('\n') if l.strip())
+              category = guess_category(title, body)
+              tags = suggest_tags(title)
+              meta = re.sub(r'<[^>]+>', '', body_html)[:155]
+
+              payload = {
+                  'title': title, 'content': body_html, 'status': 'draft',
+                  'category': category, 'tags': tags, 'meta_description': meta
+              }
+              r = requests.post(WP_URL, json=payload,
+                  headers={'X-Sourov-Key': WP_KEY, 'Content-Type': 'application/json'}, timeout=30)
+              if r.status_code == 200:
+                  post_id = r.json().get('post_id')
+                  print(f'Published: "{title}" -> Post ID {post_id}')
+              else:
+                  print(f'Failed [{r.status_code}]: {title} | {r.text[:200]}')
+          PYEOF
