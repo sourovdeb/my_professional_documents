@@ -1,0 +1,125 @@
+name: Auto-Publish Markdown Drafts to WordPress
+
+# Trigger: any time you push a .md file to the drafts/ folder
+on:
+  push:
+    paths:
+      - 'drafts/*.md'
+      - 'drafts/**/*.md'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # needed to detect changed files
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Publish new/changed markdown files to WordPress
+        env:
+          WP_API_KEY:      ${{ secrets.WP_API_KEY }}
+          WP_URL:          ${{ secrets.WP_URL }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          python - <<'PYEOF'
+          import os, json, re, subprocess, requests
+
+          WP_URL   = os.environ.get('WP_URL', 'https://sourovdeb.com')
+          API_KEY  = os.environ.get('WP_API_KEY', '')
+          DS_KEY   = os.environ.get('DEEPSEEK_API_KEY', '')
+          ENDPOINT = f"{WP_URL.rstrip('/')}/wp-json/sourov/v1/ai-post"
+
+          # Find .md files changed in this push
+          result = subprocess.run(
+              ['git', 'diff', '--name-only', 'HEAD~1', 'HEAD'],
+              capture_output=True, text=True
+          )
+          changed = [f for f in result.stdout.splitlines()
+                     if f.startswith('drafts/') and f.endswith('.md')]
+
+          if not changed:
+              print('No draft files changed in this push.')
+              exit(0)
+
+          print(f'Files to publish: {changed}')
+
+          CATEGORY_MAP = {
+              'grammar': 'Grammar', 'listen': 'Listening & Phonology',
+              'phonology': 'Listening & Phonology', 'celta': 'CELTA',
+              'speak': 'Speaking & Fluency', 'vocabulary': 'Vocabulary',
+              'write': 'Writing Skills'
+          }
+
+          def guess_category(title, body):
+              text = (title + ' ' + body).lower()
+              for kw, cat in CATEGORY_MAP.items():
+                  if kw in text: return cat
+              return 'ELT Masterclass'
+
+          def suggest_tags(title):
+              tag_map = {'grammar':'grammar','listen':'listening','speak':'speaking',
+                         'celta':'CELTA','phonology':'phonology','english':'English'}
+              tags = [t for k,t in tag_map.items() if k in title.lower()]
+              return ','.join(tags[:5]) or 'ELT,English'
+
+          def generate_seo(title, body):
+              if not DS_KEY: return {}
+              prompt = (f'Return ONLY JSON, no markdown:\nTitle: {title}\n'
+                        f'Excerpt: {body[:300]}\n'
+                        '{"seo_title":"","meta_desc":"","tags":[],"category":""}')
+              try:
+                  r = requests.post(
+                      'https://api.deepseek.com/v1/chat/completions',
+                      headers={'Authorization':f'Bearer {DS_KEY}','Content-Type':'application/json'},
+                      json={'model':'deepseek-chat',
+                            'messages':[{'role':'user','content':prompt}],
+                            'temperature':0.2,'max_tokens':250},
+                      timeout=20
+                  )
+                  text = r.json()['choices'][0]['message']['content']
+                  text = text.replace('```json','').replace('```','').strip()
+                  return json.loads(text)
+              except Exception as e:
+                  print(f'DeepSeek error: {e}')
+                  return {}
+
+          for filepath in changed:
+              if not os.path.exists(filepath):
+                  print(f'Skipping (deleted): {filepath}')
+                  continue
+              with open(filepath, encoding='utf-8') as f:
+                  content = f.read()
+              lines = content.strip().split('\n')
+              title = lines[0].lstrip('#').strip()
+              body_md = '\n'.join(lines[1:]).strip()
+              body_html = ''.join(
+                  f'<h2>{p[3:]}</h2>' if p.startswith('## ') else f'<p>{p}</p>'
+                  for p in body_md.split('\n\n') if p.strip()
+              )
+              seo = generate_seo(title, body_md)
+              payload = {
+                  'title': title,
+                  'content': body_html,
+                  'status': 'draft',
+                  'category': seo.get('category') or guess_category(title, body_md),
+                  'tags': ','.join(seo.get('tags') or []) or suggest_tags(title),
+                  'seo_title': seo.get('seo_title') or title[:60],
+                  'meta_description': seo.get('meta_desc') or body_md[:155].replace('\n',' ')
+              }
+              r = requests.post(ENDPOINT,
+                                headers={'X-Sourov-Key':API_KEY,'Content-Type':'application/json'},
+                                json=payload, timeout=30)
+              if r.ok:
+                  print(f'Published draft: "{title}" | ID: {r.json().get("post_id")}')
+              else:
+                  print(f'FAILED {filepath}: {r.status_code} {r.text[:200]}')
+          PYEOF
