@@ -1,0 +1,100 @@
+name: Publish Draft to WordPress
+
+# Triggers when any .md file is pushed to the drafts/ folder
+on:
+  push:
+    paths:
+      - 'drafts/*.md'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Need previous commit to detect changed files
+
+      - name: Get changed draft files
+        id: changed
+        run: |
+          git diff --name-only HEAD~1 HEAD -- 'drafts/*.md' > changed_files.txt
+          cat changed_files.txt
+
+      - name: Publish each draft to WordPress
+        env:
+          WP_KEY: ${{ secrets.WP_API_KEY }}
+          WP_URL: https://sourovdeb.com/wp-json/sourov/v1/ai-post
+        run: |
+          python3 - <<'PYTHON'
+          import os, re, requests, json
+
+          WP_URL = os.environ['WP_URL']
+          WP_KEY = os.environ['WP_KEY']
+
+          CATEGORY_RULES = [
+            (['celta','trainee','lesson plan'],                  'CELTA'),
+            (['grammar','tense','conditional'],                  'Grammar'),
+            (['pronunciation','phonology','listening','minimal'],'Listening & Phonology'),
+            (['speaking','fluency'],                             'Speaking'),
+            (['writing','essay'],                                'Writing Skills'),
+            (['vocabulary','idiom'],                             'Vocabulary'),
+          ]
+          TAG_KEYWORDS = ['grammar','listening','speaking','pronunciation',
+                          'vocabulary','reading','writing','CELTA','ELT','phonology']
+
+          def guess_category(text):
+            t = text.lower()
+            for kws, cat in CATEGORY_RULES:
+              if any(k in t for k in kws): return cat
+            return 'ELT Masterclass'
+
+          def suggest_tags(text):
+            t = text.lower()
+            return ','.join([k for k in TAG_KEYWORDS if k.lower() in t][:5])
+
+          with open('changed_files.txt') as f:
+            files = [l.strip() for l in f if l.strip().endswith('.md')]
+
+          for filepath in files:
+            if not os.path.exists(filepath):
+              print(f'Skipping (deleted): {filepath}')
+              continue
+
+            with open(filepath, encoding='utf-8') as f:
+              content = f.read().strip()
+
+            lines = content.split('\n')
+            title = ''
+            body_start = 0
+            for i, line in enumerate(lines):
+              if line.startswith('# '):
+                title = line[2:].strip()
+                body_start = i + 1
+                break
+
+            if not title:
+              title = os.path.basename(filepath).replace('.md','').replace('-',' ').replace('_',' ').title()
+
+            body     = '\n'.join(lines[body_start:]).strip()
+            body_html = re.sub(r'^## (.+)$', r'<h2>\1</h2>', body, flags=re.M)
+            body_html = re.sub(r'^(?!<[h]).+$', r'<p>\g<0></p>', body_html, flags=re.M)
+            meta_desc = re.sub(r'<[^>]+>',' ', body).strip()[:160]
+
+            payload = {
+              'title':            title,
+              'content':          body_html,
+              'category':         guess_category(body),
+              'tags':             suggest_tags(body),
+              'meta_description': meta_desc,
+              'status':           'draft'
+            }
+
+            r = requests.post(WP_URL,
+                  headers={'X-Sourov-Key': WP_KEY, 'Content-Type': 'application/json'},
+                  json=payload, timeout=30)
+            if r.ok:
+              result = r.json()
+              print(f"Published: '{title}' -> ID {result.get('post_id')}")
+            else:
+              print(f"Failed: '{title}' -> HTTP {r.status_code}: {r.text[:200]}")
+          PYTHON
