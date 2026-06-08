@@ -25,8 +25,8 @@
         <option value="ollama">Ollama</option>
         <option value="deepseek">DeepSeek</option>
         <option value="gemini">Gemini</option>
-        <option value="claude">Claude</option>
-        <option value="custom">Custom / Cline</option>
+        <option value="anthropic">Anthropic API</option>
+        <option value="custom">Custom / OpenAI-compatible</option>
       </select>
       <select id="mdl-select" class="select-pill" title="Model">
         <option value="">— model —</option>
@@ -69,7 +69,6 @@
   <!-- Chat Messages -->
   <main id="chat-main" class="chat-main">
     <div id="chat-messages" class="chat-messages">
-      <!-- Welcome -->
       <div class="welcome-card">
         <div class="welcome-icon">✦</div>
         <div class="welcome-title">AI Hub ready</div>
@@ -86,12 +85,10 @@
 
   <!-- Bottom Input Bar -->
   <footer class="input-footer">
-    <!-- Attachment & file info row -->
     <div id="attach-row" class="attach-row hidden">
       <div id="attach-info" class="attach-info"></div>
       <button id="btn-attach-clear" class="attach-clear">✕</button>
     </div>
-    <!-- Input row -->
     <div class="input-row">
       <label class="icon-btn" id="btn-attach-label" title="Attach file or folder">
         <input type="file" id="file-input" multiple style="display:none">
