@@ -1,0 +1,162 @@
+# .github/workflows/auto_publish.yml
+# Automatically publishes Markdown files from drafts/ folder to WordPress
+# when you push to main branch.
+#
+# SETUP:
+# 1. Go to GitHub repo > Settings > Secrets > Actions
+# 2. Add secret: WP_API_KEY = your plugin API key
+# 3. Push a .md file to the drafts/ folder
+# 4. This workflow runs and creates WordPress drafts
+
+name: Publish Drafts to WordPress
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'drafts/*.md'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    name: Publish Markdown Files
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Need previous commit to detect new files
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Find new draft files
+        id: find_files
+        run: |
+          # Get list of added/modified .md files in drafts/
+          CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'drafts/*.md' || echo '')
+          echo "files=$CHANGED" >> $GITHUB_OUTPUT
+          echo "Changed files: $CHANGED"
+
+      - name: Publish to WordPress
+        env:
+          WP_API_URL: https://sourovdeb.com/wp-json/sourov/v1/ai-post
+          WP_API_KEY: ${{ secrets.WP_API_KEY }}
+        run: |
+          python3 - <<'PYTHON'
+          import os, re, json, time, requests
+          from pathlib import Path
+
+          WP_URL = os.environ['WP_API_URL']
+          WP_KEY = os.environ['WP_API_KEY']
+
+          KEYWORD_CATS = [
+            (['grammar','tense','verb'],            'Grammar'),
+            (['listen','pronunciation','phonics'],   'Listening & Phonology'),
+            (['celta','lesson plan'],                'CELTA'),
+            (['speak','fluency'],                   'Speaking'),
+            (['reading','comprehension'],            'Reading'),
+            (['writing','essay'],                   'Writing'),
+          ]
+
+          def guess_category(text):
+            text = text.lower()
+            for keywords, cat in KEYWORD_CATS:
+              if any(k in text for k in keywords):
+                return cat
+            return 'ELT Masterclass'
+
+          def suggest_tags(text):
+            km = {'grammar':'grammar','listening':'listening','pronunciation':'pronunciation',
+                  'speaking':'speaking','celta':'CELTA','elt':'ELT','fluency':'fluency',
+                  'vocabulary':'vocabulary','idiom':'idioms'}
+            text = text.lower()
+            return ','.join([v for k,v in km.items() if k in text][:5]) or 'ELT'
+
+          def md_to_html(text):
+            lines = text.split('\n')
+            html = []
+            in_ul = False
+            for line in lines:
+              if line.startswith('## '):
+                if in_ul: html.append('</ul>'); in_ul = False
+                html.append(f'<h2>{line[3:].strip()}</h2>')
+              elif line.startswith('### '):
+                html.append(f'<h3>{line[4:].strip()}</h3>')
+              elif line.startswith('- ') or line.startswith('* '):
+                if not in_ul: html.append('<ul>'); in_ul = True
+                html.append(f'<li>{line[2:].strip()}</li>')
+              elif line.strip():
+                if in_ul: html.append('</ul>'); in_ul = False
+                line = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', line)
+                line = re.sub(r'\*(.+?)\*', r'<em>\1</em>', line)
+                html.append(f'<p>{line.strip()}</p>')
+              else:
+                if in_ul: html.append('</ul>'); in_ul = False
+            if in_ul: html.append('</ul>')
+            return '\n'.join(html)
+
+          results = {'published': 0, 'failed': 0}
+
+          for md_file in Path('drafts').glob('*.md'):
+            print(f'Processing: {md_file.name}')
+            content = md_file.read_text(encoding='utf-8')
+            lines = content.split('\n')
+            title = ''
+            body_lines = []
+            for line in lines:
+              if not title and line.startswith('#'):
+                title = line.lstrip('#').strip()
+              else:
+                body_lines.append(line)
+            if not title:
+              title = md_file.stem.replace('-', ' ').replace('_', ' ').title()
+              body_lines = lines
+
+            body = '\n'.join(body_lines).strip()
+            html_body = md_to_html(body)
+            clean_text = re.sub(r'<[^>]+>', ' ', html_body)
+            clean_text = re.sub(r'\s+', ' ', clean_text).strip()
+
+            payload = {
+              'title': title,
+              'content': html_body,
+              'status': 'draft',
+              'category': guess_category(title + ' ' + body),
+              'tags': suggest_tags(title + ' ' + body),
+              'meta_description': clean_text[:155],
+              'seo_title': title[:60]
+            }
+
+            try:
+              r = requests.post(WP_URL,
+                headers={'X-Sourov-Key': WP_KEY, 'Content-Type': 'application/json'},
+                json=payload, timeout=30
+              )
+              if r.status_code in (200, 201):
+                data = r.json()
+                print(f'  Published: {title} -> ID: {data.get("post_id", data.get("id", "?"))}')
+                results['published'] += 1
+              else:
+                print(f'  FAILED: {r.status_code} - {r.text[:200]}')
+                results['failed'] += 1
+            except Exception as e:
+              print(f'  ERROR: {e}')
+              results['failed'] += 1
+
+            time.sleep(1)
+
+          print(f"Done. Published: {results['published']}, Failed: {results['failed']}")
+          if results['failed'] > 0:
+            exit(1)  # Fail the workflow if any post failed
+          PYTHON
+
+      - name: Summary
+        if: always()
+        run: echo "Workflow complete. Check WordPress admin for new drafts."
