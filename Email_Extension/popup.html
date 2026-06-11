@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      --bg: #0a0f1e; --surf: #0e1422; --surf2: #141d2e;
+      --border: #243044; --accent: #00d4aa; --text: #dce8f5;
+      --text-s: #8aa0bb; --danger: #ef4444; --success: #10b981;
+      --mono: 'IBM Plex Mono', monospace;
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { width:220px; background:var(--bg); color:var(--text); font:13px system-ui,sans-serif; }
+    .header {
+      display:flex; align-items:center; gap:8px;
+      padding:11px 14px; background:var(--surf);
+      border-bottom:1px solid var(--border);
+    }
+    .logo {
+      width:20px; height:20px; display:flex; align-items:center; justify-content:center;
+      color:var(--accent); font-size:16px;
+    }
+    .title { font-size:13px; font-weight:600; color:var(--accent); font-family:var(--mono); }
+    .body { padding:12px; display:flex; flex-direction:column; gap:8px; }
+    .btn-open {
+      display:flex; align-items:center; justify-content:center; gap:6px;
+      padding:9px 14px; background:var(--accent); border:none; border-radius:8px;
+      color:var(--bg); font:600 12.5px system-ui,sans-serif; cursor:pointer;
+      transition:all .15s; width:100%;
+    }
+    .btn-open:hover { background:#00a882; transform:scale(1.02); }
+    .status-row {
+      display:flex; align-items:center; gap:6px;
+      padding:7px 9px; background:var(--surf); border:1px solid var(--border);
+      border-radius:7px; font-size:11px; color:var(--text-s);
+    }
+    .dot { width:6px; height:6px; border-radius:50%; background:var(--text-s); }
+    .dot.ok { background:var(--success); }
+    .dot.err { background:var(--danger); }
+    .footer { padding:7px 14px; font-size:10px; color:var(--text-s); border-top:1px solid var(--border); text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">✦</div>
+    <span class="title">AI Hub</span>
+  </div>
+  <div class="body">
+    <button class="btn-open" id="btn-open">
+      Open Sidebar
+    </button>
+    <div class="status-row">
+      <div class="dot" id="dot"></div>
+      <span id="status-msg">Checking…</span>
+    </div>
+  </div>
+  <div class="footer">v1.0 — Multi-model AI assistant</div>
+  <script>
+    document.getElementById('btn-open').addEventListener('click', async () => {
+      const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+      if (tab?.id) chrome.sidePanel.open({ tabId: tab.id });
+      window.close();
+    });
+
+    async function checkStatus() {
+      const s = await chrome.storage.sync.get('aihub_settings');
+      const cfg = s.aihub_settings || {};
+      const dot = document.getElementById('dot');
+      const msg = document.getElementById('status-msg');
+
+      if (cfg.service === 'ollama' || !cfg.service) {
+        try {
+          const r = await chrome.runtime.sendMessage({ type: 'TEST_CONNECTION', service: 'ollama', config: cfg });
+          if (r.ok) { dot.className = 'dot ok'; msg.textContent = `Ollama · ${r.models || '?'} model(s)`; }
+          else { dot.className = 'dot err'; msg.textContent = 'Ollama not running'; }
+        } catch { dot.className = 'dot err'; msg.textContent = 'Ollama not reachable'; }
+      } else {
+        dot.className = 'dot ok';
+        msg.textContent = `Service: ${cfg.service}`;
+      }
+    }
+    checkStatus();
+  </script>
+</body>
+</html>

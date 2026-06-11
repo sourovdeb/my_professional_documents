@@ -1,0 +1,112 @@
+# Job search configuration — Sourov Deb
+# ----------------------------------------
+# Purpose: one file that feeds every automation tool:
+#   - LinkedIn / Indeed / Welcome to the Jungle saved searches
+#   - France Travail (Pôle emploi) alert subscriptions
+#   - JobSync tracker import
+#   - n8n / Make RSS keyword filter
+#   - AIHawk / career-ops profile config (local use only — never push secrets here)
+#
+# Update once; all tools read the same source.
+
+profile:
+  name: "Sourov Deb"
+  title: "CELTA-certified English Trainer | IELTS / TOEIC / Business English"
+  location_base: "La Réunion, France"
+  remote_ok: true
+  relocation_ok: false           # update if willing to move
+  languages: ["English (native-level)", "French (fluent)"]
+  certifications: ["CELTA (Cambridge)", "IELTS preparation specialist", "TOEIC specialist"]
+  cv: "Story_of_Sourov/01_MASTER_DOCUMENTS/Personal/CV_SOUROV_DEB_2026.md"
+
+# ── SEARCH TERMS ──────────────────────────────────────────────────────────────
+# Paste these directly into LinkedIn / Indeed / France Travail alert boxes.
+keywords:
+  primary:
+    - "formateur anglais"
+    - "English trainer"
+    - "CELTA teacher"
+    - "IELTS teacher"
+    - "TOEIC formateur"
+    - "Business English trainer"
+    - "FLE formateur anglais"
+  secondary:
+    - "remote English teacher"
+    - "online English tutor"
+    - "English language coordinator"
+    - "academic English"
+    - "ELT content writer"
+    - "instructional designer English"
+    - "ed-tech English"
+  exclude:
+    - "enfants"     # teaching children — adjust if you want this
+    - "présentiel uniquement La Réunion"  # on-site La Réunion only if remote preferable
+
+# ── JOB BOARDS TO WATCH ───────────────────────────────────────────────────────
+boards:
+  - name: "LinkedIn Jobs"
+    url: "https://www.linkedin.com/jobs/"
+    alert: true
+    notes: "Save searches with keywords above. Set alert to Daily."
+  - name: "Indeed France"
+    url: "https://fr.indeed.com/"
+    alert: true
+    notes: "Save search, enable email alert."
+  - name: "France Travail (Pôle emploi)"
+    url: "https://www.francetravail.fr/offres/recherche/offreTab.do"
+    alert: true
+    notes: "ROME codes: K2111 (Formation professionnelle), M1203 (Traduction/interprétariat)."
+  - name: "Welcome to the Jungle"
+    url: "https://www.welcometothejungle.com/"
+    alert: true
+    notes: "Good for startup / remote / ed-tech roles."
+  - name: "TEFL.com"
+    url: "https://www.tefl.com/jobs/"
+    alert: true
+    notes: "Global ELT board; filter for remote or French-speaking countries."
+  - name: "Cambridge English Jobs"
+    url: "https://www.cambridgeenglish.org/footer/jobs/"
+    alert: false
+    notes: "Manual check monthly; Cambridge-affiliated roles."
+  - name: "British Council Jobs"
+    url: "https://careers.britishcouncil.org/"
+    alert: false
+    notes: "Manual check monthly; often needs relocation — worth tracking."
+
+# ── DECISION CRITERIA (for AI-matching tools like JobSync / career-ops) ───────
+fit_criteria:
+  must_have:
+    - "English teaching or training"
+    - "Remote or La Réunion location"
+  nice_to_have:
+    - "IELTS or TOEIC focus"
+    - "Business English or corporate clients"
+    - "Content or curriculum writing"
+    - "Neurodiverse-friendly employer"
+  deal_breakers:
+    - "Full-time on-site in mainland France (no relocation)"
+    - "Teaching under 16s exclusively"
+
+# ── EMAIL OUTREACH TARGETS ─────────────────────────────────────────────────────
+# Organisations worth a direct reach-out (separate from job-board alerts).
+# Feed this list into Email_Extension/ CSV for draft generation.
+direct_targets:
+  - type: "Language schools La Réunion"
+    examples: ["Institut Régional d'Administration", "Créole English Academy", "GRETA Réunion"]
+    approach: "Cold email with CV + one specific teaching idea relevant to their students."
+  - type: "Online English platforms (remote)"
+    examples: ["Preply", "iTalki tutor listing", "Cambly", "Lingoda"]
+    approach: "Profile listing — low friction, immediate income while building."
+  - type: "Corporate HR / L&D departments (La Réunion + DOM-TOM)"
+    examples: ["Large employers: GBH group, SFR Réunion, Tereos"]
+    approach: "Business English for their professionals — needs TOEIC angle."
+  - type: "Ed-tech companies (remote)"
+    examples: ["Duolingo for Business", "Busuu", "Wall Street English", "Open Classrooms"]
+    approach: "Content writer / instructional designer — uses your writing + CELTA."
+
+# ── WEEKLY ROUTINE ─────────────────────────────────────────────────────────────
+routine:
+  monday: "Check board alerts; log new roles in tracker (JobSync or a table in Obsidian)."
+  wednesday: "Tailor 1–2 applications using CV + cover letter from Profile_Documents/. Use Ollama to draft, then edit yourself."
+  friday: "Send 1–3 direct outreach emails via Email_Extension/. Log in Growth_Hub/PUBLISHED_LOG.md."
+  monthly: "Review which boards produce signal; kill the ones that don't."
