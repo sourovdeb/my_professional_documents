@@ -1,0 +1,97 @@
+name: Publish Draft to WordPress
+
+on:
+  push:
+    paths:
+      - 'drafts/*.md'
+  workflow_dispatch:  # allow manual trigger from GitHub UI
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Publish new drafts
+        env:
+          WP_KEY: ${{ secrets.WP_API_KEY }}
+          WP_URL: ${{ secrets.WP_API_URL }}
+        run: |
+          python3 - << 'PYEOF'
+          import os, re, requests, glob
+
+          WP_URL = os.environ.get('WP_URL', 'https://sourovdeb.com/wp-json/sourov/v1/ai-post')
+          WP_KEY = os.environ['WP_KEY']
+
+          CATEGORY_MAP = [
+            (['grammar','tense','verb'],   'Grammar'),
+            (['listen','pronunciation'],    'Listening & Phonology'),
+            (['celta','lesson plan'],       'CELTA'),
+            (['vocabulary','idiom'],        'Vocabulary'),
+            (['writing','essay'],           'Writing Skills'),
+            (['speaking','fluency'],        'Speaking'),
+          ]
+
+          def guess_category(text):
+            t = text.lower()
+            for keywords, cat in CATEGORY_MAP:
+              if any(k in t for k in keywords): return cat
+            return 'ELT Masterclass'
+
+          def suggest_tags(text):
+            TAG_MAP = {'grammar':'grammar','listen':'listening','celta':'CELTA',
+                       'elt':'ELT','vocabulary':'vocabulary','writing':'writing','speaking':'speaking'}
+            t = text.lower()
+            return ','.join(set(v for k,v in TAG_MAP.items() if k in t))
+
+          for filepath in sorted(glob.glob('drafts/*.md')):
+            content = open(filepath, encoding='utf-8').read().strip()
+            lines   = content.split('\n')
+            title_line = next((l for l in lines if l.startswith('# ')), None)
+            title  = title_line[2:].strip() if title_line else os.path.basename(filepath)[:-3]
+            body   = '\n'.join(l for l in lines if l != title_line).strip()
+            body_html = re.sub(r'^## (.+)$', r'<h2>\1</h2>', body, flags=re.MULTILINE)
+            body_html = re.sub(r'^(?!<h)(.+)$',  r'<p>\1</p>',  body_html, flags=re.MULTILINE)
+            all_text = title + ' ' + body
+
+            payload = {
+              'title':            title,
+              'content':          body_html,
+              'status':           'draft',
+              'category':         guess_category(all_text),
+              'tags':             suggest_tags(all_text),
+              'meta_description': re.sub(r'<[^>]+>','',body_html)[:160],
+            }
+            r = requests.post(WP_URL,
+              headers={'X-Sourov-Key': WP_KEY, 'Content-Type': 'application/json'},
+              json=payload, timeout=30)
+            result = r.json()
+            if result.get('post_id') or result.get('id'):
+              print(f'Published: {title} -> ID {result.get("post_id") or result.get("id")}')
+            else:
+              print(f'FAILED: {title} -> {result}')
+          PYEOF
+
+  # Optional: check WordPress is up after publishing
+  healthcheck:
+    runs-on: ubuntu-latest
+    needs: publish
+    steps:
+      - name: Check site is up
+        run: |
+          STATUS=$(curl -o /dev/null -s -w "%{http_code}" https://sourovdeb.com)
+          echo "HTTP Status: $STATUS"
+          if [ "$STATUS" -ge 400 ]; then
+            echo "Site health check FAILED with status $STATUS"
+            exit 1
+          fi
+          echo "Site is healthy."
