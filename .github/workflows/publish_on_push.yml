@@ -1,0 +1,94 @@
+name: Publish Drafts to WordPress
+
+on:
+  push:
+    paths:
+      - 'drafts/*.md'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Publish new/changed draft files
+        env:
+          WP_PLUGIN_KEY: ${{ secrets.WP_API_KEY }}
+          WP_API_URL: https://sourovdeb.com/wp-json/sourov/v1/ai-post
+        run: |
+          python3 - <<'PYEOF'
+          import os, json, re, requests
+          
+          WP_URL = os.environ['WP_API_URL']
+          WP_KEY = os.environ['WP_PLUGIN_KEY']
+          
+          CATEGORY_RULES = [
+              (r'grammar|tense|verb|noun|adjective', 'Grammar'),
+              (r'listen|audio|phonetic|pronunciation', 'Listening & Phonology'),
+              (r'speak|fluency|conversation', 'Speaking'),
+              (r'read|comprehension|passage', 'Reading'),
+              (r'writ|essay|paragraph', 'Writing'),
+              (r'celta|lesson plan|teaching', 'CELTA'),
+              (r'vocabular|idiom|phrasal', 'Vocabulary'),
+          ]
+          TAG_KEYWORDS = ['grammar','listening','speaking','reading','writing',
+                          'vocabulary','pronunciation','CELTA','ELT','fluency',
+                          'comprehension','tense','idiom','lesson plan']
+          
+          def guess_category(text):
+              t = text.lower()
+              for pattern, cat in CATEGORY_RULES:
+                  if re.search(pattern, t): return cat
+              return 'ELT Masterclass'
+          
+          def suggest_tags(text):
+              t = text.lower()
+              return ','.join(k for k in TAG_KEYWORDS if k.lower() in t)[:5]
+          
+          import subprocess
+          result = subprocess.run(['git','diff','--name-only','HEAD~1','HEAD'], capture_output=True, text=True)
+          changed = [f for f in result.stdout.strip().split('\n') if f.startswith('drafts/') and f.endswith('.md')]
+          
+          for filepath in changed:
+              if not os.path.exists(filepath):
+                  continue
+              with open(filepath, encoding='utf-8') as f:
+                  content = f.read()
+              lines = content.strip().split('\n')
+              title = ''
+              body_start = 0
+              for i, line in enumerate(lines):
+                  if line.startswith('#'):
+                      title = line.lstrip('#').strip()
+                      body_start = i + 1
+                      break
+              if not title:
+                  title = os.path.basename(filepath).replace('.md','').replace('-',' ')
+              body = '\n'.join(lines[body_start:])
+              combined = title + ' ' + body
+              payload = {
+                  'title':    title,
+                  'content':  body,
+                  'status':   'draft',
+                  'category': guess_category(combined),
+                  'tags':     suggest_tags(combined),
+              }
+              resp = requests.post(WP_URL, json=payload, headers={'X-Sourov-Key': WP_KEY})
+              if resp.ok:
+                  pid = resp.json().get('post_id', resp.json().get('id','?'))
+                  print(f'Published: "{title}" -> Draft ID {pid}')
+              else:
+                  print(f'FAILED ({resp.status_code}): {title}')
+                  print(resp.text[:200])
+          PYEOF
