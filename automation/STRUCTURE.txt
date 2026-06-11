@@ -1,0 +1,13 @@
+automation/
+├── .env.example         ← copy to .env, fill real values (never commit .env)
+├── README.md            ← this file: which tool to use when
+├── sheets/
+│   └── WP_PUBLISHER.gs  ← Google Apps Script: Sheet → WordPress (one-click or timer)
+├── python/
+│   └── wp_publisher.py  ← Python Tkinter GUI: write, preview, publish
+├── logseq/
+│   └── logseq_to_wp.js  ← Node.js: export Logseq page → WordPress draft
+├── github/
+│   └── publish.yml      ← GitHub Actions: push .md file → auto-publish to WordPress
+└── tools/
+    └── OPEN_SOURCE.md   ← Pre-built tools that do this already (zero setup options)

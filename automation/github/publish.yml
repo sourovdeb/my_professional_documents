@@ -1,0 +1,106 @@
+# GitHub Actions — Publish Markdown post to WordPress
+#
+# SETUP:
+#   Repo Settings → Secrets → Actions → New repository secret:
+#     WP_SITE    = https://sourovdeb.com
+#     WP_API_KEY = (your api key)
+#
+# USAGE:
+#   Push any .md file to posts/to-publish/ folder on any branch
+#   → this workflow picks it up and creates a WordPress DRAFT
+#   → you review and publish manually in wp-admin
+#
+# Manual trigger: GitHub Actions tab → "Publish to WordPress" → Run workflow
+
+name: Publish to WordPress
+
+on:
+  push:
+    paths:
+      - 'posts/to-publish/*.md'
+  workflow_dispatch:
+    inputs:
+      file:
+        description: 'Path to .md file (e.g. posts/to-publish/my-post.md)'
+        required: true
+      title:
+        description: 'Post title'
+        required: true
+      category:
+        description: 'Category'
+        default: 'General'
+      tags:
+        description: 'Tags (comma-separated)'
+        default: ''
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publish to WordPress
+        env:
+          WP_SITE:    ${{ secrets.WP_SITE }}
+          WP_API_KEY: ${{ secrets.WP_API_KEY }}
+        run: |
+          # Manual trigger: use input file
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            FILES="${{ inputs.file }}"
+            TITLE="${{ inputs.title }}"
+            CATEGORY="${{ inputs.category }}"
+            TAGS="${{ inputs.tags }}"
+          else
+            # Push trigger: find changed .md files in posts/to-publish/
+            FILES=$(git diff --name-only HEAD~1 HEAD -- 'posts/to-publish/*.md' 2>/dev/null || \
+                    git diff --name-only HEAD~1 HEAD -- 'posts/to-publish/' | grep '\.md$')
+          fi
+
+          for FILE in $FILES; do
+            [ -f "$FILE" ] || continue
+            TITLE="${TITLE:-$(basename "$FILE" .md | sed 's/-/ /g')}"
+            CONTENT=$(cat "$FILE")
+            WORD_COUNT=$(echo "$CONTENT" | wc -w)
+            echo "📝 File: $FILE ($WORD_COUNT words)"
+
+            # Convert basic Markdown to HTML
+            HTML=$(echo "$CONTENT" \
+              | sed 's/\*\*\(.*\)\*\*/<strong>\1<\/strong>/g' \
+              | sed 's/\*\(.*\)\*/<em>\1<\/em>/g' \
+              | sed 's/^$/\n<\/p><p>\n/g')
+
+            # POST to WordPress as draft
+            RESPONSE=$(curl -s -X POST "${WP_SITE}/wp-json/sourov/v1/ai-post" \
+              -H "X-Sourov-Key: ${WP_API_KEY}" \
+              -H "Content-Type: application/json" \
+              -d "{
+                \"title\":    \"${TITLE}\",
+                \"content\":  \"<p>${HTML}</p>\",
+                \"status\":   \"draft\",
+                \"category\": \"${CATEGORY:-General}\",
+                \"tags\":     \"${TAGS}\"
+              }")
+
+            POST_ID=$(echo "$RESPONSE" | grep -o '"post_id":[0-9]*' | grep -o '[0-9]*')
+            LINK=$(echo "$RESPONSE" | grep -o '"link":"[^"]*"' | cut -d'"' -f4)
+
+            if [ -n "$POST_ID" ]; then
+              echo "✓ Draft created! ID: $POST_ID"
+              echo "🔗 $LINK"
+              # Move to published folder so it won't re-publish
+              mkdir -p posts/published-via-github
+              mv "$FILE" "posts/published-via-github/"
+            else
+              echo "✗ Error: $RESPONSE"
+              exit 1
+            fi
+          done
+
+      - name: Commit moved files
+        if: github.event_name == 'push'
+        run: |
+          git config user.name  "WordPress Publisher"
+          git config user.email "actions@github.com"
+          git add posts/
+          git diff --staged --quiet || git commit -m "auto: moved published posts"
+          git push || true
