@@ -1,0 +1,83 @@
+name: Publish Drafts to WordPress
+
+on:
+  push:
+    paths:
+      - 'drafts/*.md'
+  workflow_dispatch:
+    inputs:
+      fix_categories:
+        description: 'Fix all post categories and tags'
+        required: false
+        default: 'false'
+      health_check:
+        description: 'Run WordPress health check'
+        required: false
+        default: 'false'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event.inputs.fix_categories != 'true'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Publish new markdown drafts
+        env:
+          WP_URL:          ${{ secrets.WP_URL }}
+          WP_API_KEY:      ${{ secrets.WP_API_KEY }}
+          WP_USER:         ${{ secrets.WP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          mkdir -p drafts/archive
+          python scripts/auto_publisher.py --folder ./drafts
+
+      - name: Commit archive
+        run: |
+          git config user.name  "GitHub Action"
+          git config user.email "action@github.com"
+          git add drafts/archive/
+          git diff --staged --quiet || git commit -m "archive: move published drafts"
+          git push
+
+  fix-categories:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.fix_categories == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Fix categories and tags
+        env:
+          WP_URL:          ${{ secrets.WP_URL }}
+          WP_USER:         ${{ secrets.WP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python scripts/wordpress_category_tag_fix.py
+
+  health-check:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.health_check == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: WordPress health check
+        env:
+          WP_URL:          ${{ secrets.WP_URL }}
+          WP_USER:         ${{ secrets.WP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: python scripts/wordpress_health_check.py
