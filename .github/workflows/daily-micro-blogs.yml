@@ -1,0 +1,124 @@
+name: Daily Micro-Blogs Automation
+
+on:
+  schedule:
+    # Run at 6 PM Réunion time (UTC+4) = 2 PM UTC
+    - cron: '0 14 * * *'
+  workflow_dispatch:
+
+jobs:
+  draft-micro-blog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests markdown
+
+      - name: Draft new micro-blog
+        run: |
+          python << 'EOF'
+          import requests
+          import json
+          from datetime import datetime
+          import os
+
+          # Topics to cycle through
+          topics = [
+              "Mental Health & Human Brain Bias",
+              "Neuromarketing Tricks by Big Companies",
+              "Antidepressants vs. Therapy: Funding and Bias",
+              "Brain Limits: Trauma, Empathy, and Intelligence",
+              "Hidden Sources Used by Governments and Big Tech"
+          ]
+
+          # Select topic based on day of the week
+          today = datetime.now().weekday()
+          topic = topics[today % len(topics)]
+
+          # Generate a filename
+          timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+          filename = f"micro-blogs/{timestamp}_{topic.replace(' ', '_').lower()}.md"
+
+          # Draft content (placeholder for actual research)
+          content = f"""---
+title: "{topic}"
+author: Sourov Deb
+date: {datetime.now().strftime("%Y-%m-%d")}
+tags: [mental-health, neuroscience, investigative]
+---
+
+# {topic}
+
+## Headline
+[Draft headline based on research]
+
+## Lead
+[Draft lead paragraph]
+
+## Findings
+[Draft findings with citations]
+
+## Funding and Conflict of Interest
+[Disclose funding sources and biases]
+
+## Alternative Interpretations
+[Present counter-arguments]
+
+## Sources
+[List all sources with links]
+
+## Disclosure
+This micro-blog was drafted automatically via GitHub Actions. Claims are based on verifiable sources.
+"""
+
+          # Save the draft
+          os.makedirs("micro-blogs", exist_ok=True)
+          with open(filename, "w") as f:
+              f.write(content)
+
+          print(f"Drafted new micro-blog: {filename}")
+          EOF
+
+      - name: Commit and push draft
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add micro-blogs/
+          git commit -m "Auto-draft micro-blog for $(date +%Y-%m-%d)"
+          git push
+
+  push-to-platforms:
+    needs: draft-micro-blog
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Push to WordPress
+        env:
+          WORDPRESS_API_KEY: ${{ secrets.WORDPRESS_API_KEY }}
+          WORDPRESS_URL: ${{ secrets.WORDPRESS_URL }}
+        run: |
+          # Placeholder for WordPress API call
+          # Replace with actual API call once credentials are confirmed
+          echo "Pushing to WordPress (API call to be implemented)"
+
+      - name: Push to Ghost
+        env:
+          GHOST_API_KEY: ${{ secrets.GHOST_API_KEY }}
+          GHOST_URL: ${{ secrets.GHOST_URL }}
+        run: |
+          # Placeholder for Ghost API call
+          # Replace with actual API call once credentials are confirmed
+          echo "Pushing to Ghost (API call to be implemented)"
