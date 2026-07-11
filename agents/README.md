@@ -1,5 +1,8 @@
 # AI Agents System for Sourov Deb
 
+> **⚠️ SUPERSEDED — v2.0 now lives in [`agents/v2/`](v2/README.md)** (2026-07-11).
+> v2.0 applies the review feedback: broader wellbeing agent, no hardcoded dates in agent logic, France Travail merged into Legal Sentinel, Real Estate broadened to Home & Personal Admin, Inbox-to-Action auto-reminder engine, CELTA agent retired, plus new Deep Brainstorm & Research Partner and Tutoring & Learning Designer agents. The specs below are kept for history only.
+
 > **Auto-Entrepreneur Productivity & Health Stability System**
 > 
 > **Owner**: Sourov Deb  
