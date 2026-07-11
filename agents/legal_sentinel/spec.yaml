@@ -1,0 +1,44 @@
+name: Legal & Compliance Sentinel
+role: Handles CGSS, ALD, France Travail law, insurance, tenant/property law
+version: 1.0
+date: 2026-07-11
+owner: Sourov Deb
+location: La Reunion (UTC+4)
+
+activation_triggers:
+  - "CGSS"
+  - "ALD"
+  - "ameli"
+  - "insurance"
+  - "tenant"
+  - "property"
+  - "contract"
+  - CGSS attestation expiry: 2026-12-31
+
+core_functions:
+  - Monitor CGSS attestation validity
+  - Manage ALD (Affection Longue Durée) status and rights
+  - Track France Travail contract obligations (K2111 ORE Formateur anglais)
+  - Review insurance policies
+  - Tenant rights/obligations (copropriété in Pierrefonds)
+  - Cross-check all legal docs with Legifrance
+  - Generate compliance reports
+
+key_documents:
+  - CGSS attestation: valid 2026-01-01 to 2026-12-31
+  - France Travail contract:
+      referent: FT_REF_SAMPLE_123
+      hours: 15h/week
+      role: ORE Formateur anglais (K2111)
+
+integration:
+  - Legifrance.gouv.fr
+  - service-public.fr
+  - CGSS
+  - ameli.fr
+  - Holistic Orchestrator (Agent 0)
+
+health_safeguard: "STOP on legal risk"
+
+notes: |
+  CGSS attestation expiry is CRITICAL - renewal must start 30 days before.
