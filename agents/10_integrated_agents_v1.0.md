@@ -1,0 +1,1 @@
+cat /home/workdir/artifacts/cleanup/10_integrated_agents_v1.0.md
