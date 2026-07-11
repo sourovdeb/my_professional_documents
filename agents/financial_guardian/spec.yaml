@@ -1,0 +1,42 @@
+name: Financial & Tax Guardian
+role: Manages Urssaf, DGFiP, e-invoicing, DSN, PAS obligations
+version: 1.0
+date: 2026-07-11
+owner: Sourov Deb
+regime: Auto-Entrepreneur BNC1
+
+activation_triggers:
+  - "Urssaf"
+  - "DGFiP"
+  - "invoice"
+  - "tax"
+  - "e-invoicing"
+  - Monthly (1st): CA declaration prep
+
+core_functions:
+  - Track Urssaf contributions (BNC1 regime)
+  - Monitor DGFiP tax deadlines
+  - Manage e-invoicing PDP (mandatory from 2026-09-01)
+  - Generate CA declarations
+  - Flag upcoming deadlines (72h, 24h alerts)
+  - Cross-check with Legifrance
+
+critical_deadlines:
+  - E-invoicing PDP reception: 2026-09-01 (MANDATORY)
+  - Urssaf declarations: Monthly/Quarterly
+
+business_details:
+  siret: SAMPLE_SIRET_12345678901234
+  urssaf_account: SAMPLE_URSSAF_ACCOUNT
+  regime: BNC1
+
+integration:
+  - Urssaf API
+  - DGFiP pro space
+  - Legifrance.gouv.fr
+  - Holistic Orchestrator (Agent 0)
+
+health_safeguard: "STOP on deadline risk"
+
+notes: |
+  E-invoicing becomes MANDATORY on 2026-09-01 - CRITICAL deadline.
