@@ -1,0 +1,101 @@
+# registry.example.yaml — the ONLY place specifics live for Agent 1.
+# Copy to registry.yaml (git-ignored / private) and fill in real values.
+# The agent reads this at runtime; the prompt itself stays name-free and never changes
+# when these facts change. Append-only for `cache`. Dates ISO-8601. Times in local TZ.
+
+meta:
+  owner_role: "primary user"          # keep generic in the committed copy
+  timezone: "UTC+4"                    # e.g. La Réunion; change as needed
+  registry_version: "1.0"
+  updated: "2026-07-13"
+
+# ---- HEALTH: drives the Health Gate. Thresholds, not diagnoses, in the committed copy. ----
+health:
+  energy_scale: [1, 10]
+  thresholds:
+    stop_below: 4        # energy < this => STOP
+    pause_below: 7       # energy < this => PAUSE
+  medication_windows:    # role -> time; used to avoid conflicting focus blocks
+    - label: "morning stimulant window"
+      time: "HH:MM"
+      note: "avoid heavy cognitive load outside this window"
+  hard_limits:
+    max_focus_minutes: 90
+    respect_sleep_debt: true
+  # Real clinical detail (diagnoses, ALD status, attestation validity) goes in the PRIVATE
+  # registry.yaml only — never in the committed example.
+
+# ---- SOURCES: where the agent scans. ----
+sources:
+  email:
+    - label: "administrative + deadlines"
+      query: 'newer_than:30d (deadline OR échéance OR convocation OR rendez-vous OR facture)'
+    - label: "medical / appointments"
+      query: 'newer_than:60d (rendez-vous OR consultation OR ordonnance OR résultats)'
+  drive_folders:
+    - id: "DRIVE_FOLDER_ID"
+      label: "central documents + CSV tracker"
+  box_folders:
+    - id: "BOX_FOLDER_ID"
+      label: "backup copies"
+  local_paths:
+    - "./"        # document folders to scan when run locally
+
+# ---- CONTACTS: people & bodies BY ROLE. Names/emails/refs are DATA, not prompt text. ----
+contacts:
+  - role: "treating clinician"
+    name: ""             # fill privately
+    channel: ""          # email / portal / phone
+    reference: ""        # patient/file no.
+  - role: "current caseworker"
+    name: ""
+    channel: ""
+    reference: ""
+  - role: "health authority (regional)"
+    name: ""
+    portal: ""
+    reference: ""
+
+# ---- AUTHORITIES: generic list, each with its OFFICIAL verification URL (evidence rule). ----
+authorities:
+  - key: "tax_authority"
+    official_url: "https://www.impots.gouv.fr"
+  - key: "social_contributions"
+    official_url: "https://www.autoentrepreneur.urssaf.fr"
+  - key: "regional_health"
+    official_url: "https://www.lassurancemaladie.fr"
+  - key: "employment_service"
+    official_url: "https://www.francetravail.fr"
+  - key: "legal_reference"
+    official_url: "https://www.legifrance.gouv.fr"
+  - key: "public_service_info"
+    official_url: "https://www.service-public.fr"
+
+# ---- OBLIGATIONS: recurring duties. Authority given by KEY, not literal name. ----
+obligations:
+  - label: "revenue declaration"
+    cadence: "monthly-or-quarterly"
+    authority_key: "social_contributions"
+    source_of_truth: "https://www.autoentrepreneur.urssaf.fr"
+  - label: "income-tax at source review"
+    cadence: "as-notified"
+    authority_key: "tax_authority"
+    source_of_truth: "https://www.impots.gouv.fr"
+  - label: "electronic invoicing readiness"
+    cadence: "one-off then ongoing"
+    authority_key: "tax_authority"
+    source_of_truth: "https://www.impots.gouv.fr"
+
+# ---- OUTPUT TARGETS: where the agent writes results. ----
+output_targets:
+  tracker_csv:
+    github: "agents/trackers/two_core_agents_tracker.csv"
+    drive_folder_id: "DRIVE_FOLDER_ID"
+    box_folder_id: "BOX_FOLDER_ID"
+  drafts_dir: "drafts/"
+  reminders: "calendar-suggestion"   # agent proposes; user confirms
+
+# ---- CACHE: append-only durable facts learned over time. Dated. Never rewrite wholesale. ----
+cache:
+  - date: "2026-07-13"
+    fact: "Consolidated to two core agents; this registry is the single source of specifics for Agent 1."
