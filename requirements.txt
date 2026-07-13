@@ -4,3 +4,4 @@
 requests>=2.31      # friendlier HTTP than urllib (optional)
 python-dotenv>=1.0  # load scripts/wordpress/.env into the publish script
 markdown>=3.5       # convert Markdown drafts to HTML for WordPress
+python-pptx>=1.0    # build/regenerate slide decks in presentations/
