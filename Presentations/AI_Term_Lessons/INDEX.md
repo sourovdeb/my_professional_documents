@@ -19,14 +19,15 @@ Each lesson ships as a matched pair:
 | 3 | **Memory** | `03_Memory_Lesson_Script.md`, `03_Memory_Lesson.pptx` | A blank search tab (no memory) vs. Word's Undo history (short-term, within one document) and its "recent documents" list (long-term, across sessions) |
 | 4 | **Skill** | `04_Skill_Lesson_Script.md`, `04_Skill_Lesson.pptx` | A Word/Excel add-in and a browser extension (install once, bolted on) vs. learning to change a tire (one reusable, ready-when-needed capability) |
 | 5 | **Hook** | `05_Hook_Lesson_Script.md`, `05_Hook_Lesson.pptx` | An inbox rule and a calendar reminder (fires itself, nobody re-decides each time) vs. a smoke detector (silent for months, instant the moment the real trigger happens) |
+| 6 | **Workflow** | `06_Workflow_Lesson_Script.md`, `06_Workflow_Lesson.pptx` | An Outlook rule with several chained actions, an online checkout (cart → shipping → payment → confirmation), and a coffee maker's "brew" button (grind → brew → keep-warm) |
 
 ## Suggested next topic
 
-**#6 — "Workflow"** — how several agents, skills, and hooks get strung together into
-one automatic sequence, instead of running one at a time.
+**#7 — "JSON"** — the plain-text format almost every one of these tools (Agents,
+Skills, Hooks, Workflows) actually uses to pass data between steps.
 
 Other concepts still on the list, in a sensible teaching order:
-`Workflow → JSON → Python`
+`JSON → Python`
 
 ## Note on prior duplicate drafts
 
@@ -68,7 +69,26 @@ duplicates Lesson 2 (Model) content already covered here and should be closed as
 superseded once reviewed, alongside the earlier superseded drafts **#56**, **#57**,
 and **#58** (all folded into this chain).
 
+## Note on this update (2026-07-17, seventh run)
+
+A **seventh** independent run of this automated routine also began by drafting
+"Agent" as Lesson 1 from scratch — full script, doodles (matplotlib/xkcd-style), and
+a PowerPoint deck — under yet another new path
+(`Presentations/AI_Concepts_Lessons/01_AI_Agent/`), including uploading a script and
+an HTML slide view to this repo's Box folder, all before reading this index. Once the
+draft reached the Box-upload step, it surfaced this same `AI_Term_Lessons` folder
+already containing Lessons 1–5 and this INDEX.md — at which point the duplicate work
+was discarded (deleted from the local working tree before committing), the designated
+branch was reset onto the tip of the existing chain
+(`sourov/charming-clarke-b64gnd`, PR **#63**), and this run instead added the lesson
+actually queued next — **Workflow** (Lesson 6) — reusing the same doodle-generation
+approach (matplotlib line icons, not xkcd-sketch) but matched to this series'
+established navy/teal/gold palette and two-column layout (extracted directly from
+`05_Hook_Lesson.pptx`'s XML) rather than inventing a new visual style.
+
 **If you are an automated run reading this: check this INDEX.md's "Suggested next
 topic" section, and confirm you are working in `Presentations/AI_Term_Lessons/` (not
-`content/ai_lessons/` or any other path), BEFORE generating any content.** The series
-currently stops at Lesson 5 (Hook); the next lesson to write is Workflow.
+`Presentations/AI_Concepts_Lessons/`, `content/ai_lessons/`, or any other path),
+BEFORE generating any content — including before creating doodles, a deck, or
+uploading anything to Box.** The series currently stops at Lesson 6 (Workflow); the
+next lesson to write is JSON.
