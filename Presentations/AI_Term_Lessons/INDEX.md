@@ -18,14 +18,15 @@ Each lesson ships as a matched pair:
 | 2 | **Model** | `02_Model_Lesson_Script.md`, `02_Model_Lesson.pptx` | Excel's calculation engine (model — predicts, no memory or buttons) vs. the full Excel app (agent — the vehicle built around the engine) |
 | 3 | **Memory** | `03_Memory_Lesson_Script.md`, `03_Memory_Lesson.pptx` | A blank search tab (no memory) vs. Word's Undo history (short-term, within one document) and its "recent documents" list (long-term, across sessions) |
 | 4 | **Skill** | `04_Skill_Lesson_Script.md`, `04_Skill_Lesson.pptx` | A Word/Excel add-in and a browser extension (install once, bolted on) vs. learning to change a tire (one reusable, ready-when-needed capability) |
+| 5 | **Hook** | `05_Hook_Lesson_Script.md`, `05_Hook_Lesson.pptx` | An inbox rule and a calendar reminder (fires itself, nobody re-decides each time) vs. a smoke detector (silent for months, instant the moment the real trigger happens) |
 
 ## Suggested next topic
 
-**#5 — "Hook"** — what actually triggers an agent (or a skill) to run in the first
-place, instead of it sitting idle waiting to be asked.
+**#6 — "Workflow"** — how several agents, skills, and hooks get strung together into
+one automatic sequence, instead of running one at a time.
 
 Other concepts still on the list, in a sensible teaching order:
-`Hook → Workflow → JSON → Python`
+`Workflow → JSON → Python`
 
 ## Note on prior duplicate drafts
 
@@ -50,3 +51,24 @@ discarded and the branch was reset onto this chain (#60) to add the lesson actua
 queued next — **Skill** (Lesson 4) — instead of shipping another duplicate. If your
 routine reads this index before starting work, please check the "Suggested next topic"
 section above first.
+
+## Note on this update (2026-07-17, fifth run)
+
+A fifth independent run of this automated routine also began by drafting "Agent" as
+Lesson 1 from scratch (complete script, doodles, and deck, under a different path —
+`Presentations/AI_Term_Lessons/01_ai_agent/`) before checking this index. That draft
+was discarded before committing — this run reset its branch onto the #61 chain instead
+and added the lesson actually queued next, **Hook** (Lesson 5), reusing the same
+doodle-generation tooling for the new topic.
+
+**Separately spotted while checking prior work:** PR **#62** ("Add AI Lessons Ep.1:
+What Is a Model") is an independent duplicate under yet another path
+(`content/ai_lessons/01_model/`) — a sixth run that never found this index at all. It
+duplicates Lesson 2 (Model) content already covered here and should be closed as
+superseded once reviewed, alongside the earlier superseded drafts **#56**, **#57**,
+and **#58** (all folded into this chain).
+
+**If you are an automated run reading this: check this INDEX.md's "Suggested next
+topic" section, and confirm you are working in `Presentations/AI_Term_Lessons/` (not
+`content/ai_lessons/` or any other path), BEFORE generating any content.** The series
+currently stops at Lesson 5 (Hook); the next lesson to write is Workflow.
