@@ -82,6 +82,6 @@ An **agent** takes that same brain and gives it hands: a toolbox of things it's 
 
 ## Series tracker
 
-**Covered so far:** Agent (Lesson 1)
+**Covered so far:** Agent (Lesson 1) → Model (Lesson 2)
 **Suggested next topic:** Memory — "how does an agent remember what happened five minutes ago, across a whole conversation, the way Word remembers your last 20 actions in Undo history?"
-**Later candidates, in a sensible teaching order:** Skill → Hook → Model (deeper dive) → Workflow → JSON → Python
+**Later candidates, in a sensible teaching order:** Skill → Hook → Workflow → JSON → Python
