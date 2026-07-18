@@ -22,15 +22,16 @@ Each lesson ships as a matched pair:
 | 6 | **Workflow** | `06_Workflow_Lesson_Script.md`, `06_Workflow_Lesson.pptx` | An Outlook rule with several chained actions, an online checkout (cart → shipping → payment → confirmation), and a coffee maker's "brew" button (grind → brew → keep-warm) |
 | 7 | **JSON** | `07_JSON_Lesson_Script.md`, `07_JSON_Lesson.pptx` | An Outlook contact card (Name: , Email: , Phone: — already-labeled fields), a browser's Network tab (pages quietly fetch `{ }`, not more webpage), and a recipe card's "Ingredients:" list (one label pointing at a whole list — nesting) |
 | 8 | **Python** | `08_Python_Lesson_Script.md`, `08_Python_Lesson.pptx` | An Excel formula bar (`=SUM(A1:A10)` is already a tiny program), a browser's Console tab (type a line, it runs instantly), and a recipe's numbered steps (done in order, step 2 waits on step 1) |
+| 9 | **Prompt** | `09_Prompt_Lesson_Script.md`, `09_Prompt_Lesson.pptx` | A blank Outlook email (signature and formatting ready, nothing sends until you type the message), a browser address bar (history loaded, nothing happens until you type and hit enter), and a fully stocked kitchen that still needs a specific order |
 
 ## Suggested next topic
 
-**#9 — "Prompt"** — the instruction you actually hand the model to get it started.
+**#10 — "Token"** — the unit AI actually reads and writes text in, and why it quietly
+controls cost and speed.
 
-Lesson 8 (Python) closes out the original seed list from the task brief
-(`memory, hook, skill, agent, model, JSON, Python`) — it is now fully covered. Good
-candidates for a next batch, in a sensible teaching order:
-`Prompt → Token → Context Window → API → Fine-tuning`.
+Lesson 9 (Prompt) starts the second batch suggested at the end of Lesson 8. Good
+candidates for the rest of that batch, in a sensible teaching order:
+`Token → Context Window → API → Fine-tuning`.
 
 ## Note on prior duplicate drafts
 
@@ -148,7 +149,65 @@ BEFORE generating any content — including before creating doodles, a deck, or
 uploading anything to Box.** The series currently stops at Lesson 8 (Python); the next
 lesson to write is Prompt.
 
-## Test plan (this run)
+## Note on this update (2026-07-18, tenth run)
+
+This run was assigned a brand-new branch (`sourov/charming-clarke-gyglfy`) with no
+open PR and no prior context. It made the same mistake this index exists to prevent:
+it drafted "Agent" as Lesson 1 from scratch — full script, hand-drawn-style raster
+doodles (PIL/matplotlib-style sketch art), and a PowerPoint deck — under yet another
+new, wrong path (`AI_Term_Lessons/01_AI_Agent/` at the repo root, not under
+`Presentations/`), committed it, pushed it, and opened it as a duplicate PR (**#68**)
+*before* checking this index or the Box `AI_Term_Lessons` folder at all.
+
+The duplicate was caught only at the Box-upload step, when `search_folders_by_name`
+surfaced this same `AI_Term_Lessons` folder already containing Lessons 1–8 and this
+INDEX.md. At that point:
+
+- The assigned branch was hard-reset onto the tip of the real chain
+  (`sourov/charming-clarke-wsxdvy`, PR **#67**, "Lesson 8 — Python"), discarding the
+  duplicate draft entirely (it was never merged, so nothing was lost).
+- This run added the lesson actually queued next — **Lesson 9 — Prompt**:
+  `09_Prompt_Lesson_Script.md` + `09_Prompt_Lesson.pptx` (7 slides, doodle-illustrated
+  via native PowerPoint shapes — speech bubbles, an idle/active pair, an email-compose
+  mock, a browser address bar, an order ticket, the recurring Hook → Agent → Skill →
+  Notify chain — matching the established navy (`1E3A5F`) / teal (`0FA3A3`) / gold
+  (`F2C94C`) palette and two-column layout, colors extracted directly from
+  `08_Python_Lesson.pptx`'s XML). Explains Prompt as the specific instruction that
+  starts the work via a blank-email analogy, a browser-address-bar analogy, and a
+  restaurant-order analogy, grounded in the same Lesson 6–8 chain (Mistral Studio) —
+  now shown with a `prompt` tag feeding into the Agent box alongside its existing
+  `{ }` JSON and `<>` Python tags.
+- Updates this INDEX.md: adds the Prompt row, advances the suggested next topic to
+  **Token**, and records this run's own mistake here so an eleventh run doesn't repeat
+  it — or, more likely, repeats it anyway and this note is what catches it.
+- PR **#68** (the duplicate "Agent" draft from this run, under the wrong path) should
+  be closed as superseded, the same as **#56**, **#57**, **#66** (all duplicate
+  "Agent" drafts) and **#62** (duplicate "Model" draft) below.
+
+**If you are an automated run reading this: check this INDEX.md's "Suggested next
+topic" section, AND confirm you are working in `Presentations/AI_Term_Lessons/` (not
+`AI_Term_Lessons/` at the repo root, `Presentations/AI_Concepts_Lessons/`,
+`content/ai_lessons/`, or any other path), BEFORE generating any content — including
+before creating doodles, a deck, or uploading anything to Box.** The series currently
+stops at Lesson 9 (Prompt); the next lesson to write is Token.
+
+## Test plan (this run — Lesson 9)
+
+- [x] `python scripts/office/validate.py 09_Prompt_Lesson.pptx` — all structural
+  checks passed
+- [x] `markitdown 09_Prompt_Lesson.pptx` — content reviewed slide-by-slide, no
+  placeholder text
+- [x] Full LibreOffice headless PDF conversion + per-slide visual QA (all 7 slides) —
+  caught and fixed three real bugs: (1) a title that wrapped to 4 lines and collided
+  with the body paragraph below it — fixed by shortening the title; (2) the chain
+  doodle's connector-box width left ~0 gap for the arrows between boxes, so the
+  arrowheads rendered as tiny stray triangles pointing the wrong way with no visible
+  shaft — fixed by narrowing the boxes and replacing the zero-height `line` arrows
+  with explicit triangle shapes plus a separate shaft rectangle; (3) tight/collided
+  bullet spacing when a bullet wrapped to two lines — fixed by increasing the
+  per-bullet vertical increment. Re-rendered and re-inspected all 7 slides clean.
+
+## Test plan (Lesson 8 — prior run)
 
 - [x] `python scripts/office/validate.py 08_Python_Lesson.pptx` — all structural
   checks passed
