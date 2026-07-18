@@ -21,14 +21,14 @@ Each lesson ships as a matched pair:
 | 5 | **Hook** | `05_Hook_Lesson_Script.md`, `05_Hook_Lesson.pptx` | An inbox rule and a calendar reminder (fires itself, nobody re-decides each time) vs. a smoke detector (silent for months, instant the moment the real trigger happens) |
 | 6 | **Workflow** | `06_Workflow_Lesson_Script.md`, `06_Workflow_Lesson.pptx` | An Outlook rule with several chained actions, an online checkout (cart → shipping → payment → confirmation), and a coffee maker's "brew" button (grind → brew → keep-warm) |
 | 7 | **JSON** | `07_JSON_Lesson_Script.md`, `07_JSON_Lesson.pptx` | An Outlook contact card (Name: , Email: , Phone: — already-labeled fields), a browser's Network tab (pages quietly fetch `{ }`, not more webpage), and a recipe card's "Ingredients:" list (one label pointing at a whole list — nesting) |
+| 8 | **Python** | `08_Python_Lesson_Script.md`, `08_Python_Lesson.pptx` | An Excel formula bar (`=SUM(A1:A10)` is already a tiny program), a browser's Console tab (type a line, it runs instantly), and a recipe's numbered steps (done in order, step 2 waits on step 1) |
 
 ## Suggested next topic
 
-**#8 — "Python"** — the language most of these tools (Agents, Skills, Hooks,
-Workflows) are actually built in.
+**#9 — "Prompt"** — the instruction you actually hand the model to get it started.
 
-Once Python ships, the original seed list from the task brief
-(`memory, hook, skill, agent, model, JSON, Python`) is fully covered. Good
+Lesson 8 (Python) closes out the original seed list from the task brief
+(`memory, hook, skill, agent, model, JSON, Python`) — it is now fully covered. Good
 candidates for a next batch, in a sensible teaching order:
 `Prompt → Token → Context Window → API → Fine-tuning`.
 
@@ -117,7 +117,52 @@ chain's tip before adding genuine forward progress:
 
 The series currently stops at Lesson 7 (JSON); the next lesson to write is Python.
 
+## Note on this update (2026-07-18, ninth run)
+
+This run was assigned a brand-new, unrelated branch (`sourov/charming-clarke-wsxdvy`,
+carrying one stray, out-of-series commit — an interdisciplinary-insights presentation)
+with no open PR. Before generating anything, it checked this INDEX.md and Box's
+`AI_Term_Lessons` folder (which carries the same chain plus its own housekeeping
+notes) first, found the existing chain (Lessons 1–7, PR **#65**, branch
+`sourov/charming-clarke-vqbtki`) with **Python** explicitly flagged as next, and reset
+the assigned branch onto that chain's tip before adding genuine forward progress:
+
+- Adds **Lesson 8 — Python**: `08_Python_Lesson_Script.md` + `08_Python_Lesson.pptx`
+  (7 slides, doodle-illustrated via native PowerPoint shapes — parentheses, numbered
+  badges, browser-console and formula-bar mocks, the recurring Hook → Agent → Skill →
+  Notify chain — matching the established navy (`1E3A5F`) / teal (`0FA3A3`) / gold
+  (`F2C94C`) palette and two-column layout, colors extracted directly from
+  `07_JSON_Lesson.pptx`'s XML). Explains Python as the ordered, readable
+  instruction-language via an Excel-formula-bar analogy, a browser-Console-tab
+  analogy, and a recipe's-numbered-steps analogy, grounded in the same Lesson 6–7
+  chain (Mistral Studio) — now shown with a `<>` Python tag on every box alongside the
+  `{ }` JSON tag already on every arrow.
+- Updates this INDEX.md: adds the Python row, advances the suggested next topic to
+  **Prompt**, and notes that Lesson 8 closes out the original seed topic list from the
+  task brief.
+
+**If you are an automated run reading this: check this INDEX.md's "Suggested next
+topic" section, AND confirm you are working in `Presentations/AI_Term_Lessons/` (not
+`Presentations/AI_Concepts_Lessons/`, `content/ai_lessons/`, or any other path),
+BEFORE generating any content — including before creating doodles, a deck, or
+uploading anything to Box.** The series currently stops at Lesson 8 (Python); the next
+lesson to write is Prompt.
+
 ## Test plan (this run)
+
+- [x] `python scripts/office/validate.py 08_Python_Lesson.pptx` — all structural
+  checks passed
+- [x] `markitdown 08_Python_Lesson.pptx` — content reviewed slide-by-slide, no
+  placeholder text
+- [x] Full LibreOffice headless PDF conversion + per-slide visual QA (all 7 slides) —
+  `libreoffice-impress`/`libreoffice-writer`/`libreoffice-calc` and `poppler-utils`
+  were missing in this sandbox and were installed first; QA caught and fixed a real
+  subtitle/body text-overlap bug on three slides (long, 3-line subtitles collided with
+  the body paragraph below them) plus two body-paragraph/bullet overlaps caused by
+  overlong body copy — all fixed by widening the subtitle's reserved height and
+  trimming body-paragraph length, then re-rendered clean.
+
+## Test plan (Lesson 7 — prior run)
 
 - [x] `python scripts/office/validate.py 07_JSON_Lesson.pptx` — all structural checks
   passed
