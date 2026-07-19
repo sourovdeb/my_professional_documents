@@ -1,30 +1,28 @@
-# AI Explained Simply — a short-lesson series
+# AI Term Lessons
 
-One core AI term per episode, explained in plain words with everyday analogies
-(Office Suite, browsers) and one real product — **Mistral Studio** — as the
-worked example. Each episode ships as:
+Short (2–5 minute) plain-language lessons explaining one core AI concept at a time. Each lesson uses everyday software analogies (Office apps, browsers, basic computer tasks) and shows the concept in action inside **Mistral Studio**, Mistral AI's platform for building, running, and governing AI agents.
 
-- a video script + PowerPoint outline (markdown, with doodle direction and user notes)
-- a matching `.pptx` deck with hand-drawn-style doodle graphics
-- the source doodle images
+Each lesson folder contains:
+- `script.md` — a scannable video/voiceover script (also works as a written lesson or a slide outline)
+- a matching `.pptx` slide deck
 
-## Episodes
+## Covered so far
 
-| # | Term | Folder | Status |
-|---|------|--------|--------|
-| 1 | AI Agent | [`01_AI_Agent/`](01_AI_Agent/) | Done — 2026-07-18 |
+| # | Term | Folder |
+|---|------|--------|
+| 1 | **Agent** | [`01_AI_Agent/`](./01_AI_Agent/) |
 
-## Coming next (suggested order)
+## Suggested next topics
 
-2. Hook — a fixed trigger → fixed action (the direct contrast to "Agent")
-3. Model — the "brain" itself, weights and training, no tools attached
-4. Skill — a packaged, reusable instruction set an agent can call on demand
-5. Memory — how an agent keeps track of things across steps or sessions
-6. Tool / Connector — the specific hands an agent reaches for
-7. Prompt — the instruction you give a model or agent to start it working
-8. Token — the unit AI reads/writes text in, and why it affects cost and speed
-9. JSON — the structured "form" agents and tools use to hand data to each other
-10. Fine-tuning vs. prompting — teaching a model permanently vs. just asking it well
-11. Guardrail — the fence that keeps an agent's actions inside safe bounds
+Pick the next one when continuing the series:
 
-See each episode's script file for its own "topic coverage tracker" section.
+1. **Model** — the "brain" an agent uses to think (natural next step after Agent).
+2. **Prompt** — how you actually talk to a model.
+3. **Token** — the units a model reads and writes text in.
+4. **Memory** — how an agent remembers things across steps or conversations.
+5. **Skill** — a packaged, reusable capability an agent can call on.
+6. **Hook** — an automatic trigger that runs code at a specific event.
+7. **Fine-tuning** — teaching a model new habits instead of just prompting it.
+8. **RAG (Retrieval-Augmented Generation)** — giving a model your own documents to look up before answering.
+9. **JSON** — the plain-text format apps use to hand structured data to each other.
+10. **Python** — the language most AI tools and glue-scripts are written in.
