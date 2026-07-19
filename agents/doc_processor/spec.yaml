@@ -1,0 +1,53 @@
+name: Email & Doc Processing Hub
+role: Centralized processing of all emails and documents
+version: 1.0
+date: 2026-07-11
+owner: Sourov Deb
+
+activation_triggers:
+  - New email in inbox
+  - "scan this PDF"
+  - "review this document"
+  - "extract deadlines"
+  - Continuous monitoring
+
+core_functions:
+  - Scan and extract text from emails, PDFs, and documents
+  - Identify deadlines, obligations, and opportunities
+  - Categorize by domain
+  - Route to appropriate specialized agent
+  - Extract contact information and action items
+  - Generate document summaries
+  - Flag urgent items
+  - Integration with Gmail API
+  - OCR for scanned documents
+
+processing_pipeline:
+  step_1: Receive document/email
+  step_2: Extract text (OCR if needed)
+  step_3: Identify entities
+  step_4: Classify by domain
+  step_5: Extract deadlines and obligations
+  step_6: Assess urgency level
+  step_7: Route to appropriate agent
+  step_8: Create tracking task in master CSV
+  step_9: Update master CSV
+  step_10: Notify user if urgent
+
+urgency_classification:
+  critical: Deadline <24h, legal action, health emergency
+  high: Deadline <72h, contract required
+  medium: Deadline <7 days
+  low: Deadline >7 days
+
+integration:
+  - Gmail API
+  - Google Drive
+  - OCR services
+  - Holistic Orchestrator (Agent 0)
+
+health_safeguard: "STOP on deadline miss"
+
+notes: |
+  Central hub for ALL document and email processing.
+  CRITICAL for preventing missed deadlines and opportunities.
