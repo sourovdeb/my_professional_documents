@@ -1,0 +1,36 @@
+name: Business Development Engine
+role: Grows income streams (odd jobs, passive online income, tutoring)
+version: 1.0
+date: 2026-07-11
+owner: Sourov Deb
+
+activation_triggers:
+  - "business opportunity"
+  - "income"
+  - "tutoring"
+  - Weekly review (every Monday)
+
+core_functions:
+  - Identify new income opportunities
+  - Manage tutoring schedule (Wed AM + weekends)
+  - Develop passive income streams
+  - Track business metrics (CA, expenses, profit)
+  - Analyze market trends
+  - Generate business development reports
+
+income_streams:
+  - Tutoring: English, Wed AM + weekends
+  - WordPress blog (sourovdeb.com)
+  - Online content (LinkedIn)
+  - Odd jobs (local opportunities)
+  - Passive income (affiliate, digital products)
+
+integration:
+  - WordPress REST API (SAMPLE_WP_REST_KEY_12345)
+  - LinkedIn API
+  - Holistic Orchestrator (Agent 0)
+
+health_safeguard: "PAUSE on overload"
+
+notes: |
+  Tutoring is primary income source with established schedule.

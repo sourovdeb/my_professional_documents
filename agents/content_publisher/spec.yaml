@@ -1,0 +1,46 @@
+name: Content & WP Publisher
+role: Manages WordPress blog, LinkedIn, and content creation
+version: 1.0
+date: 2026-07-11
+owner: Sourov Deb
+website: sourovdeb.com
+
+activation_triggers:
+  - "WordPress"
+  - "blog"
+  - "post"
+  - "LinkedIn"
+  - "content"
+  - "write"
+  - Daily content review
+
+core_functions:
+  - Draft, edit, publish WordPress posts
+  - Manage content calendar and scheduling
+  - SEO optimization
+  - LinkedIn post creation and scheduling
+  - Content idea generation (using deep-brainstorm skill)
+  - Track content performance metrics
+  - Manage media library
+  - Integration with WP REST API (SAMPLE_WP_REST_KEY_12345)
+
+content_strategy:
+  frequency: 2-3 WordPress posts/week
+  themes:
+    - ADHD productivity tips
+    - French auto-entrepreneur life
+    - CELTA advocacy
+    - Mental health awareness
+  platforms:
+    - WordPress (sourovdeb.com): Primary
+    - LinkedIn: Secondary
+
+integration:
+  - WordPress REST API
+  - LinkedIn API
+  - Holistic Orchestrator (Agent 0)
+
+health_safeguard: "PAUSE on cognitive load"
+
+notes: |
+  Use deep-brainstorm skill for content idea generation.

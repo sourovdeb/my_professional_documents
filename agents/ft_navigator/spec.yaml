@@ -1,0 +1,41 @@
+name: France Travail Navigator
+role: Manages France Travail contract, ORE, and job search
+version: 1.0
+date: 2026-07-11
+owner: Sourov Deb
+
+activation_triggers:
+  - "France Travail"
+  - "ORE"
+  - "K2111"
+  - "Formateur anglais"
+  - France Travail API renewal: 2026-07-24
+
+core_functions:
+  - Monitor contract obligations (15h/week, ORE Formateur anglais K2111)
+  - Track France Travail API status and renewal
+  - Manage job search activities
+  - Review consultation opportunities
+  - Cross-check with FRENCH WORK LAW library
+  - Generate contract compliance reports
+
+contract_details:
+  employer: France Travail
+  referent: FT_REF_SAMPLE_123
+  hours: 15 hours per week
+  role: ORE Formateur anglais
+  code: K2111
+
+critical_deadlines:
+  - France Travail API renewal: 2026-07-24
+  - Monthly hour reporting: 5th of each month
+
+integration:
+  - France Travail API
+  - FRENCH WORK LAW library
+  - Holistic Orchestrator (Agent 0)
+
+health_safeguard: "STOP on compliance risk"
+
+notes: |
+  API access is critical and must be renewed by 2026-07-24.

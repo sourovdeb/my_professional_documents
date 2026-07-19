@@ -1,0 +1,11 @@
+Priority,Task,Deadline,Owner_Agent,Status,Health_Risk,Drive_Link,Notes,Source
+CRITICAL,E-invoicing PDP Setup,2026-09-01,Agent_2,PENDING,LOW,https://drive.google.com/drive/folders/1O9QPObl7_Tls3jMliCoxE-lsUuG9WfTf,Mandatory for ALL businesses including micro-entrepreneurs,Legifrance
+HIGH,Urssaf Payment July 2026,2026-07-15,Agent_2,PENDING,LOW,https://drive.google.com/drive/folders/1O9QPObl7_Tls3jMliCoxE-lsUuG9WfTf,Verify amount before paying - BNC1 regime,Urssaf
+HIGH,France Travail API Renewal,2026-07-24,Agent_6,PENDING,MEDIUM,https://drive.google.com/drive/folders/1O9QPObl7_Tls3jMliCoxE-lsUuG9WfTf,API access critical for contract management,France Travail
+HIGH,CGSS Attestation Renewal,2026-12-31,Agent_3,PENDING,LOW,https://drive.google.com/drive/folders/1O9QPObl7_Tls3jMliCoxE-lsUuG9WfTf,Start renewal process 30 days before expiry,CGSS
+MEDIUM,WordPress Post: ADHD Productivity Tips,2026-07-14,Agent_5,PENDING,MEDIUM,https://drive.google.com/drive/folders/1O9QPObl7_Tls3jMliCoxE-lsUuG9WfTf,Draft in progress - align with content strategy,User Request
+MEDIUM,Tutoring Schedule Wed AM,2026-07-13,Agent_4,PENDING,LOW,https://drive.google.com/drive/folders/1O9QPObl7_Tls3jMliCoxE-lsUuG9WfTf,Confirm student bookings for Wednesday morning,Business Development
+MEDIUM,Review CELTA Advocacy Opportunities,2026-07-18,Agent_9,PENDING,LOW,https://drive.google.com/drive/folders/1O9QPObl7_Tls3jMliCoxE-lsUuG9WfTf,Check celta-law library for new developments,CELTA
+LOW,Real Estate: Copropriete Meeting,2026-07-20,Agent_7,PENDING,LOW,https://drive.google.com/drive/folders/1O9QPObl7_Tls3jMliCoxE-lsUuG9WfTf,Pierrefonds copropriete - review agenda,Property Management
+LOW,LinkedIn Post: Auto-Entrepreneur Life,2026-07-16,Agent_5,PENDING,LOW,https://drive.google.com/drive/folders/1O9QPObl7_Tls3jMliCoxE-lsUuG9WfTf,Schedule for optimal engagement time,Content Strategy
+LOW,Health Check: Sleep Pattern Review,2026-07-12,Agent_1,PENDING,LOW,https://drive.google.com/drive/folders/1O9QPObl7_Tls3jMliCoxE-lsUuG9WfTf,Analyze last 7 days sleep data,Health Monitoring
