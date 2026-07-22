@@ -11,18 +11,18 @@ Each lesson folder contains:
 | # | Term | Folder |
 |---|------|--------|
 | 1 | **Agent** | [`01_AI_Agent/`](./01_AI_Agent/) |
+| 2 | **Model** | [`02_Model/`](./02_Model/) |
 
 ## Suggested next topics
 
 Pick the next one when continuing the series:
 
-1. **Model** — the "brain" an agent uses to think (natural next step after Agent).
-2. **Prompt** — how you actually talk to a model.
-3. **Token** — the units a model reads and writes text in.
-4. **Memory** — how an agent remembers things across steps or conversations.
-5. **Skill** — a packaged, reusable capability an agent can call on.
-6. **Hook** — an automatic trigger that runs code at a specific event.
-7. **Fine-tuning** — teaching a model new habits instead of just prompting it.
-8. **RAG (Retrieval-Augmented Generation)** — giving a model your own documents to look up before answering.
-9. **JSON** — the plain-text format apps use to hand structured data to each other.
-10. **Python** — the language most AI tools and glue-scripts are written in.
+1. **Prompt** — how you actually talk to a model.
+2. **Token** — the units a model reads and writes text in.
+3. **Memory** — how an agent remembers things across steps or conversations.
+4. **Skill** — a packaged, reusable capability an agent can call on.
+5. **Hook** — an automatic trigger that runs code at a specific event.
+6. **Fine-tuning** — teaching a model new habits instead of just prompting it.
+7. **RAG (Retrieval-Augmented Generation)** — giving a model your own documents to look up before answering.
+8. **JSON** — the plain-text format apps use to hand structured data to each other.
+9. **Python** — the language most AI tools and glue-scripts are written in.
