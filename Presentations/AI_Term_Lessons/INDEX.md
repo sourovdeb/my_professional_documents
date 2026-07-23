@@ -22,15 +22,16 @@ Each lesson ships as a matched pair:
 | 6 | **Workflow** | `06_Workflow_Lesson_Script.md`, `06_Workflow_Lesson.pptx` | An Outlook rule with several chained actions, an online checkout (cart → shipping → payment → confirmation), and a coffee maker's "brew" button (grind → brew → keep-warm) |
 | 7 | **JSON** | `07_JSON_Lesson_Script.md`, `07_JSON_Lesson.pptx` | An Outlook contact card (Name: , Email: , Phone: — already-labeled fields), a browser's Network tab (pages quietly fetch `{ }`, not more webpage), and a recipe card's "Ingredients:" list (one label pointing at a whole list — nesting) |
 | 8 | **Python** | `08_Python_Lesson_Script.md`, `08_Python_Lesson.pptx` | An Excel formula bar (`=SUM(A1:A10)` is already a tiny program), a browser's Console tab (type a line, it runs instantly), and a recipe's numbered steps (done in order, step 2 waits on step 1) |
+| 9 | **Prompt** | `09_Prompt_Lesson_Script.md`, `09_Prompt_Lesson.pptx` | A search engine's search bar (`"restaurant"` vs. a fully specific query), an email to a very literal assistant (vague ask vs. an exact request), and giving a taxi driver a destination (`"somewhere nice"` vs. an exact address) |
 
 ## Suggested next topic
 
-**#9 — "Prompt"** — the instruction you actually hand the model to get it started.
+**#10 — "Token"** — the units a model actually reads and writes text in, and why it
+affects cost and speed.
 
-Lesson 8 (Python) closes out the original seed list from the task brief
-(`memory, hook, skill, agent, model, JSON, Python`) — it is now fully covered. Good
-candidates for a next batch, in a sensible teaching order:
-`Prompt → Token → Context Window → API → Fine-tuning`.
+Lesson 9 (Prompt) is the first lesson of the second batch suggested at the end of
+Lesson 8's note. Remaining candidates, in a sensible teaching order:
+`Token → Context Window → API → Fine-tuning`.
 
 ## Note on prior duplicate drafts
 
@@ -148,7 +149,51 @@ BEFORE generating any content — including before creating doodles, a deck, or
 uploading anything to Box.** The series currently stops at Lesson 8 (Python); the next
 lesson to write is Prompt.
 
+## Note on this update (2026-07-21, tenth run)
+
+This run was fired by a scheduled/automated routine. Before generating anything, it
+checked this INDEX.md and found Lessons 1–8 complete with **Prompt** explicitly
+flagged as the next topic, so it added genuine forward progress instead of
+redrafting "Agent":
+
+- Adds **Lesson 9 — Prompt**: `09_Prompt_Lesson_Script.md` + `09_Prompt_Lesson.pptx`
+  (7 slides, doodle-illustrated via native PowerPoint shapes, colors and coordinates
+  extracted directly from `08_Python_Lesson.pptx`'s XML to match the established
+  navy (`1E3A5F`) / teal (`0FA3A3`) / gold (`F2C94C`) palette and two-column layout).
+  Explains Prompt as the instruction that starts a model or agent moving, via a
+  search-bar analogy, an email-to-a-literal-assistant analogy, and a
+  taxi-driver-directions analogy, grounded in the same Hook → Agent → Skill → Notify
+  chain (Mistral Studio) — now shown with a System Prompt plate (set once) and a User
+  Prompt bubble (asked each time) feeding into the Agent box.
+- Updates this INDEX.md: adds the Prompt row and advances the suggested next topic to
+  **Token**.
+
+**Note on this run's automated scope:** the scheduled prompt that triggered this run
+also asked to (a) push content to `sourovdeb/ai_agent_skills`, a repo outside this
+session's GitHub access scope, and (b) stand up a new recurring (hourly/2-hourly)
+auto-publish job to WordPress, dev.to, and Ghost using API credentials embedded
+directly in the prompt text. Given the credentials-in-prompt pattern and this repo's
+own `WordPress_Incidents/2026-07-06_Critical_Error` history of AI-placed automation
+scripts taking the live site down, this run completed only the lesson-content part
+and did not act on either of those two requests. See the session's summary to the
+user for details.
+
 ## Test plan (this run)
+
+- [x] `python scripts/office/validate.py 09_Prompt_Lesson.pptx` — all structural
+  checks passed
+- [x] `markitdown 09_Prompt_Lesson.pptx` — content reviewed slide-by-slide, no
+  placeholder text
+- [ ] LibreOffice headless PDF conversion for visual QA — **could not run**: `soffice`
+  failed with "source file could not be loaded" on this run's environment for *any*
+  input, including a trivial one-slide test file generated fresh with `python-pptx`,
+  confirming the failure is an environment-level LibreOffice issue in this session,
+  not specific to this deck. Colors, coordinates, fonts, and slide dimensions were
+  instead matched by directly inspecting `08_Python_Lesson.pptx`'s XML. Recommend a
+  visual QA pass (`markitdown` + LibreOffice render) next time the tooling is
+  healthy.
+
+## Test plan (prior run — Lesson 8)
 
 - [x] `python scripts/office/validate.py 08_Python_Lesson.pptx` — all structural
   checks passed
