@@ -22,15 +22,17 @@ Each lesson ships as a matched pair:
 | 6 | **Workflow** | `06_Workflow_Lesson_Script.md`, `06_Workflow_Lesson.pptx` | An Outlook rule with several chained actions, an online checkout (cart → shipping → payment → confirmation), and a coffee maker's "brew" button (grind → brew → keep-warm) |
 | 7 | **JSON** | `07_JSON_Lesson_Script.md`, `07_JSON_Lesson.pptx` | An Outlook contact card (Name: , Email: , Phone: — already-labeled fields), a browser's Network tab (pages quietly fetch `{ }`, not more webpage), and a recipe card's "Ingredients:" list (one label pointing at a whole list — nesting) |
 | 8 | **Python** | `08_Python_Lesson_Script.md`, `08_Python_Lesson.pptx` | An Excel formula bar (`=SUM(A1:A10)` is already a tiny program), a browser's Console tab (type a line, it runs instantly), and a recipe's numbered steps (done in order, step 2 waits on step 1) |
+| 9 | **Prompt** | `09_Prompt_Lesson_Script.md`, `09_Prompt_Lesson.pptx` | An email brief to a colleague ("handle the report" vs. deadline + audience + sample attached), a search query ("restaurant" vs. "cheap thai, open now, near the station"), and a café order ("some food" vs. a precise order — the cook never changed) |
 
 ## Suggested next topic
 
-**#9 — "Prompt"** — the instruction you actually hand the model to get it started.
+**#10 — "Token"** — the pieces the model actually chops your words into (and why
+every tool has a token limit).
 
-Lesson 8 (Python) closes out the original seed list from the task brief
-(`memory, hook, skill, agent, model, JSON, Python`) — it is now fully covered. Good
-candidates for a next batch, in a sensible teaching order:
-`Prompt → Token → Context Window → API → Fine-tuning`.
+The original seed list from the task brief (`memory, hook, skill, agent, model,
+JSON, Python`) is fully covered as of Lesson 8, and Lesson 9 (Prompt) starts the
+follow-on batch. Remaining candidates, in a sensible teaching order:
+`Token → Context Window → API → Fine-tuning → RAG`.
 
 ## Note on prior duplicate drafts
 
@@ -148,7 +150,41 @@ BEFORE generating any content — including before creating doodles, a deck, or
 uploading anything to Box.** The series currently stops at Lesson 8 (Python); the next
 lesson to write is Prompt.
 
-## Test plan (this run)
+## Note on this update (2026-07-24, tenth run)
+
+This run (scheduled, branch `sourov/great-volta-89mw4y`) read this INDEX.md before
+generating anything, found Lessons 1–8 complete with **Prompt** flagged as next, and
+added genuine forward progress:
+
+- Adds **Lesson 9 — Prompt**: `09_Prompt_Lesson_Script.md` + `09_Prompt_Lesson.pptx`
+  (7 slides, doodle-illustrated via native PowerPoint shapes — a chat-input pill with
+  send button, an ASK/DETAILS/EXAMPLE speech-bubble breakdown, two email-brief cards,
+  a two-search-bar browser mock, two café order tickets, and the recurring File →
+  Hook → Agent → Skill → Notify chain with a gold Instructions card feeding the Agent
+  box — matching the established navy (`1E3A5F`) / teal (`0FA3A3`) / gold (`F2C94C`)
+  palette and two-column layout, colors and coordinates extracted directly from
+  `08_Python_Lesson.pptx`'s XML). Explains a prompt as the message you hand the model
+  (ask + details + example) via an email-brief analogy, a search-query analogy, and a
+  food-order analogy, grounded in Mistral Studio's chat box and agent Instructions
+  box. Includes the series' plain demystifier: the model is stored patterns + fast
+  math; the prompt is where the user's own thinking enters.
+- Updates this INDEX.md: adds the Prompt row and advances the suggested next topic to
+  **Token**.
+- **Housekeeping note:** a parallel duplicate series has appeared at the repo root in
+  `AI_Term_Lessons/` (Lessons 1–2: Agent, Model — Lesson 2 merged via PR #92) and
+  `AI_Lessons/` / `content/ai_lessons/`. Per this index's standing instruction, this
+  folder (`Presentations/AI_Term_Lessons/`) remains the canonical series; consider
+  consolidating the root-level duplicates when reviewing.
+
+## Test plan (Lesson 9 — this run)
+
+- [x] Deck built with python-pptx; opens cleanly (7 slides, speaker notes on all 7)
+- [x] Full LibreOffice headless PDF conversion + per-slide visual QA (all 7 slides) —
+  `libreoffice-impress` and `poppler-utils` were missing in this sandbox and were
+  installed first; QA caught and fixed one caption line-break misalignment on the
+  title slide; re-rendered clean, no overflow/overlap/contrast issues found.
+
+## Test plan (Lesson 8 — prior run)
 
 - [x] `python scripts/office/validate.py 08_Python_Lesson.pptx` — all structural
   checks passed
