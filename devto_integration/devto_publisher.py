@@ -40,6 +40,8 @@ INCLUDE_DIRS = [
     "content/ai_lessons", "routines/02_python_toolkit_routine",
     "wordpress_integration",          # tech incident write-ups
     "WordPress_Incidents",            # troubleshooting docs
+    "docs",                           # exposure/platform strategy docs
+    "00_COMMAND_CENTER",              # command center notes
 ]
 
 # Additional single-file sources to convert (troubleshooting → blog)
@@ -47,6 +49,11 @@ TROUBLESHOOT_FILES = [
     "WordPress_Incidents/2026-07-06_Critical_Error/WORDPRESS_CRITICAL_ERROR_REPORT_2026-07-06.md",
     "wordpress_integration/SEO_GUIDE.md",
     "wordpress_integration/SYNC_STATUS.md",
+]
+
+# Python scripts to wrap as "Here's the code + explanation" posts
+PYTHON_SCRIPT_DIRS = [
+    "routines/02_python_toolkit_routine",
 ]
 
 EXCLUDE_PATTERNS = [
@@ -197,19 +204,35 @@ def post_to_devto(article: dict, dry_run: bool = False) -> dict | None:
         return None
 
 
+def build_python_script_post(path: Path) -> dict:
+    """Wrap a .py file as a 'Here's the code + what it does' Dev.to post."""
+    raw = path.read_text(encoding="utf-8", errors="replace")
+    name = path.stem.replace("_", " ").replace("-", " ").title()
+    title = f"Python Script: {name}"
+    body = (
+        f"Here's a Python utility I built: **{name}**.\n\n"
+        f"```python\n{raw}\n```\n\n"
+        f"---\n*Part of a personal Python toolkit. Feedback welcome!*\n"
+    )
+    return {
+        "title": title,
+        "body": body,
+        "tags": infer_tags(raw, title) + ["python"],
+    }
+
+
 def collect_candidates(state: dict) -> list[dict]:
     """Scan repos and return unposted AI/programming files."""
     candidates = []
     published = state["published"]
 
-    # 1. Scan directory trees
+    # 1. Scan directory trees for markdown
     for repo in REPOS:
         for inc_dir in INCLUDE_DIRS:
             scan_root = repo / inc_dir
             if not scan_root.exists():
                 continue
             for md in scan_root.rglob("*.md"):
-                # Skip excluded paths
                 parts = str(md)
                 if any(ex in parts for ex in EXCLUDE_PATTERNS):
                     continue
@@ -226,7 +249,21 @@ def collect_candidates(state: dict) -> list[dict]:
                     continue
                 candidates.append({"path": md, "kind": "article"})
 
-    # 2. Specific troubleshooting files
+    # 2. Python scripts from toolkit routines
+    for repo in REPOS:
+        for script_dir in PYTHON_SCRIPT_DIRS:
+            scan_root = repo / script_dir
+            if not scan_root.exists():
+                continue
+            for py in scan_root.rglob("*.py"):
+                fid = str(py)
+                if fid in published:
+                    continue
+                if py.stat().st_size < 100:
+                    continue
+                candidates.append({"path": py, "kind": "python_script"})
+
+    # 3. Specific troubleshooting files
     for repo in REPOS:
         for rel in TROUBLESHOOT_FILES:
             fp = repo / rel
@@ -283,6 +320,8 @@ def main():
         try:
             if kind == "troubleshoot":
                 article = build_troubleshoot_blog(path)
+            elif kind == "python_script":
+                article = build_python_script_post(path)
             else:
                 article = build_article_post(path)
         except Exception as e:
