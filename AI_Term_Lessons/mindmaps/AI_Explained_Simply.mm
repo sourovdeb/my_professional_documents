@@ -126,6 +126,69 @@
         </richcontent>
       </node>
     </node>
+    <node TEXT="Ep. 3 — Prompt">
+      <richcontent TYPE="NOTE">
+        <html>
+          <body>
+            <p>Status: PUBLISHED DRAFT. Files: AI_Term_Lessons/03_Prompt/script.md, 03_Prompt.pptx (this deck also carries real PowerPoint speaker notes on every slide — View &gt; Notes Page / presenter view).</p>
+          </body>
+        </html>
+      </richcontent>
+      <node TEXT="What">
+        <richcontent TYPE="NOTE">
+          <html>
+            <body>
+              <p>A prompt is the instructions you type before the model starts guessing — the steering wheel for its answer. Vague in, vague out; specific in, specific out.</p>
+            </body>
+          </html>
+        </richcontent>
+      </node>
+      <node TEXT="Everyday hook">
+        <richcontent TYPE="NOTE">
+          <html>
+            <body>
+              <p>Like telling a new assistant "sort this out" vs. "file these five invoices under Q3, flag anything over $500" — same assistant, wildly different result because the instruction did the work.</p>
+            </body>
+          </html>
+        </richcontent>
+      </node>
+      <node TEXT="How it works">
+        <richcontent TYPE="NOTE">
+          <html>
+            <body>
+              <p>The model predicts its next words from your prompt text. Add "explain like I'm 10" and every next-word guess gets nudged simpler. It's a search query, but the engine writes a fresh answer instead of listing links.</p>
+            </body>
+          </html>
+        </richcontent>
+      </node>
+      <node TEXT="Where in Mistral">
+        <richcontent TYPE="NOTE">
+          <html>
+            <body>
+              <p>console.mistral.ai → Le Chat. The big "message box" at the bottom of the screen is the prompt. A smaller "System prompt" field sits above it — a teaser for Episode 4.</p>
+            </body>
+          </html>
+        </richcontent>
+      </node>
+      <node TEXT="Why care">
+        <richcontent TYPE="NOTE">
+          <html>
+            <body>
+              <p>A good prompt is the cheapest upgrade in AI — free, instant, and entirely under your control. No hidden paywall smarts; this lever is yours.</p>
+            </body>
+          </html>
+        </richcontent>
+      </node>
+      <node TEXT="Recap line">
+        <richcontent TYPE="NOTE">
+          <html>
+            <body>
+              <p>A model is the engine. A prompt is the steering wheel. Same engine, better steering, better ride.</p>
+            </body>
+          </html>
+        </richcontent>
+      </node>
+    </node>
     <node TEXT="Roadmap — next episodes (unwritten)">
       <richcontent TYPE="NOTE">
         <html>
@@ -134,11 +197,11 @@
           </body>
         </html>
       </richcontent>
-      <node TEXT="Prompt (suggested next)">
+      <node TEXT="System Prompt (suggested next)">
         <richcontent TYPE="NOTE">
           <html>
             <body>
-              <p>How you actually talk to a model.</p>
+              <p>The hidden second steering wheel, set before you even type — how it differs from the user prompt and why it controls agent behavior.</p>
             </body>
           </html>
         </richcontent>

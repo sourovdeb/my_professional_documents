@@ -12,12 +12,13 @@ Each lesson folder contains:
 |---|------|--------|
 | 1 | **Agent** | [`01_AI_Agent/`](./01_AI_Agent/) |
 | 2 | **Model** | [`02_Model/`](./02_Model/) |
+| 3 | **Prompt** | [`03_Prompt/`](./03_Prompt/) |
 
 ## Suggested next topics
 
 Pick the next one when continuing the series:
 
-1. **Prompt** — how you actually talk to a model *(suggested next)*.
+1. **System Prompt** — what is a system prompt vs. user prompt, where to set it in Mistral, why it controls agent behavior *(suggested next)*.
 2. **Token** — the units a model reads and writes text in.
 3. **Memory** — how an agent remembers things across steps or conversations.
 4. **Skill** — a packaged, reusable capability an agent can call on.
