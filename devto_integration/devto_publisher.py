@@ -38,10 +38,16 @@ INCLUDE_DIRS = [
     "AI_Lessons", "AI_Term_Lessons", "Presentations/AI_Term_Lessons",
     "guides", "weekly-briefings", "Growth_Hub", "initiatives",
     "content/ai_lessons", "routines/02_python_toolkit_routine",
-    "wordpress_integration",          # tech incident write-ups
-    "WordPress_Incidents",            # troubleshooting docs
-    "docs",                           # exposure/platform strategy docs
-    "00_COMMAND_CENTER",              # command center notes
+    "routines/01_elt365_lessons_routine",
+    "routines/03_human_nature_routine",
+    "elt365_lessons",
+    "wordpress_integration",
+    "WordPress_Incidents",
+    "docs",
+    "00_COMMAND_CENTER",
+    "posts", "daily_essays", "blog_and_essays",
+    "presentations", "Presentations",
+    "automation",
 ]
 
 # Additional single-file sources to convert (troubleshooting → blog)
