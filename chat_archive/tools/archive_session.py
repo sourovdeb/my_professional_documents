@@ -201,7 +201,15 @@ above. Everything here is a deliberate written record, not a recovered one.*
 
 
 def reasoning_path(page_path: str) -> str:
-    return page_path.replace(".md", ".reasoning.md")
+    """Sibling directory, not a sibling file.
+
+    These lived alongside the pages as `<name>.reasoning.md` until a routine
+    `rm sessions/*.md` during a rebuild matched them and destroyed the one file
+    in the archive that cannot be regenerated. Putting them under
+    `sessions/reasoning/` means no glob over the session pages can reach them.
+    """
+    directory, name = os.path.split(page_path)
+    return os.path.join(directory, "reasoning", name)
 
 
 def existing_reasoning(page_path: str) -> str | None:
@@ -346,6 +354,7 @@ def main() -> None:
         print(f"inlined reasoning log from {os.path.basename(reasoning_path(dest))}")
     else:
         # Seed an empty one so there is an obvious place to write.
+        os.makedirs(os.path.dirname(reasoning_path(dest)), exist_ok=True)
         with open(reasoning_path(dest), "w") as fh:
             fh.write(PLACEHOLDER)
 

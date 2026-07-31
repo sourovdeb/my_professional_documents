@@ -2,11 +2,11 @@
 type: session
 session_id: 5bff9b21-667e-5849-9d52-a342f0776528
 title: "Chat history archival system"
-subject: AI & Agent Engineering
-topics: [storage-sync, mcp-and-connectors, backup-and-archive, scheduling-and-cron]
-tags: [box, automated, artifact-script, github]
+subject: Infrastructure & Archival
+topics: [mcp-and-connectors, storage-sync, backup-and-archive, pr-and-ci-hygiene, scheduling-and-cron]
+tags: [box, github, automated, artifact-script]
 started: 2026-07-31T14:46:30.910Z
-ended: 2026-07-31T15:09:51.732Z
+ended: 2026-07-31T15:15:28.937Z
 ---
 
 # Session — Chat history archival system
@@ -14,11 +14,11 @@ ended: 2026-07-31T15:09:51.732Z
 | Field | Value |
 |---|---|
 | Session ID | `5bff9b21-667e-5849-9d52-a342f0776528` |
-| Subject | **AI & Agent Engineering** |
-| Topics | `storage-sync` `mcp-and-connectors` `backup-and-archive` `scheduling-and-cron` |
-| Tags | `#box` `#automated` `#artifact-script` `#github` |
+| Subject | **Infrastructure & Archival** |
+| Topics | `mcp-and-connectors` `storage-sync` `backup-and-archive` `pr-and-ci-hygiene` `scheduling-and-cron` |
+| Tags | `#box` `#github` `#automated` `#artifact-script` |
 | Started | 2026-07-31T14:46:30.910Z |
-| Ended | 2026-07-31T15:09:51.732Z |
+| Ended | 2026-07-31T15:15:28.937Z |
 | Working dir | `/home/user` |
 | Git branch | `HEAD` |
 | Harness version | 2.1.220 |
@@ -30,15 +30,15 @@ ended: 2026-07-31T15:09:51.732Z
 | Kind | Count |
 |---|---|
 | User prompts | 1 |
-| Assistant replies | 26 |
-| Tool calls | 113 |
-| Tool results | 112 |
-| Reasoning blocks | 29 |
+| Assistant replies | 34 |
+| Tool calls | 144 |
+| Tool results | 143 |
+| Reasoning blocks | 37 |
 | — of which text recoverable | 0 |
 
-Tools used: `Edit`×35, `Bash`×33, `mcp__Box__list_folder_content_by_folder_id`×23, `Write`×12, `ToolSearch`×3, `Grep`×3, `Read`×2, `mcp__Claude_Code_Remote__list_triggers`×1, `mcp__Box__who_am_i`×1
+Tools used: `Bash`×47, `Edit`×44, `mcp__Box__list_folder_content_by_folder_id`×23, `Write`×14, `ToolSearch`×3, `Read`×3, `Grep`×3, `mcp__github__create_pull_request`×2, `mcp__github__pull_request_read`×2, `mcp__Claude_Code_Remote__list_triggers`×1, `mcp__Box__who_am_i`×1, `mcp__Box__create_folder`×1
 
-> **Reasoning capture gap.** 29 of 29
+> **Reasoning capture gap.** 37 of 37
 > reasoning blocks in this session carry an encrypted signature but an empty
 > text body. The harness does not persist raw reasoning to the transcript, so
 > those contents cannot be recovered from this file by any tool. They are
@@ -3504,11 +3504,922 @@ The file /home/user/my_professional_documents/chat_archive/tools/redact.py has b
 }
 ```
 
+### 282. Tool result — 2026-07-31 15:09:57
+
+```text
+redacted 70 credential(s): account-username×14, api-key×6, client-secret×2, deploy-key×40, developer-token×2, password×5, table-cell-secret×1
+  !! those credentials are live in the routine definitions themselves — rotate them and move them out of the prompts
+archived 27 routines to ./routines/
+wrote ./sessions/2026-07-31--5bff9b21--chat-history-archival-system.md
+  {'user_prompts': 1, 'assistant_texts': 26, 'tool_calls': 113, 'tool_results': 112, 'reasoning_blocks': 29, 'reasoning_recoverable': 0}
+  redacted 139 credential(s): account-username×8, client-secret×6, deploy-key×60, developer-token×6, table-cell-secret×48, wordpress-api-key×11
+indexed 27 routines, 1 sessions
+```
+
+### 283. Tool call — `Bash` — 2026-07-31 15:10:01
+
+```json
+{
+  "command": "grep -rEoic '«REDACTED:deploy-key»|«REDACTED:client-secret»|«REDACTED:developer-token»|«REDACTED:deploy-key»|«REDACTED:account-username»' --exclude-dir=__pycache__ . | grep -v ':0$' || echo \"CLEAN — no known secrets anywhere in archive\"",
+  "description": "Final verification sweep"
+}
+```
+
+### 284. Tool result — 2026-07-31 15:10:05
+
+```text
+CLEAN — no known secrets anywhere in archive
+```
+
+### 285. Reasoning block — 2026-07-31 15:10:08
+
+*Not recoverable: the harness stored an encrypted signature with an empty text body. Position preserved; content was never written to disk.*
+
+### 286. Tool call — `Bash` — 2026-07-31 15:10:08
+
+```json
+{
+  "command": "sed -n '45,58p' «REDACTED:table-cell-secret»",
+  "description": "Spot-check redacted output readability"
+}
+```
+
+### 287. Tool result — 2026-07-31 15:10:09
+
+```text
+|---|---|
+| **Site URL** | https://sourovdeb.com |
+| **WP Admin** | https://sourovdeb.com/wp-admin |
+| **Admin Email** | «REDACTED:account-username» |
+| **Deploy Gateway** | https://www.sourovdeb.com/deploy.php |
+| **Deploy Secret** | `«REDACTED:deploy-key»` |
+| **Custom API Key** | `«REDACTED:deploy-key»` (same) |
+| **FTP Host** | ftp.sourovdeb.com |
+| **FTP User** | «REDACTED:account-username» |
+| **FTP Password** | `«REDACTED:deploy-key»` |
+| **FTP Port** | 21 |
+| **DB Name** | «REDACTED:account-username»_rUgwv |
+| **DB User** | «REDACTED:account-username»_gVGpV |
+| **DB Password** | «REDACTED:table-cell-secret» |
+```
+
+### 288. Assistant reply — 2026-07-31 15:10:12
+
+Reads cleanly. Documenting the redaction layer in the README:
+
+### 289. Tool call — `Edit` — 2026-07-31 15:10:15
+
+```json
+{
+  "replace_all": false,
+  "file_path": "/home/user/my_professional_documents/chat_archive/README.md",
+  "old_string": "├── tools/\n│   ├── taxonomy.py        ← vocabulary + classifier (single source of truth)\n│   ├── snapshot_routines.py\n│   ├── archive_session.py\n│   └── build_index.py\n```",
+  "new_string": "├── tools/\n│   ├── taxonomy.py        ← vocabulary + classifier (single source of truth)\n│   ├── redact.py          ← credential stripping; runs before anything is written\n│   ├── snapshot_routines.py\n│   ├── archive_session.py\n│   └── build_index.py\n```"
+}
+```
+
+### 290. Tool result (error) — 2026-07-31 15:10:15
+
+```text
+<tool_use_error>String to replace not found in file.
+String: ├── tools/
+│   ├── taxonomy.py        ← vocabulary + classifier (single source of truth)
+│   ├── snapshot_routines.py
+│   ├── archive_session.py
+│   └── build_index.py
+```
+(note: Edit also tried swapping \uXXXX escapes and their characters; neither form matched, so the mismatch is likely elsewhere in old_string. Re-read the file and copy the exact surrounding text.)</tool_use_error>
+```
+
+### 291. Tool call — `Bash` — 2026-07-31 15:10:19
+
+```json
+{
+  "command": "sed -n '8,35p' README.md | cat -A | sed 's/\\$$//' | head -30",
+  "description": "Inspect README tree block exactly"
+}
+```
+
+### 292. Tool result — 2026-07-31 15:10:19
+
+```text
+```
+chat_archive/
+M-bM-^TM-^\M-bM-^TM-^@M-bM-^TM-^@ README.md              M-bM-^FM-^P you are here: scope, limits, how to run it
+M-bM-^TM-^\M-bM-^TM-^@M-bM-^TM-^@ TAXONOMY.md            M-bM-^FM-^P the controlled vocabulary
+M-bM-^TM-^\M-bM-^TM-^@M-bM-^TM-^@ INDEX.md               M-bM-^FM-^P generated master index
+M-bM-^TM-^\M-bM-^TM-^@M-bM-^TM-^@ overrides.json         M-bM-^FM-^P hand corrections to the classifier
+M-bM-^TM-^\M-bM-^TM-^@M-bM-^TM-^@ routines/              M-bM-^FM-^P all 27 scheduled routines, full prompts, classified
+M-bM-^TM-^B   M-bM-^TM-^\M-bM-^TM-^@M-bM-^TM-^@ INDEX.md           M-bM-^FM-^P by subject, by tag, by topic
+M-bM-^TM-^B   M-bM-^TM-^\M-bM-^TM-^@M-bM-^TM-^@ routines.json      M-bM-^FM-^P machine-readable
+M-bM-^TM-^B   M-bM-^TM-^TM-bM-^TM-^@M-bM-^TM-^@ <slug>.md          M-bM-^FM-^P one page per routine
+M-bM-^TM-^\M-bM-^TM-^@M-bM-^TM-^@ sessions/              M-bM-^FM-^P archived session transcripts
+M-bM-^TM-^B   M-bM-^TM-^\M-bM-^TM-^@M-bM-^TM-^@ INDEX.md
+M-bM-^TM-^B   M-bM-^TM-^\M-bM-^TM-^@M-bM-^TM-^@ <date>--<id>--<slug>.md    M-bM-^FM-^P readable page
+M-bM-^TM-^B   M-bM-^TM-^TM-bM-^TM-^@M-bM-^TM-^@ <date>--<id>--<slug>.json  M-bM-^FM-^P untruncated
+…truncated…
+```
+
+### 293. Reasoning block — 2026-07-31 15:10:24
+
+*Not recoverable: the harness stored an encrypted signature with an empty text body. Position preserved; content was never written to disk.*
+
+### 294. Tool call — `Edit` — 2026-07-31 15:10:26
+
+```json
+{
+  "replace_all": false,
+  "file_path": "/home/user/my_professional_documents/chat_archive/README.md",
+  "old_string": "│   ├── <date>--<id>--<slug>.md    ← readable page\n│   └── <date>--<id>--<slug>.json  ← untruncated sidecar",
+  "new_string": "│   ├── <date>--<id>--<slug>.md            ← readable page (regenerated)\n│   ├── <date>--<id>--<slug>.reasoning.md  ← hand-written; never overwritten\n│   └── <date>--<id>--<slug>.json          ← untruncated sidecar"
+}
+```
+
+### 295. Tool result — 2026-07-31 15:10:26
+
+```text
+The file /home/user/my_professional_documents/chat_archive/README.md has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+
+### 296. Tool call — `Edit` — 2026-07-31 15:10:31
+
+```json
+{
+  "replace_all": false,
+  "file_path": "/home/user/my_professional_documents/chat_archive/README.md",
+  "old_string": "    ├── taxonomy.py        ← vocabulary + classifier (single source of truth)\n    ├── snapshot_routines.py",
+  "new_string": "    ├── taxonomy.py        ← vocabulary + classifier (single source of truth)\n    ├── redact.py          ← credential stripping; runs before anything is written\n    ├── snapshot_routines.py"
+}
+```
+
+### 297. Tool result — 2026-07-31 15:10:31
+
+```text
+The file /home/user/my_professional_documents/chat_archive/README.md has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+
+### 298. Assistant reply — 2026-07-31 15:10:38
+
+Now adding the credentials finding to the README — it's the most actionable thing this job turned up:
+
+### 299. Tool call — `Edit` — 2026-07-31 15:10:53
+
+```json
+{
+  "replace_all": false,
+  "file_path": "/home/user/my_professional_documents/chat_archive/README.md",
+  "old_string": "## Running it",
+  "new_string": "---\n\n## Credentials: found, redacted, and needing rotation\n\nArchiving the routine prompts surfaced something that was not part of the\nrequest but cannot be left unsaid.\n\n**Several routine definitions contain live credentials in plaintext**, pasted\ninto the instruction text when the routine was created. The snapshot run\nredacted **70 occurrences** before writing anything:\n\n| Kind | Occurrences | Where |\n|---|---:|---|\n| Deploy key / WordPress `X-Sourov-Key` | 40 | `Organise and create`, `Wp`, `Sync repos to wordpress site.` |\n| Account usernames (FTP, database) | 14 | same |\n| API keys | 6 | `AI concepts explainer`, `Content sync and human nature research` |\n| FTP / database passwords | 5 | `Organise and create`, `Wp` |\n| Google Ads client secret | 2 | `AI concepts explainer`, `Content sync and human nature research` |\n| Google Ads developer token | 2 | same |\n\nThe archive is clean — a literal sweep for every known secret value and any\n10-character-or-longer prefix of one returns nothing. But **redacting the copy\ndoes nothing about the original.** Those secrets are still live in the routine\ndefinitions on the scheduling service, they are visible to anyone who can read\nthe routine list, and they have been echoed into every session those routines\nhave ever run.\n\nRecommended, in order:\n\n1. **Rotate t
+…truncated…
+```
+
+### 300. Tool result — 2026-07-31 15:10:53
+
+```text
+The file /home/user/my_professional_documents/chat_archive/README.md has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+
+### 301. Tool call — `Bash` — 2026-07-31 15:11:00
+
+```json
+{
+  "command": "cd /home/user/my_professional_documents && printf '__pycache__/\\n*.pyc\\n' > chat_archive/.gitignore && git add chat_archive && git status --short | wc -l && git diff --cached --stat | tail -3",
+  "description": "Stage archive with gitignore"
+}
+```
+
+### 302. Tool result — 2026-07-31 15:11:02
+
+```text
+45
+ chat_archive/tools/snapshot_routines.py            |  309 ++
+ chat_archive/tools/taxonomy.py                     |  329 ++
+ 45 files changed, 12539 insertions(+)
+```
+
+### 303. Tool call — `Bash` — 2026-07-31 15:11:16
+
+```json
+{
+  "command": "git commit -q -F - <<'EOF'\nAdd classified chat & work archive\n\nBuilds a durable, classified record of the work done through Claude Code in\nthis environment: scheduled routines, session transcripts, and an inventory of\nthe artifacts they produced across Box and GitHub.\n\nWhat is archived\n- All 27 routines (15 active) with their instruction text preserved verbatim,\n  one page each, grouped by subject and cross-indexed by tag and topic.\n- The current session transcript: prompts, replies, tool calls and results.\n- Box: 111 root items plus nested folders, classified.\n- GitHub: both repositories by directory, with commit and PR patterns.\n\nTwo findings shaped the scope, both documented in chat_archive/README.md\n- Reasoning text is not recoverable. Transcript `thinking` blocks persist an\n  encrypted signature with an empty text body, so no tool can retrieve past\n  reasoning. Each block is marked in place as unrecoverable, and session pages\n  carry a hand-written reasoning log instead of a reconstructed one.\n- Past sessions are gone. Containers are ephemeral and only the current\n  session's transcript exists on disk; what survives from earlier sessions is\n  routine definitions and output artifacts, both of which are archived here.\n\nCredential redaction\nSeveral routine prompts contain live credentials pasted inline. tools/redact.py\nharvests secret values corpus-wide, then sweeps every occurrence and any 10+\ncharacter prefix, so bare and truncate
+…truncated…
+```
+
+### 304. Tool result — 2026-07-31 15:11:19
+
+```text
+97795eb Add classified chat & work archive
+```
+
+### 305. Tool call — `Bash` — 2026-07-31 15:11:23
+
+```json
+{
+  "command": "git push -u origin claude/chat-history-archival-7vyt2j 2>&1 | tail -5",
+  "description": "Push archive branch"
+}
+```
+
+### 306. Tool result — 2026-07-31 15:11:27
+
+```text
+remote:      https://github.com/sourovdeb/my_professional_documents/pull/new/claude/chat-history-archival-7vyt2j        
+remote: 
+To http://127.0.0.1:41729/git/sourovdeb/my_professional_documents
+ * [new branch]      claude/chat-history-archival-7vyt2j -> claude/chat-history-archival-7vyt2j
+branch 'claude/chat-history-archival-7vyt2j' set up to track 'origin/claude/chat-history-archival-7vyt2j'.
+```
+
+### 307. Reasoning block — 2026-07-31 15:11:35
+
+*Not recoverable: the harness stored an encrypted signature with an empty text body. Position preserved; content was never written to disk.*
+
+### 308. Tool call — `Bash` — 2026-07-31 15:11:36
+
+```json
+{
+  "command": "ls -la .github/ 2>/dev/null; ls .github/pull_request_template.md .github/PULL_REQUEST_TEMPLATE.md PULL_REQUEST_TEMPLATE.md docs/PULL_REQUEST_TEMPLATE.md 2>/dev/null || echo \"no PR template\"",
+  "description": "Check for PR template"
+}
+```
+
+### 309. Tool result — 2026-07-31 15:11:37
+
+```text
+total 12
+drwxr-xr-x  3 root root 4096 Jul 25 15:08 .
+drwxr-xr-x 63 root root 4096 Jul 31 14:50 ..
+drwxr-xr-x  2 root root 4096 Jul 25 15:08 workflows
+no PR template
+```
+
+### 310. Tool call — `mcp__github__create_pull_request` — 2026-07-31 15:12:01
+
+```json
+{
+  "owner": "sourovdeb",
+  "repo": "my_professional_documents",
+  "base": "main",
+  "head": "claude/chat-history-archival-7vyt2j",
+  "draft": true,
+  "title": "Add classified chat & work archive",
+  "body": "Builds a durable, classified record of the work done through Claude Code in this environment — scheduled routines, session transcripts, and an inventory of the artifacts they produced across Box and GitHub.\n\nEntry point: **`chat_archive/INDEX.md`**. Scope and limits: **`chat_archive/README.md`**.\n\n## ⚠️ Read first: live credentials need rotating\n\nArchiving the routine prompts surfaced something outside the original request. **Several routine definitions contain live credentials in plaintext**, pasted into the instruction text when the routine was created. 70 occurrences were redacted before anything was written to disk:\n\n| Kind | Occurrences |\n|---|---:|\n| Deploy key / WordPress `X-Sourov-Key` | 40 |\n| Account usernames (FTP, database) | 14 |\n| API keys | 6 |\n| FTP / database passwords | 5 |\n| Google Ads client secret | 2 |\n| Google Ads developer token | 2 |\n\nThe archive is clean — a literal sweep for every known secret value, and any 10-character-or-longer prefix of one, returns nothing. **But redacting the copy does nothing about the original.** Those secrets are still live on the scheduling service, visible to anyone who can read the routine list, and have been echoed into every session those routines have run. They should be treated as disclosed and 
+…truncated…
+```
+
+### 311. Tool result — 2026-07-31 15:12:03
+
+```text
+{"id":"4178794622","url":"https://github.com/sourovdeb/my_professional_documents/pull/110"}
+```
+
+### 312. Reasoning block — 2026-07-31 15:12:08
+
+*Not recoverable: the harness stored an encrypted signature with an empty text body. Position preserved; content was never written to disk.*
+
+### 313. Assistant reply — 2026-07-31 15:12:09
+
+PR #110 created and auto-subscribed. Let me check its CI while I finish the remaining work:
+
+### 314. Tool call — `mcp__github__pull_request_read` — 2026-07-31 15:12:10
+
+```json
+{
+  "method": "get_status",
+  "owner": "sourovdeb",
+  "repo": "my_professional_documents",
+  "pullNumber": 110
+}
+```
+
+### 315. Tool call — `Bash` — 2026-07-31 15:12:10
+
+```json
+{
+  "command": "ls /home/user/my_professional_documents/.github/workflows/",
+  "description": "List CI workflows"
+}
+```
+
+### 316. Tool result — 2026-07-31 15:12:11
+
+```text
+publish_on_push.yml
+```
+
+### 317. Tool result — 2026-07-31 15:12:12
+
+```text
+{"state":"pending","sha":"97795eb4f88c4bf64acd4738201ab0b3f2accd11","total_count":0,"commit_url":"https://api.github.com/repos/sourovdeb/my_professional_documents/commits/97795eb4f88c4bf64acd4738201ab0b3f2accd11"}
+```
+
+### 318. Tool call — `Bash` — 2026-07-31 15:12:15
+
+```json
+{
+  "command": "head -40 /home/user/my_professional_documents/.github/workflows/publish_on_push.yml",
+  "description": "Inspect publish workflow triggers"
+}
+```
+
+### 319. Tool result — 2026-07-31 15:12:15
+
+```text
+name: Publish Drafts to WordPress
+
+on:
+  push:
+    paths:
+      - 'drafts/*.md'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Publish new/changed draft files
+        env:
+          WP_PLUGIN_KEY: ${{ secrets.WP_API_KEY }}
+          WP_API_URL: https://sourovdeb.com/wp-json/sourov/v1/ai-post
+        run: |
+          python3 - <<'PYEOF'
+          import os, json, re, requests
+          
+          WP_URL = os.environ['WP_API_URL']
+          WP_KEY = os.environ['WP_PLUGIN_KEY']
+          
+          CATEGORY_RULES = [
+              (r'grammar|tense|verb|noun|adjective', 'Grammar'),
+              (r'listen|audio|phonetic|pronunciation', 'Listening & Phonology'),
+              (r'speak|fluency|conversation', 'Speaking'),
+              (r'read|comprehension|passage', 'Reading'),
+```
+
+### 320. Reasoning block — 2026-07-31 15:12:21
+
+*Not recoverable: the harness stored an encrypted signature with an empty text body. Position preserved; content was never written to disk.*
+
+### 321. Assistant reply — 2026-07-31 15:12:22
+
+No CI applies — the sole workflow triggers only on `drafts/*.md`, and `total_count: 0` confirms no checks were queued. Nothing to drive to green.
+
+Now the `free_education` side:
+
+### 322. Tool call — `Write` — 2026-07-31 15:12:37
+
+```json
+{
+  "file_path": "/home/user/free_education/chat_archive/README.md",
+  "content": "# Chat & Work Archive — pointer\n\nThe archive itself lives in the sibling repository:\n\n**`sourovdeb/my_professional_documents` → `chat_archive/`**\n\nIt is kept in one place rather than mirrored, so that a routine touching both\nrepositories is filed once and the classification never drifts between copies.\nThis file exists so anyone starting from `free_education` can find it.\n\nWhat is there:\n\n| Path | Contents |\n|---|---|\n| `chat_archive/INDEX.md` | Master index — holdings by subject, full tag index |\n| `chat_archive/README.md` | Scope, limits, and what could **not** be captured |\n| `chat_archive/TAXONOMY.md` | The controlled vocabulary: 10 subjects, 32 topics, 25 tags |\n| `chat_archive/routines/` | All 27 scheduled routines, instruction text verbatim |\n| `chat_archive/sessions/` | Archived session transcripts |\n| `chat_archive/inventory/` | Box and GitHub inventories |\n| `chat_archive/tools/` | The archiver, classifier, and credential redactor |\n\n---\n\n## What the archive holds about this repository\n\n`free_education` appears in the archive in three places.\n\n**Its own inventory section** — `chat_archive/inventory/github-inventory.md`\ncovers this repo by directory: `routines/` (three routine folders),\n`python_toolkit/`, `elt365_lessons/`, and the root sync machinery.\n\n**Routines that write here.** Four archived routines target this repository\ndirectly:\n\n| Routine | 
+…truncated…
+```
+
+### 323. Tool result — 2026-07-31 15:12:37
+
+```text
+File created successfully at: /home/user/free_education/chat_archive/README.md (file state is current in your context — no need to Read it back)
+```
+
+### 324. Tool call — `Bash` — 2026-07-31 15:12:51
+
+```json
+{
+  "command": "cd /home/user/free_education && git add chat_archive && git commit -q -F - <<'EOF'\nAdd pointer to the chat & work archive\n\nThe archive lives in sourovdeb/my_professional_documents under chat_archive/.\nIt is kept in one place rather than mirrored so that routines touching both\nrepositories are filed once and classifications cannot drift between copies.\n\nThis pointer records what the archive holds about free_education: its entry in\nthe GitHub inventory, the four routines that write here, and how this repo's\ndirectories map onto the taxonomy's subjects. It also carries the two capture\nlimits worth knowing locally - reasoning text is not recoverable from\ntranscripts, and session transcripts vanish with their container.\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013xwqHxetb7S3epjEmcmWHs\nEOF\ngit push -u origin claude/chat-history-archival-7vyt2j 2>&1 | tail -3",
+  "description": "Commit and push free_education pointer"
+}
+```
+
+### 325. Tool result — 2026-07-31 15:12:55
+
+```text
+To http://127.0.0.1:41729/git/sourovdeb/free_education
+ * [new branch]      claude/chat-history-archival-7vyt2j -> claude/chat-history-archival-7vyt2j
+branch 'claude/chat-history-archival-7vyt2j' set up to track 'origin/claude/chat-history-archival-7vyt2j'.
+```
+
+### 326. Tool call — `mcp__github__create_pull_request` — 2026-07-31 15:13:07
+
+```json
+{
+  "owner": "sourovdeb",
+  "repo": "free_education",
+  "base": "main",
+  "head": "claude/chat-history-archival-7vyt2j",
+  "draft": true,
+  "title": "Add pointer to the chat & work archive",
+  "body": "Companion to [sourovdeb/my_professional_documents#110](https://github.com/sourovdeb/my_professional_documents/pull/110), which adds the archive itself.\n\nThe archive is kept in one repository rather than mirrored across both, so that a routine touching both is filed once and its classification cannot drift between copies. This adds a single `chat_archive/README.md` here so anyone starting from `free_education` can find it.\n\n## What it records about this repo\n\n- Where `free_education` appears in the GitHub inventory.\n- The **four routines that write here** — `back up`, `Organise and push Claude Code artifacts to education repo`, `Content sync and human nature research`, `Sync repos to wordpress site.` — with their schedules and a link to their archived instruction text.\n- How this repo's directories map onto the taxonomy: `elt365_lessons/` → Education & Language Teaching, `routines/03_human_nature_routine/` → Psychology & Human Nature, `python_toolkit/` → AI & Agent Engineering.\n\n## Two capture limits worth knowing locally\n\n**Reasoning is not recoverable after the fact.** Transcript `thinking` blocks persist an encrypted signature with an empty text body. The archive marks each block unrecoverable rather than reconstructing it, and session pages carry a hand-written r
+…truncated…
+```
+
+### 327. Tool result — 2026-07-31 15:13:09
+
+```text
+{"id":"4178802975","url":"https://github.com/sourovdeb/free_education/pull/53"}
+```
+
+### 328. Assistant reply — 2026-07-31 15:13:13
+
+Both PRs open and subscribed. Now uploading the archive to Box:
+
+### 329. Tool call — `mcp__github__pull_request_read` — 2026-07-31 15:13:14
+
+```json
+{
+  "method": "get_status",
+  "owner": "sourovdeb",
+  "repo": "free_education",
+  "pullNumber": 53
+}
+```
+
+### 330. Tool call — `mcp__Box__create_folder` — 2026-07-31 15:13:14
+
+```json
+{
+  "name": "Chat_History_Archive_2026-07-31",
+  "parent_folder_id": "0"
+}
+```
+
+### 331. Tool result — 2026-07-31 15:13:16
+
+```text
+{"state":"pending","sha":"63d8ded21bdd595209df9367adc74fe317b89c6f","total_count":0,"commit_url":"https://api.github.com/repos/sourovdeb/free_education/commits/63d8ded21bdd595209df9367adc74fe317b89c6f"}
+```
+
+### 332. Tool result — 2026-07-31 15:13:17
+
+```text
+{
+  "createdAt": {
+    "value": "2026-07-31T15:13:16.000Z"
+  },
+  "modifiedAt": {
+    "value": "2026-07-31T15:13:16.000Z"
+  },
+  "description": "",
+  "size": 0,
+  "pathCollection": {
+    "totalCount": 1,
+    "entries": [
+      {
+        "name": "All Files",
+        "id": "0",
+        "type": "folder"
+      }
+    ]
+  },
+  "createdBy": {
+    "name": "sourov deb",
+    "login": "sourovdeb974@gmail.com",
+    "id": "51958996595",
+    "type": "user"
+  },
+  "modifiedBy": {
+    "name": "sourov deb",
+    "login": "sourovdeb974@gmail.com",
+    "id": "51958996595",
+    "type": "user"
+  },
+  "contentCreatedAt": {
+    "value": "2026-07-31T15:13:16.000Z"
+  },
+  "contentModifiedAt": {
+    "value": "2026-07-31T15:13:16.000Z"
+  },
+  "ownedBy": {
+    "name": "sourov deb",
+    "login": "sourovdeb974@gmail.com",
+    "id": "51958996595",
+    "type": "user"
+  },
+  "parent": {
+    "name": "All Files",
+    "id": "0",
+    "type": "folder"
+  },
+  "itemStatus": "active",
+  "itemCollection": {
+    "limit": 100,
+    "totalCount": 0,
+    "offset": 0,
+    "order": [
+      {
+        "by": "type",
+        "direction": "ASC"
+      },
+      {
+        "by": "name",
+        "direction": "ASC"
+      }
+    ],
+    "entrie
+…truncated…
+```
+
+### 333. Reasoning block — 2026-07-31 15:13:35
+
+*Not recoverable: the harness stored an encrypted signature with an empty text body. Position preserved; content was never written to disk.*
+
+### 334. Tool call — `Bash` — 2026-07-31 15:13:36
+
+```json
+{
+  "command": "cd /home/user/my_professional_documents/chat_archive && wc -c README.md TAXONOMY.md INDEX.md routines/INDEX.md inventory/*.md sessions/*.reasoning.md routines/routines.json | sort -n",
+  "description": "Check file sizes for Box upload planning"
+}
+```
+
+### 335. Tool result — 2026-07-31 15:13:37
+
+```text
+306 sessions/2026-07-31--5bff9b21--chat-history-archival-system.reasoning.md
+  5615 TAXONOMY.md
+  6924 inventory/github-inventory.md
+ 10540 README.md
+ 11211 inventory/box-inventory.md
+ 16222 INDEX.md
+ 26508 routines/INDEX.md
+148273 routines/routines.json
+225599 total
+```
+
+### 336. Reasoning block — 2026-07-31 15:13:48
+
+*Not recoverable: the harness stored an encrypted signature with an empty text body. Position preserved; content was never written to disk.*
+
+### 337. Assistant reply — 2026-07-31 15:13:49
+
+The reasoning log got destroyed by my own `rm sessions/*.md` — exactly the risk the sidecar was meant to prevent. Fixing structurally so a glob can't reach it:
+
+### 338. Tool call — `Edit` — 2026-07-31 15:13:53
+
+```json
+{
+  "replace_all": false,
+  "file_path": "/home/user/my_professional_documents/chat_archive/tools/archive_session.py",
+  "old_string": "def reasoning_path(page_path: str) -> str:\n    return page_path.replace(\".md\", \".reasoning.md\")",
+  "new_string": "def reasoning_path(page_path: str) -> str:\n    \"\"\"Sibling directory, not a sibling file.\n\n    These lived alongside the pages as `<name>.reasoning.md` until a routine\n    `rm sessions/*.md` during a rebuild matched them and destroyed the one file\n    in the archive that cannot be regenerated. Putting them under\n    `sessions/reasoning/` means no glob over the session pages can reach them.\n    \"\"\"\n    directory, name = os.path.split(page_path)\n    return os.path.join(directory, \"reasoning\", name)"
+}
+```
+
+### 339. Tool result — 2026-07-31 15:13:53
+
+```text
+The file /home/user/my_professional_documents/chat_archive/tools/archive_session.py has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+
+### 340. Tool call — `Edit` — 2026-07-31 15:13:58
+
+```json
+{
+  "replace_all": false,
+  "file_path": "/home/user/my_professional_documents/chat_archive/tools/archive_session.py",
+  "old_string": "    else:\n        # Seed an empty one so there is an obvious place to write.\n        with open(reasoning_path(dest), \"w\") as fh:\n            fh.write(PLACEHOLDER)",
+  "new_string": "    else:\n        # Seed an empty one so there is an obvious place to write.\n        os.makedirs(os.path.dirname(reasoning_path(dest)), exist_ok=True)\n        with open(reasoning_path(dest), \"w\") as fh:\n            fh.write(PLACEHOLDER)"
+}
+```
+
+### 341. Tool result — 2026-07-31 15:13:58
+
+```text
+The file /home/user/my_professional_documents/chat_archive/tools/archive_session.py has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+
+### 342. Tool call — `Bash` — 2026-07-31 15:14:02
+
+```json
+{
+  "command": "mkdir -p sessions/reasoning && rm -f sessions/*.reasoning.md && ls sessions/",
+  "description": "Create reasoning subdir, clear old sidecar"
+}
+```
+
+### 343. Tool result — 2026-07-31 15:14:04
+
+```text
+2026-07-31--5bff9b21--chat-history-archival-system.json
+2026-07-31--5bff9b21--chat-history-archival-system.md
+INDEX.md
+reasoning
+```
+
+### 344. Tool call — `Write` — 2026-07-31 15:14:39
+
+```json
+{
+  "file_path": "/home/user/my_professional_documents/chat_archive/sessions/reasoning/2026-07-31--5bff9b21--chat-history-archival-system.md",
+  "content": "*Authored during the session. This file exists because the transcript's own\nreasoning blocks are empty — see the capture gap note on the session page.\nEverything here is a deliberate written record, not a recovered one. It is\ninlined into the session page at render time and is never overwritten by\nregeneration.*\n\n### Establish what exists before designing anything\n\nThe request assumed a body of chat history was sitting somewhere retrievable.\nThat had to be tested before building a container for it. Four things were\nchecked in parallel: the filesystem for transcripts, `.claude.json` for a prompt\nhistory, the routine service, and Box.\n\nThe filesystem search found exactly one transcript —\n`~/.claude/projects/-home-user/5bff9b21-….jsonl`, this session. `.claude.json`\nturned out to hold only feature flags and account state; it has no `projects`\nkey and therefore no prompt history. So the premise did not hold: there was no\nback catalogue to archive.\n\n**What settled the shape of the work:** if the history is gone, the deliverable\nhas to be (a) everything that *is* reachable, classified properly, and (b)\nmachinery so the loss stops recurring. Building only (a) would have handed back\na snapshot that goes stale the moment the container is reclaimed.\n\n### The reasoning capture problem\n\nThe transcript does c
+…truncated…
+```
+
+### 345. Tool result — 2026-07-31 15:14:39
+
+```text
+File created successfully at: /home/user/my_professional_documents/chat_archive/sessions/reasoning/2026-07-31--5bff9b21--chat-history-archival-system.md (file state is current in your context — no need to Read it back)
+```
+
+### 346. Tool call — `Bash` — 2026-07-31 15:14:52
+
+```json
+{
+  "command": "python3 tools/archive_session.py /root/.claude/projects/-home-user/5bff9b21-667e-5849-9d52-a342f0776528.jsonl . --title \"Chat history archival system\" && python3 tools/build_index.py . && ls sessions/ sessions/reasoning/",
+  "description": "Regenerate with reasoning in subdirectory"
+}
+```
+
+### 347. Tool result — 2026-07-31 15:14:56
+
+```text
+inlined reasoning log from 2026-07-31--5bff9b21--chat-history-archival-system.md
+wrote ./sessions/2026-07-31--5bff9b21--chat-history-archival-system.md
+  {'user_prompts': 1, 'assistant_texts': 32, 'tool_calls': 139, 'tool_results': 138, 'reasoning_blocks': 36, 'reasoning_recoverable': 0}
+  redacted 145 credential(s): account-username×9, client-secret×7, deploy-key×62, developer-token×7, table-cell-secret×49, wordpress-api-key×11
+indexed 27 routines, 1 sessions
+sessions/:
+2026-07-31--5bff9b21--chat-history-archival-system.json
+2026-07-31--5bff9b21--chat-history-archival-system.md
+INDEX.md
+reasoning
+
+sessions/reasoning/:
+2026-07-31--5bff9b21--chat-history-archival-system.md
+```
+
+### 348. Assistant reply — 2026-07-31 15:14:58
+
+Now uploading to Box:
+
+### 349. Tool call — `Read` — 2026-07-31 15:14:59
+
+```json
+{
+  "file_path": "/home/user/my_professional_documents/chat_archive/README.md"
+}
+```
+
+### 350. Tool result — 2026-07-31 15:14:59
+
+```text
+1	# Chat & Work Archive
+2	
+3	A classified, durable record of the work done through Claude Code in this
+4	environment — routines, sessions, and the artifacts they produced across Box and
+5	GitHub.
+6	
+7	Start at **[`INDEX.md`](INDEX.md)**.
+8	
+9	```
+10	chat_archive/
+11	├── README.md              ← you are here: scope, limits, how to run it
+12	├── TAXONOMY.md            ← the controlled vocabulary
+13	├── INDEX.md               ← generated master index
+14	├── overrides.json         ← hand corrections to the classifier
+15	├── routines/              ← all 27 scheduled routines, full prompts, classified
+16	│   ├── INDEX.md           ← by subject, by tag, by topic
+17	│   ├── routines.json      ← machine-readable
+18	│   └── <slug>.md          ← one page per routine
+19	├── sessions/              ← archived session transcripts
+20	│   ├── INDEX.md
+21	│   ├── <date>--<id>--<slug>.md            ← readable page (regenerated)
+22	│   ├── <date>--<id>--<slug>.reasoning.md  ← hand-written; never overwritten
+23	│   └── <date>--<id>--<slug>.json          ← untruncated sidecar
+24	├── inventory/
+25	│   ├── box-inventory.md   ← 111 root items, classified
+26	│   └── github-inventory.md
+27	└── tools/
+28	    
+…truncated…
+```
+
+### 351. Reasoning block — 2026-07-31 15:15:03
+
+*Not recoverable: the harness stored an encrypted signature with an empty text body. Position preserved; content was never written to disk.*
+
+### 352. Tool call — `Edit` — 2026-07-31 15:15:07
+
+```json
+{
+  "replace_all": false,
+  "file_path": "/home/user/my_professional_documents/chat_archive/README.md",
+  "old_string": "├── sessions/              ← archived session transcripts\n│   ├── INDEX.md\n│   ├── <date>--<id>--<slug>.md            ← readable page (regenerated)\n│   ├── <date>--<id>--<slug>.reasoning.md  ← hand-written; never overwritten\n│   └── <date>--<id>--<slug>.json          ← untruncated sidecar",
+  "new_string": "├── sessions/              ← archived session transcripts\n│   ├── INDEX.md\n│   ├── <date>--<id>--<slug>.md    ← readable page (regenerated)\n│   ├── <date>--<id>--<slug>.json  ← untruncated sidecar\n│   └── reasoning/\n│       └── <date>--<id>--<slug>.md  ← hand-written; the one irreplaceable file"
+}
+```
+
+### 353. Tool result — 2026-07-31 15:15:07
+
+```text
+The file /home/user/my_professional_documents/chat_archive/README.md has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+
+### 354. Tool call — `Edit` — 2026-07-31 15:15:18
+
+```json
+{
+  "replace_all": false,
+  "file_path": "/home/user/my_professional_documents/chat_archive/README.md",
+  "old_string": "The `thinking` field is an **empty string**. Only an encrypted signature is\npersisted. Across this session's 20 reasoning blocks, **0 contained recoverable\ntext**, totalling 0 characters.\n\nThis is not a permissions problem or a missing tool — the raw reasoning is never\nwritten to disk, so no tool can retrieve it after the fact. Any archive that\nclaimed to hold past reasoning traces would be fabricating them.\n\n**What is done instead:** `archive_session.py` records that a reasoning block\noccurred and where in the sequence it sat, marks it explicitly as unrecoverable,\nand every session page carries a **`Reasoning log`** section written\ndeliberately — decision, options considered, what settled it. Reasoning has to\nbe captured as it happens. It cannot be mined afterwards.",
+  "new_string": "The `thinking` field is an **empty string**. Only an encrypted signature is\npersisted. Across every reasoning block in this session, **none contained\nrecoverable text** — zero characters in total. Each session page reports its own\ncounts in the Volume table.\n\nThis is not a permissions problem or a missing tool — the raw reasoning is never\nwritten to disk, so no tool can retrieve it after the fact. Any archive that\nclaimed to hold past reasoning traces would be fabricating them.\n\n**What is done instead:** `archive_session.py` records that a reasoning block
+…truncated…
+```
+
+### 355. Tool result — 2026-07-31 15:15:18
+
+```text
+The file /home/user/my_professional_documents/chat_archive/README.md has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+
+### 356. Tool call — `Edit` — 2026-07-31 15:15:21
+
+```json
+{
+  "replace_all": false,
+  "file_path": "/home/user/my_professional_documents/chat_archive/README.md",
+  "old_string": "---\n\n---\n\n## Credentials: found, redacted, and needing rotation",
+  "new_string": "---\n\n## Credentials: found, redacted, and needing rotation"
+}
+```
+
+### 357. Tool result — 2026-07-31 15:15:21
+
+```text
+The file /home/user/my_professional_documents/chat_archive/README.md has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+
+### 358. Assistant reply — 2026-07-31 15:15:26
+
+Now uploading the archive's core documents to Box:
+
+### 359. Tool call — `Bash` — 2026-07-31 15:15:28
+
+```json
+{
+  "command": "python3 tools/archive_session.py /root/.claude/projects/-home-user/5bff9b21-667e-5849-9d52-a342f0776528.jsonl . --title \"Chat history archival system\" >/dev/null && python3 tools/build_index.py . && sed -n '1,12p;24,44p' README.md",
+  "description": "Rebuild and preview README for Box upload"
+}
+```
+
 ## Reasoning log
 
-*Authored during or immediately after the session. This section exists because
-the transcript's own reasoning blocks are empty — see the capture gap note
-above. Everything here is a deliberate written record, not a recovered one.*
+*Authored during the session. This file exists because the transcript's own
+reasoning blocks are empty — see the capture gap note on the session page.
+Everything here is a deliberate written record, not a recovered one. It is
+inlined into the session page at render time and is never overwritten by
+regeneration.*
 
-<!-- Add entries as: decision, options considered, what settled it. -->
+### Establish what exists before designing anything
 
+The request assumed a body of chat history was sitting somewhere retrievable.
+That had to be tested before building a container for it. Four things were
+checked in parallel: the filesystem for transcripts, `.claude.json` for a prompt
+history, the routine service, and Box.
+
+The filesystem search found exactly one transcript —
+`~/.claude/projects/-home-user/5bff9b21-….jsonl`, this session. `.claude.json`
+turned out to hold only feature flags and account state; it has no `projects`
+key and therefore no prompt history. So the premise did not hold: there was no
+back catalogue to archive.
+
+**What settled the shape of the work:** if the history is gone, the deliverable
+has to be (a) everything that *is* reachable, classified properly, and (b)
+machinery so the loss stops recurring. Building only (a) would have handed back
+a snapshot that goes stale the moment the container is reclaimed.
+
+### The reasoning capture problem
+
+The transcript does contain `thinking` blocks, which initially looked like the
+answer to "particularly your thought processes." Inspecting them showed
+`"thinking": ""` with a populated `signature` — every block, zero characters of
+recoverable text.
+
+Options considered:
+
+1. **Reconstruct reasoning from tool-call sequences.** Rejected. It would be
+   inference presented as record, and an archive whose reasoning section is
+   plausible fiction is worse than one that admits the gap.
+2. **Report the gap and stop.** Rejected as too little — the request is
+   satisfiable in substance even if not literally.
+3. **Record position and absence, and write reasoning deliberately.** Chosen.
+   Every unrecovered block is marked in place, and each session page carries a
+   reasoning log written by hand. This file is that mechanism used on itself.
+
+Consequence worth noting: because reasoning must be written *during* a session,
+it cannot live inside a page that regenerates from the `.jsonl`. First attempt
+kept it in the page and parsed it back out on re-run — workable, but one bad
+edit away from destroying the only irreplaceable content in the archive. Moved
+to a separate sidecar file, which the page inlines at render time.
+
+That turned out not to be enough on its own. The sidecar was first named
+`<page>.reasoning.md` and sat next to the page — and a routine
+`rm sessions/*.md` during a rebuild matched the glob and deleted it. The fix was
+structural rather than a resolution to be careful: sidecars now live in
+`sessions/reasoning/`, where no glob over the session pages can reach them.
+Worth recording as a small lesson — "keep it in a different file" is only a real
+safeguard once the file is somewhere the destructive command cannot name.
+
+### Credentials, found mid-build
+
+Staging the archive for commit, a routine pre-commit scan for secret-shaped
+strings hit. The routine prompts carry live credentials pasted inline: a
+WordPress deploy key, an FTP password, database credentials, a Google Ads client
+secret and developer token. Committing the archive as generated would have
+published them.
+
+Three iterations were needed before the archive was actually clean, and each
+failure was informative:
+
+1. **Labelled patterns only.** Caught `X-Sourov-Key: …` and `Password: …`,
+   missed the same key in markdown table cells, in `?key=` URL parameters, and
+   bare on its own line.
+2. **More patterns.** Diminishing returns immediately — the bare occurrence has
+   no syntactic marker at all, so no pattern can find it. Restructured to
+   harvest-then-sweep: patterns find the *values*, then every value is replaced
+   everywhere it appears, corpus-wide. A key labelled once in one routine is
+   then stripped from every routine that repeats it unlabelled.
+3. **Prefixes still leaked.** A grep pattern quoting the first half of a key
+   left that half in the transcript. Added prefix sweeping at 10 characters or
+   longer — 10 rather than 8 so git short-SHAs are not caught by accident.
+
+Also worth flagging: the first draft of `redact.py` used the real secrets as
+illustrative examples in its own docstring. Caught on the verification sweep and
+replaced with dummies. The verification step earned its place.
+
+The redaction protects the archive. It does nothing for the originals, which are
+still live on the scheduling service — hence the rotation recommendation in the
+README and at the top of the PR rather than buried in a footnote.
+
+### Why routines became the centrepiece
+
+27 routines came back from `list_triggers`, several with prompts over 11,000
+characters — one at 17,642. Reading them, they are not simple task
+descriptions: they carry accumulated corrections, recovery instructions for
+deleted files, and in one case ("Content sync and human nature research") an
+explicit `This instruction bellow is old one: new objectives:` header layered
+over a superseded block.
+
+That makes them the richest surviving statement of intent in the environment,
+and they live only in the scheduling service. Committing
+`routines/routines.json` to version control was therefore not a nice-to-have.
+
+### Classifier: three corrections during the build
+
+The first classification pass was visibly wrong, and each fix generalised.
+
+1. **Substring matching was firing on fragments.** `ci` matched inside "social"
+   and "efficient", `raw` inside "drawn", `box` inside "boxes". Nearly every
+   routine was picking up `pr-and-ci-hygiene`. Fixed with alphanumeric word
+   boundaries, built to still allow multi-word and punctuated needles like
+   `dev.to` and `.mm`.
+
+2. **Bodies were drowning out titles.** "Mental health research auditor" filed
+   under Content Publishing because its prompt names WordPress a dozen times —
+   WordPress is where its output *lands*, not what it is *about*. Fixed by
+   weighting title hits fourfold. The same change corrected "Content strategy
+   research" and "back up".
+
+3. **Some items are genuinely cross-cutting.** After the first two fixes, four
+   remained debatable. Rather than keep bending weights — where fixing one item
+   breaks three — an `overrides.json` layer was added. Each override records a
+   written reason that renders onto the item's page next to the subject it
+   replaced, so a hand correction is visible rather than silent.
+
+The general principle applied: tune the heuristic while the fixes generalise,
+then stop and make the remaining exceptions explicit.
+
+### Why the archive is not mirrored into free_education
+
+Both repositories were in scope. Mirroring the archive into both was considered
+and rejected: several routines write to both repos, so a mirrored copy means
+either filing those routines twice or letting the two copies drift. Single
+source of truth in `my_professional_documents`, with a pointer document in
+`free_education` that records what the archive holds *about* that repo — its
+inventory entry, the four routines targeting it, its subject mapping.
+
+### What was deliberately not done
+
+- **No attempt to reach other repositories or accounts.** Scope was the two
+  in-scope repos and the connected services.
+- **No cleanup of the defects found.** The 12-byte failed HTML upload, the five
+  files tracked with a literal leading double-quote in their names, the
+  duplicate `(1)` scripts in `python_toolkit/`, the twelve Asia/India digests
+  under six different naming conventions — all recorded in the inventories, none
+  touched. They are real problems, but they are not archival work, and silently
+  reorganising a repository during an archive job is the wrong call to make
+  unasked.
+- **No automatic capture installed.** A `SessionEnd` hook is the right long-term
+  answer and is written up in `README.md`, but it changes harness behaviour on
+  every future session — that is a decision to take explicitly, not a side
+  effect of asking for an archive.

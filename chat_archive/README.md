@@ -18,9 +18,10 @@ chat_archive/
 │   └── <slug>.md          ← one page per routine
 ├── sessions/              ← archived session transcripts
 │   ├── INDEX.md
-│   ├── <date>--<id>--<slug>.md            ← readable page (regenerated)
-│   ├── <date>--<id>--<slug>.reasoning.md  ← hand-written; never overwritten
-│   └── <date>--<id>--<slug>.json          ← untruncated sidecar
+│   ├── <date>--<id>--<slug>.md    ← readable page (regenerated)
+│   ├── <date>--<id>--<slug>.json  ← untruncated sidecar
+│   └── reasoning/
+│       └── <date>--<id>--<slug>.md  ← hand-written; the one irreplaceable file
 ├── inventory/
 │   ├── box-inventory.md   ← 111 root items, classified
 │   └── github-inventory.md
@@ -51,8 +52,9 @@ Session transcripts live at
 ```
 
 The `thinking` field is an **empty string**. Only an encrypted signature is
-persisted. Across this session's 20 reasoning blocks, **0 contained recoverable
-text**, totalling 0 characters.
+persisted. Across every reasoning block in this session, **none contained
+recoverable text** — zero characters in total. Each session page reports its own
+counts in the Volume table.
 
 This is not a permissions problem or a missing tool — the raw reasoning is never
 written to disk, so no tool can retrieve it after the fact. Any archive that
@@ -60,9 +62,15 @@ claimed to hold past reasoning traces would be fabricating them.
 
 **What is done instead:** `archive_session.py` records that a reasoning block
 occurred and where in the sequence it sat, marks it explicitly as unrecoverable,
-and every session page carries a **`Reasoning log`** section written
-deliberately — decision, options considered, what settled it. Reasoning has to
-be captured as it happens. It cannot be mined afterwards.
+and every session page carries a **`Reasoning log`** written deliberately —
+decision, options considered, what settled it. Reasoning has to be captured as
+it happens. It cannot be mined afterwards.
+
+The log lives in `sessions/reasoning/<same-name>.md` and is inlined into the
+page at render time. It is kept in a separate directory, not as a
+`<page>.reasoning.md` sibling, because a rebuild that runs `rm sessions/*.md`
+matches a sibling and destroys the one file in the archive that cannot be
+regenerated. That happened once during this build; the directory is the fix.
 
 ### 2. Past sessions are gone — only the current one exists on disk
 
@@ -94,8 +102,6 @@ each, classified.
 
 They are also fragile: they live only in the scheduling service. A snapshot
 belongs in version control, which is now what `routines/routines.json` is.
-
----
 
 ---
 

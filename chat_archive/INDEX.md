@@ -1,6 +1,6 @@
 # Chat & Work Archive — Master Index
 
-Generated 2026-07-31 15:09 UTC.
+Generated 2026-07-31 15:15 UTC.
 
 - **27 routines** (15 active) — `routines/INDEX.md`
 - **1 sessions** — `sessions/INDEX.md`
@@ -13,7 +13,7 @@ Generated 2026-07-31 15:09 UTC.
 
 | Subject | Routines | Sessions |
 |---|---:|---:|
-| AI & Agent Engineering | 2 | 1 |
+| AI & Agent Engineering | 2 | 0 |
 | Content Publishing & Web Ops | 10 | 0 |
 | Psychology & Human Nature | 2 | 0 |
 | Health, Wellbeing & Productivity | 3 | 0 |
@@ -21,7 +21,7 @@ Generated 2026-07-31 15:09 UTC.
 | Photography & Visual Craft | 1 | 0 |
 | Research & Trend Monitoring | 2 | 0 |
 | Career, CV & Job Search | 2 | 0 |
-| Infrastructure & Archival | 4 | 0 |
+| Infrastructure & Archival | 4 | 1 |
 
 ## Tag index (routines)
 
