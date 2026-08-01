@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
-"""Doodle-style deck: AI, Skills & Learning — 1 Aug 2026 delta update."""
+"""Doodle-style deck: AI, Skills & Learning — 1 Aug 2026 quiet-day check-in.
+
+Honest low-news edition: the 31 July 'Scoreboard' brief still stands; this
+logs minor previously-unrecorded texture and carries forward the tool.
+"""
 from pptx import Presentation
 from pptx.util import Inches, Pt
 from pptx.dml.color import RGBColor
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 from pptx.enum.shapes import MSO_SHAPE
 
-# palette (matches the July deck)
+# palette (matches prior decks)
 INK    = RGBColor(0x1D, 0x1D, 0x2B)
 PAPER  = RGBColor(0xFB, 0xF7, 0xEE)
 ACCENT = RGBColor(0xE8, 0x5D, 0x2E)
@@ -55,86 +59,67 @@ def underline(slide, x, y, w, color=ACCENT):
 
 # ---------- Slide 1: cover ----------
 s = prs.slides.add_slide(BLANK); bg(s)
-shape(s, MSO_SHAPE.RECTANGLE, 0, 0, 13.333, 0.28, fill=ACCENT, line=ACCENT, line_w=0.5)
-box(s, 0.9, 1.5, 11.5, 1.5, "The Anxiety Ladder", size=58, bold=True, color=INK)
-underline(s, 0.95, 2.75, 6.0, ACCENT)
-box(s, 0.95, 3.05, 11.4, 1.0, "Same numbers, sharper picture", size=30, color=BLUE, bold=True)
+shape(s, MSO_SHAPE.RECTANGLE, 0, 0, 13.333, 0.28, fill=GREEN, line=GREEN, line_w=0.5)
+box(s, 0.9, 1.5, 11.5, 1.5, "Quiet Day", size=60, bold=True, color=INK)
+underline(s, 0.95, 2.75, 5.0, GREEN)
+box(s, 0.95, 3.05, 11.4, 1.0, "The Scoreboard still stands", size=30, color=BLUE, bold=True)
 box(s, 0.95, 4.1, 11.4, 1.4,
-    "The headline data hasn't moved. What sharpened: AI anxiety is now\n"
-    "STRATIFIED by seniority and role — and learning is going social.",
+    "One day on from the 31 July brief, no significant new data landed.\n"
+    "The big move was last week: forecast → measured. Today = honest confirmation.",
     size=20, color=INK)
-box(s, 0.95, 6.4, 11.4, 0.6, "5-minute delta update  ·  Trend monitor  ·  1 August 2026",
+box(s, 0.95, 6.4, 11.4, 0.6, "5-minute check-in  ·  Trend monitor  ·  1 August 2026",
     size=16, color=MUTE, italic=True)
 
-# ---------- Slide 2: flagship data unchanged ----------
+# ---------- Slide 2: where the story stands (still current) ----------
 s = prs.slides.add_slide(BLANK); bg(s)
-box(s, 0.7, 0.4, 12, 0.9, "First, the honest headline: flagship data is UNCHANGED", size=30, bold=True, color=INK)
-underline(s, 0.75, 1.25, 7.6, MUTE)
-box(s, 0.75, 1.45, 11.9, 0.6, "No major new report in 2 weeks. Re-verified 1 Aug — the July pillars still stand:",
+box(s, 0.7, 0.4, 12.2, 0.9, "Where the story stands (31 Jul — still current)", size=30, bold=True, color=INK)
+underline(s, 0.75, 1.25, 7.4, GREEN)
+box(s, 0.75, 1.45, 11.9, 0.55, "The measured picture from last week hasn't been superseded — it remains the plan:",
     size=17, color=MUTE, italic=True)
-pills = [
-    ("+62%", "wage premium"), ("~8×", "faster AI-job growth"), ("51%", "AI jobs outside IT"),
-    ("22%", "feel job-safe"), ("48%", "plan a skilliday"), ("50%", "orgs → AI-free tests"),
+rows = [
+    ("AI = #1 stated layoff reason", "4 months running · ~101,743 AI-cited cuts H1 (≈2× 2025)", ACCENT),
+    ("Entry-level −13% (measured)", "22–25s in AI-exposed jobs; −20% junior devs — Stanford payroll", ACCENT),
+    ("AI literacy = #1 rising skill", "soft skills take 7 of top 10 — LinkedIn 2026", BLUE),
+    ("Trained for today's AI", "not tomorrow's job — Conference Board (28 Jul)", BLUE),
+    ("+62% premium · 22% feel safe", "48% plan a skilliday — PwC · ADP · Mastercard", GREEN),
 ]
-x0, y0, w, h, gx, gy = 0.9, 2.4, 3.7, 1.55, 0.35, 0.4
-for i, (big, lab) in enumerate(pills):
-    r, c = divmod(i, 3)
-    x = x0 + c * (w + gx); y = y0 + r * (h + gy)
-    shape(s, MSO_SHAPE.ROUNDED_RECTANGLE, x, y, w, h, fill=None, line=MUTE, line_w=2)
-    box(s, x, y + 0.12, w, 0.7, big, size=34, bold=True, color=MUTE, align=PP_ALIGN.CENTER)
-    box(s, x, y + 0.9, w, 0.5, lab, size=16, color=INK, align=PP_ALIGN.CENTER)
-box(s, 0.9, 6.75, 12, 0.5, "⏸  Track only headlines? Nothing new to act on — the July playbook holds. The value is underneath. →",
-    size=14, color=ACCENT, italic=True)
+for i, (k, v, col) in enumerate(rows):
+    yy = 2.25 + i * 0.85
+    shape(s, MSO_SHAPE.OVAL, 0.8, yy + 0.16, 0.22, 0.22, fill=col, line=col, line_w=0.5)
+    box(s, 1.2, yy, 5.0, 0.7, k, size=18, bold=True, color=INK, anchor=MSO_ANCHOR.MIDDLE)
+    box(s, 6.2, yy, 6.5, 0.7, v, size=15, color=MUTE, anchor=MSO_ANCHOR.MIDDLE)
+box(s, 0.75, 6.7, 12, 0.5, "✅  If you read the 31 July Scoreboard, you are up to date. Nothing today changes the plan.",
+    size=14, color=GREEN, italic=True)
 
-# ---------- Slide 3: the anxiety ladder ----------
+# ---------- Slide 3: what moved in 24h — the ladder ----------
 s = prs.slides.add_slide(BLANK); bg(s)
-box(s, 0.7, 0.4, 12, 0.9, "The doodle: the Anxiety Ladder", size=34, bold=True, color=INK)
-underline(s, 0.75, 1.25, 5.6, ACCENT)
-box(s, 0.75, 1.45, 11.9, 0.6, "\"Only 22% feel safe\" hid a gradient. The newest ADP cut, by rung:",
-    size=17, color=MUTE, italic=True)
+box(s, 0.7, 0.4, 12, 0.9, "What moved in 24h: minor texture only", size=32, bold=True, color=INK)
+underline(s, 0.75, 1.25, 6.3, ACCENT)
+box(s, 0.75, 1.45, 11.9, 0.55, "No new flagship report. One detail worth logging: the \"22% feel safe\" number is a ladder.",
+    size=16, color=MUTE, italic=True)
 rungs = [("C-suite", 35, GREEN), ("Upper managers", 31, GREEN),
          ("Middle managers", 23, BLUE), ("Managers", 21, ACCENT), ("Rank-and-file", 18, ACCENT)]
-bx, by, maxw = 4.3, 2.35, 6.7
+bx, by, maxw = 4.3, 2.3, 6.6
 for i, (lab, pct, col) in enumerate(rungs):
-    yy = by + i * 0.78
-    box(s, 0.6, yy - 0.02, 3.5, 0.6, lab, size=17, bold=True, color=INK,
+    yy = by + i * 0.72
+    box(s, 0.6, yy - 0.02, 3.5, 0.55, lab, size=16, bold=True, color=INK,
         align=PP_ALIGN.RIGHT, anchor=MSO_ANCHOR.MIDDLE)
-    shape(s, MSO_SHAPE.ROUNDED_RECTANGLE, bx, yy, maxw * pct / 35.0, 0.55, fill=col, line=col, line_w=0.5)
-    box(s, bx + maxw * pct / 35.0 + 0.15, yy - 0.02, 1.4, 0.6, f"{pct}%", size=18, bold=True,
+    shape(s, MSO_SHAPE.ROUNDED_RECTANGLE, bx, yy, maxw * pct / 35.0, 0.5, fill=col, line=col, line_w=0.5)
+    box(s, bx + maxw * pct / 35.0 + 0.15, yy - 0.02, 1.4, 0.55, f"{pct}%", size=17, bold=True,
         color=col, anchor=MSO_ANCHOR.MIDDLE)
-box(s, 0.6, 6.35, 12, 0.9,
-    "The higher you sit, the safer you feel — a ~17-point gap. Anxiety concentrates exactly\n"
-    "where the work is most routine. Closest to the task = bottom rung. Source: ADP Research.",
+box(s, 0.6, 6.05, 12, 1.1,
+    "Not new data — a finer cut of the same ADP survey. But it's the year in one shape:\n"
+    "anxiety concentrates where the work is most automatable — the same rung Stanford's −13%\n"
+    "payroll data shows actually shrinking. (Also, by role: researchers 51% anxious vs founders 15%.)",
     size=14, color=MUTE, italic=True)
 
-# ---------- Slide 4: three new signals ----------
-s = prs.slides.add_slide(BLANK); bg(s)
-box(s, 0.7, 0.4, 12, 0.9, "Three genuinely-new signals since July", size=32, bold=True, color=INK)
-underline(s, 0.75, 1.25, 6.6, BLUE)
-cards = [
-    ("1 · ANXIETY BY ROLE", ACCENT,
-     "Not just seniority. Researchers 51%\nanxious vs founders 15%. Designers\n63% overwhelmed, 61% tired — highest\nof any role. Exposure is uneven inside\nthe same company."),
-    ("2 · LEARNING GOES SOCIAL", GREEN,
-     "\"Festivalization of wellness\" — raves,\nmulti-day group immersions. The\nskilliday turns communal & identity-\ndriven. We crave the embodied things\nAI can't do — with other humans."),
-    ("3 · GAP PRICED AS MACRO", BLUE,
-     "A ~$5.5T skills-gap price tag is doing\nthe rounds (advocacy — caution). But\nit matches verified data: 85% of hiring\nmgrs are positive yet name skill gaps\nas their #1 problem."),
-]
-cw, ch, gap = 3.85, 4.4, 0.35
-for i, (title, col, body) in enumerate(cards):
-    x = 0.75 + i * (cw + gap)
-    shape(s, MSO_SHAPE.ROUNDED_RECTANGLE, x, 2.0, cw, ch, fill=None, line=col, line_w=2.5)
-    box(s, x + 0.25, 2.2, cw - 0.5, 0.9, title, size=17, bold=True, color=col)
-    box(s, x + 0.25, 3.05, cw - 0.5, ch - 1.1, body, size=15, color=INK, line_spacing=1.1)
-box(s, 0.75, 6.7, 12, 0.5, "Sources: ADP · Lenny's Newsletter (directional) · Global Wellness Summit 2026 · iternal.ai (caveated)",
-    size=12, color=MUTE, italic=True)
-
-# ---------- Slide 5: the tool ----------
+# ---------- Slide 4: the tool ----------
 s = prs.slides.add_slide(BLANK); bg(s)
 shape(s, MSO_SHAPE.RECTANGLE, 0, 0, 13.333, 0.28, fill=BLUE, line=BLUE, line_w=0.5)
 box(s, 0.7, 0.5, 12, 0.9, "\U0001F6E0  The tool: the Judgment Journal", size=34, bold=True, color=INK)
 underline(s, 0.75, 1.4, 6.8, BLUE)
 box(s, 0.75, 1.6, 11.9, 0.7,
-    "Gartner says half of orgs will soon test if you can think WITHOUT AI. You can't cram — but you can build proof.",
+    "Pairs with last week's Reskill Ledger. Gartner says half of orgs will soon test if you can think WITHOUT AI.",
     size=17, color=INK, italic=True)
 rows = [
     ("1 · CAUGHT IT", "One thing AI got wrong this week that I caught & fixed.", ACCENT),
@@ -151,16 +136,16 @@ box(s, 1.2, 5.75, 10.9, 1.2,
     "\"AI-free assessment\" era, and a mirror that keeps your critical thinking sharp.",
     size=16, color=INK)
 
-# ---------- Slide 6: takeaway ----------
+# ---------- Slide 5: takeaway ----------
 s = prs.slides.add_slide(BLANK); bg(s, INK)
-box(s, 1.0, 1.4, 11.3, 1.2, "Bottom line for the fortnight", size=38, bold=True, color=PAPER)
-underline(s, 1.05, 2.5, 5.2, ACCENT)
+box(s, 1.0, 1.4, 11.3, 1.2, "Bottom line", size=40, bold=True, color=PAPER)
+underline(s, 1.05, 2.5, 3.4, GREEN)
 box(s, 1.0, 2.95, 11.3, 1.8,
-    "No new magnitude — higher resolution.\n\nThe July playbook stands: AI × critical thinking × domain.",
+    "A genuinely quiet day.\n\nThe 31 July Scoreboard is the current state — no correction needed.",
     size=28, bold=True, color=PAPER, line_spacing=1.15)
 box(s, 1.0, 5.5, 11.3, 1.3,
-    "The one fresh instruction is personal: start a Judgment Journal. The era of proving you can\n"
-    "think without the machine is arriving faster than the headline numbers move.",
+    "The move is unchanged: AI literacy × critical thinking × domain × reskill-ahead-of-the-tool.\n"
+    "One fresh personal step: start a Judgment Journal alongside your Reskill Ledger.",
     size=18, color=RGBColor(0xE8, 0xE2, 0xD5), italic=True)
 
 out = "/home/user/my_professional_documents/free_education/2026-08-01-skills-ai-delta/AI_Skills_Learning_Delta_2026-08.pptx"
