@@ -1,0 +1,23 @@
+AI & HUMAN SKILLS — 1 AUG 2026 (quiet-day check-in)
+│
+├─ VERDICT: no significant new data since 31 Jul "Scoreboard"
+│   └─ The measured picture STANDS — no correction needed
+│       ├─ AI = #1 stated layoff reason, 4 months running (~101,743 H1)
+│       ├─ Stanford: entry-level -13% (22-25s), -20% junior devs — MEASURED
+│       ├─ LinkedIn: AI literacy #1; soft skills 7 of top 10
+│       ├─ Conference Board: train for today's AI, not tomorrow's job
+│       └─ +62% premium · 22% feel safe · 48% skilliday (unchanged)
+│
+├─ MINOR TEXTURE (not new magnitude)
+│   ├─ ADP "22% safe" → ladder: 18% rank-file to 35% C-suite
+│   ├─ Anxiety by role: researchers 51% vs founders 15% (single survey)
+│   └─ Skilliday → "festivalization of wellness" (social, embodied)
+│
+├─ THE TOOL: Judgment Journal (5 min/week) — pairs with Reskill Ledger
+│   ├─ 1. Caught it — one thing AI got wrong I fixed
+│   ├─ 2. Overrode — one time I chose against the AI, and why
+│   └─ 3. No-AI win — one decision made with zero AI
+│
+└─ THE MOVE (unchanged)
+    ├─ AI literacy x critical thinking x domain x reskill-ahead
+    └─ Prove you can think WITHOUT the machine (Gartner AI-free tests)
