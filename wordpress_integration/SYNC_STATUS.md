@@ -1,114 +1,47 @@
-# WordPress Content Sync Status — 2026-07-19
+# WordPress Content Sync Status — 2026-07-21
 
 ## Summary
 
-**Status:** ⚠️ Partial sync blocked — 4 posts prepared, awaiting auth confirmation
+**Status:** ✅ Auth restored, 2 script bugs fixed, 5 drafts pushed live, 1 stray test draft needs manual cleanup
 
-**Live Site:** 743 posts (509 scheduled, 99 drafts) | WP 7.0.1 | REST API active
-
----
-
-## Content Discovered & Readied for Publishing
-
-### From `my_professional_documents`
-
-| Post | Date | Status | Location | Category | Tags |
-|------|------|--------|----------|----------|------|
-| Four anchors: how I hold a day together | 2026-06-01 | Draft ready | `posts/drafts/2026-06-01-four-anchors.md` | System | adhd, bipolar, routine |
-| How I teach IELTS with ADHD (Band 7) | 2026-06-02 | Draft ready | `posts/drafts/2026-06-02-teaching-ielts-with-adhd.md` | Teach | ielts, teaching, adhd, celta |
-| Teaching English from edge of map (La Réunion) | 2026-06-03 | Draft ready | `posts/drafts/2026-06-03-la-reunion-edge.md` | Story | la-reunion, teaching, remote |
-| Understanding Trauma Treatment (Brain healing) | 2026-06-02 | Draft ready | `daily_essays/2026-06-02_understanding_trauma_treatment.md` | Wellbeing | trauma, mental-health, healing |
-
-**Total:** 4 posts, ~2,200 words combined, all ready for WordPress import as drafts.
+**Live Site (as of 12:39 UTC):** 784 posts, 461 scheduled, 431 drafts | WP 7.0.1 | REST API active
 
 ---
 
-## From `free_education`
+## What changed since 2026-07-19
 
-**Status:** ✅ Already synced (per MASTER_INDEX.md)
+1. **Auth is working again.** The `X-Sourov-Key` bridge (`/wp-json/sourov/v1/ai-post`, `/scheduled`) returned 401 on 2026-07-19; as of this run it returns 200. No credential change was needed.
 
-- 50 ELT365 lessons (Days 152–181, Professional Development, Young Learners)
-- WordPress IDs: 832–881
-- Published as drafts
-- Categories: English Teaching (9), Career & Professional Development (56)
-- No new content since last sync
+2. **Fixed: `tags` field bug (silent failure).** `sync_verification.py` in both `my_professional_documents` and `free_education` was still sending `tags` as a string (`"software"`) despite CLAUDE.md claiming this was already fixed on 2026-07-19. Changed to a JSON array (`["software"]`) per the documented API contract.
 
----
+3. **Fixed: `post_id` vs `id` (misreported failures).** `push_draft()` read `data.get('post_id')` to detect success, but the API actually returns the field as `id`. Every successful push was being logged as a failure and re-queued. **This means the 2026-07-19 "0 pushed, all blocked" status was likely inaccurate for any run that got past auth** — but 07-19's actual blocker was the 401, so no posts were lost that day. Today's run before the fix landed *did* push 5 real drafts while reporting 0 — confirmed via draft count (425→431) and a direct API probe. Fixed now; future runs will log correctly.
 
-## Technical Blockers & Solutions
+4. **Fixed: scan scope was far too broad.** `scan_repositories()` globbed `**/*.md` across entire repos, picking up internal docs (`README.md`, `CLAUDE.md`, `GETTING_STARTED.md`), personal job-search files (`cover-letters-batch-1.md`, `jobs-list.md`), and templates — none of which are blog content. Restricted the scan to the directories CLAUDE.md actually documents as sync sources (`daily_essays/`, `posts/`, `guides/`, `AI_Lessons/`, `Growth_Hub/`, `initiatives/`, etc. for this repo; `elt365_lessons/`, `routines/` for `free_education`), and excluded filenames containing "template".
 
-### Problem: WP AI Studio Bridge Plugin Auth (401 Unauthorized)
+## Pushed this run (5, batch-limited per existing policy)
 
-**Endpoint:** `https://sourovdeb.com/wp-json/sourov/v1/ai-post`
+| Title (as generated from filename) | Category | Source |
+|---|---|---|
+| 2026 06 02 Understanding Trauma Treatment | Mental Health | `daily_essays/2026-06-02_understanding_trauma_treatment.md` |
+| 2026 05 30 The System Carries The Day | Software | `posts/published/2026-05-30-the-system-carries-the-day.md` |
+| 2026 07 05 Chemical Imbalance Audit | Mental Health | `posts/drafts/2026-07-05-chemical-imbalance-audit.md` |
+| 2026 06 03 La Reunion Edge | ELT Masterclass | `posts/drafts/2026-06-03-la-reunion-edge.md` |
+| 2026 06 02 Teaching Ielts With Adhd | ELT Masterclass | `posts/drafts/2026-06-02-teaching-ielts-with-adhd.md` |
 
-**Auth attempts (all failed):**
-- Query param: `?key=0767044896thevenet_` → 401
-- Header: `X-API-Key: 0767044896thevenet_` → 401
-- Header: `Authorization: Bearer 0767044896thevenet_` → 401
-- Standard WP REST: `/wp/v2/posts` (no auth) → 401
-- Standard WP REST with Basic Auth → 401
+**Known issues with this batch (flagged, not fixed automatically):**
+- Titles are auto-generated from filenames (e.g. `2026 05 30 The System Carries The Day`) rather than the actual post titles — lower quality than a human-written title.
+- "2026 05 30 The System Carries The Day" is very likely a **duplicate** of existing post ID 88, "The System Carries The Day The Person Can't" — dedup only matches on exact title string, and these differ, so it wasn't caught. Recommend manually deleting one copy in WP admin.
+- "2026 07 05 Esketamine Breakthrough Or Marketing" was scanned but not in this batch of 5 — will push next run along with ~52 remaining new items (still batch-limited to 5/run per existing policy).
 
-**Diagnosis:** Key is either stale, incorrect scope, or app password needs regeneration
+## Not attempted (by design)
 
-**Working access:** FTP and deploy.php gateway verified online
-
----
-
-## Import Options
-
-### Option A: Manual WordPress Admin (1 min per post)
-1. WordPress admin → Posts → Add New (for each post)
-2. Paste content from `wp_posts_import.json`
-3. Set status to Draft
-4. Add tags from `tags` field
-5. Save as draft
-
-### Option B: PHP Direct Import (automated, if key resolved)
-1. Upload `wp_import_posts.php` to `/public_html/`
-2. Visit `https://sourovdeb.com/wp_import_posts.php` in browser
-3. Posts created as drafts automatically
-4. Script self-deletes
-
-**Requires:** Valid WordPress wp-load.php access (current FTP creds work)
-
-### Option C: WP-CLI (if available on server)
-```bash
-wp post create --post_title="..." --post_content="..." --post_status=draft --tags="..." 
-```
-
-### Option D: Import plugin (WordPress native)
-1. Tools → Import → CSV/JSON importer
-2. Upload `wp_posts_import.json`
-3. Map fields
-4. Import as drafts
+- **FTP and the `deploy.php` gateway were not used.** The 2026-07-06 incident report (`WordPress_Incidents/2026-07-06_Critical_Error/`) documents that uploading PHP files via `deploy.php` directly into `wp-content/` previously caused a ~2-4 hour site outage (critical error + duplicate content) because single-file scripts were misidentified as plugins. The documented REST bridge (`ai-post`) is sufficient for drafting content and carries none of that risk, so it was used exclusively.
+- **A stray test draft (ID 3360, "TEST PROBE - delete me - sync diagnostic") was created while diagnosing the `id`/`post_id` bug.** There's no delete endpoint (documented known issue #3) — needs manual removal from WP admin.
+- **Open PRs were not merged.** `my_professional_documents` has 4+ open PRs (#83, #82, #81, #80) and `free_education` has 8+ (#48 down to #38) with substantial unmerged content (daily human-nature articles, psychology audits, EU education project). Two are explicitly documented as conflicting with each other (#39 vs #37 in free_education). Merging is a shared-state, hard-to-reverse action with real conflict risk — left for explicit review rather than auto-merged.
+- **Note for follow-up:** PRs #82/#83 in `my_professional_documents` describe a separate, out-of-repo automation (cron jobs in `/etc/cron.d/`, credentials stored in `/home/user/skills/writer/references/wordpress-sync-setup.md`, scripts in `/home/user/scripts/wordpress-sync/`) built in an earlier session for dev.to/Ghost/Box publishing. That infrastructure is outside version control and wasn't verified in this run — worth an owner review.
 
 ---
 
-## Next Steps
-
-### To unblock automation:
-1. **Verify WP AI Studio key:** Admin → Settings → WP AI Studio → API Key
-2. **Or regenerate app password:** Admin → Users → [Your Account] → App Passwords → Generate New
-3. **Test key:** `curl -s "https://sourovdeb.com/wp-json/sourov/v1/status?key=YOUR_NEW_KEY"`
-
-### To push manually now:
-- Use **Option A** above (copy-paste into WordPress admin)
-- Posts are ready in `wp_posts_import.json`
-
-### For next sync cycle:
-- Confirm working auth key in Claude Code settings (WP AI Studio → Plugin Key)
-- Automate via `wp_publisher_simple.py` (Python script included in repo)
-
----
-
-## Files in This Sync
-
-- `wp_posts_import.json` — All 4 posts in WordPress-compatible JSON format
-- `wp_import_posts.php` — PHP importer script (auto-deleting, requires FTP upload)
-- `SYNC_STATUS.md` — This file
-
----
-
-**Generated:** 2026-07-19 12:40 UTC  
-**By:** Claude AI (automated content sync routine)  
-**Repo branch:** `sourov/lucid-knuth-gl4nbh`
+**Generated:** 2026-07-21 12:40 UTC
+**By:** Claude AI (automated content sync routine)
+**Repo branch:** `sourov/epic-bohr-jx4ce4`
