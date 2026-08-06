@@ -4,6 +4,7 @@
     <richcontent TYPE="NOTE">
       <html>
         <body>
+          <p>Short-form, legally-reviewed updates on migration law for France, EU, Australia, Canada. Audience: asylum seekers, marriage-visa applicants, skilled migrants. Mission: plain-language accuracy, not legal advice.</p>
           <p>Snapshot as of 2026-07-31. Short-form, legally-reviewed updates on migration law for France, EU, Australia &amp; Canada — asylum, family/marriage visas, skilled migration.</p>
           <p>Hidden notes on each node are speaker notes — expand/click the note icon in FreeMind/Freeplane to read them.</p>
         </body>
@@ -13,6 +14,36 @@
     <node TEXT="Mission &amp; Audience">
       <richcontent TYPE="NOTE">
         <html><body>
+          <p>Goal: keep Europeans, asylum seekers, marriage-visa applicants and skilled migrants informed with plain-language summaries + actionable checklists. Establish authoritative, legally-reviewed content — help poor and talented people navigate immigration, not just the well-resourced.</p>
+        </body></html>
+      </richcontent>
+    </node>
+
+    <node TEXT="First Post — Ready for Legal Review">
+      <richcontent TYPE="NOTE">
+        <html><body>
+          <p>File: microblog/drafts/2026-07-first-post-draft.md. Topic: EU &amp; France family reunification + asylum procedure changes. ~300-350 words, plain language, action-oriented. Status: drafted, awaiting lawyer sign-off — nothing published yet.</p>
+        </body></html>
+      </richcontent>
+      <node TEXT="What changed">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>EU family reunification rules sped up for spouses/dependent children, expanded documentation flexibility, clarified appeals. France/OFPRA cut typical processing from 9-12 months to 6-9 months.</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="Checklist given to readers">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Gather documents, confirm status, check country rules, contact OFPRA/national office, apply now, keep copies, save case number.</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="Open questions before lawyer review">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Are 6-9 month timelines still current? Any member states lagging on implementation? Recent CNDA rulings? Mention Brexit's different UK rules?</p>
+          </body></html>
           <p>Keep Europeans informed of migration law changes; help asylum seekers, marriage-visa applicants and skilled migrants navigate options with plain-language, actionable, legally reviewed content.</p>
           <p>Audience: Europeans seeking Australia/Canada/EU opportunities, asylum seekers/refugees in EU, marriage visa applicants, skilled migrants.</p>
         </body></html>
@@ -24,56 +55,138 @@
       </node>
     </node>
 
-    <node TEXT="Content Already Built">
+    <node TEXT="Content Infrastructure — 3 Templates">
       <richcontent TYPE="NOTE">
-        <html><body><p>Everything drafted so far, ready to publish once legally reviewed.</p></body></html>
+        <html><body>
+          <p>File: microblog/templates.md. Built to enable rapid publishing the moment a law changes. Every template ends with the same disclaimer + next-steps block.</p>
+        </body></html>
       </richcontent>
-
-      <node TEXT="First Post (Draft): EU/France Family Reunification">
+      <node TEXT="Template 1 — What This Means for Applicants">
         <richcontent TYPE="NOTE">
           <html><body>
-            <p>File: microblog/drafts/2026-07-first-post-draft.md — 300–350 words, plain language.</p>
-            <p>Covers: EU family reunification rules speed-up, France OFPRA processing cut from 9-12 to 6-9 months, income/housing flexibility, 30-day appeal window.</p>
-            <p>Status: Ready for legal review, NOT yet published. Sources: EU Commission, OFPRA, CNDA, EASO.</p>
+            <p>For major policy changes / new eligibility. Sections: What Changed, Timeline/Eligibility/Cost/Documents, Affected Groups, Disclaimer, Next Steps, Resources.</p>
           </body></html>
         </richcontent>
       </node>
-
-      <node TEXT="3 Publishing Templates">
-        <richcontent TYPE="NOTE">
-          <html><body><p>File: microblog/templates.md — used to speed up publishing whenever a law changes.</p></body></html>
-        </richcontent>
-        <node TEXT="What This Means for Applicants">
-          <richcontent TYPE="NOTE"><html><body><p>For major policy changes: timeline, eligibility, cost, documents, affected groups, next steps.</p></body></html></richcontent>
-        </node>
-        <node TEXT="Practical Checklist">
-          <richcontent TYPE="NOTE"><html><body><p>For new processes: documents to gather, prep, submission, post-submission, appeal window.</p></body></html></richcontent>
-        </node>
-        <node TEXT="Court Ruling Alert">
-          <richcontent TYPE="NOTE"><html><body><p>For case law: who's affected, what the court decided, why it matters, what to do.</p></body></html></richcontent>
-        </node>
-      </node>
-
-      <node TEXT="Editorial Calendar (Jul–Sep 2026)">
+      <node TEXT="Template 2 — Practical Checklist">
         <richcontent TYPE="NOTE">
           <html><body>
-            <p>File: microblog/editorial-calendar.md. Target 1-2 posts/month. 8-day pipeline: assign → draft → lawyer review → edit → publish.</p>
-            <p>Planned: Jul 21 Australia skilled migration, Jul 28 France asylum timelines, Aug 4 Canada Express Entry, Aug 18 EU marriage visa, Sep 15 Germany policy.</p>
-            <p>Weekly govt-site monitoring (Mondays), monthly topic planning, quarterly engagement review.</p>
+            <p>For new application processes. Before You Start → Documents to Gather → Preparing → Submitting → After Submission → Resources.</p>
           </body></html>
         </richcontent>
       </node>
-
-      <node TEXT="Authoritative Source List">
+      <node TEXT="Template 3 — Court Ruling Alert">
         <richcontent TYPE="NOTE">
           <html><body>
-            <p>File: microblog/sources.md. Official portals for EU, France, Germany, Italy, Netherlands, Spain, Australia, Canada, plus UNHCR/IOM/ECRE/Amnesty/HRW.</p>
-            <p>Rule: always link directly to government sources; verify with 2+ sources; check dates before citing.</p>
+            <p>For court decisions that change precedent. Who This Affects, What the Court Decided, Why It Matters, What You Should Do, Resources.</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="Tone &amp; publication rules">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Speak directly ("you"), plain language, active voice, action-oriented, empathetic, strictly neutral (facts only). Before publishing: accuracy verified, lawyer-approved, disclaimer visible, sources cited, links tested.</p>
           </body></html>
         </richcontent>
       </node>
     </node>
 
+    <node TEXT="Authoritative Sources">
+      <richcontent TYPE="NOTE">
+        <html><body>
+          <p>Files: microblog/sources.md + initiatives/migration-law/legal-sources.md. Every claim must trace to an official source, cross-checked with 1-2 others, dated within 2 years.</p>
+        </body></html>
+      </richcontent>
+      <node TEXT="EU-wide">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>European Commission Migration &amp; Asylum, EUAA, EUR-Lex, CJEU, ECtHR/HUDOC. Key directives: Asylum Procedures, Reception Conditions, Qualification, Dublin III, Eurodac.</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="France">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>OFPRA (asylum), CNDA (appeals), OFII (integration), CESEDA code, Cour de Cassation.</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="Germany, Netherlands, Italy, Spain, Greece">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>BAMF (Germany), IND (Netherlands), Ministero dell'Interno (Italy), Ministerio de Inclusión (Spain), Asylum Service (Greece) — each with national case-law databases logged for future posts.</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="Australia &amp; Canada">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Australia: Dept of Home Affairs (skilled migration, family, humanitarian), Federal Court. Canada: IRCC (Express Entry, family sponsorship, refugees), Federal Court.</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="NGOs &amp; case-law banks">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>UNHCR/Refworld, IOM, ECRE, Amnesty, HRW. Key precedent cases logged: Abdulla, Chavez-Vilchez, Soering v UK, M.S.S. v Belgium and Greece.</p>
+          </body></html>
+        </richcontent>
+      </node>
+    </node>
+
+    <node TEXT="Editorial Calendar — 1-2 posts/month">
+      <richcontent TYPE="NOTE">
+        <html><body>
+          <p>File: microblog/editorial-calendar.md. Workflow per post: assign → draft (2 days) → lawyer review (2 days) → edits → publish, 8-day cycle.</p>
+        </body></html>
+      </richcontent>
+      <node TEXT="July 2026 (launch)">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Jul 7: EU family reunification (drafted). Jul 21: Australia skilled migration. Jul 28: France asylum timelines — both still planning stage.</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="Aug &amp; Sep 2026 planned">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Aug: Canada Express Entry draw, EU marriage-visa update, application-checklist post. Sep: court-ruling roundup, Germany policy changes.</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="Monitoring cadence">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Weekly (Mon): scan government sites/news for changes. Monthly (1st Fri): schedule next month's topics. Quarterly: review engagement, refocus.</p>
+          </body></html>
+        </richcontent>
+      </node>
+    </node>
+
+    <node TEXT="Legal &amp; Compliance Guardrails">
+      <richcontent TYPE="NOTE">
+        <html><body>
+          <p>File: initiatives/migration-law/compliance.md. This is the risk backbone of the whole project — nothing publishes without it.</p>
+        </body></html>
+      </richcontent>
+      <node TEXT="Not legal advice, always">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Mandatory disclaimer on every page/post/SMS: informational only, no attorney-client relationship, consult a qualified immigration lawyer.</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="GDPR &amp; data protection">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Lawful basis, data minimization, DPIAs for high-risk processing, 72-hour breach notification, special protections for special-category data (health, ethnicity, etc.).</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="Protecting vulnerable readers">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Extra care for children, trauma survivors, non-English speakers. Never publish anything that could endanger a reader (e.g. info that helps authorities target someone). WCAG 2.1 AA accessibility target.</p>
     <node TEXT="Legal &amp; Compliance Foundation">
       <richcontent TYPE="NOTE">
         <html><body><p>initiatives/migration-law/ — the guardrails that keep the microblog defensible.</p></body></html>
@@ -99,6 +212,122 @@
           </body></html>
         </richcontent>
       </node>
+    </node>
+
+    <node TEXT="Growth Ideas — Beyond the Blog">
+      <richcontent TYPE="NOTE">
+        <html><body>
+          <p>Files: migration-law/ideas.md + initiatives/migration-law/ideas.md. Brainstormed, scored, not yet built — future roadmap, ranked by score.</p>
+        </body></html>
+      </richcontent>
+      <node TEXT="1. Legal Change SMS (score 0.88)">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Automated SMS alerts when law changes. Immediate horizon, $800, needs opt-out/telecom compliance.</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="2. Asylum Process Tracker">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Real-time dashboard of processing times, crowdsourced + FOIA data across EU/UK/Canada/Australia. Currently in validation phase.</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="3. Voice Legal Helper &amp; Chatbot">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Phone-based IVR for low-literacy users; 24/7 multilingual chatbot. Both 1-year horizon, main risk is accuracy/liability.</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="4. Detention Center Resource Map">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Interactive map + legal-aid contacts for Greece/Italy/Spain detention centers. Pilot phase, risk of government pushback on publishing locations.</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="5. Citizenship Test Prep &amp; Deportation Defense Network">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Gamified test prep in 10 languages (not started). Pro-bono lawyer matching network for deportation cases (not started, highest liability risk).</p>
+          </body></html>
+        </richcontent>
+      </node>
+    </node>
+
+    <node TEXT="Execution Plan — 4 Phases">
+      <richcontent TYPE="NOTE">
+        <html><body>
+          <p>File: migration-law/execution-plan.md. Budget scales €1,500 → €8,000; subscriber target scales 500 → 10,000 by month 12.</p>
+        </body></html>
+      </richcontent>
+      <node TEXT="Phase 1: Validation (Wk 1-4)">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Sources, first post, monitoring setup, 15 migrant interviews, SMS compliance review + 10-user test.</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="Phase 2: Pilot (Wk 5-12)">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>4 posts published, SMS to 50 users, 5 languages, 30-person feedback, verified-expert system, Voice Helper prototype test.</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="Phase 3: Scale (Mo 4-6)">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>1,000 SMS subscribers, 20 languages, Rights Chatbot launch, 3 NGO partnerships, Legal Weather Dashboard.</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="Phase 4: Sustainability (Mo 7-12)">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Legal review board, 25 languages, premium services, 5,000 subscribers, €3,000/mo revenue target, Legal Document Translator prototype.</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="Top risk: information accuracy">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Rated High probability / High impact in the risk register — mitigated by the verification system and multi-source cross-checks, owned by Legal.</p>
+          </body></html>
+        </richcontent>
+      </node>
+    </node>
+
+    <node TEXT="Known Gaps to Fix">
+      <richcontent TYPE="NOTE">
+        <html><body>
+          <p>File: migration-law/upgrades.md. Gap audit against current baseline — what's broken or missing today.</p>
+        </body></html>
+      </richcontent>
+      <node TEXT="Blocking">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Legal-change monitoring is still manual (no automated tracker). No SMS opt-out mechanism yet — GDPR/ePrivacy non-compliant until fixed.</p>
+          </body></html>
+        </richcontent>
+      </node>
+      <node TEXT="Material">
+        <richcontent TYPE="NOTE">
+          <html><body>
+            <p>Content is English-only (24 EU languages + migrant languages planned). No verification system yet for user-submitted info.</p>
+          </body></html>
+        </richcontent>
+      </node>
+    </node>
+
+    <node TEXT="Status &amp; Next Steps">
+      <richcontent TYPE="NOTE">
+        <html><body>
+          <p>Per CLAUDE.md Definition of Done — none of these are checked off yet: first post published, templates standardized, government alert subscriptions active, editorial calendar established, analytics configured, disclaimer live on site. Immediate week-1 priority: get the first post through legal review and published.</p>
+        </body></html>
+      </richcontent>
     </node>
 
     <node TEXT="Product Roadmap Ideas">
