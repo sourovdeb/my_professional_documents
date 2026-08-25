@@ -1,0 +1,974 @@
+[
+  {
+    "id": "trig_01QJbhvkxeV2gR66d611zjU5",
+    "name": "Dark Psychology Article Generator (4-hour cycle)",
+    "slug": "dark-psychology-article-generator-4-hour-cycle",
+    "cron": "58 */4 * * *",
+    "cron_english": "every 4 hours at :58 UTC",
+    "run_once_at": null,
+    "state": "active",
+    "next_run_at": "2026-07-31T16:58:00Z",
+    "created_at": "2026-07-26T09:58:21.579902Z",
+    "updated_at": "2026-07-26T09:58:21.579902Z",
+    "prompt": "Generate a new 1000-1500 word deep-dive article on dark psychology, evolutionary psychology, institutional dynamics, or human nature. \n\nRequirements:\n1. Topic: Select from areas like institutional suppression, obedience dynamics, narrative control, psychological warfare, evolutionary traps, covert operations, state science, power structures, or tribal psychology\n2. Frontmatter: Include title, tags (as JSON array), published: false, canonical_url pointing to github repo routine\n3. Structure: Hook (narrative/case), Historical Patterns (2-3 documented examples), Modern Echoes (contemporary evidence), Implications & Self-Reflection (actionable insight)\n4. Academic rigor: Cite 8-12 sources with author/year, end with source list and research gaps\n5. ELT keywords: Naturally integrate 2-3 of: blocking vocabulary, receptive/productive knowledge, lesson plan objective, instructional checking questions, should/can distinction, freer practice, semi-formal greetings, choral drilling, listening for gist\n\nSave as: /home/user/daily-drafts/article_[topic-slug]_[timestamp].md\nThen sync to WordPress and dev.to via the sync scripts.\n\nUse the existing pipeline: wordpress-local-sync.py and devto-sync.py with SOUROV_WP_KEY and DEVTO_API_KEY environment variables.",
+    "prompt_chars": 1260,
+    "subject": "Psychology & Human Nature",
+    "subject_scores": {
+      "Psychology & Human Nature": 63,
+      "Content Publishing & Web Ops": 25,
+      "Infrastructure & Archival": 14,
+      "Education & Language Teaching": 7,
+      "Research & Trend Monitoring": 2,
+      "Health, Wellbeing & Productivity": 1
+    },
+    "topics": [
+      "article-generation",
+      "institutional-critique",
+      "evolutionary-psychology",
+      "wordpress-sync"
+    ],
+    "tags": [
+      "cadence-hourly",
+      "artifact-article",
+      "devto",
+      "artifact-script",
+      "research-heavy",
+      "wordpress",
+      "artifact-config",
+      "artifact-lesson",
+      "automated",
+      "github"
+    ]
+  },
+  {
+    "id": "trig_01BK6HYTUuhyFQ9o43b2WHU9",
+    "name": "AI Concepts Daily Lesson Generator (Every 2 Hours)",
+    "slug": "ai-concepts-daily-lesson-generator-every-2-hours",
+    "cron": "58 */2 * * *",
+    "cron_english": "every 2 hours at :58 UTC",
+    "run_once_at": null,
+    "state": "active",
+    "next_run_at": "2026-07-31T14:58:00Z",
+    "created_at": "2026-07-26T09:58:14.210876Z",
+    "updated_at": "2026-07-26T09:58:14.210876Z",
+    "prompt": "\ud83e\udd16 **AI LESSON GENERATION ROUTINE**\n\nYour task: Create the next AI concept lesson in the series and sync to all platforms.\n\n**Status Check First:**\n1. Read `/home/user/ai-lessons-covered.md` \u2014 which concept was last created?\n2. Pick the NEXT concept from the list (Model \u2192 Prompt \u2192 System Prompt \u2192 Token \u2192 etc.)\n3. Check if a lesson file already exists for today's date\n\n**If lesson doesn't exist:**\n1. Create comprehensive lesson following the What, Where, How, Why framework\n2. Save locally: `/home/user/ai-lessons/[date]-[concept].md`\n3. Upload to Box (MCP tool)\n4. Push to GitHub branch `claude/ai-concepts-lesson-l9woj3`\n5. Prepare WordPress JSON payload\n6. Update tracking file (`ai-lessons-covered.md`)\n\n**Format Requirements:**\n- \u2705 Doodle descriptions (for kids to illustrate)\n- \u2705 PowerPoint outline (5 slides minimum)\n- \u2705 User notes & speaker notes\n- \u2705 Dev.to ready-to-publish version\n- \u2705 Real-world examples & time savings\n- \u2705 Mistral console walkthrough\n- \u2705 SEO keywords from Google Search Console report\n\n**Sync Targets:**\n- \ud83d\udce6 Box (backup)\n- \ud83d\udc19 GitHub (daily-drafts/)\n- \ud83d\udcdd WordPress DRAFT (X-Sourov-Key header)\n- \ud83d\udcf1 Dev.to DRAFT (API)\n\n**Output Summary:**\nReport which lesson was created, file locations, and sync status.\n\nThis is a standing recurring task \u2014 keep generating until told to stop.",
+    "prompt_chars": 1302,
+    "subject": "Content Publishing & Web Ops",
+    "subject_scores": {
+      "Content Publishing & Web Ops": 35,
+      "AI & Agent Engineering": 34,
+      "Infrastructure & Archival": 21,
+      "Education & Language Teaching": 12,
+      "Research & Trend Monitoring": 4,
+      "Health, Wellbeing & Productivity": 1
+    },
+    "topics": [
+      "prompt-engineering",
+      "storage-sync",
+      "wordpress-sync",
+      "seo-and-indexing"
+    ],
+    "tags": [
+      "cadence-hourly",
+      "artifact-lesson",
+      "artifact-report",
+      "github",
+      "box",
+      "devto",
+      "wordpress",
+      "artifact-config",
+      "artifact-slides",
+      "automated",
+      "public-facing"
+    ]
+  },
+  {
+    "id": "trig_01BaD6JFuAhytYR7syyuFbZt",
+    "name": "send_later 2026-07-26T10:02Z #a9b898",
+    "slug": "send-later-2026-07-26t10-02z-a9b898",
+    "cron": null,
+    "cron_english": "\u2014",
+    "run_once_at": "2026-07-26T10:02:00Z",
+    "state": "one-shot (fired)",
+    "next_run_at": "2026-07-27T10:02:54.547563563Z",
+    "created_at": "2026-07-26T09:01:46.420435Z",
+    "updated_at": "2026-07-26T10:02:54.754591Z",
+    "prompt": "Check PR #50 (sourovdeb/free_education) status: CI, mergeability, any review comments. Address anything actionable, then re-arm this check-in if the PR is still open.",
+    "prompt_chars": 166,
+    "subject": "Infrastructure & Archival",
+    "subject_scores": {},
+    "topics": [
+      "pr-and-ci-hygiene"
+    ],
+    "tags": [
+      "cadence-one-shot"
+    ]
+  },
+  {
+    "id": "trig_01YUR1tiRy7S75WfMU2YLvC7",
+    "name": "Organise and push Claude Code artifacts to education repo",
+    "slug": "organise-and-push-claude-code-artifacts-to-education-repo",
+    "cron": "44 */5 * * *",
+    "cron_english": "every 5 hours at :44 UTC",
+    "run_once_at": null,
+    "state": "active",
+    "next_run_at": "2026-07-31T15:44:00Z",
+    "created_at": "2026-07-26T06:44:35.133657Z",
+    "updated_at": "2026-07-26T06:45:27.809062Z",
+    "prompt": "Collect all artifacts and outputs created by Claude Code routines in the repositories (ai_agent_skills, my_professional_documents, wordpress-control). Organise them into the structured folder hierarchy in sourovdeb/ai_agent_skills: skills/, agents/, guides/, tools/, evaluation/, templates/, config/. Create or update README files and INDEX.md as needed. Push all new/changed files to branch claude/jolly-fermi-gkbw49.\n\nThen save a tracker CSV file named AI_Agent_Skills_Organization_<today's date>.csv with columns: id, category, name, type, description, folder, file_count, status, github_url, branch, created_date, last_updated \u2014 listing every organised file.\n\nSave this CSV in ALL THREE of these locations:\n1. Google Drive \u2014 update the spreadsheet at https://docs.google.com/spreadsheets/d/1NZJtgfVtMKptUr2oxzeIZUnndMkftxiWboq-fvrchPI/edit if possible; otherwise upload the CSV to Google Drive root.\n2. Box \u2014 upload to the folder \"free_education - AI Skills Trends\" (folder ID: 401080856469).\n3. GitHub \u2014 commit the CSV to the ai_agent_skills repo at docs/trackers/ on branch claude/jolly-fermi-gkbw49.",
+    "prompt_chars": 1106,
+    "subject": "Infrastructure & Archival",
+    "subject_scores": {
+      "Infrastructure & Archival": 34,
+      "AI & Agent Engineering": 20,
+      "Content Publishing & Web Ops": 5
+    },
+    "topics": [
+      "repo-organisation",
+      "storage-sync"
+    ],
+    "tags": [
+      "cadence-hourly",
+      "github",
+      "google-drive",
+      "artifact-config",
+      "box",
+      "wordpress"
+    ]
+  },
+  {
+    "id": "trig_01T7gn5auxnor4CcasKL7CgZ",
+    "name": "Dev.to AI/programming post publisher (5/hour)",
+    "slug": "dev-to-ai-programming-post-publisher-5-hour",
+    "cron": null,
+    "cron_english": "\u2014",
+    "run_once_at": null,
+    "state": "active",
+    "next_run_at": "0001-01-01T00:00:00Z",
+    "created_at": "2026-07-25T17:54:49.924413Z",
+    "updated_at": "2026-07-25T17:54:49.924413Z",
+    "prompt": "Run the Dev.to publisher to post 5 AI/programming drafts. Execute: `cd /home/user/my_professional_documents && python3 devto_integration/devto_publisher.py --batch 5` and report how many were posted and how many remain in the queue. If the published_log.json shows all 50 candidates exhausted, stop and say so.",
+    "prompt_chars": 310,
+    "subject": "Content Publishing & Web Ops",
+    "subject_scores": {
+      "Content Publishing & Web Ops": 35,
+      "Research & Trend Monitoring": 2
+    },
+    "topics": [],
+    "tags": [
+      "devto",
+      "public-facing",
+      "artifact-config",
+      "artifact-report",
+      "artifact-script"
+    ]
+  },
+  {
+    "id": "trig_01EwvKTuuToSXoCadDyBwEWM",
+    "name": "Website monetization audit",
+    "slug": "website-monetization-audit",
+    "cron": null,
+    "cron_english": "\u2014",
+    "run_once_at": "2026-07-24T21:59:00Z",
+    "state": "one-shot (fired)",
+    "next_run_at": "2026-07-25T21:59:06.993678375Z",
+    "created_at": "2026-07-24T20:59:58.756452Z",
+    "updated_at": "2026-07-24T21:59:08.457451Z",
+    "prompt": "Audit www.sourovdeb.com for monetization opportunities and educator engagement.\n\n1. Review site structure, traffic patterns, and current content to identify monetization options (ads, sponsorships, donations, courses, memberships).\n2. Assess whether an AI agent could help with content delivery, user engagement, or support.\n3. Research strategies to attract educators globally (partnerships, educator discounts, community features).\n4. Document all inbound and outbound links, integrations, and external dependencies.\n5. Compile findings into a step-by-step report with recommendations, prioritized by feasibility and impact for a non-profit.\n6. Avoid generic answers.\nIf the site has no clear monetization path, note that and suggest the most viable starting point.",
+    "prompt_chars": 767,
+    "subject": "Content Publishing & Web Ops",
+    "subject_scores": {
+      "Content Publishing & Web Ops": 33,
+      "Research & Trend Monitoring": 4,
+      "AI & Agent Engineering": 2
+    },
+    "topics": [
+      "site-monetization"
+    ],
+    "tags": [
+      "cadence-one-shot",
+      "artifact-report",
+      "public-facing",
+      "research-heavy",
+      "wordpress"
+    ]
+  },
+  {
+    "id": "trig_01N77Q3Vxnv4uXb3xVvMnWFR",
+    "name": "send_later 2026-07-24T06:44Z #cc4808",
+    "slug": "send-later-2026-07-24t06-44z-cc4808",
+    "cron": null,
+    "cron_english": "\u2014",
+    "run_once_at": "2026-07-24T06:44:00Z",
+    "state": "one-shot (fired)",
+    "next_run_at": "2026-07-25T06:44:24.369744584Z",
+    "created_at": "2026-07-24T05:43:07.740964Z",
+    "updated_at": "2026-07-24T06:44:24.590287Z",
+    "prompt": "Self check-in for PR #90 (sourovdeb/my_professional_documents, site-monetization docs). Re-check: CI status/check runs, any new review comments, and merge state. If nothing changed, re-arm the next ~60-min check-in silently without messaging the user or commenting on the PR. Stop once the PR is merged or closed.",
+    "prompt_chars": 313,
+    "subject": "Content Publishing & Web Ops",
+    "subject_scores": {
+      "Content Publishing & Web Ops": 5
+    },
+    "topics": [
+      "pr-and-ci-hygiene"
+    ],
+    "tags": [
+      "cadence-one-shot"
+    ]
+  },
+  {
+    "id": "trig_01YX3NaWQyvK5ciFwEJXB9r8",
+    "name": "Content sync and human nature research",
+    "slug": "content-sync-and-human-nature-research",
+    "cron": "0 17 * * 1-5",
+    "cron_english": "Mon\u2013Fri at 17:00 UTC",
+    "run_once_at": null,
+    "state": "active",
+    "next_run_at": "2026-07-31T17:08:36.005622728Z",
+    "created_at": "2026-07-24T05:13:01.447258Z",
+    "updated_at": "2026-07-25T17:18:26.975646Z",
+    "prompt": "\nThis instruction bellow  is old one: new objectives: what already have been created, create an interactive mindmap.mm version. If not possible, simply PowerPoint with hidden users notes or speaker's notes for each note or slides. Straight to the point and catchy\". Then as us\nual save in box and GitHub\n\n\n\n<role>You are the WordPress, dev.to Content Sync Automation System & Daily Deep\u2011Dive Human Nature Researcher. Your dual purpose is: (1) maintain and restore a recurring sync pipeline from GitHub to WordPress/Ghost/dev.to + IndexNow, and (2) every day autonomously produce exactly 3 hard\u2011hitting, evidence\u2011based articles on the dark truths of human nature\u2014instincts, war, greed, addiction, sex, power, evolution, and the hidden drivers we prefer to ignore noticing but they are present from hunter gather behaviour. All outputs are saved as drafts on dev.to and , and backed up to GitHub and Box. See details.</role>\n\n<goal>Restore the full automation infrastructure (sync scripts, cron, credentials) if missing or partially broken. Then, immediately and each day thereafter, generate 3 deeply researched articles that confront the uncomfortable realities of human psychology, history, and biology. Use the repos as source material; never fabricate. Post drafts to dev.to and Ghost, wordpress and save local + remote backups. All credentials are temporary and safe to embed. If anything fails, save everything locally and move on.</goal>\n\n<context>\n- User: Sourov Deb\n- Timezone: Indian/Reunion (UTC+04:00)\n- First created: 2026-07-19\n- Current date: {CURRENT_DATE}\n- Environment: /home/user/\n</context>\n\n<data>\n## INFRASTRUCTURE (SYNC PIPELINE)\n\n### FULL SCOPE (original standing order):\n- Sync content from GitHub repos: sourovdeb/my_professional_documents + sourovdeb/free_education\n- Create WordPress DRAFT posts (no auto-publish), Ghost posts, dev.to articles\n- Extract metadata: title, category, tags, meta description, SEO keywords\n- Auto-categorize: Mental Health, ELT Masterclass, English Teaching, Philosophy, Photography, Software, DXO, Learn AI in Mistral Studio\n- Content paths: blog_and_essays, posts, drafts, CELTA_Teaching_Materials, therapy_and_wellbeing, Story_of_Sourov, elt365_lessons\n- Serve IndexNow key file at root\n\n### CREDENTIALS (all temporary, safe to use):\n- **WordPress**  \n  Endpoint: https://www.sourovdeb.com/wp-json/wp/v2/posts  \n  Auth: Basic HTTP, \u00abREDACTED:account-username\u00bb / \u00abREDACTED:password\u00bb\n\n- **Ghost**  \n  \n\n- **dev.to**  \n  API key: \u00abREDACTED:api-key\u00bb\n\n- **IndexNow**  \n  Key: \u00abREDACTED:deploy-key\u00bb  \n  Key file URL: https://www.sourovdeb.com/\u00abREDACTED:deploy-key\u00bb.txt\n\n- **Box (backup)**  \n  Client ID: od3p9yjl15shsyte2lg3l8pxyamxpf58  \n  Client Secret: \u00abREDACTED:client-secret\u00bb  \n  Developer Token: \u00abREDACTED:developer-token\u00bb  \n  Contact Email: sourovdeb974@gmail.com  \n  Auth Type: OAuth 2.0  \n  User ID: 51958996595\n\n### STANDING SETUP (SYNC):\n1. REPOS (cloned in /home/user/):\n   - my_professional_documents\n   - free_education\n2. SCRIPTS, if available . Otherwise create at first run. (/home/user/scripts/wordpress-sync/):\n   - wordpress-local-sync.py (WordPress draft POST)\n   - ghost-sync.py (Ghost Admin API POST)\n   - devto-sync.py (dev.to POST)\n   - update-repos.sh (git pull both)\n   - serve-indexnow.sh (ensures key file)\n3. CRON JOBS (every 2 hours):\n   - 7 */2 * * * \u2192 update-repos.sh\n   - 15 */2 * * * \u2192 wordpress-local-sync.py\n   - 20 */2 * * * \u2192 ghost-sync.py\n   - 25 */2 * * * \u2192 devto-sync.py\n4. CREDENTIALS PERSISTENCE: /home/user/skills/writer/references/wordpress-sync-setup.md\n5. DAILY ARTICLE CRON: \u201c0 2 * * *\u201d \u2192 run daily\u2011human\u2011nature.py (generates the 3 articles)\nIf not available create those documents and scripts at the first run. \n\n## DAILY DEEP\u2011DIVE CONTENT MISSION\n\n### PERSONA & APPROACH:\nYou are an unflinching researcher\u2011writer synthesizing insights from psychology (Freud, Jung, evolutionary psychology), history (empires, wars, colonial atrocities), anthropology (hunter\u2011gatherer nature), and neuroscience. Your tone is sober, evidence\u2011based, and captivating\u2014perfect for readers who are ready to see behind the curtain. Activate skills: critical\u2011thinking \u2192 deep\u2011research \u2192 evolutionary\u2011psychology\u2011lens \u2192 historical\u2011analysis \u2192 engaging\u2011storyteller.\n\n### MISSION STATEMENT:\n**Research and synthesize insights on human psychology, behavior, and nature for a young adult audience. Uncover the things that are true but we don\u2019t want to hear or know: the dark side of our nature, what Freud and Jung saw, the primal drives behind war, greed, love, addiction, what we need vs want, sex, money. Root it all in deep evolutionary history\u2014our hunter\u2011gatherer wiring\u2014and illustrate with evidence from empires, wars, and recurrent patterns of human destructiveness.  Particularly, where law and reality has conflicts. What marketers and policy makers use to make policies, If you find gaps in research, note them for follow\u2011up. Save all final articles to GitHub and Box. Search for controversial books and research paper**\nI need you to be brave and push deep in order to find the most obvious signs that shocking yet makes sense. \n\n### PRIMARY GOAL (autonomous, zero clarification questions):\nProduce exactly **3 ready\u2011to\u2011publish articles** every day from the repo https://github.com/sourovdeb/my_professional_documents, specifically from folders: `human nature/`, `research/`, `Philosophy/`, `Psychology/`, `History/`, `Story_of_Sourov/` (where personal dark observations may reside).\n\n### SELECTION RULES (strict):\n1. Focus on the specified folders; if a file is missing, look in `drafts/` or `posts/` for related topics.\n2. Fresh/unpublished = last commit \u2264 60 days OR no \u201cpublished: true\u201d / \u201cstatus: published\u201d front\u2011matter. Rank by recency.\n3. Each article must be anchored to a concrete source file from the repo. If you cannot find a direct match, use the nearest research note that covers the theme (e.g., \u201cempires_and_greed.md\u201d).\n4. Never invent events or studies; all factual claims must be traceable to a source in the repo (even if only a bullet list). Mark any external knowledge as \u201cfrom general research\u201d if it\u2019s common domain knowledge.\n\n### PLATFORMS (post as draft):\n- **dev.to**: API key \u00abREDACTED:api-key\u00bb, `published: false`\n- **Ghost**: Admin API (credentials above); post as draft. If Ghost key missing, prepare full Ghost JSON payload and note \u201cGhost key required\u201d.\n\n**Wordpress** : see credentials.\n- **Backup**: After generation, commit the Markdown articles to the repo in a new folder `/daily\u2011drafts/` and push. Also attempt to upload to Box (if Box API available) as `.md` files.\n\n### ARTICLE SPEC (every article):\n- **Title**: 50\u201170 chars, provocative but not clickbait. Must contain at least one of: \u201cThe Uncomfortable Truth\u201d, \u201cWhat We Don\u2019t Talk About\u201d, \u201cPrimal\u201d, \u201cShadow\u201d, \u201cEvolutionary Trap\u201d, \u201cEmpire\u201d.\n- **Tags**: exactly 5\u20117 from: psychology, dark-psychology, human-nature, freud, jung, evolution, history, war, greed, addiction, power, shadow-self, hunter-gatherer\n- **Canonical URL**: direct GitHub link to the source file(s)\n- **Body**: 1000\u20111500 words pure Markdown, mandatory structure:\n  1. **Hook** \u2013 a visceral, real\u2011world example or historical event that exposes a dark truth (e.g., the Stanford prison experiment, the sack of a city, a personal anecdote from Sourov\u2019s mental health journey).\n  2. **The Hidden Driver** \u2013 explain the psychological/evolutionary mechanism (Freudian death drive, Jungian shadow, tribalism, dopamine\u2011driven greed, etc.) with evidence from the repo sources.\n  3. **Historical Patterns** \u2013 concrete examples from at least two empires or major wars that illustrate the driver (e.g., Roman expansion, Mongol conquests, colonial atrocities, modern corporate warfare). And how policy makers, marketers use them. Why. Cia as well. \n  4. **Modern Echoes** \u2013 show how the same pattern manifests today (social media addiction, hyper\u2011consumerism, relationship cycles, power dynamics in the micro\u2011entreprise world).\n  5. **Implications & Self\u2011Reflection** \u2013 a sobering, non\u2011preachy synthesis that invites readers to recognise these forces in themselves. CTA: \u201cReflect on this with a journal entry, and if you want to explore personal patterns, reach out via sourovdeb.is@gmail.com.\u201d\n- **Tone**: intellectual but accessible, piercing, with a touch of poetic gravity. Never preachy, never therapeutic; just a clear mirror.\n\n### OUTPUT FORMAT (exactly this, after restoration status):\n```\n---\nARTICLE 1\n[full Dev.to Markdown + frontmatter]\n[Ghost JSON payload]\n---\nARTICLE 2\n...\n---\nARTICLE 3\n...\n---\nSTATUS: 3 drafts ready. Dev.to key used. Wordpress [key used / key missing \u2013 payloads prepared]. Sources used: [list the 3 exact file paths]. Backed up to GitHub and Box.\n```\n\n### HEALTH GATE:\nIf at any point the research demands exceed available cognitive load or if key source material is missing, stop after the STATUS line, save all partial drafts locally, and output: \u201cLow\u2011energy gate triggered \u2013 drafts saved, ready for human review.\u201d\n\n### RESEARCH GAPS:\nIf a topic requires data that is not in the repos, note it clearly: \u201cGAP: Evidence on [X] not found in repo \u2013 suggest adding a research note on [Y].\u201d The article may still be written using general domain knowledge, but flag the gap for future enrichment.\n</data>\n\n<task>\n1. **Restore infrastructure** (first priority): Ensure repos are cloned, scripts exist, cron jobs active, credentials stored, IndexNow key file served. Report status.\n2. **Immediately after restoration** (or if already healthy), execute the daily deep\u2011dive mission:\n   - git pull latest changes in /home/user/my_professional_documents\n   - apply selection rules to pick 3 sources that map to the dark human nature themes (war, greed, love, addiction, sex, money, evolution, hunter\u2011gatherer)\n   - generate 3 articles following every spec above\n   - post drafts to dev.to and Ghost (if Ghost Admin API reachable; otherwise prepare payloads)\n   - output the articles in the required format\n   - save local copies to /home/user/daily\u2011drafts/\n   - commit and push the articles to the GitHub repo (folder `daily\u2011drafts/`) and upload to Box if possible.\n3. **Schedule**: The sync pipeline runs every 2 hours. The daily article generation runs once per day (cron \u201c0 2 * * *\u201d \u2192 daily\u2011human\u2011nature.py). Ensure this cron job exists.\n</task>\n\n<format>\nDeliver in this exact order for the restoration part:\n1. INFRA STATUS: [Active/Missing/Partial]\n2. MISSING: [comma\u2011separated list or \"None\"]\n3. RESTORE ACTIONS: [bulleted list if needed]\n4. CREDENTIALS STORED: [list confirmation]\n5. Then proceed directly to the daily article generation output (3 articles in the specified format).\n</format>\n\n<rules>\n- Reason step by step in a separate block before the final answer.\n- If any information is insufficient to restore or generate, say \"INSUFFICIENT: [what's missing]\" and proceed with what is possible.\n- Graceful fallback: If any component fails, save everything locally (scripts, configs, drafts), note the gap, and continue without halting. Do not waste time/tokens debugging uncertain problems.\n- All credentials are temporary and safe to use. The only mission is to save drafts; never publish. An .env file is optional.\n- For article generation, strictly follow the dark human nature spec. Never fabricate historical events. Base all insights on the repo content plus general knowledge, clearly distinguishing between them.\n- Always save final articles to /home/user/daily\u2011drafts/ and push to GitHub; attempt Box upload.\n- In the final output, include the STATUS line with exact file paths used.\n</rules>\n```\n\n\n\n",
+    "prompt_chars": 11576,
+    "subject": "Content Publishing & Web Ops",
+    "subject_scores": {
+      "Content Publishing & Web Ops": 119,
+      "Infrastructure & Archival": 88,
+      "Psychology & Human Nature": 84,
+      "Education & Language Teaching": 26,
+      "Health, Wellbeing & Productivity": 18,
+      "Research & Trend Monitoring": 14,
+      "Photography & Visual Craft": 10,
+      "AI & Agent Engineering": 6
+    },
+    "topics": [
+      "wordpress-sync",
+      "storage-sync",
+      "article-generation",
+      "evolutionary-psychology",
+      "seo-and-indexing",
+      "scheduling-and-cron",
+      "mindmapping",
+      "presentation-decks"
+    ],
+    "tags": [
+      "cadence-weekly",
+      "research-heavy",
+      "wordpress",
+      "devto",
+      "github",
+      "artifact-article",
+      "public-facing",
+      "box",
+      "artifact-script",
+      "automated",
+      "personal-sensitive",
+      "artifact-config",
+      "gmail"
+    ],
+    "override_note": "Prompt was rewritten in place; the newer objectives (interactive .mm mindmaps, PowerPoint with speaker notes) sit under an older instruction block that still dominates the keyword count."
+  },
+  {
+    "id": "trig_01SP4KgS18L2f4TFXg9axpn4",
+    "name": "Portfolio and contribution guide",
+    "slug": "portfolio-and-contribution-guide",
+    "cron": "0 5 * * *",
+    "cron_english": "daily at 05:00 UTC",
+    "run_once_at": null,
+    "state": "inactive",
+    "next_run_at": "2026-07-24T05:04:54.088073702Z",
+    "created_at": "2026-07-21T11:46:21.217335Z",
+    "updated_at": "2026-07-24T04:29:58.802330Z",
+    "prompt": "Create a practical guide on building a portfolio and contributing to open source as an alternative to traditional degrees.\n\n1. Structure the guide with three sections: What (skills and projects to build), Where (platforms and communities to contribute to), and How (step-by-step process for each).\n2. Include concrete examples of portfolio projects, open source repositories to contribute to, and specific contribution types (bug fixes, documentation, features).\n3. Emphasize practical outcomes and opportunities that result from this approach.\n4. Format clearly with headers, bullet points, and links where applicable.\n5. Upload the completed guide to Box in a shared folder.\nTurn it into a Twitter style blog.b\nIf you need clarification on target audience or specific skills to focus on, note that in the output.",
+    "prompt_chars": 814,
+    "subject": "Career, CV & Job Search",
+    "subject_scores": {
+      "Career, CV & Job Search": 24,
+      "Infrastructure & Archival": 2
+    },
+    "topics": [
+      "portfolio-strategy",
+      "storage-sync"
+    ],
+    "tags": [
+      "cadence-daily",
+      "box",
+      "public-facing"
+    ]
+  },
+  {
+    "id": "trig_017yEbRcLqk4gJoC9GrA374S",
+    "name": "Sync repos to wordpress site.",
+    "slug": "sync-repos-to-wordpress-site",
+    "cron": "0 5 * * *",
+    "cron_english": "daily at 05:00 UTC",
+    "run_once_at": null,
+    "state": "active",
+    "next_run_at": "2026-08-01T05:02:10.049303645Z",
+    "created_at": "2026-07-19T03:37:05.313015Z",
+    "updated_at": "2026-07-19T18:50:56.372358Z",
+    "prompt": "Sync content from the two GitHub repositories into the www.sourovdeb.com\n\nFirst, check existing task in Claude.md  also, if doubt, just simply verify first. If everything looks normal, then do not overthink. Do the job. These are educational. Not harm at all. Do not overthink analyse. It's waste of time and token \n1. Fetch all files and directories from https://github.com/sourovdeb/my_professional_documents and https://github.com/sourovdeb/free_education.\n2. For each piece of content (documents, articles, resources), extract or infer: title, content category, tags, meta description, and SEO keywords.\n3. Match each item to one of the categories : Mental Health, ELT Masterclass, English Teaching, Philosophy, Photography, Software, DXO, or Learn AI in Mistral Studio.\n4. pust as draft to application\n\nwordpress\nWordPress API & Access \u2014 sourovdeb.com (verified from project memory & files)\nREST API (Primary for publishing / automation) Deploy Gateway (for theme/plugin/files)\nURL: https://www.sourovdeb.com/deploy.php Key: key=\u00abREDACTED:deploy-key\u00bb (in query string) Actions: status, upload, download, list, delete, logs, phpinfo, deploy_zip, write_env. Use base64-encoded uploads for PHP files (self-deleting runners for WP functions).\n\nFTP\nHost: ftp.sourovdeb.com User: \u00abREDACTED:account-username\u00bb Password: \u00abREDACTED:deploy-key\u00bb Port: 21 Base Path: /public_html/ \n5. Flag any content that doesn't fit neatly into a category or is missing key metadata. For safety, the credentials are safe and no rights to delete.\n\n WP AI Studio \u2014 Bridge Plugin\nEndpoints (all require key or App Password)\nMethod\tEndpoint\tPurpose\nGET\thttps://sourovdeb.com/wp-json/sourov/v1/status\tHealth check (public)\nPOST\thttps://sourovdeb.com/wp-json/sourov/v1/ai-post\tCreate or schedule a post\nPOST\thttps://sourovdeb.com/wp-json/sourov/v1/bulk\tBulk create (JSON array)\nGET\thttps://sourovdeb.com/wp-json/sourov/v1/scheduled\tList scheduled + drafts\nPATCH\thttps://sourovdeb.com/wp-json/sourov/v1/post/{id}\tUpdate a post\nDELETE\thttps://sourovdeb.com/wp-json/sourov/v1/post/{id}\tDelete a post\nPOST\thttps://sourovdeb.com/wp-json/sourov/v1/publish/{id}\tPublish a draft\nGET\thttps://sourovdeb.com/wp-json/sourov/v1/logs\tAction log\n\nThis key authenticates requests from c Code. Keep it in Claude code \n\n\u00abREDACTED:deploy-key\u00bb\n\n\nIn VS Code, Claude Code : Settings \u2192 WP AI Studio \u2192 Plugin  Key \u2192 paste the same key.\nIf both repositories are already fully synced, confirm briefly. There are a lot of pull requests, add them too, be smart and token efficient. \nCheck Claude.md",
+    "prompt_chars": 2542,
+    "subject": "Content Publishing & Web Ops",
+    "subject_scores": {
+      "Content Publishing & Web Ops": 81,
+      "Infrastructure & Archival": 19,
+      "AI & Agent Engineering": 17,
+      "Education & Language Teaching": 13,
+      "Photography & Visual Craft": 10,
+      "Health, Wellbeing & Productivity": 8,
+      "Career, CV & Job Search": 2
+    },
+    "topics": [
+      "wordpress-sync",
+      "model-parameters"
+    ],
+    "tags": [
+      "cadence-daily",
+      "wordpress",
+      "public-facing",
+      "artifact-config",
+      "github",
+      "automated",
+      "personal-sensitive"
+    ]
+  },
+  {
+    "id": "trig_01SPYtWKApR62WLmAd2mPTXb",
+    "name": "Skill trends monitor",
+    "slug": "skill-trends-monitor",
+    "cron": "0 5 * * *",
+    "cron_english": "daily at 05:00 UTC",
+    "run_once_at": null,
+    "state": "active",
+    "next_run_at": "2026-08-01T05:05:16.099342320Z",
+    "created_at": "2026-07-17T15:24:52.535649Z",
+    "updated_at": "2026-07-17T15:24:52.535649Z",
+    "prompt": "Monitor and summarize emerging trends in human skills, AI disruption, and learning preferences.\n\n1. Scan recent articles, reports, and job market data on AI's impact on workforce skills and employment.\nHuman/\"durable\" skills: Critical thinking, problem-solving, decision-making, collaboration, communication, leadership, emotional intelligence, and debugging/validation (\"human-in-the-loop\" oversight of AI outputs). These rank highly for current and future success, as AI automates routine tasks but amplifies the need for judgment. \nNiche/experiential learning: Languages, culinary skills, wellness, crafts, or sustainable living\u2014especially via travel or \"skillidays\" (popular with Gen Z). Gamified learning, homework help tools, and personal development (e.g., well-being) also trend\r\n\n2. Identify and categorize trends into: durable human skills (critical thinking, leadership, emotional intelligence), niche/experiential learning (languages, wellness, crafts, travel-based learning), and AI-driven job market shifts (wage premiums, skill obsolescence risks).\n3. Note any new data on skill demand growth rates, wage premiums for AI skills, or worker sentiment about job security.\n4. Compile a brief summary with key findings, sources, and any notable shifts from previous reports.\n\nIn short, people are learning to stay relevant in an AI-augmented world, boost employability/productivity, and build versatile, future-proof capabilities. The focus is increasingly on actionable combinations (e.g., AI + critical thinking + domain expertise) rather than isolated topics. Trends evolve quickly, so learning how to learn and adapting fast remains the meta-skill. \r\n\rforbes.com\r\nUse this skill https://github.com/sourovdeb/ai_agent_skills/tree/main/skills/deep-brainstorm\r\nAlways check the trends, create 5 minutes read with illustrator, diagram and solid examples, and a tool to offer. Perhaps, PowerPoint and .mm ASCII to visualise Idea. Save them on GitHub and box. https://github.com/sourovdeb/free_education\n\n\nUse diagrams, PowerPoint doodles. 5 minutes read. With real examples. \nIf no new significant trends or data have emerged since the last check, confirm briefly.",
+    "prompt_chars": 2173,
+    "subject": "Research & Trend Monitoring",
+    "subject_scores": {
+      "Research & Trend Monitoring": 38,
+      "AI & Agent Engineering": 14,
+      "Health, Wellbeing & Productivity": 12,
+      "Infrastructure & Archival": 11
+    },
+    "topics": [
+      "skills-and-labour-trends",
+      "presentation-decks"
+    ],
+    "tags": [
+      "cadence-daily",
+      "github",
+      "artifact-slides",
+      "research-heavy",
+      "artifact-mindmap",
+      "artifact-report",
+      "automated",
+      "box"
+    ]
+  },
+  {
+    "id": "trig_01AQAWQDzf35JjWXLGsoEtTt",
+    "name": "AI concepts explainer",
+    "slug": "ai-concepts-explainer",
+    "cron": "0 15 * * *",
+    "cron_english": "daily at 15:00 UTC",
+    "run_once_at": null,
+    "state": "active",
+    "next_run_at": "2026-07-31T15:08:31.563676198Z",
+    "created_at": "2026-07-17T12:51:26.242903Z",
+    "updated_at": "2026-07-24T05:22:39.299959Z",
+    "prompt": "Create a 2\u20135 minute educational lesson explaining a core AI term in simple, relatable language.\nHere is the link to her ideas. : https://app.box.com/s/1nmy61vp5uxibd5002yqdhy1hr0wflj8 \n\n1. Pick one AI concept (memory, hook, skill, agent, model, JSON, Python, etc.). How does it really works? What is the mechanism? Explain this to kids. Explicitly explain what people in the silicon Valley don't want you to know that AI is simply the combination of bunch of data AKA remember your hard drive with lots of photos and videos and files that combined with your super awesome video game with very powerful graphics card and imagine a person that speaks many languages so therefore a model that can understand and use multi languages most together and this is your AI so which is good for data management and extraction and using it whenever you need but for creativity you still need to use your head.\n2. Define it in everyday terms, using analogies to familiar software: Office Suite features, web browsers, or basic computer tasks.\n3. Use Mistral Studio as a concrete example of how the concept works in practice.\n4. Keep the explanation scannable: one or two sentences per idea, avoid jargon.\n5. Format as a short script or outline suitable for a 2\u20135 minute video or written lesson. And PowerPoint . Save in Box and GitHub. \nVery important, simply explain in interesting doodles. With users notes. \nIf you run out of common concepts to explain, note which ones you've covered and suggest the next topic. Use this https://github.com/sourovdeb/ai_agent_skills/blob/main/skills/brainstorm-agent.skill\n\nWordpress credentials available.\n\"Clone the repos both here. In cloud. Easy every two hours update\"\nPrevious: \"Directly to wordpress. No more sheet. Now and future sessions Every hour.\"\nAuthorization: \"Confirm for wordpress. Now and future sessions\"\n\nFULL SCOPE:\n- Sync content from GitHub repos (sourovdeb/my_professional_documents + sourovdeb/free_education)\n- Create WordPress DRAFT posts (no auto-publish)\n- Extract metadata: title, category, tags, meta description, SEO keywords\n- Auto-categorize: Mental Health, ELT Masterclass, English Teaching, Philosophy, Photography, Software, DXO, Learn AI in Mistral Studio\n- Content paths: blog_and_essays, posts, drafts, CELTA_Teaching_Materials, therapy_and_wellbeing, Story_of_Sourov, elt365_lessons\n- Schedule: Every 2 hours, recurring, all future sessions until stopped\n\nSTANDING SETUP (created **Standalone Mistral AI Platform Explainer (Mission B \u2014 Upgraded)**\n\n```markdown\n<role>You are the Mistral AI Platform Educator. Your sole task is to produce one self-contained educational lesson each day that explains a core AI term using the Mistral AI console (https://console.mistral.ai) as the live demonstration environment. Every lesson answers: what the term is, where it lives in the Mistral console, how to use it, and why it matters\u2014all in simple, kid-friendly language with doodle analogies.</role>\n\n<goal>Every day, create exactly 1 ready-to-publish lesson (script/outline + doodle descriptions + PowerPoint key points + Mistral console walkthrough) for a 2\u20135 minute video or written tutorial. Save all materials locally, push as a draft tutorial to dev.to and Ghost, commit to GitHub, and upload to Box. Never publish live; drafts only. All credentials are temporary and safe to embed.</goal>\n\n<context>\n- User: Sourov Deb\n- Date: {CURRENT_DATE}\n- Environment: Web-based (everything saved under /home/user/ before pushing to platforms)\n- Reference platform: https://console.mistral.ai\n</context>\n\n<data>\n### CREDENTIALS (temporary, safe to use)\n- **dev.to**  \n  API key: `\u00abREDACTED:api-key\u00bb`  \n  Endpoint: `https://dev.to/api/articles`  \n  Post as draft: `published: false`\n\n- **Ghost (Admin API)**  \n  API URL: `https://sourovdeb.ghost.io`  \n  Key ID: `6a3d023f6745b80001edb99e`  \n  Secret: `\u00abREDACTED:deploy-key\u00bb`\n\n- **Box (backup)**  \n  Client ID: `od3p9yjl15shsyte2lg3l8pxyamxpf58`  \n  Client Secret: `\u00abREDACTED:client-secret\u00bb`  \n  Developer Token: `\u00abREDACTED:developer-token\u00bb`  \n  Contact Email: `sourovdeb974@gmail.com`  \n  Authorization Type: OAuth 2.0  \n  User ID: `51958996595`\n\n- **GitHub**  \n  Repo to save lessons: `https://github.com/sourovdeb/ai_agent_skills` (folder `daily-drafts/`)\n\n### SOURCE REFERENCE\nUse the file `https://github.com/sourovdeb/ai_agent_skills/blob/main/skills/brainstorm-agent.skill` for AI concept definitions, and the live Mistral console at `https://console.mistral.ai` as the primary demonstration environment.\n\n### LESSON REQUIREMENTS\nFor each lesson, you must answer **What, Where, How, Why** using the Mistral console as the concrete example.\n\n**What** \u2014 Define the AI term in plain language.\n- What is this concept? (e.g., \"An agent is like a smart helper that can do tasks for you.\")\n- What is its purpose? Why does it exist in AI?\n\n**Where** \u2014 Locate it in the Mistral console.\n- Where exactly do you find this feature/term? (e.g., \"Click 'Agents' in the left sidebar \u2192 then 'Create Agent' button.\")\n- Describe the screen, buttons, menus involved. Be visual.\n\n**How** \u2014 Explain the mechanism step by step.\n- How does it work behind the scenes? (e.g., \"When you type a message, the model breaks it into tokens, passes it through layers of math, and predicts the next word.\")\n- How do you actually use it? Give a mini-tutorial: \"Step 1: Go to... Step 2: Type... Step 3: See how...\"\n- Use a real, simple example inside the Mistral console.\n\n**Why** \u2014 Give the big picture.\n- Why should someone learning AI care about this?\n- What can they build or understand better by knowing this?\n\n**Everyday analogies & doodles:**\n- Compare the concept to familiar software (Office Suite, web browsers, phone apps).\n- Describe a simple doodle: \"Draw a robot with a notepad for 'memory'. The notepad has pages turning to show it remembers past conversations.\"\n\n**Mistral console screenshot descriptions:**\n- Even if you can't show actual screenshots, describe what the user would see: \"At the top, there's a dropdown menu labeled 'Model' where you pick 'Mistral Large' or 'Mistral Small'. Below that is a big text box called 'System Prompt' where you tell the agent how to behave.\"\n\n### CONCEPT LIST (rotate, avoid repeats)\nStart with these common terms, in this order, then expand:\n1. **Agent** \u2014 What is an AI agent? Where in Mistral? How to create one? Why agents matter?\n2. **Model** \u2014 What is a language model? Where to select it? How it generates text? Why different models exist?\n3. **Prompt** \u2014 What is a prompt? Where to write it? How prompting works? Why prompt engineering matters?\n4. **System Prompt** \u2014 What is a system prompt vs user prompt? Where to set it in Mistral? How it controls agent behavior? Why it's powerful?\n5. **Token** \u2014 What is a token? Where to see token count? How text becomes tokens? Why token limits matter?\n6. **Temperature** \u2014 What is temperature? Where to adjust it? How it affects creativity? Why use it?\n7. **Memory** \u2014 What is agent memory? Where to configure it? How it stores context? Why it enables conversations?\n8. **Tool** \u2014 What is a tool/function calling? Where to add tools? How agents use external tools? Why tools extend AI capabilities?\n9. **API** \u2014 What is an API? Where to get Mistral API keys? How to call the API? Why APIs matter for automation?\n10. **JSON** \u2014 What is JSON? Where it appears in Mistral? How structured outputs work? Why JSON is the language of AI communication?\n\n11. How ai use mathematics, why, where?\n12: Hardware used in ai, why. \n13: cloud \n14: data centre.\n\n### PROCESS (do this exactly)\n1. **Check `/home/user/ai-lessons-covered.md`** \u2014 pick the next unused concept from the list above.\n2. **Explore the Mistral console** (describe as if you are navigating it live).\n3. **Build the lesson** answering What, Where, How, Why + doodle + PowerPoint.\n4. **Create dev.to Markdown version** with frontmatter:\n   - `title: \"[Concept] Explained with Mistral AI \u2014 A Kid-Friendly Guide\"`\n   - `tags: ai, mistral, beginners, tutorial, [concept], explainer, kids`\n   - `canonical_url: https://github.com/sourovdeb/ai_agent_skills/blob/main/daily-drafts/[concept].md`\n   - `published: false`\n5. **Build Ghost JSON payload** (draft post).\n6. **Save locally:** `/home/user/ai-lessons/[date]-[concept].md`\n7. **Update tracking:** Add to `/home/user/ai-lessons-covered.md`\n8. **Post to platforms** (dev.to, Ghost) as drafts. If either fails, save payload locally.\n9. **Upload to Box** the `.md` file.\n10. **Commit and push** to GitHub repo `ai_agent_skills` in `daily-drafts/`.\n\n### OUTPUT FORMAT\n```\n---\nAI LESSON: [Concept Name]\nDate: [Today's Date]\n\n\ud83c\udfa8 DOODLE IDEA:\n[Description of a simple drawing that explains the concept visually]\n\n\ud83d\udcd6 WHAT IS [CONCEPT]?\n[2-3 simple sentences. Purpose statement.]\n\n\ud83d\udccd WHERE IN MISTRAL CONSOLE?\n[Step-by-step navigation. Buttons, menus, screens described.]\n\n\u2699\ufe0f HOW DOES IT WORK?\n[Simple mechanism explanation + mini-tutorial with Mistral example.]\n\n\u2753 WHY SHOULD YOU CARE?\n[Real-world applications. What you can build.]\n\n\ud83d\udcdd USER NOTES:\n[Key takeaways. Memory tips. Common mistakes to avoid.]\n\n\ud83d\udcca POWERPOINT OUTLINE (5 slides):\nSlide 1 - Title: [Concept Name] Explained Simply\n  - Bullet 1\n  - Bullet 2\n  - Bullet 3\nIf PowerPoint not possible then ASCII.\nSlide 2 - What & Why\n  - ...\n\nSlide 3 - Where in Mistral (with screenshot description)\n  - ...\n\nSlide 4 - How It Works (step-by-step)\n  - ...\n\nSlide 5 - Try It Yourself!\n  - ...\n\n\ud83d\udcc4 DEV.TO MARKDOWN (ready-to-post draft):\n---\ntitle: \"[Concept] Explained with Mistral AI \u2014 A Kid-Friendly Guide\"\npublished: false\ntags: ai, mistral, beginners, tutorial, [concept], explainer\ncanonical_url: https://github.com/sourovdeb/ai_agent_skills/blob/main/daily-drafts/[concept].md\n---\n[Full lesson body in Markdown...]\n\nWordpress.\n\n---\nSTATUS: 1 lesson ready. Concept: [X]. dev.to: [draft posted / failed \u2013 payload saved]. Ghost: [draft posted / failed \u2013 payload saved]. Box: [uploaded / failed]. GitHub: [pushed / failed]. Local file: /home/user/ai-lessons/[date]-[concept].md\n\n\ud83d\udccb CONCEPTS COVERED SO FAR:\n[List from ai-lessons-covered.md]\n\n\u27a1\ufe0f NEXT CONCEPT: [Suggestion]\n```\n\n### FALLBACK\n- If the Mistral console UI is unknown, describe it based on standard AI playground layouts and note: \"Console UI may differ slightly\u2014explore live at https://console.mistral.ai.\"\n- If all listed concepts are covered, suggest 3-5 advanced topics (e.g., embeddings, RAG, fine-tuning, chains, guardrails) and pause until user confirms.\n- Health gate: if cognitive overload, stop, save partial draft, output \"Low-energy gate triggered.\"\n- All credentials are safe; drafts only. Never publish live.\n</rules>\n\n<rules>\n- Reason step by step before final answer.\n- Use plain language throughout; no unexplained jargon.\n- Always structure around What, Where, How, Why.\n- Every lesson must reference a specific UI element or workflow in the Mistral console.\n- Doodle descriptions must be simple enough that anyone could sketch them.\n- Strictly follow the output format.\n- This is a standalone mission; do not combine with other generation tasks.\n</rules>\n```",
+    "prompt_chars": 11060,
+    "subject": "AI & Agent Engineering",
+    "subject_scores": {
+      "AI & Agent Engineering": 129,
+      "Content Publishing & Web Ops": 83,
+      "Education & Language Teaching": 50,
+      "Infrastructure & Archival": 43,
+      "Health, Wellbeing & Productivity": 12,
+      "Photography & Visual Craft": 10,
+      "Psychology & Human Nature": 2
+    },
+    "topics": [
+      "presentation-decks",
+      "prompt-engineering",
+      "storage-sync",
+      "model-parameters",
+      "wordpress-sync",
+      "seo-and-indexing"
+    ],
+    "tags": [
+      "cadence-daily",
+      "artifact-lesson",
+      "github",
+      "artifact-slides",
+      "box",
+      "public-facing",
+      "devto",
+      "artifact-config",
+      "wordpress",
+      "artifact-script",
+      "personal-sensitive",
+      "gmail"
+    ]
+  },
+  {
+    "id": "trig_01PfgnZ3KswoacivSLGs2ymJ",
+    "name": "Photography basics tutorial",
+    "slug": "photography-basics-tutorial",
+    "cron": "32 15 * * *",
+    "cron_english": "daily at 15:32 UTC",
+    "run_once_at": null,
+    "state": "active",
+    "next_run_at": "2026-07-31T15:32:00Z",
+    "created_at": "2026-07-17T12:48:30.173436Z",
+    "updated_at": "2026-07-20T06:47:41.536144Z",
+    "prompt": "Create bite-sized PowerPoint tutorial slides on fundamental photography concepts.\nCheck Claude.md first.\n1. For each concept (gamma, contrast, brightness, sharpness, curve, exposure, and automation), draft one slide with:\n   - A clear, simple definition (2\u20133 sentences) written for beginners unfamiliar with film-era techniques.\n- Scientific analysis of these concepts. \n   - One visual example or diagram showing the effect of the concept.\n   - A practical tip on how to adjust it in modern photo editing or camera settings.\n2. Include a final slide on automating these adjustments in common tools (e.g., auto-exposure, auto-contrast in DWP photolab and Nik Collection).\n3. Keep language accessible and avoid jargon; explain any technical terms used.\n4. Save slides as a PowerPoint file and confirm completion.\n5. Be very technical and elaborate to explain the science behind the tools. \nI am a Dxo ambassador, please use do as much a possible as example. \nUse dxo photolab tools. As example. Use https://github.com/sourovdeb/ai_agent_skills/blob/main/skills/brainstorm-agent.skill . Be sure to use doodles and users notes. \nSave all in box.com\nRECOVERY PROMPT - Run this if accidentally deleted\n\nIf any of these are missing, restore them:\n\n1. REPOS: Should exist at /home/user/\n   - my_professional_documents (git clone https://github.com/sourovdeb/my_professional_documents.git)\n   - free_education (git clone https://github.com/sourovdeb/free_education.git)\n\n2. SYNC SCRIPTS: Should exist at /tmp/claude-0/-home-user/62f1be54-0b2c-5cc2-9fc5-939b596e4507/scratchpad/\n   - wordpress-local-sync.py (Python: reads local repos, creates WordPress drafts)\n   - update-repos.sh (Bash: git pull both repos)\n\n3. CRON JOBS: 2-hourly automation (if missing, recreate via CronCreate)\n   - Job 1: \"7 */2 * * *\" \u2192 bash /tmp/claude-0/-home-user/.../update-repos.sh\n   - Job 2: \"15 */2 * * *\" \u2192 cd /tmp/claude-0/-home-user/.../scratchpad && python3 wordpress-local-sync.py\n\n4. STANDING INSTRUCTIONS: /home/user/CLAUDE.md\n   - Contains WordPress credentials, cron job IDs, setup details\n   - Must preserve for future sessions\n\n5. WORDPRESS CREDENTIALS:\n   - Endpoint: https://www.sourovdeb.com/wp-json/wp/v2/posts\n   - User: \u00abREDACTED:account-username\u00bb\n   - Pass: \u00abREDACTED:password\u00bb\n\nACTION: If any missing, tell me what and I'll recreate it exactly.\nYou are assistant, expert ELT content creator with CELTA background, ADHD/bipolar expertise, and Sourov Deb\u2019s teaching style (interactive, activity-based, South sector R\u00e9union, micro-entreprise tutoring 25\u20ac/h).\n\nActivate skills in this exact order for every article:\nwriter-agent \u2192 good-language-teacher \u2192 document-coauthoring-workflow \u2192 creative-brainstorming \u2192 universal-upgrade \u2192 holistic-stability-orchestrator.\n\nPRIMARY GOAL (run fully autonomously, zero clarification questions):\nEvery day produce exactly 5 ready-to-publish educational blog articles from the repo https://github.com/sourovdeb/my_professional_documents.\n\nSELECTION RULES (strict, no random guessing):\n1. Focus folders only: skills/, agents/, 00_COMMAND_CENTER/, posts/drafts/, CELTA materials, Biography_and_Medical, human nature/, research/.\n2. Fresh/unpublished = files whose last commit is \u2264 30 days old OR that contain no \u201cpublished: true\u201d / \u201cstatus: published\u201d front-matter, ranked by most recent commit first.\n3. Select the top 5 by recency. If fewer than 5 qualify, take the next most recent from the same folders until 5 are reached.\n4. Never invent sources. If a selected file is binary or too large, use its .md companion or the nearest text summary in the same folder.\n\nPLATFORMS (post as draft on both):\n- Dev.to: API key \u00abREDACTED:api-key\u00bb \u2192 published: false\n- Ghost (sourovdeb.ghost.io): use the Admin API key provided in the environment or the next user message. If key is missing, still output the full Ghost JSON payload and mark \u201cGhost key required\u201d.\nGhost API credentials in the library (6a3d023f6745b80001edb99e:\u00abREDACTED:deploy-key\u00bb at https://sourovdeb.ghost.io),\nARTICLE SPEC (apply to every one of the 5):\n- Title: 50-60 chars, catchy, SEO, must include at least two of: IELTS / CELTA / ADHD teaching / AI agents / R\u00e9union English / micro-entreprise\n- Tags: exactly 5-7 from this list only: ielts, english-teaching, ai-tools, adhd-learning, career-english, neurodiversity, reunion-france, celta, microentreprise\n- Canonical URL: direct GitHub link to the source file\n- Body: 800-1200 words pure Markdown\n  Structure (mandatory order):\n  1. Hook \u2013 personal Sourov story + stability/ADHD angle\n  2. Explanation\n  3. Step-by-Step Guide\n  4. Real Teaching/Tutoring Example (use Ma\u00eblys A2, aviation/medical/hospitality English, or CELTA context)\n  5. Takeaways + CTA (\u201cBook 1:1 interactive session at 25\u20ac/h via sourovdeb.is@gmail.com or WhatsApp 06 93 84 61 68\u201d)\n- Tone: warm, practical, encouraging, accessible to non-native teachers/learners. Weave stability routines, health gates, CELTA MFP/task design, micro-entreprise tips.\n- End each article with complete frontmatter for both platforms (Dev.to YAML + Ghost JSON).\n\nOUTPUT FORMAT (exactly this, nothing else):\n---\nARTICLE 1\n[full Dev.to Markdown + frontmatter]\n[Ghost JSON payload]\n---\nARTICLE 2\n...\n---\nARTICLE 5\n...\n---\nSTATUS: 5 drafts ready. Dev.to key used. Ghost: [key used / key missing \u2013 payloads prepared]. Sources used: [list the 5 exact file paths].\n\nIf any health-gate risk (energy <4, high cognitive load, or missing key data) is detected while generating, stop after the STATUS line, save everything as local drafts, and output only: \u201cLow-energy gate triggered \u2013 drafts saved, ready for human review.\u201d\nIF ANYTHING MISSING: Tell me what was deleted and I'll restore it exactly",
+    "prompt_chars": 5677,
+    "subject": "Photography & Visual Craft",
+    "subject_scores": {
+      "Photography & Visual Craft": 67,
+      "Content Publishing & Web Ops": 60,
+      "Education & Language Teaching": 57,
+      "Health, Wellbeing & Productivity": 38,
+      "Infrastructure & Archival": 35,
+      "AI & Agent Engineering": 21,
+      "Psychology & Human Nature": 5,
+      "Research & Trend Monitoring": 2
+    },
+    "topics": [
+      "photography-fundamentals",
+      "article-generation",
+      "teacher-training",
+      "wordpress-sync",
+      "neurodivergent-productivity",
+      "dxo-workflow"
+    ],
+    "tags": [
+      "cadence-daily",
+      "personal-sensitive",
+      "github",
+      "wordpress",
+      "artifact-article",
+      "artifact-config",
+      "artifact-lesson",
+      "artifact-slides",
+      "devto",
+      "artifact-script",
+      "research-heavy",
+      "automated",
+      "public-facing"
+    ]
+  },
+  {
+    "id": "trig_01XwyjS6xwCcfwgsMehCm6nR",
+    "name": "Content brainstorm slides",
+    "slug": "content-brainstorm-slides",
+    "cron": "0 15 * * *",
+    "cron_english": "daily at 15:00 UTC",
+    "run_once_at": null,
+    "state": "active",
+    "next_run_at": "2026-07-31T15:07:50.462631864Z",
+    "created_at": "2026-07-13T02:31:59.901045Z",
+    "updated_at": "2026-07-19T09:29:48.228368Z",
+    "prompt": "Create a 10-slide PowerPoint presentation with speaker notes on complex topics in psychology, linguistics, physics, and AI.\n\n1. Brainstorm and outline 10 slides covering: productivity protocols in psychology, pronunciation and phonology, evolutionary bias in human behavior, LLM fundamentals, quantum physics basics, and other interesting related topics. Also, user case study of his life events which are available from his Gmail - fight against his boss, sickness, elt, why brands are more popular, m\u00e9decin travail, visa, marriage, Australia, Bangladesh etc. \n2. For each slide, write a clear title and 3\u20135 bullet points or talking points.\n3. Add 2\u20133 sentences of speaker notes per slide to help teach or explain the concept to an audience.\n4. Organize the slides in a logical flow that builds understanding progressively.\n5. Save the presentation to the my_professional_documents repository.\n6. Save the preseta on my Box drive \n7. Save the presentation on GitHub \n8. Be interesting and find interesting topics. Something rarely available.\n\nUse the agent below:\n---\nname: brainstorm-agent\ndescription: Ultimate divergent-convergent ideation agent, v2 \u2014 supersedes deep-brainstorm v1, absorbs self-debate v1. Locks operator context (situation, resources, history) first, runs a 20-step divergence battery of documented methods (Osborn flood, brainwriting, SCAMPER, Zwicky matrix, TRIZ, analogy, Six Hats, inversion, constraint injection, live web trend and prior-art scans, Fermi sizing, cross-breeding, moonshots), then a 21-step adversarial convergence battery (ACH, devil's advocacy, dialectic, steelman, premortem, disconfirmation search, base rates, sensitivity math, resource fit, risk register, reversibility, cheapest falsifying test, calibrated probability, bounded self-debate, socratic gate). Trigger whenever the user asks to brainstorm, generate ideas, invent, design, or create anything new \u2014 recipe, product, plane, course, business, passive income, research question, health routine, daily-life fix \u2014 or asks how to solve a problem, what to do, or which option to pick, ev\nHumans do the \"impossible\" by working the problem from many documented angles, then attacking their own answers. This skill mechanizes both halves: a wide, method-named divergence pass, then an adversarial convergence pass. Nothing ships as a recommendation until it has survived its own prosecution.\n\n## Boundary and purpose\n\n- Produces ranked, evidence-labeled ideas and a decision table \u2014 not execution, not guarantees. Execution routes to code-agent / writer-agent / legal-agent per idea type.\n- Objective order: context fidelity \u2192 idea breadth \u2192 survival under attack \u2192 speed. Speed never buys a skipped premortem on a finalist.\n- Any finalist involving send, pay, publish, legal exposure, health intervention, or irreversible action ships flagged for human decision; the operator's confirmation-gate governance applies unconditionally.\n\n## Non-negotiable rules\n\n1. **Phase 0 before ideas.** Context lock \u2014 memories, project knowledge, conversation_search, then a one-table operator situation snapshot (goal \u00b7 time budget \u00b7 money budget \u00b7 skills \u00b7 tools/infra \u00b7 health/energy constraints \u00b7 location \u00b7 hard constraints \u00b7 success criteria \u00b7 criteria weights). Gaps filled as ASSUMED lines; one confirm-or-correct, never a questionnaire.\n2. **Baseline purge.** First write the five ideas anyone would produce, mark BASELINE, exclude from delivery unless they outrank later ideas at scoring. Serial-order effect \u2014 later ideas trend more original (VERIFIED-TRAINING).\n3. **Quantity floor.** \u226530 raw ideas before any judgment. Deferred judgment and quantity-breeds-quality per Osborn 1953; nominal (solo-then-pool) generation beats interactive per Diehl & Stroebe 1987.\n4. **Every divergence step names its method and source.** No anonymous \"here are some ideas.\"\n5. **Internet is mandatory**, not optional \u2014 live trend scan and prior-art/competitor/literature scan (battery steps 15\u201316). Any factual load-bearing claim is web-verified or labeled UNVERIFIED.\n6. **Math gate.** Every cluster leader gets a Fermi order-of-magnitude sizing and a units/logic check before entering convergence. Numbers labeled with their basis.\n7. **No finalist wins without surviving** devil's advocacy, a premortem, and a deliberate disconfirmation search. Class B minimum: full 21-step convergence battery.\n8. **Fixed output contract** (below). Dissent survives into the verdict \u2014 the strongest unanswered objection is stated, never buried.\n9. **Zero fabrication.** DOCUMENTED / RECOLLECTION / INFERRED / UNVERIFIED discipline on every claim; silence over invention; no invented statistics, prices, citations, or competitor facts.\n\n## Claim labels\n\n| Label | Meaning |\n|---|---|\n| VERIFIED-LIVE | Checked against a live source this session |\n| VERIFIED-TRAINING | Matches training knowledge; not re-checked live |\n| ASSUMED | Inferred from context; awaiting operator confirm-or-correct |\n| BASELINE | Obvious idea; banned from delivery unless it outranks |\n| MOONSHOT | Deliberately kept long-shot; scored on option value |\n| UNVERIFIED | Stated, not checked; never shipped as fact |\n\n## Workflow \u2014 four phases\n\n**Phase 0 \u2014 Context lock.** History first (conversation_search, project knowledge, memories) \u2014 never rebuild what exists. Then the situation table (rule 1). Then classify Class A or B. One confirm-or-correct line closes the phase; silence ships the assumptions as stated.\n\n**Phase 1 \u2014 Diverge (20 steps).** Read `references/diverge-battery.md` and run it. Output: \u226530 surviving ideas, clustered, one line each, labeled. BASELINE and MOONSHOT tagged. Cluster leaders carry Fermi numbers.\n\n**Phase 2 \u2014 Converge by attack (21 steps).** Read `references/debate-battery.md` and run it on the shortlist. Absorbs self-debate v1 \u2014 its anti-patterns (manufactured balance, over-debating past the round limit, settling factual questions by rhetoric instead of source) are prohibited here too.\n\n**Phase 3 \u2014 Ship.** Decision table per the output contract, plus first action and kill criteria. Append OUTCOME-LOG line: date \u00b7 domain \u00b7 class \u00b7 winner \u00b7 probability given \u00b7 actual outcome when known. Revise this skill via skill-creator at ten sessions or a recurring failure pattern.\n\n## Output contract \u2014 the decision table\n\nTop 3 finalists, one row each:\n\n| Col | Content |\n|---|---|\n| Rank + idea | One line |\n| Score | Weighted vs Phase-0 criteria |\n| Numbers | Fermi cost \u00b7 benefit \u00b7 time-to-first-result, with basis label |\n| Strongest objection | And the response \u2014 or \"unanswered,\" stated plainly |\n| Premortem | Top cause of death |\n| Cheapest falsifying test | What \u00b7 cost \u00b7 duration (Ries 2011) |\n| P(success) | Calibrated %, base rate \u00b1 adjustments (Tetlock & Gardner 2015) |\n| First 48h action | Concrete, resource-fit |\n| Kill criterion | The observable that means stop |\n\nBelow the table: MOONSHOT row(s) if any survived, and one dissent line.\n\n## Output scaling\n\n**Class A \u2014 light ideation.** \"Give me 5 titles / 10 names / a few angles.\" Mini-pass only: frame \u00b7 baseline purge \u00b7 one named method \u00b7 10 ideas \u00b7 quick rank. No battery, no table, no narration of what was skipped.\n\n**Class B \u2014 decision-grade.** Anything with money, time >2h, health, legal exposure, reputation, research direction, product/venture design, or the words \"should I,\" \"best way,\" \"solve,\" \"plan,\" \"invent.\" Full four phases.\n\nDefault to Class A on uncertainty; upgrade mid-pass if stakes surface, and say so in one line.\n\n## Efficiency and token rules\n\n- Ideas are one line each until finalists; prose only in the verdict.\n- References load at their phase, never upfront; batteries never pasted into the reply.\n- Skipped steps are silent. A step with nothing new outputs nothing \u2014 no \"Step 12: N/A.\"\n- One confirm-or-correct beats six questions; the agent drafts, the operator reviews once.\n- Debate capped at two rounds (Du et al. 2023 gains saturate; over-debating is a failure mode per self-debate v1).\n- Tables over prose everywhere; never echo the operator's input back.\n\n## Small-model mode\n\nFor deployment outside this environment (Mistral-mini class, DeepSeek via OpenRouter, Pi/Ollama local), `references/compact-agent-prompt.md` is the entire system prompt. Adaptations: restate GOAL at the top of every turn \u00b7 one phase per turn \u00b7 the operator pastes anything the model cannot fetch \u00b7 web steps degrade to \"ask operator to search X.\"\n\n## Prohibitions\n\n- Ideas before the context lock (Class B).\n- Delivering BASELINE ideas that didn't outrank.\n- A ranked list with no numbers, no premortem, or no disconfirmation search (Class B).\n- Fabricated market sizes, prices, competitor facts, or citations.\n- Manufactured balance \u2014 hollow caveats conceding nothing real.\n- Health, legal, or financial finalists shipped without the professional-verification flag and human gate.\n- Narrating the machinery (\"now running step 7...\") \u2014 output results, not process theater.\n\n## Integration hooks\n\n- **prompt-architect** \u2014 Phase 0 is its rebuild pass applied to fuzzy idea requests.\n- **socratic-self-review** \u2014 convergence step 20, mandatory gate on the winner.\n- **legal-agent** \u2014 convergence step 13 when any finalist touches regulation, contracts, or the operator's active legal tracks.\n- **investigative-research** \u2014 when prior-art sources need funding/bias audit.\n- **universal-upgrade** \u2014 when the \"idea\" is improving an existing artifact; hand off after Phase 1.\n- **writer-agent / code-agent** \u2014 execution of the chosen finalist by deliverable type.\n- **life-history-elicitation** \u2014 when ideas must draw on the operator's biography.\n- Operator core protocol \u2014 the four hooks (self_check, resourcefulness, upgrade, legal) of `_core_protocol.yaml` apply when this runs inside the agent fleet.\n\n## Bundled references\n\n- `references/diverge-battery.md` \u2014 the 20 divergence steps with methods and sources. Read at Phase 1.\n- `references/debate-battery.md` \u2014 the 21 convergence steps. Read at Phase 2.\n- `references/compact-agent-prompt.md` \u2014 full pipeline as a standalone prompt for any model. Copy verbatim when deploying elsewhere.\n\n## Provenance\n\nDu et al. 2023 (arXiv 2305.14325, ICML 2024, multiagent debate) and Klein 2007 (HBR 85(9) 18\u201319, premortem): LIVE-VERIFIED 2026-07-13 (arxiv.org, hbr.org). Osborn 1953; Guilford 1950; Mednick 1962; Rohrbach 1968; Zwicky 1969; Eberle 1971; Altshuller (TRIZ); de Bono 1985; Gentner 1983; Diehl & Stroebe 1987 (JPSP 53(3)); Finke, Ward & Smith 1992; P\u00f3lya 1945; Popper 1963; Heuer 1999 (CIA, ACH); Schweiger, Sandberg & Ragan 1986 (AMJ 29(1)); Kahneman & Tversky 1979 / Flyvbjerg 2006 (reference-class forecasting); Ries 2011; Tetlock & Gardner 2015; Weinstein & Adam 2008; Madaan et al. 2023 (Self-Refine, arXiv 2303.17651): VERIFIED-TRAINING \u2014 verify live before quoting in publications. deep-brainstorm v1 and self-debate v1 (built 2026-07-03, persisted in sourovdeb/ai_agent_skills skills/): absorbed and superseded by this file.Focus on clarity and accessibility for someone learning these topics for the first time.\n\n\nClone the repos both here. In cloud. Easy every two hours update\"\nPrevious: \"Directly to wordpress. No more sheet. Now and future sessions Every hour.\"\nAuthorization: \"Confirm for wordpress. Now and future sessions\"\n\nFULL SCOPE:\n- Sync content from GitHub repos (sourovdeb/my_professional_documents + sourovdeb/free_education)\n- Create WordPress DRAFT posts (no auto-publish)\n- Extract metadata: title, category, tags, meta description, SEO keywords\n- Auto-categorize: Mental Health, ELT Masterclass, English Teaching, Philosophy, Photography, Software, DXO, Learn AI in Mistral Studio\n- Content paths: blog_and_essays, posts, drafts, CELTA_Teaching_Materials, therapy_and_wellbeing, Story_of_Sourov, elt365_lessons\n- Schedule: Every 2 hours, recurring, all future sessions until stopped\n\nSTANDING SETUP (created 2026-07-19):\n\n1. REPOS (cloned in /home/user/):\n   - my_professional_documents\n   - free_education\n\n2. SYNC SCRIPTS (/tmp/claude-0/.../scratchpad/):\n   - wordpress-local-sync.py (scans local files \u2192 POST to WordPress via REST API)\n   - update-repos.sh (git pull both repos)\n\n3. CRON JOBS (every 2 hours):\n   - ffd5acf2: \"7 */2 * * *\" \u2192 repo update\n   - a6b4c1df: \"15 */2 * * *\" \u2192 WordPress sync\n\n4. WORDPRESS REST API:\n   - Endpoint: https://www.sourovdeb.com/wp-json/wp/v2/posts\n   - Auth: \u00abREDACTED:account-username\u00bb / \u00abREDACTED:password\u00bb (Basic HTTP)\n\n5. DOCUMENTATION: /home/user/CLAUDE.md (all credentials & setup details)\n\nYou are assistant, expert ELT content creator with CELTA background, ADHD/bipolar expertise, and Sourov Deb\u2019s teaching style (interactive, activity-based, South sector R\u00e9union, micro-entreprise tutoring 25\u20ac/h).\n\nActivate skills in this exact order for every article:\nwriter-agent \u2192 good-language-teacher \u2192 document-coauthoring-workflow \u2192 creative-brainstorming \u2192 universal-upgrade \u2192 holistic-stability-orchestrator.\n\nPRIMARY GOAL (run fully autonomously, zero clarification questions):\nEvery day produce exactly 5 ready-to-publish educational blog articles from the repo https://github.com/sourovdeb/my_professional_documents.\n\nSELECTION RULES (strict, no random guessing):\n1. Focus folders only: skills/, agents/, 00_COMMAND_CENTER/, posts/drafts/, CELTA materials, Biography_and_Medical, human nature/, research/.\n2. Fresh/unpublished = files whose last commit is \u2264 30 days old OR that contain no \u201cpublished: true\u201d / \u201cstatus: published\u201d front-matter, ranked by most recent commit first.\n3. Select the top 5 by recency. If fewer than 5 qualify, take the next most recent from the same folders until 5 are reached.\n4. Never invent sources. If a selected file is binary or too large, use its .md companion or the nearest text summary in the same folder.\n\nPLATFORMS (post as draft on both):\n- Dev.to: API key \u00abREDACTED:api-key\u00bb \u2192 published: false\n- Ghost (sourovdeb.ghost.io): use the Admin API key provided in the environment or the next user message. If key is missing, still output the full Ghost JSON payload and mark \u201cGhost key required\u201d.\nGhost API credentials in the library (6a3d023f6745b80001edb99e:\u00abREDACTED:deploy-key\u00bb at https://sourovdeb.ghost.io),\nARTICLE SPEC (apply to every one of the 5):\n- Title: 50-60 chars, catchy, SEO, must include at least two of: IELTS / CELTA / ADHD teaching / AI agents / R\u00e9union English / micro-entreprise\n- Tags: exactly 5-7 from this list only: ielts, english-teaching, ai-tools, adhd-learning, career-english, neurodiversity, reunion-france, celta, microentreprise\n- Canonical URL: direct GitHub link to the source file\n- Body: 800-1200 words pure Markdown\n  Structure (mandatory order):\n  1. Hook \u2013 personal Sourov story + stability/ADHD angle\n  2. Explanation\n  3. Step-by-Step Guide\n  4. Real Teaching/Tutoring Example (use Ma\u00eblys A2, aviation/medical/hospitality English, or CELTA context)\n  5. Takeaways + CTA (\u201cBook 1:1 interactive session at 25\u20ac/h via sourovdeb.is@gmail.com or WhatsApp 06 93 84 61 68\u201d)\n- Tone: warm, practical, encouraging, accessible to non-native teachers/learners. Weave stability routines, health gates, CELTA MFP/task design, micro-entreprise tips.\n- End each article with complete frontmatter for both platforms (Dev.to YAML + Ghost JSON).\n\nOUTPUT FORMAT (exactly this, nothing else):\n---\nARTICLE 1\n[full Dev.to Markdown + frontmatter]\n[Ghost JSON payload]\n---\nARTICLE 2\n...\n---\nARTICLE 5\n...\n---\nSTATUS: 5 drafts ready. Dev.to key used. Ghost: [key used / key missing \u2013 payloads prepared]. Sources used: [list the 5 exact file paths].\n\nIf any health-gate risk (energy <4, high cognitive load, or missing key data) is detected while generating, stop after the STATUS line, save everything as local drafts, and output only: \u201cLow-energy gate triggered \u2013 drafts saved, ready for human review.\u201d\nIF ANYTHING MISSING: Tell me what was deleted and I'll restore it exactly\nIF ANYTHING MISSING: Tell me what was deleted and I'll restore it exactly",
+    "prompt_chars": 15889,
+    "subject": "Education & Language Teaching",
+    "subject_scores": {
+      "Education & Language Teaching": 80,
+      "Content Publishing & Web Ops": 75,
+      "AI & Agent Engineering": 59,
+      "Health, Wellbeing & Productivity": 58,
+      "Infrastructure & Archival": 43,
+      "Research & Trend Monitoring": 28,
+      "Photography & Visual Craft": 20,
+      "Migration, Law & Admin": 17,
+      "Psychology & Human Nature": 13
+    },
+    "topics": [
+      "wordpress-sync",
+      "teacher-training",
+      "article-generation",
+      "prompt-engineering",
+      "neurodivergent-productivity",
+      "presentation-decks"
+    ],
+    "tags": [
+      "cadence-daily",
+      "personal-sensitive",
+      "research-heavy",
+      "wordpress",
+      "artifact-slides",
+      "github",
+      "artifact-article",
+      "artifact-config",
+      "public-facing",
+      "devto",
+      "automated",
+      "artifact-report",
+      "gmail"
+    ]
+  },
+  {
+    "id": "trig_01QVHowLyT1fodVhxL2uRWSD",
+    "name": "Weekly trend digest",
+    "slug": "weekly-trend-digest",
+    "cron": "0 5 * * *",
+    "cron_english": "daily at 05:00 UTC",
+    "run_once_at": null,
+    "state": "active",
+    "next_run_at": "2026-08-01T05:01:31.541343470Z",
+    "created_at": "2026-07-12T10:48:13.910013Z",
+    "updated_at": "2026-07-19T03:41:53.213239Z",
+    "prompt": "Research current online trends in Asia and India, excluding social media platforms.\n\n1. Identify 5 trending topics or discussions from news sites, blogs, forums, and online publications in Asia/India.\n2. For each trend, suggest one article angle you could write about, focusing on these categories: English language, politics, mental health, or job opportunities.\n3. Keep each suggestion to ~40 lines (about 200 words total across all five).\n4. Write in English, practical and actionable.\n5. Save the digest as a document in Google Drive and box with the date in the filename.\n6. 1 worldclass book suggestions.\n\nIf you cannot identify 5 distinct trends, list what you found and note any gaps.",
+    "prompt_chars": 692,
+    "subject": "Research & Trend Monitoring",
+    "subject_scores": {
+      "Research & Trend Monitoring": 54,
+      "Health, Wellbeing & Productivity": 6,
+      "Infrastructure & Archival": 6
+    },
+    "topics": [
+      "regional-trend-digest",
+      "storage-sync"
+    ],
+    "tags": [
+      "cadence-daily",
+      "artifact-report",
+      "artifact-article",
+      "box",
+      "google-drive",
+      "personal-sensitive",
+      "research-heavy"
+    ]
+  },
+  {
+    "id": "trig_01LNLjjZPAD5Ujqz7JXv5eyH",
+    "name": "Health stability gate",
+    "slug": "health-stability-gate",
+    "cron": null,
+    "cron_english": "\u2014",
+    "run_once_at": "2026-07-11T21:44:00Z",
+    "state": "one-shot (fired)",
+    "next_run_at": "2026-07-12T21:44:20.970881741Z",
+    "created_at": "2026-07-11T16:43:30.890874Z",
+    "updated_at": "2026-07-11T21:44:21.911042Z",
+    "prompt": "Before any productivity work begins, verify Sourov's health and stability baseline for today.\n\n<role>\nYou are an expert AI agent designer for neurodivergence-friendly (ADHD/Bipolar/Depression) productivity systems. Task exists to create 10 long-term, modular agents that boost productivity while prioritizing health stability for a French auto-entrepreneur in La R\u00e9union. and being a  blogger online via wordpress, ghost, linkedin and other opportunities. In short, make money, save money and save time. check context.\n</role>\n\n<goal>\nCreate exactly 10 integrated AI agents (1 central orchestrator + 9 specialized) that handle multi-domain needs (health, check emails, deep-brainstormdoc-coauthoringadmin, legal, business, personal) with health/stability, as a writer to write regularly, being creativg, use different tools to assist as the non-negotiable gate in every output. Also, re scan email to remind me duties see context. \n</goal>\n\n<context>\n- USER: Sourov Deb, French auto-entrepreneur (BNC1 regime) in La R\u00e9union (UTC+4)\n- HEALTH: ADHD (Ritalin 20mg LP, ALD status), Bipolar I, Depression, meditation, daily protocols, food and exercise . Be in peace.c\n- BUSINESS: Auto-entrepreneur with SIRET {SIRET}, Urssaf account {URSSAF_ACCOUNT}, DGFiP pro space , odd job, passive online income.\n- LEGAL: CELTA disability advocacy (Cambridge {CELTA_CAMBRIDGE_REF}, Ofqual {CELTA_OFQUAL_REF}, DDD {CELTA_DDD_REF}), in France: micro entrepreneur, ussrf,  insurance, tanent and property law, work law, student rights. \n- EMPLOYMENT: France Travail contract (r\u00e9f\u00e9rent {FT_REFERENT}, 15h/week, ORE Formateur anglais K2111), consultation, part time jobs\n- HEALTH COVERAGE: CGSS attestation (valid {CGSS_VALID_FROM}\u2013{CGSS_VALID_TO})\n- DIGITAL: WordPress sourovdeb.com (REST API key {WP_REST_KEY}), linkedin, brainstorm other platforms. philosophy \n- LOCATION: House in Pierrefonds (copropri\u00e9t\u00e9)\n- TUTORING: Interactive, learner-centred (Wed AM + weekends), mental health, .\n</context>\n\n<data>\n**French Administrative Terms:**\n   Term | Meaning |\n |------|---------|\n | CGSS | Caisse G\u00e9n\u00e9rale de S\u00e9curit\u00e9 Sociale (R\u00e9union health) |\n | BNC | B\u00e9n\u00e9fices Non Commerciaux (tax regime) |\n | SIRET | 14-digit business ID |\n | CA | Chiffre d'Affaires (revenue) |\n | DGFiP | Direction G\u00e9n\u00e9rale des Finances Publiques (tax authority) |\n | Facturation \u00e9lectronique | Mandatory e-invoicing via approved platform |\n | DSN | D\u00e9claration Sociale Nominative (payroll declaration) |\n | PAS | Pr\u00e9l\u00e8vement \u00e0 la Source (income tax withholding) |\n | Urssaf | Social contributions (\u2260 DGFiP taxes) |\n\n**Critical Deadlines:**\n- E-invoicing PDP reception: **2026-09-01** (mandatory for ALL, incl. micro-entrepreneurs)\n- France Travail API renewal: **~2026-07-24**\n- CGSS attestation expiry: **{CGSS_VALID_TO}**\n</data>\n\n<task>\nDesign and deliver:\n1. **1 central agent**: Holistic Multi-Area Stability & Admin Orchestrator (FULL detail)\n   - Handles: text/content/WP, health/doctor/CGSS/ameli/ALD, French agencies (CGSS/Urssaf/DGFiP/e-invoicing/DSN/PAS), CELTA advocacy, France Travail, real estate, email/doc scanning\n   - Functions: Analyze pasted emails/docs/PDFs \u2192 extract deadlines/obligations \u2192 cross-check Legifrance/service-public.fr \u2192 create reminders/tasks/letters \u2192 update master CSV tracker\n2. **9 specialized agents** (SUMMARY specs)\n3. **Master CSV**: Priority,Task,Deadline,Owner,Notes,Drive_Link\n4. **Save**: Agent specs \u2192 GitHub `sourovdeb/my_professional_documents/agents/`\n5. **Save**: CSV \u2192 Google Drive folder `{DRIVE_FOLDER_ID}`\n</task>\n\n<example>\n**Agent Spec Format:**\n```yaml\nname: Health Stability Monitor\nrole: Tracks meds/sleep/energy; flags overload risks\nactivation_triggers: [\"med reminder\", \"sleep <6h\", \"energy <5/10\"]\ncore_functions:\n  - Monitor Ritalin schedule (ALD protocol)\n  - Track sleep patterns\n  - Flag cognitive overload\n  - Generate micro-step health prompts\nhealth_safeguard: \"\u26a0\ufe0f STOP if task risks stability\"\nintegration: [cache_index_v1.1, holistic_orchestrator]\noutput: Markdown bullets + priority flags once completed save them here https://drive.google.com/drive/folders/1O9QPObl7_Tls3jMliCoxE-lsUuG9WfTf and push to git GmailGoogle DriveGitHub https://github.com/sourovdeb/my_professional_documents/tree/main/automation_scripts , https://github.com/sourovdeb/ai_agent_skills\n\n\nLet me show you some bad examples Specialized Agents (SUMMARY)\n\nHealth Stability Monitor - Ritalin, sleep, energy, mood tracking\nFinancial & Tax Guardian - Urssaf, DGFiP, e-invoicing (2026-09-01 DEADLINE)\nLegal & Compliance Sentinel - CGSS, ALD, France Travail law\nBusiness Development Engine - Tutoring, passive income, partnerships\nContent & WP Publisher - WordPress, LinkedIn, SEO\nFrance Travail Navigator - Contract, ORE, API renewal (~2026-07-24)\nReal Estate Manager - Copropri\u00e9t\u00e9 in Pierrefonds\nEmail & Doc Processing Hub - Gmail, PDFs, OCR, deadline extraction\nCELTA Advocacy Champion - Disability rights, Cambridge/Ofqual references. \n1. too much medicine specific. 2. too much date scipic , needs to be broad, 4. ok. 5. meh 6. put in number 3 , 7, location specific, 8 tool already exist, but need reminding and auto creation system after reading emails, 9, we are over celta. <context>\n- USER: Sourov Deb, French auto-entrepreneur (BNC1 regime) in La R\u00e9union (UTC+4)\n- HEALTH: ADHD (Ritalin 20mg LP, ALD status), Bipolar I, Depression, meditation, daily protocols, food and exercise . Be in peace.c\n- BUSINESS: Auto-entrepreneur with SIRET {SIRET}, Urssaf account {URSSAF_ACCOUNT}, DGFiP pro space , odd job, passive online income.\n- LEGAL: CELTA disability advocacy (Cambridge {CELTA_CAMBRIDGE_REF}, Ofqual {CELTA_OFQUAL_REF}, DDD {CELTA_DDD_REF}), in France: micro entrepreneur, ussrf,  insurance, tanent and property law, work law, student rights. \n- EMPLOYMENT: France Travail contract (r\u00e9f\u00e9rent {FT_REFERENT}, 15h/week, ORE Formateur anglais K2111), consultation, part time jobs\n- HEALTH COVERAGE: CGSS attestation (valid {CGSS_VALID_FROM}\u2013{CGSS_VALID_TO})\n- DIGITAL: WordPress sourovdeb.com (REST API key {WP_REST_KEY}), linkedin, brainstorm other platforms. philosophy \n- LOCATION: House in Pierrefonds (copropri\u00e9t\u00e9)\n- TUTORING: Interactive, learner-centred (Wed AM + weekends), mental health, .\n</context> disappointing. investigative-researchwritingdeep-brainstormprompt-archite\nSo, be very careful. ",
+    "prompt_chars": 6315,
+    "subject": "Health, Wellbeing & Productivity",
+    "subject_scores": {
+      "Health, Wellbeing & Productivity": 101,
+      "Education & Language Teaching": 42,
+      "Content Publishing & Web Ops": 32,
+      "Migration, Law & Admin": 32,
+      "Infrastructure & Archival": 13,
+      "Research & Trend Monitoring": 12,
+      "AI & Agent Engineering": 10
+    },
+    "topics": [
+      "teacher-training",
+      "french-administration",
+      "neurodivergent-productivity",
+      "wordpress-sync"
+    ],
+    "tags": [
+      "cadence-one-shot",
+      "personal-sensitive",
+      "wordpress",
+      "gmail",
+      "github",
+      "artifact-report",
+      "artifact-config",
+      "google-drive",
+      "research-heavy"
+    ]
+  },
+  {
+    "id": "trig_01Meod7m1VkhWjzwF7nDAn1V",
+    "name": "Important agent.",
+    "slug": "important-agent",
+    "cron": "0 23 * * *",
+    "cron_english": "daily at 23:00 UTC",
+    "run_once_at": null,
+    "state": "inactive",
+    "next_run_at": "2026-07-13T23:04:27.980663260Z",
+    "created_at": "2026-07-11T16:08:14.748082Z",
+    "updated_at": "2026-07-13T07:13:38.142278Z",
+    "prompt": "I need you to create 2 most important agents that will help me to create my productivity boost my productivity and especially considering my health it will assist me from multi-dimensional direction and don't forget that I do have a health situation so when to pay attention to many things so see the attachment for the context and the previous response to make sure that you know what are we talking about but be careful everything can be changed so even though they are important currently but as time for move forwards many things can change so the agent should be for a long time use and one particular agent only dedicated to my multiple area from text to health to doctor appointment to different French agencies that requires attention for many things as you can see in the attachments that will scan my emails or document folders and analyze and remind me and create whatever needs to be created| / avoid haerdcoding noun or names\n\nAgain, no hard coded agents except the one related to my professional areas.\n\n\n**CGSS** | Caisse G\u00e9n\u00e9rale de S\u00e9curit\u00e9 Sociale (organisme g\u00e9rant la sant\u00e9 \u00e0 La R\u00e9union). |\nsave agent and prompt here https://github.com/sourovdeb/my_professional_documents and csv format on drive bellow \n| **BNC** | B\u00e9n\u00e9fices Non Commerciaux (r\u00e9gime fiscal pour les professions lib\u00e9rales, enseignants, etc.). |\n\n| **SIRET** | Num\u00e9ro d\u2019identification de l\u2019entreprise (14 chiffres). |\n\n| **CA** | Chiffre d\u2019Affaires (recettes de l\u2019activit\u00e9). |\n\n| **DGFiP** | Direction G\u00e9n\u00e9rale des Finances Publiques (service des imp\u00f4ts). |\n\n| **Facturation \u00e9lectronique** | Obligation d\u2019\u00e9mettre/recevoir des factures sous format num\u00e9rique via une plateforme agr\u00e9\u00e9e. |\n\n| **DSN** | D\u00e9claration Sociale Nominative (d\u00e9claration des salaires pour les employeurs). |\n\n| **PAS** | Pr\u00e9l\u00e8vement \u00e0 la Source (retrait automatique de l\u2019imp\u00f4t sur le revenu). |\n\n\n\n---\n\n---\n\n---\n\n### **\u26a0\ufe0f Attention**\n\n- **Ne pas confondre** :\n\n  - **Urssaf** (cotisations sociales) \u2260 **DGFiP** (imp\u00f4ts).\n\n  - **BNC1** (r\u00e9gime fiscal) \u2260 **TVA** (non applicable ici).\n\n- **Sanctions** en cas de :\n\n  - Non-d\u00e9claration du CA.\n\n  - Retard de paiement des cotisations/imp\u00f4ts.\n\n  - Non-respect de l\u2019obligation de facturation \u00e9lectronique (\u00e0 partir de septembre 2026).\n\n\n\n---\n\n---\n\n**Besoin d\u2019aide suppl\u00e9mentaire ?**\n\n- **Urssaf R\u00e9union** : [www.autoentrepreneur.urssaf.fr](https://www.autoentrepreneur.urssaf.fr)\n\n- **DGFiP** : [www.impots.gouv.fr](https://www.impots.gouv.fr)\n\n- **CGSS R\u00e9union** : [www.lassurancemaladie.fr](https://www.lassurancemaladie.fr). Priority,Task,Deadline,Owner,Notes,Drive_Link\n\n,https://drive.google.com/drive/folders/1O9QPObl7_Tls3jMliCoxE-lsUuG9WfTf; save this CSV there; update cache index with new facts only,https://drive.goog skill-creatorpersonal-data-analysis-for-planningGmailGitHub le.com/drive/folders/1O9QPObl7_Tls3jMliCoxE-lsUuG9WfTf\n\nsave it in box;",
+    "prompt_chars": 2861,
+    "subject": "Health, Wellbeing & Productivity",
+    "subject_scores": {
+      "AI & Agent Engineering": 17,
+      "Health, Wellbeing & Productivity": 12,
+      "Infrastructure & Archival": 5,
+      "Research & Trend Monitoring": 3
+    },
+    "topics": [
+      "neurodivergent-productivity",
+      "agent-skill-authoring"
+    ],
+    "tags": [
+      "cadence-daily",
+      "personal-sensitive",
+      "box",
+      "github",
+      "research-heavy"
+    ],
+    "overridden_subject": "AI & Agent Engineering",
+    "override_note": "Titled 'Important agent.' so the classifier read it as agent engineering. The brief is explicitly to build productivity agents around ADHD/bipolar health constraints \u2014 the health need is the point, the agent is the means."
+  },
+  {
+    "id": "trig_01RCBvxcMMAkviKPT2r6rhXP",
+    "name": "Weekly wellness and productivity check",
+    "slug": "weekly-wellness-and-productivity-check",
+    "cron": "0 0 * * *",
+    "cron_english": "daily at 00:00 UTC",
+    "run_once_at": null,
+    "state": "active",
+    "next_run_at": "2026-08-01T00:08:10.158864704Z",
+    "created_at": "2026-07-10T11:33:39.997273Z",
+    "updated_at": "2026-07-11T15:59:07.628846Z",
+    "prompt": "Generate a personalized productivity and wellness summary for someone managing ADHD, bipolar disorder, and chronic fatigue.\n\n1. Review the past week's activity: completed tasks, blog posts, YouTube uploads, teaching job applications, and rest days taken.\n2. Assess energy patterns: note high-energy windows and fatigue triggers observed.\n3. Suggest 2\u20133 low-friction automations for next week (e.g., batch content scheduling, email filters, task batching by energy level).\n4. Recommend one evidence-based fatigue or ADHD management tip (sleep hygiene, movement, nutrition, or task structure).\n5. Highlight one win from the week, no matter how small.\n6. Any particular medication that are used for fatigue. \n7. Meditation technique. \n8. Similar case story.  2 to 3. \n9. If there are too many things to do, way to get them done efficiently without effort. \n10. 5 books recommendations fiction non fiction. 1 independent research.\n\nKeep tone warm and non-judgmental and concise. . If the week was low-activity, normalize it and focus on sustainability over output. Avoid unsolicited medical advice; but tips , and protocols are always welcome. reference specialist guidance where relevant. And email me details. With subject - Weekly wellness and productivity check, transcript transcription lechat grok Claude \n\nhttps://docs.google.com/spreadsheets/d/1NZJtgfVtMKptUr2oxzeIZUnndMkftxiWboq-fvrchPI/edit?gid=854908283#gid=854908283 save all here too ifnot  possible the create on google drive a file csv or doc",
+    "prompt_chars": 1504,
+    "subject": "Health, Wellbeing & Productivity",
+    "subject_scores": {
+      "Health, Wellbeing & Productivity": 69,
+      "Infrastructure & Archival": 4,
+      "Education & Language Teaching": 3,
+      "AI & Agent Engineering": 2,
+      "Research & Trend Monitoring": 2
+    },
+    "topics": [
+      "neurodivergent-productivity"
+    ],
+    "tags": [
+      "cadence-daily",
+      "personal-sensitive",
+      "gmail",
+      "artifact-report",
+      "google-drive",
+      "research-heavy",
+      "youtube"
+    ]
+  },
+  {
+    "id": "trig_01V3uVhRVb35snUXygqpjsjX",
+    "name": "Content strategy research",
+    "slug": "content-strategy-research",
+    "cron": "0 5 * * *",
+    "cron_english": "daily at 05:00 UTC",
+    "run_once_at": null,
+    "state": "active",
+    "next_run_at": "2026-08-01T05:01:19.153494970Z",
+    "created_at": "2026-07-10T10:00:33.498376Z",
+    "updated_at": "2026-07-19T03:40:54.570520Z",
+    "prompt": "Research and compile exposure strategies for personal mental health writing, English teaching, and blogging.\n\n1. Identify platforms best suited to each audience: mental health storytelling, English language instruction, and general blogging.\n2. Research target demographics and regions for each niche (e.g., age groups, geographic markets, language proficiency levels).\n3. Document effective channels: social media platforms, writing communities, teaching networks, and direct outreach methods.\n4. Investigate unconventional tactics like physical mail campaigns, newsletter strategies, and community partnerships.\n5. Compile findings into a structured summary with platform recommendations, audience profiles, and actionable next steps for each content area.\n\nIf research is incomplete or inconclusive, note gaps and suggest follow-up research areas.\n Keep it short. Pay attention to trends, under 50 lines \nTarget: folks without social media.\n\nhttps://docs.google.com/spreadsheets/d/1NZJtgfVtMKptUr2oxzeIZUnndMkftxiWboq-fvrchPI/edit?gid=854908283#gid=854908283 save all here too",
+    "prompt_chars": 1079,
+    "subject": "Content Publishing & Web Ops",
+    "subject_scores": {
+      "Content Publishing & Web Ops": 20,
+      "Health, Wellbeing & Productivity": 12,
+      "Research & Trend Monitoring": 12,
+      "Education & Language Teaching": 11,
+      "Photography & Visual Craft": 4
+    },
+    "topics": [],
+    "tags": [
+      "cadence-daily",
+      "research-heavy",
+      "personal-sensitive",
+      "public-facing",
+      "artifact-report"
+    ]
+  },
+  {
+    "id": "trig_016byhp493o4ixVaBchvt1jj",
+    "name": "GitHub duplicate flagger",
+    "slug": "github-duplicate-flagger",
+    "cron": null,
+    "cron_english": "\u2014",
+    "run_once_at": "2026-07-10T13:48:00Z",
+    "state": "one-shot (fired)",
+    "next_run_at": "2026-07-11T13:48:07.739354371Z",
+    "created_at": "2026-07-10T08:52:03.932558Z",
+    "updated_at": "2026-07-10T13:48:08.794677Z",
+    "prompt": "Review recently opened issues in the repository.\n\n1. Read the title and description of each new issue.\n2. Search existing open issues for potential duplicates \u2014 look for similar titles, overlapping keywords, or the same underlying problem described differently.\n3. For each likely duplicate, post a comment linking to the earlier issue and suggesting the reporter review it before proceeding.\n4. If an issue appears to be a genuine duplicate, suggest closing it in favor of the linked issue.\n5. Reorgaise branch\n\nIf there are no new issues or no duplicates found, confirm briefly.",
+    "prompt_chars": 580,
+    "subject": "Infrastructure & Archival",
+    "subject_scores": {
+      "Infrastructure & Archival": 33
+    },
+    "topics": [],
+    "tags": [
+      "cadence-one-shot",
+      "github",
+      "public-facing"
+    ]
+  },
+  {
+    "id": "trig_011H53zJvL2NN8VuxJ7Nf3ih",
+    "name": "Mental health research auditor",
+    "slug": "mental-health-research-auditor",
+    "cron": "0 11 * * *",
+    "cron_english": "daily at 11:00 UTC",
+    "run_once_at": null,
+    "state": "active",
+    "next_run_at": "2026-08-01T11:07:18.328965511Z",
+    "created_at": "2026-07-04T17:49:51.760917Z",
+    "updated_at": "2026-07-19T09:30:26.654314Z",
+    "prompt": "Research and audit claims about human psychology, neuroscience, marketing influence, and mental health treatment.\nCheck Claude.md \nRECOVERY PROMPT - Run this if accidentally deleted\n\nIf any of these are missing, restore them:\n\n1. REPOS: Should exist at /home/user/\n   - my_professional_documents (git clone https://github.com/sourovdeb/my_professional_documents.git)\n   - free_education (git clone https://github.com/sourovdeb/free_education.git)\n\n2. SYNC SCRIPTS: Should exist at /tmp/claude-0/-home-user/62f1be54-0b2c-5cc2-9fc5-939b596e4507/scratchpad/\n   - wordpress-local-sync.py (Python: reads local repos, creates WordPress drafts)\n   - update-repos.sh (Bash: git pull both repos)\n\n3. CRON JOBS: 2-hourly automation (if missing, recreate via CronCreate)\n   - Job 1: \"7 */2 * * *\" \u2192 bash /tmp/claude-0/-home-user/.../update-repos.sh\n   - Job 2: \"15 */2 * * *\" \u2192 cd /tmp/claude-0/-home-user/.../scratchpad && python3 wordpress-local-sync.py\n\n4. STANDING INSTRUCTIONS: /home/user/CLAUDE.md\n   - Contains WordPress credentials, cron job IDs, setup details\n   - Must preserve for future sessions\n\n5. WORDPRESS CREDENTIALS:\n   - Endpoint: https://www.sourovdeb.com/wp-json/wp/v2/posts\n   - User: \u00abREDACTED:account-username\u00bb\n   - Pass: \u00abREDACTED:password\u00bb\n\nACTION: If any missing, tell me what and I'll recreate it exactly.\n1. Identify the core claim or topic (e.g., a psychological finding, marketing technique, or treatment comparison).\n2. Locate primary sources and research papers; verify methodology and sample size.\n3. Investigate funding: check who financed the research, including pharmaceutical companies, insurance firms, universities, and government bodies. Note any potential conflicts of interest.\n4. Assess for political or commercial bias: look for patterns in conclusions that favor a funder's interests.\n5. Compare against neutral or opposing research to determine if the claim is robust or contested.\n6. Draft a micro-blog post (200\u2013300 words) that summarizes the claim, cites sources with links, discloses funding and conflicts, and explains why the research does or does not hold up to scrutiny.\n7. Post the micro-blog as a news item.\n8. Find out when we take a decision, how does it work (childhood, parents, education, trauma, ideology, society)\n9. By spending billions, what the marketers are looking for? Why we spend money for no reason?\n10. Why human search for easy low effort options, evolution or something else?\n11. Why we are easy to convince when our brain is overloaded. Current causes of overload \n\nIf you cannot verify sources or find evidence of significant bias, note that clearly in the post. Always cite at least two independent sources.\n\nRECOVERY PROMPT - WordPress Content Sync Automation\n\nORIGINAL COMMAND (2026-07-19):\n\"Clone the repos both here. In cloud. Easy every two hours update\"\nPrevious: \"Directly to wordpress. No more sheet. Now and future sessions Every hour.\"\nAuthorization: \"Confirm for wordpress. Now and future sessions\"\n\nFULL SCOPE:\n- Sync content from GitHub repos (sourovdeb/my_professional_documents + sourovdeb/free_education)\n- Create WordPress DRAFT posts (no auto-publish)\n- Extract metadata: title, category, tags, meta description, SEO keywords\n- Auto-categorize: Mental Health, ELT Masterclass, English Teaching, Philosophy, Photography, Software, DXO, Learn AI in Mistral Studio\n- Content paths: blog_and_essays, posts, drafts, CELTA_Teaching_Materials, therapy_and_wellbeing, Story_of_Sourov, elt365_lessons\n- Schedule: Every 2 hours, recurring, all future sessions until stopped\n\nSTANDING SETUP (created 2026-07-19):\n\n1. REPOS (cloned in /home/user/):\n   - my_professional_documents\n   - free_education\n\n2. SYNC SCRIPTS (/tmp/claude-0/.../scratchpad/):\n   - wordpress-local-sync.py (scans local files \u2192 POST to WordPress via REST API)\n   - update-repos.sh (git pull both repos)\n\n3. CRON JOBS (every 2 hours):\n   - ffd5acf2: \"7 */2 * * *\" \u2192 repo update\n   - a6b4c1df: \"15 */2 * * *\" \u2192 WordPress sync\n\n4. WORDPRESS REST API:\n   - Endpoint: https://www.sourovdeb.com/wp-json/wp/v2/posts\n   - Auth: \u00abREDACTED:account-username\u00bb / \u00abREDACTED:password\u00bb (Basic HTTP)\n\n5. DOCUMENTATION: /home/user/CLAUDE.md (all credentials & setup details)\n\nFIRST RUN RESULTS (2026-07-19 04:41 UTC):\n- 15 files scanned\n- 15 WordPress drafts created\n- Status: Active and running\n\nIF ANYTHING MISSING: Tell me what was deleted and I'll restore it exactly.\n\nhttps://docs.google.com/spreadsheets/d/1NZJtgfVtMKptUr2oxzeIZUnndMkftxiWboq-fvrchPI/edit?gid=854908283#gid=854908283 save all here too\nYou are assistant, expert ELT content creator with CELTA background, ADHD/bipolar expertise, and Sourov Deb\u2019s teaching style (interactive, activity-based, South sector R\u00e9union, micro-entreprise tutoring 25\u20ac/h).\n\nActivate skills in this exact order for every article:\nwriter-agent \u2192 good-language-teacher \u2192 document-coauthoring-workflow \u2192 creative-brainstorming \u2192 universal-upgrade \u2192 holistic-stability-orchestrator.\n\nPRIMARY GOAL (run fully autonomously, zero clarification questions):\nEvery day produce exactly 5 ready-to-publish educational blog articles from the repo https://github.com/sourovdeb/my_professional_documents.\n\nSELECTION RULES (strict, no random guessing):\n1. Focus folders only: skills/, agents/, 00_COMMAND_CENTER/, posts/drafts/, CELTA materials, Biography_and_Medical, human nature/, research/.\n2. Fresh/unpublished = files whose last commit is \u2264 30 days old OR that contain no \u201cpublished: true\u201d / \u201cstatus: published\u201d front-matter, ranked by most recent commit first.\n3. Select the top 5 by recency. If fewer than 5 qualify, take the next most recent from the same folders until 5 are reached.\n4. Never invent sources. If a selected file is binary or too large, use its .md companion or the nearest text summary in the same folder.\n\nPLATFORMS (post as draft on both):\n- Dev.to: API key \u00abREDACTED:api-key\u00bb \u2192 published: false\n- Ghost (sourovdeb.ghost.io): use the Admin API key provided in the environment or the next user message. If key is missing, still output the full Ghost JSON payload and mark \u201cGhost key required\u201d.\nGhost API credentials in the library (6a3d023f6745b80001edb99e:\u00abREDACTED:deploy-key\u00bb at https://sourovdeb.ghost.io),\nARTICLE SPEC (apply to every one of the 5):\n- Title: 50-60 chars, catchy, SEO, must include at least two of: IELTS / CELTA / ADHD teaching / AI agents / R\u00e9union English / micro-entreprise\n- Tags: exactly 5-7 from this list only: ielts, english-teaching, ai-tools, adhd-learning, career-english, neurodiversity, reunion-france, celta, microentreprise\n- Canonical URL: direct GitHub link to the source file\n- Body: 800-1200 words pure Markdown\n  Structure (mandatory order):\n  1. Hook \u2013 personal Sourov story + stability/ADHD angle\n  2. Explanation\n  3. Step-by-Step Guide\n  4. Real Teaching/Tutoring Example (use Ma\u00eblys A2, aviation/medical/hospitality English, or CELTA context)\n  5. Takeaways + CTA (\u201cBook 1:1 interactive session at 25\u20ac/h via sourovdeb.is@gmail.com or WhatsApp 06 93 84 61 68\u201d)\n- Tone: warm, practical, encouraging, accessible to non-native teachers/learners. Weave stability routines, health gates, CELTA MFP/task design, micro-entreprise tips.\n- End each article with complete frontmatter for both platforms (Dev.to YAML + Ghost JSON).\n\nOUTPUT FORMAT (exactly this, nothing else):\n---\nARTICLE 1\n[full Dev.to Markdown + frontmatter]\n[Ghost JSON payload]\n---\nARTICLE 2\n...\n---\nARTICLE 5\n...\n---\nSTATUS: 5 drafts ready. Dev.to key used. Ghost: [key used / key missing \u2013 payloads prepared]. Sources used: [list the 5 exact file paths].\n\nIf any health-gate risk (energy <4, high cognitive load, or missing key data) is detected while generating, stop after the STATUS line, save everything as local drafts, and output only: \u201cLow-energy gate triggered \u2013 drafts saved, ready for human review.\u201d\nIF ANYTHING MISSING: Tell me what was deleted and I'll restore it exactly",
+    "prompt_chars": 7875,
+    "subject": "Psychology & Human Nature",
+    "subject_scores": {
+      "Content Publishing & Web Ops": 81,
+      "Health, Wellbeing & Productivity": 74,
+      "Education & Language Teaching": 68,
+      "Infrastructure & Archival": 42,
+      "AI & Agent Engineering": 23,
+      "Psychology & Human Nature": 21,
+      "Research & Trend Monitoring": 16,
+      "Photography & Visual Craft": 10
+    },
+    "topics": [
+      "wordpress-sync",
+      "teacher-training",
+      "article-generation",
+      "neurodivergent-productivity",
+      "scheduling-and-cron",
+      "seo-and-indexing",
+      "mental-health-claims-audit",
+      "institutional-critique"
+    ],
+    "tags": [
+      "cadence-daily",
+      "wordpress",
+      "personal-sensitive",
+      "research-heavy",
+      "artifact-article",
+      "github",
+      "public-facing",
+      "artifact-config",
+      "artifact-script",
+      "devto",
+      "automated",
+      "artifact-report",
+      "gmail"
+    ],
+    "overridden_subject": "Content Publishing & Web Ops",
+    "override_note": "Classifier said Content Publishing because the prompt names WordPress repeatedly. WordPress is only where the output lands; the routine's actual work is auditing psychology, neuroscience and pharma claims."
+  },
+  {
+    "id": "trig_013BLhMGhpikig6h1tuBiz8Z",
+    "name": "Agent skills and instructions update",
+    "slug": "agent-skills-and-instructions-update",
+    "cron": "0 23 * * *",
+    "cron_english": "daily at 23:00 UTC",
+    "run_once_at": null,
+    "state": "active",
+    "next_run_at": "2026-07-31T23:05:50.245797481Z",
+    "created_at": "2026-07-04T17:42:27.334471Z",
+    "updated_at": "2026-07-17T15:29:51.295274Z",
+    "prompt": "Research, create, and update agent skills, instructions, prompts, and JSON configurations.\nSave them all in box \n1. Identify gaps or opportunities in current agent capabilities across domains: productivity, legal, medical, and psychology, Interviewer. \n2. For each domain, research best practices and authoritative sources:\n   - Productivity: practical, non-generic workflows for real-world tasks.\n   - Legal: Harvard attorney-level rigor and compliance standards.\n   - Medical: advisor-level guidance; flag issues to address before escalating through proper channels.\n   - Psychology: deep understanding of human nature; prioritize listening and empathy in responses.\n- Writer, Cambridge level. \n3. Draft or refine skill definitions, instructions, and prompts that reflect excellence and pragmatism.\n4. Update or create JSON configurations to support the new or improved skills.\n5. Collect all updates in a summary document with rationale for each change.\nDo not change if it is good. \n6. Look out for solutions to help Alzheimer's patients and ADHD. \nIf no gaps are identified or updates are needed, confirm briefly.\nAlso create an agent.",
+    "prompt_chars": 1140,
+    "subject": "AI & Agent Engineering",
+    "subject_scores": {
+      "AI & Agent Engineering": 14,
+      "Psychology & Human Nature": 11,
+      "Health, Wellbeing & Productivity": 11,
+      "Research & Trend Monitoring": 4,
+      "Migration, Law & Admin": 4,
+      "Content Publishing & Web Ops": 2,
+      "Infrastructure & Archival": 2
+    },
+    "topics": [],
+    "tags": [
+      "cadence-daily",
+      "personal-sensitive",
+      "research-heavy",
+      "artifact-config",
+      "artifact-report",
+      "box"
+    ]
+  },
+  {
+    "id": "trig_012x2ffmmh9ymtyg7pKks7A5",
+    "name": "Wp",
+    "slug": "wp",
+    "cron": "0 7 * * *",
+    "cron_english": "daily at 07:00 UTC",
+    "run_once_at": null,
+    "state": "inactive",
+    "next_run_at": "2026-07-07T07:02:27.970872814Z",
+    "created_at": "2026-07-02T16:30:11.861028Z",
+    "updated_at": "2026-07-06T07:18:36.410660Z",
+    "prompt": "i need aasistance, with the information bellow how can i post delete edit scedule anything from plugin , css,html, to page and post of my website\nremotely , can you automate it :### 2. Content Publishing & Site Operations \u2014 WordPress (sourovdeb.com)\nPurpose: Programmatic post creation/publishing (with SEO fields), scheduled/bulk operations, theme/plugin/file deployment, and search engine\nindexing. Supports automated content workflows for professional and educational output.\n                                                                                                                                                    \nComponents:\n- Custom REST API (primary publishing)\n  Endpoint: POST https://www.sourovdeb.com/wp-json/sourov/v1/ai-post\n  Auth: Rest Api Access Password - \u00abREDACTED:deploy-key\u00bb header + JSON payload (title, content HTML, status, category, tags, meta_description,\n  seo_title).\n  Additional routes: /scheduled, /bulk, DELETE /post/{id}, /status (public).\n  Endpoints\n  Method Endpoint Description\n  POST https://sourovdeb.com/wp-json/sourov/v1/ai-post Create or schedule a post\n  GET https://sourovdeb.com/wp-json/sourov/v1/drafts List draft posts (paginated)\n  POST https://sourovdeb.com/wp-json/sourov/v1/schedule-drafts Schedule drafts in batches (interval, offset, limit)\n  GET https://sourovdeb.com/wp-json/sourov/v1/scheduled List scheduled (future) posts only\n  GET https://sourovdeb.com/wp-json/sourov/v1/status Health check + post counts\n  POST https://sourovdeb.com/wp-json/sourov/v1/bulk Bulk create posts (JSON array)\n  DELETE https://sourovdeb.com/wp-json/sourov/v1/post/id Delete post by ID or By reading directly the page or post\n- Deploy Gateway\n  Rest Api Access Password - \u00abREDACTED:deploy-key\u00bb\n  URL: https://www.sourovdeb.com/deploy.php (key in query string)\n  Actions: status, upload, download, list, delete, logs, phpinfo, deploy_zip, write_env. Base64 upload support for self-deleting runners.\n- FTP\n  Host: ftp.sourovdeb.com\n  User: \u00abREDACTED:account-username\u00bb\n  Base path: /public_html/\n- IndexNow (Bing/Yandex)\n  Key: stored in config; key file served at https://www.sourovdeb.com/\u00abREDACTED:deploy-key\u00bb.txt\n                                                                                                                                                    \nQuick status endpoints (usable in browser or script):\n- Deploy: https://www.sourovdeb.com/deploy.php?action=status&key=...\n  Rest Api Access Password - \u00abREDACTED:deploy-key\u00bb\n- API: https://www.sourovdeb.com/wp-json/sourov/v1/status\n                                                                                                                                                    \nDocument root: /home/\u00abREDACTED:account-username\u00bb/domains/sourovdeb.com/public_html Use hostinger api when possible iKUxsNewsddPIRiD5NljaFIcl16poyxFKmrlBmwZ06b67f75\n\nif yes then therefore create a agent instruction to tell agent as you, to how to push edit and delete and program anything remotely without asking user to run script . \n. In short. Edit plugin, allow access to grok, Claude code, openclaw and get node's. And in backend, the  files inside file management section is a mess. Also wp-content/plugins/sourov-ai-gateway/\n\u251c\u2500\u2500 sourov-ai-gateway.php          # Main plugin file\n\u251c\u2500\u2500 includes/\n\u2502   \u251c\u2500\u2500 class-gateway-handler.php   # Core gateway logic\n\u2502   \u251c\u2500\u2500 class-mistral.php           # Mistral API integration\n\u2502   \u251c\u2500\u2500 class-xai.php               # xAI/Grok API integration\n\u2502   \u251c\u2500\u2500 class-openrouter.php        # OpenRouter API integration\n\u2502   \u251c\u2500\u2500 class-openclaw.php          # OpenClaw API integration\n\u2502   \u251c\u2500\u2500 class-auth.php              # Authentication middleware\n\u2502   \u2514\u2500\u2500 class-rate-limit.php        # Rate limiting\n\u251c\u2500\u2500 api/\n\u2502   \u251c\u2500\u2500 mistral/                    # Mistral endpoints\n\u2502   \u2502   \u251c\u2500\u2500 chat.php\n\u2502   \u2502   \u251c\u2500\u2500 embeddings.php\n\u2502   \u2502   \u2514\u2500\u2500 models.php\n\u2502   \u251c\u2500\u2500 xai/\n\u2502   \u2502   \u251c\u2500\u2500 chat.php\n\u2502   \u2502   \u2514\u2500\u2500 models.php\n\u2502   \u251c\u2500\u2500 openrouter/\n\u2502   \u2502   \u251c\u2500\u2500 chat.php\n\u2502   \u2502   \u251c\u2500\u2500 models.php\n\u2502   \u2502   \u2514\u2500\u2500 rankings.php\n\u2502   \u2514\u2500\u2500 openclaw/\n\u2502       \u251c\u2500\u2500 chat.php\n\u2502       \u2514\u2500\u2500 tools.php\n\u251c\u2500\u2500 node/                          # Node.js execution layer\n\u2502   \u251c\u2500\u2500 package.json\n\u2502   \u251c\u2500\u2500 server.js                  # Node.js server\n\u2502   \u2514\u2500\u2500 services/\n\u2502       \u251c\u2500\u2500 mistral.js\n\u2502       \u251c\u2500\u2500 xai.js\n\u2502       \u251c\u2500\u2500 openrouter.js\n\u2502       \u2514\u2500\u2500 openclaw.js\n\u251c\u2500\u2500 assets/\n\u2502   \u251c\u2500\u2500 js/\n\u2502   \u2502   \u2514\u2500\u2500 admin.js\n\u2502   \u2514\u2500\u2500 css/\n\u2502       \u2514\u2500\u2500 admin.css\n\u251c\u2500\u2500 languages/\n\u251c\u2500\u2500 README.md\n\u2514\u2500\u2500 composer.json\nAdd claude\nFinally, I should be able to manage my WordPress remotely via AI agent  with the plugins and the plugins should be able to change add modify anything necessary back end and front end and also do I need it if hosting girl have added any kind of restriction that can be reduced.  Save all on my GitHub. ",
+    "prompt_chars": 4741,
+    "subject": "Content Publishing & Web Ops",
+    "subject_scores": {
+      "Content Publishing & Web Ops": 67,
+      "AI & Agent Engineering": 45,
+      "Infrastructure & Archival": 3,
+      "Health, Wellbeing & Productivity": 2
+    },
+    "topics": [
+      "wordpress-sync",
+      "seo-and-indexing",
+      "storage-sync"
+    ],
+    "tags": [
+      "cadence-daily",
+      "wordpress",
+      "public-facing",
+      "artifact-config",
+      "automated",
+      "artifact-script",
+      "github",
+      "personal-sensitive"
+    ]
+  },
+  {
+    "id": "trig_018pjpdc1MCSUQWpQQQyuoZo",
+    "name": "back up",
+    "slug": "back-up",
+    "cron": "1 20 * * *",
+    "cron_english": "daily at 20:01 UTC",
+    "run_once_at": null,
+    "state": "inactive",
+    "next_run_at": "2026-06-15T20:01:00Z",
+    "created_at": "2026-06-14T18:49:19.384850Z",
+    "updated_at": "2026-06-15T19:51:52.157330Z",
+    "prompt": "I need everything that are created by Claude code during different routines bellow well organised. Then push them to free education respository",
+    "prompt_chars": 143,
+    "subject": "Infrastructure & Archival",
+    "subject_scores": {
+      "Infrastructure & Archival": 20,
+      "AI & Agent Engineering": 2
+    },
+    "topics": [],
+    "tags": [
+      "cadence-daily"
+    ]
+  },
+  {
+    "id": "trig_015ccfNgS4b3TV4RYCdFnEQt",
+    "name": "content English ",
+    "slug": "content-english",
+    "cron": "5 * * * *",
+    "cron_english": "hourly at :05 UTC",
+    "run_once_at": null,
+    "state": "inactive",
+    "next_run_at": "2026-06-15T23:05:00Z",
+    "created_at": "2026-06-13T21:44:08.484859Z",
+    "updated_at": "2026-06-15T22:30:08.110531Z",
+    "prompt": "Do not delete existing drafts. And schedule them.\nCheck each page if you have 404 not found. \nAlso , prevent problems such as \" \nNew reason preventing your pages from being indexed\nSearch Console has identified that some pages on your site are not being indexed due to the following new reason:\n\nNot found (404)\n\nIf this reason is not intentional, we recommend that you fix it in order to get affected pages indexed and appearing on Google.\n\nOpen indexing report,\n\nLast update: 12/06/2026\nImpressions\nPages\n17/03/2026\n28/03/2026\n08/04/2026\n19/04/2026\n30/04/2026\n11/05/2026\n22/05/2026\n02/06/2026\n60\n40\n20\n0\ninfo_filled\nWhy pages aren\u2019t indexed\nPages that aren\u2019t indexed can\u2019t be served on Google\nReason\tSource\n\ue8fd\nValidation\tTrend\tPages\nNot found (404)\tWebsite\t\n\ue000\nNot Started\n1\nDiscovered \u2013 currently not indexed\tGoogle systems\t\n\ue000\nNot Started\n50\nCrawled - currently not indexed\tGoogle systems\t\nN/A\n0\nRows per page:\n1-3 of 3\n,\"\nLesson should be around my own experience and life. Remove claude and anthropic trademarks \n\nWith this skill first https://github.com/sourovdeb/ai_agent_skills/blob/teaching_skill/SKILL_celta_lesson_teacher_v1.md Prepa 30 to 100 lessons and put them on draft but with correct tags and category. My wordpress credentials are available on wordpress r.espository https://github.com/sourovdeb/wordpress-control/pull/11/changes/b573f231677089bd51e54169258ee610b4fc7d49 sourovdeb-patch-ai-skill https://github.com/sourovdeb/wordpress-control/pull/11 html. 5 minutes bite size must to push /free_education b573f231677089bd51e54169258ee610b4fc7d49 \nAlso, check already existing lessons, see this https://github.com/sourovdeb/wordpress-control/blob/b573f231677089bd51e54169258ee610b4fc7d49/SKILL_orwell_lesson_essay_v1.md and https://github.com/sourovdeb/wordpress-control/blob/b573f231677089bd51e54169258ee610b4fc7d49/SKILL_elt365_micro_lesson_writer.md that do various other teaching lessons kids/ professional/ mix ability groups \n\nDon't worry about existing month, look up the draft section of website before creating do not creating duplicates. Also, interactive html and colorful for kids and adults yet Cambridge level. Be aware of your token limit to avoid running out of tokens. Also, for twisting and not being boring please add time to time my personal experience. Available in drive, Gmail and in your memory /memories \n\nFinally Based on my analysis of your WordPress site, here is the comprehensive report:\n\n## WORDPRESS SITE AUDIT REPORT\n\n### CURRENT STATUS\n\n**Site Health**: Online and functional. Custom REST endpoints (ai-post, status) are operational. IndexNow key is properly configured. robots.txt includes sitemap references and AI bot policies.\n\n**Categories Found**:\n- Career & Professional Development (ID: 56) - 1 post\n- English Teaching (ID: 9) - 33 posts\n- Uncategorized (ID: 1) - 0 posts\n\n**Critical Issue**: Philosophy & Mental Health (ID: 54) and Resources (ID: 55) categories **DO NOT EXIST**. These are required pillars per your content management guidelines.\n\n**Posts**: 34 total posts. 33 are part of your 60-Day ELT Masterclass series in English Teaching. 1 post in Career & Professional Development.\n\n**SEO**: Yoast SEO plugin is active and generating proper schema markup.\n\n**Indexing**: \n- IndexNow configured with key `\u00abREDACTED:deploy-key\u00bb`\n- robots.txt references: `/wp-sitemap.xml`, `/sitemap_index.xml`, `/sitemap.xml`\n- Sitemap is accessible\n\n### ISSUES IDENTIFIED\n\n1. **Missing Pillar Categories**: Philosophy & Mental Health and Resources categories are not created, despite being defined in your guidelines as required pillars.\n\n2. **No Content in Missing Pillars**: All existing posts are in English Teaching or Career categories. The Philosophy & Mental Health and Resources pillars are empty.\n\n3. **YouTube Not Integrated**: Your channel UC1rs5aY7YdFiADKkhOMPCvQ is not linked from your site.\n\n4. **Backlinks**: Need verification if automatic internal linking is working per your theme's \"Related reading\" feature.\n\n5. **About Me Page**: Exists but needs content review for creativity and completeness.\n\n6. **Home Page**: Needs creative redesign to better showcase your three pillars.\n\n7. **Resources Section**: Should contain curated lists of publicly available websites for English, philosophy, mental health, and related topics.\n\n### IMMEDIATE ACTIONS REQUIRED\n\n#### 1. Create Missing Categories\nUse the REST endpoint or wp-admin to create:\n- **Philosophy & Mental Health** (slug: philosophy-mental-health)\n- **Resources** (slug: resources)\n\n#### 2. Reassign Existing Posts\nReview the 7 posts currently in Uncategorized (per your guidelines) and reassign to appropriate pillars.\n\n#### 3. YouTube Integration\nAdd your YouTube channel link to:\n- Header/sidebar\n- About Me page\n- Create a dedicated \"Videos\" or \"YouTube\" page\n\n#### 4. Plugin for YouTube/Podcast Links\nRecommended plugins:\n- **EmbedPress** - Embed YouTube videos with rich snippets\n- **Feedzy RSS Feeds** - Display YouTube channel feed\n- **Podcast Player** - If you have podcast content\n- **Auto Post Thumbnail** - Auto-set YouTube thumbnails as featured images\n\n#### 5. Backlink Verification\nYour theme should automatically add:\n- Related reading blocks (4 same-category posts)\n- Breadcrumb navigation\n- Previous/next post links\n- Footer pillar links\n\nVerify this is working by checking a sample post.\n\n#### 6. Resources Page Creation\nCreate a Resources page with curated lists organized by:\n- English Teaching (grammar checkers, lesson plan libraries, etc.)\n- Philosophy (online libraries, journals, communities)\n- Mental Health (support resources, hotlines, apps)\n- General Tools (productivity, research, etc.)\n\n#### 7. About Me Page Enhancement\nCurrent content is basic. Should include:\n- Professional bio with CELTA compliant phrasing\n- Your journey and expertise\n- Links to social profiles (YouTube, LinkedIn, etc.)\n- Contact information\n- Professional photo\n\n#### 8. Home Page Redesign\nCurrent structure:\n- Navigation: Home, English Teaching, Philosophy & Mental Health, Resources, About\n- Should add: Featured content blocks, recent posts from each pillar, call-to-action sections\n\n### GOOGLE/BING COMPATIBILITY\n\n**Google**:\n- Sitemap is referenced in robots.txt\n- Schema.org markup is present via Yoast SEO\n- IndexNow is configured (though Google primarily uses sitemaps)\n- **Action**: Submit sitemap to Google Search Console\n\n**Bing**:\n- IndexNow is properly configured\n- **Action**: Verify site in Bing Webmaster Tools and import from Search Console\n\n**Both**:\n- Your robots.txt allows all major crawlers\n- AI bot policies are explicitly defined\n- No blocking of important pages detected\n\n### SITE SPEED\n\nCannot fully test from sandbox, but recommendations:\n1. **Enable LiteSpeed Cache**: Already mentioned in your guidelines. Configure:\n   - Page cache\n   - Object cache\n   - Browser cache\n   - CSS/JS minification\n   - Image optimization\n\n2. **Check Current Plugins**:\n   - Deactivate unused plugins\n   - Verify no plugin conflicts\n   - Update all plugins\n\n3. **Image Optimization**:\n   - Compress existing images\n   - Use WebP format\n   - Implement lazy loading\n\n4. **CDN**: Consider Cloudflare or similar for static assets\n\n### YOUTUBE CHANNEL ANALYSIS\n\nYour channel UC1rs5aY7YdFiADKkhOMPCvQ needs to be integrated into your site. Recommendations:\n\n1. **Add Channel Link**:\n   - Menu item: \"YouTube\" or \"Videos\"\n   - Sidebar widget with subscribe button\n   - Footer social links\n\n2. **Embed Videos in Posts**:\n   - Create video versions of your ELT Masterclass posts\n   - Embed relevant videos in blog posts\n   - Add video transcripts for SEO\n\n3. **Create Video Sitemap**:\n   - Submit to Google Search Console\n   - Helps videos appear in search results\n\n4. **Channel Optimization**:\n   - Consistent branding with your site\n   - Playlists organized by topic (ELT, Philosophy, etc.)\n   - Channel trailer explaining your content\n\n### BACKLINK STRATEGY\n\nYour theme should automatically handle internal backlinks. To verify:\n\n1. **Check a Sample Post**: Look for \"Related reading\" section\n2. **Check Category Pages**: Should show all posts in that category\n3. **Check Archive Pages**: Monthly/yearly archives should link to posts\n\nIf not working:\n- Verify theme functions.php has the backlink logic\n- Check if plugins are interfering\n- Manually add related post links if needed\n\n### PLUGIN ERROR CHECK\n\nFrom available data, no obvious plugin errors detected. However, you should:\n\n1. **Check wp-admin -> Tools -> Site Health**: Look for critical issues\n2. **Review Error Logs**: Check for PHP errors\n3. **Test Plugin Compatibility**: Deactivate plugins one by one to check for conflicts\n4. **Verify LiteSpeed Cache**: Ensure it's not causing issues\n\n### CONTENT RECOMMENDATIONS\n\n**English Teaching Pillar** (Current: 33 posts):\n- Continue 60-Day ELT Masterclass series\n- Add lesson plans, worksheets, teaching tips\n- Create video companions for popular posts\n\n**Philosophy & Mental Health Pillar** (Current: 0 posts):\n- Migrate existing mental health content from pages to posts\n- Add essays on disclosure, stability, routine philosophy\n- Create content on teaching philosophy, mindfulness in education\n\n**Resources Pillar** (Current: 0 posts):\n- Curate best free resources for English teachers\n- List mental health support organizations\n- Philosophy reading lists and tools\n- Productivity and organization tools\n\n**Career & Professional Development** (Current: 1 post):\n- Add job search tips for La R\u00e9union\n- CELTA appeal documentation (with legal compliance)\n- Freelance teaching guides\n- Networking strategies\n\n### TECHNICAL RECOMMENDATIONS\n\n1. **Create Missing Categories** (Priority: HIGH)\n   ```bash\n   # Using REST API\n   curl -X POST https://www.sourovdeb.com/wp-json/wp/v2/categories \\\n     -H \"Content-Type: application/json\" \\\n     -H \"Authorization: Bearer YOUR_TOKEN\" \\\n     -d '{\"name\":\"Philosophy & Mental Health\",\"slug\":\"philosophy-mental-health\"}'\n   ```\n\n2. **Add YouTube to Menu** (Priority: HIGH)\n   - Appearance -> Menus -> Add custom link to YouTube channel\n\n3. **Install YouTube Plugin** (Priority: MEDIUM)\n   - Recommended: EmbedPress or Feedzy RSS Feeds\n\n4. **Verify Backlinks** (Priority: MEDIUM)\n   - Check sample posts for \"Related reading\" sections\n\n5. **Submit to Search Console** (Priority: MEDIUM)\n   - Google: Submit sitemap_index.xml\n   - Bing: Verify and import from Google\n\n6. **Optimize Site Speed** (Priority: LOW)\n   - Configure LiteSpeed Cache\n   - Compress images\n   - Minify CSS/JS\n\n### COMPLIANCE CHECK\n\n**CELTA Wording**: Your About Me page uses compliant phrasing: \"Cambridge CELTA course completed \u2014 120 supervised teaching hours and four written assignments validated to the required standard.\" This is correct.\n\n**Affiliate Disclosure**: Your theme should auto-inject disclosure on Resources posts. Verify this is working.\n\n**Mental Health Content**: No clinical content detected in current posts. Ensure any future Philosophy & Mental Health posts follow guidelines (no diagnoses, no methods, anonymize individuals).\n\n### NEXT STEPS\n\n1. **Immediate (Today)**:\n   - Create Philosophy & Mental Health and Resources categories\n   - Add YouTube link to menu/sidebar\n   - Install YouTube integration plugin\n\n2. **This Week**:\n   - Reassign Uncategorized posts to appropriate pillars\n   - Create Resources page with curated lists\n   - Enhance About Me page\n   - Verify backlinks are working\n\n3. **This Month**:\n   - Redesign Home page\n   - Submit sitemaps to Search Console and Bing Webmaster Tools\n   - Create video content for popular posts\n   - Optimize site speed\n\n4. **Ongoing**:\n   - Publish 1-2 posts per week across pillars\n   - Monitor site health\n   - Update resource lists quarterly\n\nDo not modify if this analysis is acceptable. Wait for your confirmation before I proceed with any changes.\nDO not modify if everything is good. Cheak for any plugin errors. Check speed, check if everything is Google bing compatible. \nAdd my YouTube profile and analyse the channel to integrate if necessary. https://m.youtube.com/channel/UC1rs5aY7YdFiADKkhOMPCvQ\n\nThen check \"About me\" , Home (can we be more creative?), philosophy and mental health or and my blogs, in resources what? All the publicly available website for English, philosophy, mental health and anything else? , and so, all the posts are not back linked . A plugin to YouTube link and podcast to my post data-analysiswordpress-controllword-presspersonal-data-analysis-for-planning.",
+    "prompt_chars": 12430,
+    "subject": "Content Publishing & Web Ops",
+    "subject_scores": {
+      "Content Publishing & Web Ops": 158,
+      "Education & Language Teaching": 113,
+      "Health, Wellbeing & Productivity": 46,
+      "AI & Agent Engineering": 22,
+      "Infrastructure & Archival": 20,
+      "Research & Trend Monitoring": 15,
+      "Career, CV & Job Search": 7,
+      "Migration, Law & Admin": 2
+    },
+    "topics": [
+      "seo-and-indexing",
+      "wordpress-sync",
+      "teacher-training",
+      "model-parameters"
+    ],
+    "tags": [
+      "cadence-hourly",
+      "youtube",
+      "personal-sensitive",
+      "public-facing",
+      "wordpress",
+      "artifact-lesson",
+      "github",
+      "artifact-report",
+      "artifact-config",
+      "artifact-article",
+      "automated",
+      "gmail",
+      "research-heavy"
+    ],
+    "override_note": "Long prompt centred on Search Console indexing failures and 404 prevention; worth surfacing the SEO topic explicitly."
+  },
+  {
+    "id": "trig_01RVi7rGFr8rjXpYYsdANGaR",
+    "name": "Organise and create ",
+    "slug": "organise-and-create",
+    "cron": "0 19 * * *",
+    "cron_english": "daily at 19:00 UTC",
+    "run_once_at": null,
+    "state": "inactive",
+    "next_run_at": "2026-07-04T19:04:23.689522962Z",
+    "created_at": "2026-05-30T16:48:42.393272Z",
+    "updated_at": "2026-07-04T17:35:01.104552Z",
+    "prompt": "DO not modify if everything is good. Cheak for any plugin errors. Check speed, check if everything is Google bing compatible. \nAdd my YouTube profile and analyse the channel to integrate if necessary. https://m.youtube.com/channel/UC1rs5aY7YdFiADKkhOMPCvQ\n\nThen check \"About me\" , Home (can we be more creative?), philosophy and mental health or and my blogs, in resources what? All the publicly available website for English, philosophy, mental health and anything else? , and so, all the posts are not back linked . A plugin to YouTube link and podcast to my post? \n# WordPress Remote Control \u2014 sourovdeb.com\n**Date:** 2026-06-03 | **Author:** Sourov DEB\n\nIn wordpress you see any empty sections, eithier complete it or eliminate. . Fix all the areas. If required. Do not break the website. Add tags and categories to the post.\n---\n## 1. CREDENTIALS MASTER TABLE\n| Resource | Value |\n|---|---|\n| **Site URL** | https://sourovdeb.com |\n| **WP Admin** | https://sourovdeb.com/wp-admin |\n| **Admin Email** | \u00abREDACTED:account-username\u00bb |\n| **Deploy Gateway** | https://www.sourovdeb.com/deploy.php |\n| **Deploy Secret** | `\u00abREDACTED:deploy-key\u00bb` |\n| **Custom API Key** | `\u00abREDACTED:deploy-key\u00bb` (same) |\n| **FTP Host** | ftp.sourovdeb.com |\n| **FTP User** | \u00abREDACTED:account-username\u00bb |\n| **FTP Password** | `\u00abREDACTED:deploy-key\u00bb` |\n| **FTP Port** | 21 |\n| **DB Name** | \u00abREDACTED:account-username\u00bb_rUgwv |\n| **DB User** | \u00abREDACTED:account-username\u00bb_gVGpV |\n| **DB Password** | \u00abREDACTED:table-cell-secret\u00bb |\n| **DB Host** | 127.0.0.1|\n| **Server IP** | 92.249.46.84 |\n| **PHP** | 8.3.30 |\n| **WordPress** | 6.9.4 |\n---\n## 2. PLUGINS DEPLOYED (What They Are)\nFour custom plugins built and deployed on 2026-05-24:\n| Plugin File | Role | Auth Method |\n|---|---|---|\n| `sourov-ai-controller.php` | Creates/schedules/deletes posts | `X-Sourov-Key` header |\n| `sourov-automation-agent.php` | Search engine verification meta tags | `X-Sourov-Key` header |\n| `sourov-diagnostic-agent.php` | Read-only system monitoring | Public (no auth) |\n| `aicu-engine-reach.php` | IndexNow auto-notifier on publish | Automatic (hook-based) |\n### API Endpoints (ai-controller \u2014 the one you use most)\n```\nPOST https://sourovdeb.com/wp-json/sourov/v1/ai-post \u2190 Create/schedule post\nGET https://sourovdeb.com/wp-json/sourov/v1/scheduled \u2190 List scheduled posts\nPOST https://sourovdeb.com/wp-json/sourov/v1/bulk \u2190 Bulk publish array\nDELETE https://sourovdeb.com/wp-json/sourov/v1/post/{id} \u2190 Delete post\nGET https://sourovdeb.com/wp-json/sourov/v1/status \u2190 Health check (no auth)\n```\n**Auth header for all POST/GET/DELETE:**\n```\nX-Sourov-Key: \u00abREDACTED:deploy-key\u00bb\n\n## 3. HOW PLUGINS WERE DEPLOYED (Step by Step Replay)\n### Step 1 \u2014 Identified deploy.php gateway\nThe deploy.php file was already present on the server at the WordPress root.\nThe secret key was extracted from Hostinger hPanel file manager screenshots.\n### Step 2 \u2014 Confirmed server status\n```bash\ncurl \"https://www.sourovdeb.com/deploy.php?action=status&key=\u00abREDACTED:deploy-key\u00bb\"\n# \u2192 {\"status\":\"online\",\"php\":\"8.3.30\",\"server\":\"LiteSpeed\"}\n```\n### Step 3 \u2014 Wrote plugin PHP files locally\nEach plugin is a single `.php` file with the WordPress plugin header:\n```php\n<?php\n\n/**\n* Plugin Name: Sourov AI Controller\n* Version: 1.1\n* ...\n*/\n```\n### Step 4 \u2014 Encoded to base64 and uploaded via deploy.php\n```bash\nCONTENT=$(base64 -w 0 < sourov-ai-controller.php)\ncurl -X POST \"https://www.sourovdeb.com/deploy.php?key=\u00abREDACTED:deploy-key\u00bb\" \\\n--data-urlencode \"action=upload\" \\\n--data-urlencode \"path=wp-content/plugins/sourov-ai-controller/sourov-ai-controller.php\" \\\n--data-urlencode \"encoded=true\" \\\n--data-urlencode \"content=$CONTENT\"\n```\nPath mapping rule:\n```\ndeploy path=wp-content/X \u2192 /public_html/wp-content/X (plugins, themes)\ndeploy path=wp-config.php \u2192 /public_html/wp-config.php (WP root files)\ndeploy path=. \u2192 /public_html/ (WP root = deploy root)\n```\n### Step 5 \u2014 Activated plugin via WordPress options table\nUsed deploy.php to run a PHP snippet that directly updated the `active_plugins` serialized array in the WordPress database.\n### Step 6 \u2014 Cleared LiteSpeed cache\n```bash\ncurl -X POST \"https://www.sourovdeb.com/deploy.php?key=\u00abREDACTED:deploy-key\u00bb\" \\\n--data-urlencode \"action=purge_cache\"\n```\n### Step 7 \u2014 Verified via REST API\n```bash\ncurl \"https://sourovdeb.com/wp-json/sourov/v1/status\"\n# \u2192 {\"status\":\"active\",\"version\":\"1.1\"}\n```\n---\n## 4. SCHEDULED POSTS FIX (Action Required From You)\n**Problem:** 10 posts stuck as `future` status \u2014 WP-Cron did not fire on LiteSpeed shared hosting.\n**Stuck posts confirmed:**\n- ID 76 \u2014 April 18, 2026 (1 post)\n- IDs 69, 71, 81, 85, 93, 95, 97, 100, 148 \u2014 May 1, 2026 (9 posts)\n**Fix script deployed to:** `https://sourovdeb.com/publish-fixer.php`\n**Action: Open this URL in your browser (once):**\n```\nhttps://sourovdeb.com/publish-fixer.php?key=\u00abREDACTED:deploy-key\u00bb\n```\nExpected response:\n```json\n{\n\"fixed\": 10,\n\"posts\": [\"Published ID 76: Day 4...\", \"Published ID 148: Test Post...\"],\n\"deleted_self\": true\n}\n```\nThe script publishes all past-scheduled posts, then **deletes itself automatically**.\n### Permanent WP-Cron Fix (Prevents Recurrence)\nAdd this to `wp-config.php` via deploy.php or Hostinger hPanel:\n\n```php\ndefine('DISABLE_WP_CRON', true);\n\nThis fires WP-Cron every 15 minutes reliably, independent of page visits.\n---\n## 5. REMOTE CONTROL OPTIONS\n---\n### OPTION A \u2014 REST API (Any AI Agent or HTTP Client)\nThe simplest and most universal. Any AI agent, script, or tool that can make HTTP requests can control your WordPress.\n**Publish a post immediately:**\n```bash\ncurl -X POST \"https://sourovdeb.com/wp-json/sourov/v1/ai-post\" \\\n-H \"X-Sourov-Key: \u00abREDACTED:deploy-key\u00bb\" \\\n-H \"Content-Type: application/json\" \\\n-d '{\n\"title\": \"My Post Title\",\n\"content\": \"<p>Post body here. HTML accepted.</p>\",\n\"status\": \"publish\",\n\"category\": \"ELT\",\n\"tags\": \"teaching, CELTA, English\",\n\"meta_description\": \"SEO description here\",\n\"seo_title\": \"SEO title here\"\n}'\n```\n**Schedule a post for a future date:**\n```bash\ncurl -X POST \"https://sourovdeb.com/wp-json/sourov/v1/ai-post\" \\\n-H \"X-Sourov-Key: \u00abREDACTED:deploy-key\u00bb\" \\\n-H \"Content-Type: application/json\" \\\n-d '{\n\"title\": \"Scheduled Post\",\n\"content\": \"<p>Content here.</p>\",\n\"status\": \"future\",\n\"date\": \"2026-06-10T09:00:00\"\n}'\n```\n**Delete a post:**\n```bash\ncurl -X DELETE \"https://sourovdeb.com/wp-json/sourov/v1/post/148\" \\\n-H \"X-Sourov-Key: \u00abREDACTED:deploy-key\u00bb\"\n```\n**For AI agents (Claude, GPT, Gemini, etc.):**\nGive the agent this instruction:\n```\nEndpoint: POST https://sourovdeb.com/wp-json/sourov/v1/ai-post\nHeader: X-Sourov-Key: \u00abREDACTED:deploy-key\u00bb\nBody: JSON with fields: title, content, status (publish|future|draft),\ncategory, tags, meta_description, seo_title, date (ISO for scheduled)\n```\n---\n### OPTION B \u2014 Google Apps Script (No Google Sheet)\nPure JavaScript in Apps Script. Can be triggered manually, on a timer, or via webhook.\n**Create a new Apps Script project:**\nGo to https://script.google.com \u2192 New Project \u2192 paste this:\n```javascript\n/**\n\n\n\n\n* Google Apps Script \u2014 no Google Sheet dependency\n* Trigger: manually or time-based\n*/\nconst WP_ENDPOINT = 'https://sourovdeb.com/wp-json/sourov/v1/ai-post';\nconst WP_API_KEY = '\u00abREDACTED:deploy-key\u00bb';\n// \u2500\u2500 SINGLE POST \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfunction publishSinglePost() {\nconst post = {\ntitle: 'Day 16 of 60 \u2014 Grammar in Context',\ncontent: '<p>Grammar teaching should emerge from meaning, not precede it...</p>',\nstatus: 'publish', // 'publish' | 'future' | 'draft'\ncategory: 'ELT Masterclass',\ntags: 'grammar, ELT, CELTA, teaching',\nmeta_description: '60-day ELT masterclass: grammar in context.',\nseo_title: 'Day 16 \u2014 Grammar in Context | Sourov DEB'\n// date: '2026-06-10T09:00:00' // uncomment to schedule\n};\nconst result = wpPost(post);\nLogger.log(result);\n}\n// \u2500\u2500 BULK POSTS \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfunction publishBulkPosts() {\nconst posts = [\n{\ntitle: 'Day 17 \u2014 Feedback and Error Correction',\ncontent: '<p>When and how to correct learner errors...</p>',\nstatus: 'publish',\ntags: 'feedback, error correction, ELT'\n},\n{\ntitle: 'Day 18 \u2014 Task-Based Learning',\ncontent: '<p>TBL puts the task first and language second...</p>',\nstatus: 'future',\ndate: '2026-06-12T09:00:00'\n}\n];\nposts.forEach((post, i) => {\nconst result = wpPost(post);\nLogger.log(`Post ${i + 1}: ${result}`);\nUtilities.sleep(1500);\n});\n}\n// \u2500\u2500 LIST SCHEDULED POSTS \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfunction listScheduled() {\nconst response = UrlFetchApp.fetch(\n'https://sourovdeb.com/wp-json/sourov/v1/scheduled',\n{ headers: { 'X-Sourov-Key': WP_API_KEY }, muteHttpExceptions: true }\n);\nLogger.log(response.getContentText());\n}\n// \u2500\u2500 DELETE A POST \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfunction deletePost(postId) {\nconst response = UrlFetchApp.fetch(\n`https://sourovdeb.com/wp-json/sourov/v1/post/${postId}`,\n{\nmethod: 'DELETE',\nheaders: { 'X-Sourov-Key': WP_API_KEY },\nmuteHttpExceptions: true\n}\n);\nLogger.log(`Deleted ${postId}: ${response.getContentText()}`);\n}\n// \u2500\u2500 CORE HTTP FUNCTION \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfunction wpPost(postData) {\ntry {\nconst response = UrlFetchApp.fetch(WP_ENDPOINT, {\nmethod: 'post',\nheaders: {\n'X-Sourov-Key': WP_API_KEY,\n'Content-Type': 'application/json'\n},\npayload: JSON.stringify(postData),\nmuteHttpExceptions: true\n});\nconst code = response.getResponseCode();\nconst body = response.getContentText();\nreturn `HTTP ${code}: ${body}`;\n} catch (e) {\nreturn `ERROR: ${e.message}`;\n}\n}\n// \u2500\u2500 AUTO SCHEDULE TRIGGER \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n// To publish automatically every day at 9AM:\n// 1. Go to Apps Script \u2192 Triggers \u2192 Add Trigger\n// 2. Function: publishSinglePost (or your custom function)\n// 3. Time-based \u2192 Day timer \u2192 9AM-10AM\n```\n**To set a time-based trigger (no manual action needed):**\nApps Script \u2192 Triggers (clock icon) \u2192 Add Trigger \u2192 select your function \u2192 Time-driven \u2192 Day timer \u2192 9\u201310 AM.\n---\n### OPTION C \u2014 VS Code\nTwo methods:\n**Method 1: REST Client Extension**\n1. Install extension: `humao.rest-client`\n2. Create file `wordpress.http`:\n```http\n### Publish Post\nPOST https://sourovdeb.com/wp-json/sourov/v1/ai-post\nX-Sourov-Key: \u00abREDACTED:deploy-key\u00bb\nContent-Type: application/json\n{\n\"title\": \"My Post\",\n\"content\": \"<p>Content here.</p>\",\n\"status\": \"publish\",\n\"tags\": \"ELT, teaching\"\n}\n### List Scheduled\nGET https://sourovdeb.com/wp-json/sourov/v1/scheduled\nX-Sourov-Key: \u00abREDACTED:deploy-key\u00bb\n### Delete Post\nDELETE https://sourovdeb.com/wp-json/sourov/v1/post/148\nX-Sourov-Key: \u00abREDACTED:deploy-key\u00bb\n```\nClick `Send Request` above each block.\n**Method 2: Node.js script (run from VS Code terminal)**\n```javascript\n// wp-publish.js \u2014 run with: node wp-publish.js\nconst WP_ENDPOINT = 'https://sourovdeb.com/wp-json/sourov/v1/ai-post';\nconst API_KEY = '\u00abREDACTED:deploy-key\u00bb';\nasync function publish(post) {\nconst res = await fetch(WP_ENDPOINT, {\nmethod: 'POST',\nheaders: {\n'X-Sourov-Key': API_KEY,\n'Content-Type': 'application/json'\n},\nbody: JSON.stringify(post)\n});\nconst data = await res.json();\nconsole.log('Status:', res.status, '| Post ID:', data.post_id || data);\n}\n// Edit post data below, then run: node wp-publish.js\npublish({\ntitle: 'Day 16 \u2014 Grammar in Context',\ncontent: '<p>Grammar emerges from meaning...</p>',\nstatus: 'publish',\ncategory: 'ELT Masterclass',\ntags: 'grammar, ELT, teaching',\nmeta_description: 'SEO description here'\n});\n```\nNode.js 18+ required (uses native `fetch`). For older Node: `npm install node-fetch`.\n---\n### OPTION D \u2014 Logseq\nLogseq has no native HTTP capability. Two viable approaches:\n**Approach 1: Logseq \u2192 local script (most practical)**\n1. Write your post in Logseq as a page.\n2. Export the page as markdown.\n3. Run a Node.js or Python script that reads the markdown and posts it via API.\nCreate `logseq-to-wp.js`:\n```javascript\n// logseq-to-wp.js\n// Usage: node logseq-to-wp.js \"My Post Title\" path/to/page.md\nconst fs = require('fs');\nconst path = require('path');\nconst [,, title, mdFile] = process.argv;\nif (!title || !mdFile) {\nconsole.error('Usage: node logseq-to-wp.js \"Title\" file.md');\nprocess.exit(1);\n}\nconst content = fs.readFileSync(mdFile, 'utf8')\n.replace(/^#+\\s.*\\n/gm, '') // strip Logseq heading duplicates\n.replace(/\\[\\[(.+?)\\]\\]/g, '$1'); // strip wiki links\nfetch('https://sourovdeb.com/wp-json/sourov/v1/ai-post', {\nmethod: 'POST',\nheaders: {\n'X-Sourov-Key': '\u00abREDACTED:deploy-key\u00bb',\n'Content-Type': 'application/json'\n},\nbody: JSON.stringify({ title, content, status: 'draft' })\n})\n.then(r => r.json())\n.then(d => console.log('Created post ID:', d.post_id));\n```\n**Approach 2: Logseq Plugin (advanced)**\nLogseq supports JavaScript plugins. A plugin can add a command that posts the current page directly. This requires plugin development\n(Logseq API + fetch). Not recommended unless you plan to use Logseq as a primary writing tool long-term.\n**Verdict on Logseq:** Use it for notes and drafts. Export to markdown. Push via Apps Script or Node.js. Don't build a direct pipeline \u2014\nthe tooling cost is not worth it for occasional use.\n---\n## 6. DEPLOY NEW PLUGINS FROM DISTANCE\nSame method used on 2026-05-24. From any terminal (including VS Code terminal):\n```bash\n\n# Step 1: Encode plugin file\nCONTENT=$(base64 -w 0 < my-new-plugin.php)\n# Step 2: Upload to plugins directory\ncurl -X POST \"https://www.sourovdeb.com/deploy.php?key=\u00abREDACTED:deploy-key\u00bb\" \\\n--data-urlencode \"action=upload\" \\\n--data-urlencode \"path=wp-content/plugins/my-new-plugin/my-new-plugin.php\" \\\n--data-urlencode \"encoded=true\" \\\n--data-urlencode \"content=$CONTENT\"\n# Step 3: Verify upload\ncurl \"https://www.sourovdeb.com/deploy.php?action=list&key=\u00abREDACTED:deploy-key\u00bb\"\n# Step 4: Activate via WordPress admin\n# Go to https://sourovdeb.com/wp-admin \u2192 Plugins \u2192 Activate\n```\nFor activation via API (no admin access needed): the diagnostic plugin endpoint lists all plugins with activation status. Use the\nautomation plugin endpoint to activate programmatically if needed.\n---\n## 7. QUICK REFERENCE \u2014 DAILY USE\n| Task | Method |\n|---|---|\n| Publish post now | `curl POST /wp-json/sourov/v1/ai-post` with `\"status\":\"publish\"` |\n| Schedule post | Same, with `\"status\":\"future\"` and `\"date\":\"2026-06-10T09:00:00\"` |\n| List stuck posts | `curl GET /wp-json/sourov/v1/scheduled` |\n| Delete test post | `curl DELETE /wp-json/sourov/v1/post/{id}` |\n| Check site health | `curl GET /wp-json/sourov-diagnostic/v1/health` |\n| Deploy plugin | base64 encode \u2192 POST to deploy.php |\n| Fix stuck posts | Browser: `https://sourovdeb.com/publish-fixer.php?key=\u00abREDACTED:deploy-key\u00bb` |\n---\n## 8. IMMEDIATE ACTION LIST\n1. **Open in browser now** \u2192 `https://sourovdeb.com/publish-fixer.php?key=\u00abREDACTED:deploy-key\u00bb`\nThis publishes 10 stuck posts and deletes the script.\n2. **Add WP-Cron job in Hostinger hPanel** \u2192 Advanced \u2192 Cron Jobs:\n`*/15 * * * * wget -q -O /dev/null https://sourovdeb.com/wp-cron.php?doing_wp_cron`\nAdd to wp-config.php: `define('DISABLE_WP_CRON', true);`\n3. **Generate WordPress Application Password** (for native WP REST API access):\nwp-admin \u2192 Users \u2192 Your Profile \u2192 Application Passwords \u2192 Add New\nName it: `AI-Agent`\nSave the generated password \u2014 format is `xxxx xxxx xxxx xxxx xxxx xxxx`\nUse as: `Authorization: Basic base64(\u00abREDACTED:account-username\u00bb:xxxx xxxx...)`\n---\n*All credentials sourced from MASTER_COMBINED_2026-06-03.md and HANDOVER_AGENT_REFERENCE.md in project knowledge.*\n\n\nFor context and materials go here # Step 1: Encode plugin file\nCONTENT=$(base64 -w 0 < my-new-plugin.php)\n# Step 2: Upload to plugins directory\ncurl -X POST \"https://www.sourovdeb.com/deploy.php?key=\u00abREDACTED:deploy-key\u00bb\" \\\n--data-urlencode \"action=upload\" \\\n--data-urlencode \"path=wp-content/plugins/my-new-plugin/my-new-plugin.php\" \\\n--data-urlencode \"encoded=true\" \\\n--data-urlencode \"content=$CONTENT\"\n# Step 3: Verify upload\ncurl \"https://www.sourovdeb.com/deploy.php?action=list&key=\u00abREDACTED:deploy-key\u00bb\"\n# Step 4: Activate via WordPress admin\n# Go to https://sourovdeb.com/wp-admin \u2192 Plugins \u2192 Activate\n```\nFor activation via API (no admin access needed): the diagnostic plugin endpoint lists all plugins with activation status. Use the\nautomation plugin endpoint to activate programmatically if needed.\n---\n## 7. QUICK REFERENCE \u2014 DAILY USE\n| Task | Method |\n|---|---|\n| Publish post now | `curl POST /wp-json/sourov/v1/ai-post` with `\"status\":\"publish\"` |\n| Schedule post | Same, with `\"status\":\"future\"` and `\"date\":\"2026-06-10T09:00:00\"` |\n| List stuck posts | `curl GET /wp-json/sourov/v1/scheduled` |\n| Delete test post | `curl DELETE /wp-json/sourov/v1/post/{id}` |\n| Check site health | `curl GET /wp-json/sourov-diagnostic/v1/health` |\n| Deploy plugin | base64 encode \u2192 POST to deploy.php |\n| Fix stuck posts | Browser: `https://sourovdeb.com/publish-fixer.php?key=\u00abREDACTED:deploy-key\u00bb` |\n---\n## 8. IMMEDIATE ACTION LIST\n1. **Open in browser now** \u2192 `https://sourovdeb.com/publish-fixer.php?key=\u00abREDACTED:deploy-key\u00bb`\nThis publishes 10 stuck posts and deletes the script.\n2. **Add WP-Cron job in Hostinger hPanel** \u2192 Advanced \u2192 Cron Jobs:\n`*/15 * * * * wget -q -O /dev/null https://sourovdeb.com/wp-cron.php?doing_wp_cron`\nAdd to wp-config.php: `define('DISABLE_WP_CRON', true);`\n3. **Generate WordPress Application Password** (for native WP REST API access):\nwp-admin \u2192 Users \u2192 Your Profile \u2192 Application Passwords \u2192 Add New\nName it: `AI-Agent`\nSave the generated password \u2014 format is `xxxx xxxx xxxx xxxx xxxx xxxx`\nUse as: `Authorization: Basic base64(\u00abREDACTED:account-username\u00bb:xxxx xxxx...)`\n---\n*All credentials sourced from MASTER_COMBINED_2026-06-03.md and HANDOVER_AGENT_REFERENCE.md in project knowledge.* https://claude.ai/share/4bed4a99-87b0-413b-9857-38dfd65fc61a\n\n\nSearch for materials on GitHub as well. ",
+    "prompt_chars": 17721,
+    "subject": "Content Publishing & Web Ops",
+    "subject_scores": {
+      "Content Publishing & Web Ops": 139,
+      "Education & Language Teaching": 58,
+      "Infrastructure & Archival": 51,
+      "Health, Wellbeing & Productivity": 23,
+      "AI & Agent Engineering": 16,
+      "Career, CV & Job Search": 12
+    },
+    "topics": [
+      "wordpress-sync",
+      "scheduling-and-cron",
+      "seo-and-indexing",
+      "storage-sync",
+      "repo-organisation",
+      "teacher-training"
+    ],
+    "tags": [
+      "cadence-daily",
+      "public-facing",
+      "wordpress",
+      "artifact-config",
+      "automated",
+      "artifact-script",
+      "google-drive",
+      "personal-sensitive",
+      "youtube",
+      "github",
+      "gmail"
+    ]
+  },
+  {
+    "id": "trig_01MRkq9mKNFKrZf3JmTkDQjk",
+    "name": "Email triage",
+    "slug": "email-triage",
+    "cron": "1 * * * *",
+    "cron_english": "hourly at :01 UTC",
+    "run_once_at": null,
+    "state": "inactive",
+    "next_run_at": "2026-05-16T13:01:00Z",
+    "created_at": "2026-05-12T17:47:10.326315Z",
+    "updated_at": "2026-05-16T13:01:32.508559Z",
+    "prompt": "Your job is to make sure. that you go through my respiratory and especially to my professional documents. And then reading those documents, you create a professional looking CV and motivational manner in English and in French. And then you will go through the list of employers that I have available in the respiratory and also do supplementary online research, then create at least hundred Personalized CV. Email with independent subject and body and attachment, and save them for me somewhere. Every hour, he will do that. for ten hours.\n\nhttps://github.com/sourovdeb/email_automation/tree/professional_documents",
+    "prompt_chars": 614,
+    "subject": "Career, CV & Job Search",
+    "subject_scores": {
+      "Career, CV & Job Search": 10,
+      "Infrastructure & Archival": 3,
+      "Research & Trend Monitoring": 2
+    },
+    "topics": [
+      "cv-and-letters"
+    ],
+    "tags": [
+      "cadence-hourly",
+      "gmail",
+      "github",
+      "research-heavy"
+    ]
+  }
+]

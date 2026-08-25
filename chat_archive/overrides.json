@@ -1,0 +1,39 @@
+{
+  "_readme": [
+    "Hand corrections applied on top of the keyword classifier.",
+    "The classifier is a heuristic; a handful of items are genuinely cross-cutting",
+    "and land in a defensible-but-wrong bucket. Rather than bending the keyword",
+    "weights until one item is right and three others break, correct them here.",
+    "",
+    "Keys are trigger IDs (routines) or session IDs. Recognised fields:",
+    "  subject     - replaces the computed subject outright",
+    "  add_topics  - appended to the computed topics",
+    "  add_tags    - appended to the computed tags",
+    "  note        - why the override exists; rendered on the item's page",
+    "",
+    "Re-running the snapshot tools re-applies every override automatically."
+  ],
+
+  "trig_011H53zJvL2NN8VuxJ7Nf3ih": {
+    "subject": "Psychology & Human Nature",
+    "add_topics": ["mental-health-claims-audit", "institutional-critique"],
+    "note": "Classifier said Content Publishing because the prompt names WordPress repeatedly. WordPress is only where the output lands; the routine's actual work is auditing psychology, neuroscience and pharma claims."
+  },
+
+  "trig_01Meod7m1VkhWjzwF7nDAn1V": {
+    "subject": "Health, Wellbeing & Productivity",
+    "add_topics": ["neurodivergent-productivity", "agent-skill-authoring"],
+    "note": "Titled 'Important agent.' so the classifier read it as agent engineering. The brief is explicitly to build productivity agents around ADHD/bipolar health constraints — the health need is the point, the agent is the means."
+  },
+
+  "trig_01YX3NaWQyvK5ciFwEJXB9r8": {
+    "add_topics": ["mindmapping", "presentation-decks"],
+    "note": "Prompt was rewritten in place; the newer objectives (interactive .mm mindmaps, PowerPoint with speaker notes) sit under an older instruction block that still dominates the keyword count."
+  },
+
+  "trig_015ccfNgS4b3TV4RYCdFnEQt": {
+    "add_topics": ["seo-and-indexing"],
+    "add_tags": ["public-facing"],
+    "note": "Long prompt centred on Search Console indexing failures and 404 prevention; worth surfacing the SEO topic explicitly."
+  }
+}
