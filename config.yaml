@@ -1,0 +1,218 @@
+model:
+  default: agnes-2.5-flash
+  provider: agnes-ai
+  base_url: https://apihub.agnes-ai.com/v1
+  key_env: HERMES_CUSTOM_AGNES_AI_API_KEY
+providers:
+  custom:mistral-small:
+    name: Mistral Small (Custom)
+    base_url: https://api.mistral.ai/v1/
+    model: mistral-small-latest
+    discover_models: true
+    models:
+      mistral-small-latest: {}
+      ministral-14b-latest: {}
+    key_env: MISTRAL_API_KEY
+    default_model: ministral-14b-latest
+  agnes-ai:
+    name: Agnes Ai
+    base_url: https://apihub.agnes-ai.com/v1
+    model: agnes-2.0-flash
+    discover_models: true
+    models:
+      agnes-2.0-flash: {}
+    key_env: HERMES_CUSTOM_AGNES_AI_API_KEY
+fallback_providers:
+  - provider: agnes-ai
+    model: agnes-2.5-flash
+  - provider: xai-oauth
+    model: grok-4.6
+  - provider: zai
+    model: glm-5.3-flash
+agent:
+  reasoning_effort: high
+browser:
+  backend: browser-use
+  cloud_provider: camofox
+  inactivity_timeout: 12000
+  headed: true
+  camofox:
+    managed_persistence: true
+auxiliary:
+  web_extract:
+    provider: auto
+    model: ''
+  approval:
+    provider: custom:mistral-small
+    model: mistral-small-latest
+    base_url: ''
+display:
+  personality: concise
+delegation:
+  model: agnes-2.0-flash
+  provider: agnes-ai
+moa:
+  presets:
+    default:
+      reference_models: []
+      aggregator:
+        provider: zai
+        model: glm-4.5-flash
+      degraded_reference_policy: loud
+      fanout: user_turn
+  enabled: false
+  reference_models: []
+  aggregator:
+    provider: zai
+    model: glm-4.5-flash
+  degraded_reference_policy: loud
+  max_tokens: 4096
+  fanout: user_turn
+command_allowlist:
+  - execute_code
+  - script execution via -e/-c flag
+  - access to Hermes secrets (Windows path)
+security:
+  redact_secrets: true
+kanban:
+  orchestrator_profile: 4_job_search
+  default_assignee: 1_system_manager
+onboarding:
+  seen:
+    tool_progress_prompt: true
+_config_version: 34
+mcp_servers:
+  browseros-neo:
+    url: http://127.0.0.1:9010/mcp
+    enabled: true
+    timeout: 120
+    connect_timeout: 60
+  indeed:
+    url: https://mcp.indeed.com/claude/mcp
+    auth: oauth
+    enabled: true
+    timeout: 120
+    connect_timeout: 60
+    tools:
+      include:
+        - search_jobs
+        - get_job_details
+      prompts: false
+      resources: false
+  skyvern:
+    url: https://api.skyvern.com/mcp/
+    env_key: SKYVERN_API_KEY
+    enabled: true
+    timeout: 120
+custom_providers:
+  - name: mistral-small
+    base_url: https://api.mistral.ai/v1
+    key_env: HERMES_CUSTOM_API_MISTRAL_AI_API_KEY
+    model: mistral-small-latest
+    models:
+      - mistral-medium-2505
+      - mistral-medium-2508
+      - codestral-2508
+      - codestral-latest
+      - mistral-code-latest
+      - mistral-code-fim-latest
+      - devstral-2512
+      - devstral-medium-latest
+      - devstral-latest
+      - mistral-code-agent-latest
+      - mistral-small-2603
+      - mistral-small-latest
+      - mistral-vibe-cli-fast
+      - magistral-small-latest
+      - voxtral-small-2507
+      - voxtral-small-latest
+      - labs-leanstral-1-5-1
+      - labs-leanstral-1-5
+      - mistral-large-2512
+      - mistral-large-latest
+      - ministral-3b-2512
+      - ministral-3b-latest
+      - ministral-8b-2512
+      - ministral-8b-latest
+      - ministral-14b-2512
+      - ministral-14b-latest
+      - mistral-medium-latest
+      - mistral-medium
+      - mistral-medium-3-5
+      - mistral-medium-3.5
+      - mistral-medium-3
+      - mistral-medium-2604
+      - mistral-vibe-cli-latest
+      - mistral-vibe-cli-with-tools
+      - mistral-embed-2312
+      - mistral-embed
+      - codestral-embed
+      - codestral-embed-2505
+      - mistral-moderation-2603
+      - mistral-ocr-2512
+      - mistral-ocr-3-0
+      - mistral-ocr-3
+      - mistral-ocr-4-0
+      - mistral-ocr-latest
+      - mistral-ocr-4
+      - mistral-ocr-4-1
+      - voxtral-mini-2602
+      - voxtral-mini-latest
+      - voxtral-mini-transcribe-realtime-2602
+      - voxtral-mini-realtime-2602
+      - voxtral-mini-realtime-latest
+      - voxtral-mini-tts-2603
+      - voxtral-mini-tts-latest
+platform_toolsets:
+  cli:
+    - bfl
+    - browser
+    - clarify
+    - code_execution
+    - computer_use
+    - cronjob
+    - delegation
+    - file
+    - image_gen
+    - memory
+    - session_search
+    - skills
+    - terminal
+    - todo
+    - tts
+    - vision
+    - web
+    - x_search
+known_plugin_toolsets:
+  cli:
+    - a2a
+    - spotify
+known_builtin_toolsets:
+  cli:
+    - bfl
+    - browser
+    - clarify
+    - code_execution
+    - computer_use
+    - context_engine
+    - cronjob
+    - delegation
+    - discord
+    - discord_admin
+    - file
+    - homeassistant
+    - image_gen
+    - memory
+    - session_search
+    - skills
+    - spotify
+    - stt
+    - terminal
+    - todo
+    - tts
+    - video
+    - video_gen
+    - vision
+    - web
+    - x_search
+    - yuanbao
