@@ -16,6 +16,9 @@
 | `category-descriptions.md` | Unique SEO description for every category | WP → Posts → Categories → Edit each |
 | `implementation-manual.md` | Step-by-step click-by-click WordPress instructions | — (follow it) |
 | `global-improvement-manual.md` | Long-term roadmap: SEO, monetization, growth | — (reference, quarterly review) |
+| `advertiser-attraction-plan.md` | Phased path from compliance → AdSense → traffic → sponsors | — (reference, weekly loop) |
+| `weekly-audit-agent.md` | Spec for the scheduled read-only site-health Routine | — (reference; the Routine reads this) |
+| `educator-engagement-and-ai-agent-audit.md` | 2026-07-24 audit: link/integration inventory, AI-agent feasibility, and the educator-audience gap (currently zero teacher-facing content on the live site) | — (reference; start here if the question is "what's the very next move") |
 
 ---
 
