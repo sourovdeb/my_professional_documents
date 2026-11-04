@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
@@ -30,3 +30,4 @@ jobs:
           git diff --cached --quiet && echo "no changes" && exit 0
           git commit -m "harvest: refresh fresh_offers queue $(date -u +%Y-%m-%dT%H:%MZ)"
           git push
+
