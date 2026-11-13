@@ -221,3 +221,4 @@
 - 2026-11-13 14:14 UTC: kw=12 harvested=180 new=26 queue_total=118 new_relevant=6
 - 2026-11-13 15:12 UTC: kw=12 harvested=180 new=23 queue_total=118 new_relevant=3
 - 2026-11-13 16:15 UTC: kw=12 harvested=180 new=19 queue_total=118 new_relevant=0
+- 2026-11-13 17:12 UTC: kw=12 harvested=180 new=6 queue_total=118 new_relevant=0
